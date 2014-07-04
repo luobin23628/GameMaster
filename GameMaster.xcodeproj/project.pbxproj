@@ -1,0 +1,316 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ABFF4BE81966A579000C7128 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF4BE71966A579000C7128 /* Foundation.framework */; };
+		ABFF4BEA1966A579000C7128 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF4BE91966A579000C7128 /* CoreGraphics.framework */; };
+		ABFF4BEC1966A579000C7128 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF4BEB1966A579000C7128 /* UIKit.framework */; };
+		ABFF4BF21966A579000C7128 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABFF4BF01966A579000C7128 /* InfoPlist.strings */; };
+		ABFF4BF41966A579000C7128 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFF4BF31966A579000C7128 /* main.m */; };
+		ABFF4BF81966A579000C7128 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFF4BF71966A579000C7128 /* AppDelegate.m */; };
+		ABFF4BFA1966A579000C7128 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABFF4BF91966A579000C7128 /* Images.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		ABFF4BDA1966A527000C7128 /* entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = entitlements.plist; path = ../entitlements.plist; sourceTree = "<group>"; };
+		ABFF4BE41966A579000C7128 /* GameMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABFF4BE71966A579000C7128 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ABFF4BE91966A579000C7128 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		ABFF4BEB1966A579000C7128 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		ABFF4BEF1966A579000C7128 /* GameMaster-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GameMaster-Info.plist"; sourceTree = "<group>"; };
+		ABFF4BF11966A579000C7128 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ABFF4BF31966A579000C7128 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ABFF4BF51966A579000C7128 /* GameMaster-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GameMaster-Prefix.pch"; sourceTree = "<group>"; };
+		ABFF4BF61966A579000C7128 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ABFF4BF71966A579000C7128 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ABFF4BF91966A579000C7128 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		ABFF4C001966A579000C7128 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ABFF4BE11966A579000C7128 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABFF4BEA1966A579000C7128 /* CoreGraphics.framework in Frameworks */,
+				ABFF4BEC1966A579000C7128 /* UIKit.framework in Frameworks */,
+				ABFF4BE81966A579000C7128 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ABFF4BD21966A3E7000C7128 = {
+			isa = PBXGroup;
+			children = (
+				ABFF4BED1966A579000C7128 /* GameMaster */,
+				ABFF4BE61966A579000C7128 /* Frameworks */,
+				ABFF4BE51966A579000C7128 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ABFF4BE51966A579000C7128 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ABFF4BE41966A579000C7128 /* GameMaster.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ABFF4BE61966A579000C7128 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABFF4BE71966A579000C7128 /* Foundation.framework */,
+				ABFF4BE91966A579000C7128 /* CoreGraphics.framework */,
+				ABFF4BEB1966A579000C7128 /* UIKit.framework */,
+				ABFF4C001966A579000C7128 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ABFF4BED1966A579000C7128 /* GameMaster */ = {
+			isa = PBXGroup;
+			children = (
+				ABFF4BF61966A579000C7128 /* AppDelegate.h */,
+				ABFF4BF71966A579000C7128 /* AppDelegate.m */,
+				ABFF4BF91966A579000C7128 /* Images.xcassets */,
+				ABFF4BEE1966A579000C7128 /* Supporting Files */,
+			);
+			path = GameMaster;
+			sourceTree = "<group>";
+		};
+		ABFF4BEE1966A579000C7128 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ABFF4BDA1966A527000C7128 /* entitlements.plist */,
+				ABFF4BEF1966A579000C7128 /* GameMaster-Info.plist */,
+				ABFF4BF01966A579000C7128 /* InfoPlist.strings */,
+				ABFF4BF31966A579000C7128 /* main.m */,
+				ABFF4BF51966A579000C7128 /* GameMaster-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ABFF4BE31966A579000C7128 /* GameMaster */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABFF4C0E1966A579000C7128 /* Build configuration list for PBXNativeTarget "GameMaster" */;
+			buildPhases = (
+				ABFF4BE01966A579000C7128 /* Sources */,
+				ABFF4BE11966A579000C7128 /* Frameworks */,
+				ABFF4BE21966A579000C7128 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GameMaster;
+			productName = GameMaster;
+			productReference = ABFF4BE41966A579000C7128 /* GameMaster.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ABFF4BD31966A3E7000C7128 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = ABFF4BD61966A3E7000C7128 /* Build configuration list for PBXProject "GameMaster" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ABFF4BD21966A3E7000C7128;
+			productRefGroup = ABFF4BE51966A579000C7128 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ABFF4BE31966A579000C7128 /* GameMaster */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ABFF4BE21966A579000C7128 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABFF4BF21966A579000C7128 /* InfoPlist.strings in Resources */,
+				ABFF4BFA1966A579000C7128 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ABFF4BE01966A579000C7128 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABFF4BF81966A579000C7128 /* AppDelegate.m in Sources */,
+				ABFF4BF41966A579000C7128 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ABFF4BF01966A579000C7128 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABFF4BF11966A579000C7128 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ABFF4BD71966A3E7000C7128 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		ABFF4BD81966A3E7000C7128 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		ABFF4C0F1966A579000C7128 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GameMaster/GameMaster-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "GameMaster/GameMaster-Info.plist";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+				iOSOpenDevDevice = 10.2.141.174;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = NO;
+			};
+			name = Debug;
+		};
+		ABFF4C101966A579000C7128 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GameMaster/GameMaster-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "GameMaster/GameMaster-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+				iOSOpenDevDevice = 10.2.141.174;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ABFF4BD61966A3E7000C7128 /* Build configuration list for PBXProject "GameMaster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABFF4BD71966A3E7000C7128 /* Debug */,
+				ABFF4BD81966A3E7000C7128 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABFF4C0E1966A579000C7128 /* Build configuration list for PBXNativeTarget "GameMaster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABFF4C0F1966A579000C7128 /* Debug */,
+				ABFF4C101966A579000C7128 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ABFF4BD31966A3E7000C7128 /* Project object */;
+}
