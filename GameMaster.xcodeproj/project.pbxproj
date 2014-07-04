@@ -14,6 +14,8 @@
 		ABFF4BF41966A579000C7128 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFF4BF31966A579000C7128 /* main.m */; };
 		ABFF4BF81966A579000C7128 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFF4BF71966A579000C7128 /* AppDelegate.m */; };
 		ABFF4BFA1966A579000C7128 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABFF4BF91966A579000C7128 /* Images.xcassets */; };
+		ABFF4C151966ADB0000C7128 /* mem.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFF4C141966ADB0000C7128 /* mem.m */; };
+		ABFF4C181966B2C5000C7128 /* GMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFF4C171966B2C5000C7128 /* GMMainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,9 @@
 		ABFF4BF71966A579000C7128 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		ABFF4BF91966A579000C7128 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		ABFF4C001966A579000C7128 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		ABFF4C141966ADB0000C7128 /* mem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mem.m; sourceTree = "<group>"; };
+		ABFF4C161966B2C5000C7128 /* GMMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMainViewController.h; sourceTree = "<group>"; };
+		ABFF4C171966B2C5000C7128 /* GMMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +84,9 @@
 			children = (
 				ABFF4BF61966A579000C7128 /* AppDelegate.h */,
 				ABFF4BF71966A579000C7128 /* AppDelegate.m */,
+				ABFF4C161966B2C5000C7128 /* GMMainViewController.h */,
+				ABFF4C171966B2C5000C7128 /* GMMainViewController.m */,
+				ABFF4C141966ADB0000C7128 /* mem.m */,
 				ABFF4BF91966A579000C7128 /* Images.xcassets */,
 				ABFF4BEE1966A579000C7128 /* Supporting Files */,
 			);
@@ -159,6 +167,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABFF4C151966ADB0000C7128 /* mem.m in Sources */,
+				ABFF4C181966B2C5000C7128 /* GMMainViewController.m in Sources */,
 				ABFF4BF81966A579000C7128 /* AppDelegate.m in Sources */,
 				ABFF4BF41966A579000C7128 /* main.m in Sources */,
 			);
@@ -211,7 +221,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -258,7 +268,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
