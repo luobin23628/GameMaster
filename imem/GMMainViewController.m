@@ -108,17 +108,22 @@
         
     } else {
         int value = [searchBar.text intValue];
-        NSArray *results = nil;
-        UInt64 resultCount;
-        BOOL ok = [[GMMemManagerProxy shareInstance] search:value isFirst:self.isFirst result:&results count:&resultCount];
-        if (ok) {
-            self.resultCount = resultCount;
-            self.results = results;
-            self.isFirst = NO;
-            [self.tableView reloadData];
-        } else {
-            TKAlert(@"查询失败");
-        }
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+            NSArray *results = nil;
+            UInt64 resultCount;
+            BOOL ok = [[GMMemManagerProxy shareInstance] search:value isFirst:self.isFirst result:&results count:&resultCount];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (ok) {
+                    self.resultCount = resultCount;
+                    self.results = results;
+                    self.isFirst = NO;
+                    [self.tableView reloadData];
+                } else {
+                    TKAlert(@"查询失败");
+                }
+            });
+        });
     }
 }
 

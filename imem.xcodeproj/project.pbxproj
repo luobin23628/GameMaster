@@ -1,0 +1,784 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A8054ED6196DB6E8004CC80A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF4BE71966A579000C7128 /* Foundation.framework */; };
+		A8054EE0196DB6E8004CC80A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8054EDF196DB6E8004CC80A /* main.m */; };
+		A810E661197ABA6800757554 /* GMModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A810E660197ABA6800757554 /* GMModifyViewController.m */; };
+		A810E664197AC43B00757554 /* TextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A810E663197AC43B00757554 /* TextFieldTableViewCell.m */; };
+		A810E667197AD59E00757554 /* NSDictionary+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A810E666197AD59E00757554 /* NSDictionary+Additions.m */; };
+		A810E66C197AD97F00757554 /* PickerInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A810E669197AD97F00757554 /* PickerInputTableViewCell.m */; };
+		A810E66D197AD97F00757554 /* SimplePickerInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A810E66B197AD97F00757554 /* SimplePickerInputTableViewCell.m */; };
+		A81E809B197D5FE500D3DF5E /* MAZeroingWeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */; };
+		A81E809C197D600700D3DF5E /* MAZeroingWeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */; };
+		A81E809E197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h in Headers */ = {isa = PBXBuildFile; fileRef = A81E809D197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h */; };
+		A82B441F197B60060098A6D4 /* NSDictionary+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A810E666197AD59E00757554 /* NSDictionary+Additions.m */; };
+		A82B4425197BBD260098A6D4 /* GMKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B4424197BBD260098A6D4 /* GMKeyboard.m */; };
+		A82B4428197BBE5C0098A6D4 /* UIView+Sizes.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B4427197BBE5C0098A6D4 /* UIView+Sizes.m */; };
+		A82B442B197BD4A60098A6D4 /* GMGridLinesTexturedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B442A197BD4A60098A6D4 /* GMGridLinesTexturedView.m */; };
+		A839D2D7196C2B2400E8E9F4 /* entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = A839D2D6196C2B2400E8E9F4 /* entitlements.plist */; };
+		A86FD13F1975652D00765F99 /* GMMem.h in Headers */ = {isa = PBXBuildFile; fileRef = A86FD13D1975652D00765F99 /* GMMem.h */; };
+		A86FD1401975652D00765F99 /* GMMem.m in Sources */ = {isa = PBXBuildFile; fileRef = A86FD13E1975652D00765F99 /* GMMem.m */; };
+		A86FD1431975680000765F99 /* GMMemManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A86FD1411975680000765F99 /* GMMemManager.h */; };
+		A86FD1441975680000765F99 /* GMMemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A86FD1421975680000765F99 /* GMMemManager.m */; };
+		A86FD14519756D8200765F99 /* librocketbootstrap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */; };
+		A86FD14B1975838900765F99 /* GMApplicationTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A86FD14A1975838900765F99 /* GMApplicationTableDataSource.m */; };
+		A86FD14D1975839400765F99 /* GMApplicationTableDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A86FD14C1975839400765F99 /* GMApplicationTableDataSource.h */; };
+		A86FD14F1975858500765F99 /* libapplist.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A86FD14E1975858500765F99 /* libapplist.dylib */; };
+		A86FD1521976BD9200765F99 /* GMMemManagerProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A86FD1511976BD9200765F99 /* GMMemManagerProxy.m */; };
+		A8A7416919680E6400131416 /* GMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A7416819680E6400131416 /* GMMainViewController.m */; };
+		A8A7416F1968105C00131416 /* GMSelectProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A7416E1968105C00131416 /* GMSelectProcessViewController.m */; };
+		A8D9058C197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8D9058B197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png */; };
+		A8D9058F197BF4CE001F22FF /* GMStorageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D9058E197BF4CE001F22FF /* GMStorageViewController.m */; };
+		A8EFBFE71972D30D002E4A9B /* librocketbootstrap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */; };
+		ABFF4BE81966A579000C7128 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF4BE71966A579000C7128 /* Foundation.framework */; };
+		ABFF4BEA1966A579000C7128 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF4BE91966A579000C7128 /* CoreGraphics.framework */; };
+		ABFF4BEC1966A579000C7128 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF4BEB1966A579000C7128 /* UIKit.framework */; };
+		ABFF4BF41966A579000C7128 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFF4BF31966A579000C7128 /* main.m */; };
+		ABFF4BF81966A579000C7128 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFF4BF71966A579000C7128 /* AppDelegate.m */; };
+		ABFF4BFA1966A579000C7128 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABFF4BF91966A579000C7128 /* Images.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A8054EE9196DB9E6004CC80A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ABFF4BD31966A3E7000C7128 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ABFF4BE31966A579000C7128;
+			remoteInfo = imem;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A8054ED5196DB6E8004CC80A /* imemXpcService */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = imemXpcService; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8054EDA196DB6E8004CC80A /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = control.txt; path = Package/DEBIAN/control.txt; sourceTree = "<group>"; };
+		A8054EDB196DB6E8004CC80A /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		A8054EDD196DB6E8004CC80A /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		A8054EDE196DB6E8004CC80A /* imemXpcService-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "imemXpcService-Prefix.pch"; sourceTree = "<group>"; };
+		A8054EDF196DB6E8004CC80A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A8054EE4196DB6E8004CC80A /* postinst */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = postinst; path = Package/DEBIAN/postinst; sourceTree = "<group>"; };
+		A8054EE5196DB6E8004CC80A /* prerm */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = prerm; path = Package/DEBIAN/prerm; sourceTree = "<group>"; };
+		A810E65F197ABA6800757554 /* GMModifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMModifyViewController.h; sourceTree = "<group>"; };
+		A810E660197ABA6800757554 /* GMModifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMModifyViewController.m; sourceTree = "<group>"; };
+		A810E662197AC43B00757554 /* TextFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldTableViewCell.h; sourceTree = "<group>"; };
+		A810E663197AC43B00757554 /* TextFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldTableViewCell.m; sourceTree = "<group>"; };
+		A810E665197AD59E00757554 /* NSDictionary+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Additions.h"; sourceTree = "<group>"; };
+		A810E666197AD59E00757554 /* NSDictionary+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Additions.m"; sourceTree = "<group>"; };
+		A810E668197AD97F00757554 /* PickerInputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerInputTableViewCell.h; sourceTree = "<group>"; };
+		A810E669197AD97F00757554 /* PickerInputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerInputTableViewCell.m; sourceTree = "<group>"; };
+		A810E66A197AD97F00757554 /* SimplePickerInputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePickerInputTableViewCell.h; sourceTree = "<group>"; };
+		A810E66B197AD97F00757554 /* SimplePickerInputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePickerInputTableViewCell.m; sourceTree = "<group>"; };
+		A81E8099197D5FE500D3DF5E /* MAZeroingWeakRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAZeroingWeakRef.h; sourceTree = "<group>"; };
+		A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAZeroingWeakRef.m; sourceTree = "<group>"; };
+		A81E809D197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAZeroingWeakRefNativeZWRNotAllowedTable.h; sourceTree = "<group>"; };
+		A82B4423197BBD260098A6D4 /* GMKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMKeyboard.h; sourceTree = "<group>"; };
+		A82B4424197BBD260098A6D4 /* GMKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMKeyboard.m; sourceTree = "<group>"; };
+		A82B4426197BBE5C0098A6D4 /* UIView+Sizes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Sizes.h"; sourceTree = "<group>"; };
+		A82B4427197BBE5C0098A6D4 /* UIView+Sizes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Sizes.m"; sourceTree = "<group>"; };
+		A82B4429197BD4A60098A6D4 /* GMGridLinesTexturedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGridLinesTexturedView.h; sourceTree = "<group>"; };
+		A82B442A197BD4A60098A6D4 /* GMGridLinesTexturedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGridLinesTexturedView.m; sourceTree = "<group>"; };
+		A839D2D6196C2B2400E8E9F4 /* entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = entitlements.plist; sourceTree = "<group>"; };
+		A839D2DA196C3A9200E8E9F4 /* libMatch.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMatch.dylib; path = usr/lib/libMatch.dylib; sourceTree = SDKROOT; };
+		A839D2DC196C3A9D00E8E9F4 /* libMatch.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMatch.1.dylib; path = usr/lib/libMatch.1.dylib; sourceTree = SDKROOT; };
+		A839D2DE196C3AA900E8E9F4 /* libmacho.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmacho.dylib; path = usr/lib/system/libmacho.dylib; sourceTree = SDKROOT; };
+		A83F762E1976E7BC00C7EAE5 /* entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = entitlements.plist; sourceTree = "<group>"; };
+		A8577E1419719AEC00A277D4 /* com.test.imemXpcService.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = com.test.imemXpcService.plist; sourceTree = "<group>"; };
+		A86FD13D1975652D00765F99 /* GMMem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMem.h; sourceTree = "<group>"; };
+		A86FD13E1975652D00765F99 /* GMMem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMem.m; sourceTree = "<group>"; };
+		A86FD1411975680000765F99 /* GMMemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMemManager.h; sourceTree = "<group>"; };
+		A86FD1421975680000765F99 /* GMMemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMemManager.m; sourceTree = "<group>"; };
+		A86FD14A1975838900765F99 /* GMApplicationTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMApplicationTableDataSource.m; sourceTree = "<group>"; };
+		A86FD14C1975839400765F99 /* GMApplicationTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMApplicationTableDataSource.h; sourceTree = "<group>"; };
+		A86FD14E1975858500765F99 /* libapplist.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libapplist.dylib; path = ../../../../opt/iOSOpenDev/lib/libapplist.dylib; sourceTree = "<group>"; };
+		A86FD1501976BD9200765F99 /* GMMemManagerProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMemManagerProxy.h; sourceTree = "<group>"; };
+		A86FD1511976BD9200765F99 /* GMMemManagerProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMemManagerProxy.m; sourceTree = "<group>"; };
+		A86FD1531976C6E500765F99 /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		A8A7416719680E6400131416 /* GMMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMainViewController.h; sourceTree = "<group>"; };
+		A8A7416819680E6400131416 /* GMMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMainViewController.m; sourceTree = "<group>"; };
+		A8A7416D1968105C00131416 /* GMSelectProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMSelectProcessViewController.h; sourceTree = "<group>"; };
+		A8A7416E1968105C00131416 /* GMSelectProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMSelectProcessViewController.m; sourceTree = "<group>"; };
+		A8A7417019682C2D00131416 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		A8D9058B197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KeyboardNumericBackspace@2x.png"; sourceTree = "<group>"; };
+		A8D9058D197BF4CE001F22FF /* GMStorageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMStorageViewController.h; sourceTree = "<group>"; };
+		A8D9058E197BF4CE001F22FF /* GMStorageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMStorageViewController.m; sourceTree = "<group>"; };
+		A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = librocketbootstrap.dylib; path = ../../../../opt/iOSOpenDev/lib/librocketbootstrap.dylib; sourceTree = "<group>"; };
+		ABFF4BE41966A579000C7128 /* imem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imem.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABFF4BE71966A579000C7128 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ABFF4BE91966A579000C7128 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		ABFF4BEB1966A579000C7128 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		ABFF4BEF1966A579000C7128 /* imem-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "imem-Info.plist"; sourceTree = "<group>"; };
+		ABFF4BF31966A579000C7128 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ABFF4BF51966A579000C7128 /* imem-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "imem-Prefix.pch"; sourceTree = "<group>"; };
+		ABFF4BF61966A579000C7128 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ABFF4BF71966A579000C7128 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ABFF4BF91966A579000C7128 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		ABFF4C001966A579000C7128 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A8054ED1196DB6E8004CC80A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A86FD14519756D8200765F99 /* librocketbootstrap.dylib in Frameworks */,
+				A8054ED6196DB6E8004CC80A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABFF4BE11966A579000C7128 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A86FD14F1975858500765F99 /* libapplist.dylib in Frameworks */,
+				A8EFBFE71972D30D002E4A9B /* librocketbootstrap.dylib in Frameworks */,
+				ABFF4BEA1966A579000C7128 /* CoreGraphics.framework in Frameworks */,
+				ABFF4BEC1966A579000C7128 /* UIKit.framework in Frameworks */,
+				ABFF4BE81966A579000C7128 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A8054ED7196DB6E8004CC80A /* imemXpcService */ = {
+			isa = PBXGroup;
+			children = (
+				A8054EDF196DB6E8004CC80A /* main.m */,
+				A86FD1411975680000765F99 /* GMMemManager.h */,
+				A86FD1421975680000765F99 /* GMMemManager.m */,
+				A86FD13D1975652D00765F99 /* GMMem.h */,
+				A86FD13E1975652D00765F99 /* GMMem.m */,
+				A8054ED8196DB6E8004CC80A /* Package */,
+				A8054EDC196DB6E8004CC80A /* Supporting Files */,
+			);
+			path = imemXpcService;
+			sourceTree = "<group>";
+		};
+		A8054ED8196DB6E8004CC80A /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				A8577E1219719AEC00A277D4 /* Library */,
+				A8054ED9196DB6E8004CC80A /* DEBIAN */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		A8054ED9196DB6E8004CC80A /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				A8054EDA196DB6E8004CC80A /* control.txt */,
+				A8054EDB196DB6E8004CC80A /* control */,
+				A8054EE4196DB6E8004CC80A /* postinst */,
+				A8054EE5196DB6E8004CC80A /* prerm */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		A8054EDC196DB6E8004CC80A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A8D9058B197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png */,
+				A83F762E1976E7BC00C7EAE5 /* entitlements.plist */,
+				A8054EDD196DB6E8004CC80A /* PackageVersion.plist */,
+				A8054EDE196DB6E8004CC80A /* imemXpcService-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A8577E1219719AEC00A277D4 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				A8577E1319719AEC00A277D4 /* LaunchDaemons */,
+			);
+			name = Library;
+			path = Package/Library;
+			sourceTree = "<group>";
+		};
+		A8577E1319719AEC00A277D4 /* LaunchDaemons */ = {
+			isa = PBXGroup;
+			children = (
+				A8577E1419719AEC00A277D4 /* com.test.imemXpcService.plist */,
+			);
+			path = LaunchDaemons;
+			sourceTree = "<group>";
+		};
+		ABFF4BD21966A3E7000C7128 = {
+			isa = PBXGroup;
+			children = (
+				ABFF4BED1966A579000C7128 /* imem */,
+				A8054ED7196DB6E8004CC80A /* imemXpcService */,
+				ABFF4BE61966A579000C7128 /* Frameworks */,
+				ABFF4BE51966A579000C7128 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ABFF4BE51966A579000C7128 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ABFF4BE41966A579000C7128 /* imem.app */,
+				A8054ED5196DB6E8004CC80A /* imemXpcService */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ABFF4BE61966A579000C7128 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A86FD14E1975858500765F99 /* libapplist.dylib */,
+				A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */,
+				A839D2DE196C3AA900E8E9F4 /* libmacho.dylib */,
+				A839D2DC196C3A9D00E8E9F4 /* libMatch.1.dylib */,
+				A839D2DA196C3A9200E8E9F4 /* libMatch.dylib */,
+				ABFF4BE71966A579000C7128 /* Foundation.framework */,
+				ABFF4BE91966A579000C7128 /* CoreGraphics.framework */,
+				ABFF4BEB1966A579000C7128 /* UIKit.framework */,
+				ABFF4C001966A579000C7128 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ABFF4BED1966A579000C7128 /* imem */ = {
+			isa = PBXGroup;
+			children = (
+				ABFF4BF61966A579000C7128 /* AppDelegate.h */,
+				ABFF4BF71966A579000C7128 /* AppDelegate.m */,
+				A8A7416719680E6400131416 /* GMMainViewController.h */,
+				A8A7416819680E6400131416 /* GMMainViewController.m */,
+				A82B4423197BBD260098A6D4 /* GMKeyboard.h */,
+				A82B4424197BBD260098A6D4 /* GMKeyboard.m */,
+				A82B4429197BD4A60098A6D4 /* GMGridLinesTexturedView.h */,
+				A82B442A197BD4A60098A6D4 /* GMGridLinesTexturedView.m */,
+				A86FD14C1975839400765F99 /* GMApplicationTableDataSource.h */,
+				A86FD14A1975838900765F99 /* GMApplicationTableDataSource.m */,
+				A8A7416D1968105C00131416 /* GMSelectProcessViewController.h */,
+				A8A7416E1968105C00131416 /* GMSelectProcessViewController.m */,
+				A810E65F197ABA6800757554 /* GMModifyViewController.h */,
+				A810E660197ABA6800757554 /* GMModifyViewController.m */,
+				A810E662197AC43B00757554 /* TextFieldTableViewCell.h */,
+				A810E663197AC43B00757554 /* TextFieldTableViewCell.m */,
+				A810E668197AD97F00757554 /* PickerInputTableViewCell.h */,
+				A810E669197AD97F00757554 /* PickerInputTableViewCell.m */,
+				A810E66A197AD97F00757554 /* SimplePickerInputTableViewCell.h */,
+				A810E66B197AD97F00757554 /* SimplePickerInputTableViewCell.m */,
+				A8D9058D197BF4CE001F22FF /* GMStorageViewController.h */,
+				A8D9058E197BF4CE001F22FF /* GMStorageViewController.m */,
+				A86FD1501976BD9200765F99 /* GMMemManagerProxy.h */,
+				A86FD1511976BD9200765F99 /* GMMemManagerProxy.m */,
+				A86FD1531976C6E500765F99 /* Global.h */,
+				A810E665197AD59E00757554 /* NSDictionary+Additions.h */,
+				A810E666197AD59E00757554 /* NSDictionary+Additions.m */,
+				A82B4426197BBE5C0098A6D4 /* UIView+Sizes.h */,
+				A82B4427197BBE5C0098A6D4 /* UIView+Sizes.m */,
+				A81E809D197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h */,
+				A81E8099197D5FE500D3DF5E /* MAZeroingWeakRef.h */,
+				A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */,
+				ABFF4BF91966A579000C7128 /* Images.xcassets */,
+				ABFF4BEE1966A579000C7128 /* Supporting Files */,
+			);
+			path = imem;
+			sourceTree = "<group>";
+		};
+		ABFF4BEE1966A579000C7128 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ABFF4BEF1966A579000C7128 /* imem-Info.plist */,
+				A839D2D6196C2B2400E8E9F4 /* entitlements.plist */,
+				ABFF4BF01966A579000C7128 /* InfoPlist.strings */,
+				ABFF4BF31966A579000C7128 /* main.m */,
+				ABFF4BF51966A579000C7128 /* imem-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A8054ED2196DB6E8004CC80A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A81E809E197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h in Headers */,
+				A86FD1431975680000765F99 /* GMMemManager.h in Headers */,
+				A86FD13F1975652D00765F99 /* GMMem.h in Headers */,
+				A86FD14D1975839400765F99 /* GMApplicationTableDataSource.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A8054ED4196DB6E8004CC80A /* imemXpcService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A8054EE8196DB6E8004CC80A /* Build configuration list for PBXNativeTarget "imemXpcService" */;
+			buildPhases = (
+				A8054ED0196DB6E8004CC80A /* Sources */,
+				A8054ED1196DB6E8004CC80A /* Frameworks */,
+				A8054ED2196DB6E8004CC80A /* Headers */,
+				A8054ED3196DB6E8004CC80A /* ShellScript */,
+				A86FD1541976E3DB00765F99 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A8054EEA196DB9E6004CC80A /* PBXTargetDependency */,
+			);
+			name = imemXpcService;
+			productName = imemXpcService;
+			productReference = A8054ED5196DB6E8004CC80A /* imemXpcService */;
+			productType = "com.apple.product-type.tool";
+		};
+		ABFF4BE31966A579000C7128 /* imem */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABFF4C0E1966A579000C7128 /* Build configuration list for PBXNativeTarget "imem" */;
+			buildPhases = (
+				ABFF4BE01966A579000C7128 /* Sources */,
+				ABFF4BE11966A579000C7128 /* Frameworks */,
+				ABFF4BE21966A579000C7128 /* Resources */,
+				A810E65B1978170F00757554 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = imem;
+			productName = GameMaster;
+			productReference = ABFF4BE41966A579000C7128 /* imem.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ABFF4BD31966A3E7000C7128 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				TargetAttributes = {
+					ABFF4BE31966A579000C7128 = {
+						DevelopmentTeam = 4AW78593E8;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = ABFF4BD61966A3E7000C7128 /* Build configuration list for PBXProject "imem" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				"zh-Hans",
+			);
+			mainGroup = ABFF4BD21966A3E7000C7128;
+			productRefGroup = ABFF4BE51966A579000C7128 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ABFF4BE31966A579000C7128 /* imem */,
+				A8054ED4196DB6E8004CC80A /* imemXpcService */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ABFF4BE21966A579000C7128 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8D9058C197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png in Resources */,
+				A839D2D7196C2B2400E8E9F4 /* entitlements.plist in Resources */,
+				ABFF4BFA1966A579000C7128 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A8054ED3196DB6E8004CC80A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+		A810E65B1978170F00757554 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "dst=${SRCROOT}/imemXpcService/Package/Applications\nmkdir -p ${dst}\nsrc=${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}\ncp -Rf ${src} ${dst}";
+		};
+		A86FD1541976E3DB00765F99 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "dst=${SRCROOT}/imemXpcService/Package/usr/bin/imemXpcService\nentitPath=${SRCROOT}/imem/entitlements.plist\nldid -S${entitPath} ${dst}";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A8054ED0196DB6E8004CC80A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A82B441F197B60060098A6D4 /* NSDictionary+Additions.m in Sources */,
+				A81E809C197D600700D3DF5E /* MAZeroingWeakRef.m in Sources */,
+				A86FD1441975680000765F99 /* GMMemManager.m in Sources */,
+				A8054EE0196DB6E8004CC80A /* main.m in Sources */,
+				A86FD1401975652D00765F99 /* GMMem.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABFF4BE01966A579000C7128 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A810E66C197AD97F00757554 /* PickerInputTableViewCell.m in Sources */,
+				A8A7416919680E6400131416 /* GMMainViewController.m in Sources */,
+				A8D9058F197BF4CE001F22FF /* GMStorageViewController.m in Sources */,
+				A82B4425197BBD260098A6D4 /* GMKeyboard.m in Sources */,
+				A86FD14B1975838900765F99 /* GMApplicationTableDataSource.m in Sources */,
+				A810E66D197AD97F00757554 /* SimplePickerInputTableViewCell.m in Sources */,
+				A8A7416F1968105C00131416 /* GMSelectProcessViewController.m in Sources */,
+				ABFF4BF81966A579000C7128 /* AppDelegate.m in Sources */,
+				ABFF4BF41966A579000C7128 /* main.m in Sources */,
+				A82B4428197BBE5C0098A6D4 /* UIView+Sizes.m in Sources */,
+				A86FD1521976BD9200765F99 /* GMMemManagerProxy.m in Sources */,
+				A810E667197AD59E00757554 /* NSDictionary+Additions.m in Sources */,
+				A82B442B197BD4A60098A6D4 /* GMGridLinesTexturedView.m in Sources */,
+				A810E661197ABA6800757554 /* GMModifyViewController.m in Sources */,
+				A81E809B197D5FE500D3DF5E /* MAZeroingWeakRef.m in Sources */,
+				A810E664197AC43B00757554 /* TextFieldTableViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A8054EEA196DB9E6004CC80A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ABFF4BE31966A579000C7128 /* imem */;
+			targetProxy = A8054EE9196DB9E6004CC80A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ABFF4BF01966A579000C7128 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A8A7417019682C2D00131416 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A8054EE6196DB6E8004CC80A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv7,
+					armv7s,
+				);
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = imemXpcService/entitlements.plist;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "imemXpcService/imemXpcService-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				INSTALL_PATH = /usr/bin;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/lib/**",
+					/opt/iOSOpenDev/lib,
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = 192.168.1.104;
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+		A8054EE7196DB6E8004CC80A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv7,
+					armv7s,
+				);
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = imemXpcService/entitlements.plist;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "imemXpcService/imemXpcService-Prefix.pch";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				INSTALL_PATH = /usr/bin;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/lib/**",
+					/opt/iOSOpenDev/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = 192.168.1.104;
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+		ABFF4BD71966A3E7000C7128 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		ABFF4BD81966A3E7000C7128 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		ABFF4C0F1966A579000C7128 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = armv7;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "imem/imem-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/include/**",
+					/opt/theos/include,
+				);
+				INFOPLIST_FILE = "imem/imem-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+					/opt/iOSOpenDev/lib,
+					/opt/theos/lib,
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = imem;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+				iOSOpenDevDevice = 192.168.1.104;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = NO;
+			};
+			name = Debug;
+		};
+		ABFF4C101966A579000C7128 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = armv7;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "imem/imem-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/include/**",
+					/opt/theos/include,
+				);
+				INFOPLIST_FILE = "imem/imem-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+					/opt/iOSOpenDev/lib,
+					/opt/theos/lib,
+				);
+				PRODUCT_NAME = imem;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+				iOSOpenDevDevice = 192.168.1.104;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A8054EE8196DB6E8004CC80A /* Build configuration list for PBXNativeTarget "imemXpcService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8054EE6196DB6E8004CC80A /* Debug */,
+				A8054EE7196DB6E8004CC80A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABFF4BD61966A3E7000C7128 /* Build configuration list for PBXProject "imem" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABFF4BD71966A3E7000C7128 /* Debug */,
+				ABFF4BD81966A3E7000C7128 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABFF4C0E1966A579000C7128 /* Build configuration list for PBXNativeTarget "imem" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABFF4C0F1966A579000C7128 /* Debug */,
+				ABFF4C101966A579000C7128 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ABFF4BD31966A3E7000C7128 /* Project object */;
+}

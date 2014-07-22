@@ -11,6 +11,7 @@
 
 #import <LightMessaging.h>
 #import "NSDictionary+Additions.h"
+#import "MAZeroingWeakRef.h"
 
 static LMConnection connection = {
 	MACH_PORT_NULL,

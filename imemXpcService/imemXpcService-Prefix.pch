@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'imemXpcService' target in the 'imemXpcService' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import "Global.h"
+#endif
