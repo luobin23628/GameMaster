@@ -36,6 +36,8 @@
 		A8D9058C197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8D9058B197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png */; };
 		A8D9058F197BF4CE001F22FF /* GMStorageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D9058E197BF4CE001F22FF /* GMStorageViewController.m */; };
 		A8EFBFE71972D30D002E4A9B /* librocketbootstrap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */; };
+		ABE39F93197FCBB0002E7678 /* darwin_memory_usage.c in Sources */ = {isa = PBXBuildFile; fileRef = ABE39F92197FCBB0002E7678 /* darwin_memory_usage.c */; };
+		ABE39FD7197FCCAE002E7678 /* shared_region.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE39FD6197FCCAE002E7678 /* shared_region.h */; };
 		ABFF4BE81966A579000C7128 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF4BE71966A579000C7128 /* Foundation.framework */; };
 		ABFF4BEA1966A579000C7128 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF4BE91966A579000C7128 /* CoreGraphics.framework */; };
 		ABFF4BEC1966A579000C7128 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF4BEB1966A579000C7128 /* UIKit.framework */; };
@@ -107,6 +109,9 @@
 		A8D9058D197BF4CE001F22FF /* GMStorageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMStorageViewController.h; sourceTree = "<group>"; };
 		A8D9058E197BF4CE001F22FF /* GMStorageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMStorageViewController.m; sourceTree = "<group>"; };
 		A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = librocketbootstrap.dylib; path = ../../../../opt/iOSOpenDev/lib/librocketbootstrap.dylib; sourceTree = "<group>"; };
+		ABE39F92197FCBB0002E7678 /* darwin_memory_usage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = darwin_memory_usage.c; sourceTree = "<group>"; };
+		ABE39F94197FCBBA002E7678 /* darwin_memory_usage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = darwin_memory_usage.h; sourceTree = "<group>"; };
+		ABE39FD6197FCCAE002E7678 /* shared_region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shared_region.h; sourceTree = "<group>"; };
 		ABFF4BE41966A579000C7128 /* imem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABFF4BE71966A579000C7128 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ABFF4BE91966A579000C7128 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -151,6 +156,9 @@
 				A8054EDF196DB6E8004CC80A /* main.m */,
 				A86FD1411975680000765F99 /* GMMemManager.h */,
 				A86FD1421975680000765F99 /* GMMemManager.m */,
+				ABE39FD6197FCCAE002E7678 /* shared_region.h */,
+				ABE39F94197FCBBA002E7678 /* darwin_memory_usage.h */,
+				ABE39F92197FCBB0002E7678 /* darwin_memory_usage.c */,
 				A86FD13D1975652D00765F99 /* GMMem.h */,
 				A86FD13E1975652D00765F99 /* GMMem.m */,
 				A8054ED8196DB6E8004CC80A /* Package */,
@@ -302,6 +310,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABE39FD7197FCCAE002E7678 /* shared_region.h in Headers */,
 				A81E809E197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h in Headers */,
 				A86FD1431975680000765F99 /* GMMemManager.h in Headers */,
 				A86FD13F1975652D00765F99 /* GMMem.h in Headers */,
@@ -459,6 +468,7 @@
 				A82B441F197B60060098A6D4 /* NSDictionary+Additions.m in Sources */,
 				A81E809C197D600700D3DF5E /* MAZeroingWeakRef.m in Sources */,
 				A86FD1441975680000765F99 /* GMMemManager.m in Sources */,
+				ABE39F93197FCBB0002E7678 /* darwin_memory_usage.c in Sources */,
 				A8054EE0196DB6E8004CC80A /* main.m in Sources */,
 				A86FD1401975652D00765F99 /* GMMem.m in Sources */,
 			);
@@ -551,7 +561,7 @@
 				VALIDATE_PRODUCT = NO;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.1.104;
+				iOSOpenDevDevice = 10.2.146.186;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
@@ -594,7 +604,7 @@
 				VALIDATE_PRODUCT = YES;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.1.104;
+				iOSOpenDevDevice = 10.2.146.186;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
@@ -685,7 +695,7 @@
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
-				iOSOpenDevDevice = 192.168.1.104;
+				iOSOpenDevDevice = "";
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = NO;
 			};
@@ -742,7 +752,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
-				iOSOpenDevDevice = 192.168.1.104;
+				iOSOpenDevDevice = "";
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = NO;
 			};
