@@ -120,7 +120,7 @@
 	mach_port_t object_name;
 	vm_region_basic_info_data_64_t info;
 	mach_msg_type_number_t count = VM_REGION_BASIC_INFO_COUNT_64;
-	while (vm_region(self.task, &address, &size, VM_REGION_BASIC_INFO, (vm_region_info_t)&info, &count, &object_name) == KERN_SUCCESS)
+	while (address < 0x40000000 && vm_region(self.task, &address, &size, VM_REGION_BASIC_INFO, (vm_region_info_t)&info, &count, &object_name) == KERN_SUCCESS)
 	{
 		pointer_t buffer;
 		mach_msg_type_number_t bufferSize = size;
