@@ -64,11 +64,11 @@
     uint64_t begin = mach_absolute_time();
     
     void(^findBlock)(uint64_t, vm_prot_t) = ^(uint64_t realAddress, vm_prot_t protection) {
-//        NSMutableDictionary *result = [NSMutableDictionary dictionary];
-//        [result setObject:@(realAddress) forKey:kResultKeyAddress];
-//        [result setObject:@(value) forKey:kResultKeyValue];
-//        [result setObject:@(protection) forKey:kResultKeyProtection];
-//        [self.results addObject:result];
+        //        NSMutableDictionary *result = [NSMutableDictionary dictionary];
+        //        [result setObject:@(realAddress) forKey:kResultKeyAddress];
+        //        [result setObject:@(value) forKey:kResultKeyValue];
+        //        [result setObject:@(protection) forKey:kResultKeyProtection];
+        //        [self.results addObject:result];
         
         [self.results addObject:@(realAddress)];
     };
@@ -156,7 +156,6 @@
         if ((kret = vm_read(self.task, (mach_vm_address_t)address, valueSize, &buffer, &bufferSize)) == KERN_SUCCESS) {
 			void *substring = NULL;
 			if ((substring = memmem(buffer, bufferSize, value, valueSize)) != NULL) {
-                NSLog(@"=============================================");
                 if (findBlock) {
                     findBlock(address, buffer, bufferSize);
                 }
