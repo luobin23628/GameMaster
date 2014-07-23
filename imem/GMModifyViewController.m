@@ -13,19 +13,20 @@
 
 @interface GMModifyViewController ()<UITextFieldDelegate, SimplePickerInputTableViewCellDelegate>
 
+@property (nonatomic, assign) uint64_t address;
 @property (nonatomic, retain) NSMutableDictionary *result;
 
 @end
 
 @implementation GMModifyViewController
 
-- (id)initWithResult:(NSDictionary *)result
+- (id)initWithAddress:(uint64_t)address;
 {
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         // Custom initialization
-        self.result = [NSMutableDictionary dictionaryWithDictionary:result];
-        self.title = [NSString stringWithFormat:@"0X%llX", self.result.address];
+        self.address = address;
+        self.title = [NSString stringWithFormat:@"0X%llX", address];
     }
     return self;
 }
@@ -40,10 +41,8 @@
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(save)] autorelease];
     
-    NSDictionary *result = [[GMMemManagerProxy shareInstance] getResult:self.result.address];
-    [self.result addEntriesFromDictionary:result];
-    id data = [self.result objectForKey:@"ttt"];
-    TKAlert2(@"%@", data);
+    NSDictionary *result = [[GMMemManagerProxy shareInstance] getResult:self.address];
+    self.result = [NSMutableDictionary dictionaryWithDictionary:result];
 }
 
 - (void)save {

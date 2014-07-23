@@ -143,22 +143,22 @@
 
 - (void)searchAgain:(void *)value
           valueSize:(size_t)valueSize
-          findBlock:(void(^)(uint64_t realAddress, vm_prot_t protection, const void *buffer,  size_t bufferSize))findBlock {
+          findBlock:(void(^)(uint64_t realAddress, const void *buffer,  size_t bufferSize))findBlock {
+    
     kern_return_t kret;
     mach_vm_offset_t address = 0;
     for (int i = 0; i < [self.results count]; i++) {
         pointer_t buffer;
         mach_msg_type_number_t bufferSize = valueSize;
         
-        NSMutableDictionary *result = [self.results objectAtIndex:i];
-        address = [[result objectForKey:kResultKeyAddress] longValue];
-        vm_prot_t protection = [[result objectForKey:kResultKeyProtection] intValue];
+        address = [[self.results objectAtIndex:i] unsignedLongLongValue];
         
         if ((kret = vm_read(self.task, (mach_vm_address_t)address, valueSize, &buffer, &bufferSize)) == KERN_SUCCESS) {
 			void *substring = NULL;
-			if ((substring = memmem((const void *)buffer, bufferSize, &value, sizeof(value))) != NULL) {
+			if ((substring = memmem(buffer, bufferSize, value, valueSize)) != NULL) {
+                NSLog(@"=============================================");
                 if (findBlock) {
-                    findBlock(address, protection, buffer, bufferSize);
+                    findBlock(address, buffer, bufferSize);
                 }
 			}
 		}
@@ -166,16 +166,11 @@
 }
 
 - (NSArray *)searchAgain:(int64_t)value {
-    [self.results removeAllObjects];
     
-    MAWeakSelfDeclare();
-    void(^findBlock)(uint64_t, vm_prot_t, const void *,  size_t) = ^(uint64_t address, vm_prot_t protection, const void *buffer,  size_t bufferSize) {
-        MAWeakSelfImportReturn();
-        NSMutableDictionary *result = [NSMutableDictionary dictionary];
-        [result setObject:@(address) forKey:kResultKeyAddress];
-        [result setObject:@(value) forKey:kResultKeyValue];
-        [result setObject:@(protection) forKey:kResultKeyProtection];
-        [self.results addObject:result];
+    NSMutableArray *results = [NSMutableArray array];
+    
+    void(^findBlock)(uint64_t, const void *,  size_t) = ^(uint64_t address, const void *buffer,  size_t bufferSize) {
+        [results addObject:@(address)];
     };
     
     if (value <= UINT8_MAX) {
@@ -202,6 +197,9 @@
     } else {
         return nil;
     }
+    [self.results removeAllObjects];
+    [self.results addObjectsFromArray:results];
+    
     if (self.results.count <= MaxCount) {
         return self.results;
     } else {
@@ -231,11 +229,30 @@
     int value = [result value];
     vm_prot_t protection = [result protection];
     
-    BOOL changeProtection = !(protection & VM_PROT_READ)
-    || !(protection & VM_PROT_WRITE)
-    || !(protection & VM_PROT_COPY);
-    
+    vm_prot_t oriProtection;
     kern_return_t kret;
+	vm_address_t regionAddress = 0;
+	vm_size_t regionSize;
+	mach_port_t object_name;
+	vm_region_basic_info_data_64_t info;
+	mach_msg_type_number_t count = VM_REGION_BASIC_INFO_COUNT_64;
+	while (vm_region(self.task, &regionAddress, &regionSize, VM_REGION_BASIC_INFO, (vm_region_info_t)&info, &count, &object_name) == KERN_SUCCESS) {
+        if (regionAddress + regionSize > address) {
+            oriProtection = info.protection;
+            break;
+        }
+		regionAddress += regionSize;
+	}
+    if (!oriProtection) {
+        return NO;
+    }
+    if (!protection) {
+        protection = oriProtection;
+    }
+    
+    BOOL changeProtection = !(oriProtection & VM_PROT_READ)
+    || !(oriProtection & VM_PROT_WRITE)
+    || !(oriProtection & VM_PROT_COPY);
     
     /* Change memory protections to rw- */
     if (changeProtection) {

@@ -10,6 +10,6 @@
 
 @interface GMModifyViewController : UITableViewController
 
-- (id)initWithResult:(NSDictionary *)result;
+- (id)initWithAddress:(uint64_t)address;
 
 @end

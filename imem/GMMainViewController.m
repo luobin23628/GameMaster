@@ -146,11 +146,12 @@
         cell.textLabel.text = [NSString stringWithFormat:@"共搜索到%llu个结果", self.resultCount];
     } else {
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
-        NSDictionary *result = [self.results objectAtIndex:indexPath.row - 1];
-        unsigned long long address = [result address];
-        int value = [result value];
+        NSNumber *addressObj = [self.results objectAtIndex:indexPath.row - 1];
+        unsigned long long address = [addressObj unsignedLongLongValue];
+        NSDictionary *result = [[GMMemManagerProxy shareInstance] getResult:address];
+        uint64_t value = [result value];
         BOOL writable = [result writable];
-        NSString *text = [NSString stringWithFormat:@"%2ld 0X%llX:%d  %s", (long)indexPath.row, address, value, (writable ? "rw" : "r")];
+        NSString *text = [NSString stringWithFormat:@"%2ld 0X%llX:%llu  %s", (long)indexPath.row, address, value, (writable ? "rw" : "r")];
         cell.textLabel.text = text;
     }
     return cell;
@@ -160,8 +161,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row > 0) {
-        NSDictionary *result = [self.results objectAtIndex:indexPath.row - 1];
-        GMModifyViewController *modifyViewController = [[GMModifyViewController alloc] initWithResult:result];
+        NSNumber *address = [self.results objectAtIndex:indexPath.row - 1];
+        GMModifyViewController *modifyViewController = [[GMModifyViewController alloc] initWithAddress:[address unsignedLongLongValue]];
         [self.navigationController pushViewController:modifyViewController animated:YES];
         [modifyViewController release];
     }
