@@ -8,14 +8,15 @@
 
 #import "GMMemManager.h"
 #import <libkern/OSCacheControl.h>
-#import <LightMessaging.h>
+#import <mach/vm_map.h>
+#import <mach/mach_traps.h>
 
 #define MaxCount 100
 
 @interface GMMemManager()
 
 @property (nonatomic, assign) mach_port_t task;
-
+@property (nonatomic, retain) NSMutableArray *results;
 @end
 
 @implementation GMMemManager
@@ -40,12 +41,12 @@
     }
     //    CFArrayCreateMutable(NULL, 666, const CFArrayCallBacks *callBacks)
     self.task = task;
-    resultCount = 0;
+    self.results = [NSMutableArray array];
     return YES;
 }
 
 - (UInt64)resultCount {
-    return resultCount;
+    return [self.results count];
 }
 
 - (NSArray *)search:(int64_t)value isFirst:(bool)isFirst {
@@ -57,18 +58,21 @@
 }
 
 - (NSArray *)searchFirst:(uint64_t)value {
-    resultCount = 0;
+    [self.results removeAllObjects];
     
     mach_timebase_info_data_t timebase_info;
-    if (mach_timebase_info(&timebase_info) != KERN_SUCCESS) return nil;
+    mach_timebase_info(&timebase_info);
     
     uint64_t begin = mach_absolute_time();
     
     void(^findBlock)(vm_address_t, vm_prot_t) = ^(vm_address_t realAddress, vm_prot_t protection) {
-        if (resultCount < kMaxCount) {
-            results[resultCount] = realAddress;
-            resultCount++;
-        }
+        //        NSMutableDictionary *result = [NSMutableDictionary dictionary];
+        //        [result setObject:@(realAddress) forKey:kResultKeyAddress];
+        //        [result setObject:@(value) forKey:kResultKeyValue];
+        //        [result setObject:@(protection) forKey:kResultKeyProtection];
+        //        [self.results addObject:result];
+        
+        [self.results addObject:@(realAddress)];
     };
     
     if (value <= UINT8_MAX) {
@@ -98,14 +102,10 @@
     
     uint64_t end = mach_absolute_time();
     uint64_t nanos  = (end - begin)* timebase_info.numer / timebase_info.denom;
-    NSLog(@"elapse time %.4f", (CGFloat)nanos / NSEC_PER_SEC);
+    NSLog(@"searchFirst elapse time %.4f", (CGFloat)nanos / NSEC_PER_SEC);
     
-    if (resultCount <= MaxCount) {
-        NSMutableArray *ret = [NSMutableArray array];
-        for (int i = 0; i < resultCount; i++) {
-            [ret addObject:@(results[i])];
-        }
-        return ret;
+    if (self.results.count <= MaxCount) {
+        return self.results;
     } else {
         return [NSArray array];
     }
@@ -122,11 +122,11 @@
 	mach_port_t object_name;
 	vm_region_basic_info_data_64_t info;
 	mach_msg_type_number_t count = VM_REGION_BASIC_INFO_COUNT_64;
-	while (address < 0x40000000 && vm_region(self.task, &address, &size, VM_REGION_BASIC_INFO, (vm_region_info_t)&info, &count, &object_name) == KERN_SUCCESS)
+	while (vm_region(self.task, &address, &size, VM_REGION_BASIC_INFO, (vm_region_info_t)&info, &count, &object_name) == KERN_SUCCESS)
 	{
         vm_prot_t protection = info.protection;
+
         if ( (protection &VM_PROT_READ)&& (protection &VM_PROT_WRITE)) {
-            
             pointer_t buffer;
             mach_msg_type_number_t bufferSize = size;
             if ((kret = vm_read(self.task, (mach_vm_address_t)address, size, &buffer, &bufferSize)) == KERN_SUCCESS) {
@@ -139,9 +139,11 @@
                     pos = memmem(pos + 1, (void*)(bufferSize + buffer) - pos - 1, value, valueSize);
                 }
             } else {
-                //            NSLog(@"mac_vm_read fails, address:%x, error %d:%s", address, kret, mach_error_string(kret));
+                NSLog(@"mac_vm_read fails, address:%x, error %d:%s", address, kret, mach_error_string(kret));
             }
         }
+        
+
 		address += size;
 	}
 }
@@ -149,15 +151,13 @@
 - (void)searchAgain:(void *)value
           valueSize:(size_t)valueSize
           findBlock:(void(^)(vm_address_t realAddress, const void *buffer,  size_t bufferSize))findBlock {
-    
-    int count = resultCount;
     kern_return_t kret;
     mach_vm_offset_t address = 0;
-    for (int i = 0; i < count; i++) {
+    for (int i = 0; i < [self.results count]; i++) {
         pointer_t buffer;
         mach_msg_type_number_t bufferSize = valueSize;
         
-        address = results[i];
+        address = [[self.results objectAtIndex:i] unsignedLongLongValue];
         
         if ((kret = vm_read(self.task, (mach_vm_address_t)address, valueSize, &buffer, &bufferSize)) == KERN_SUCCESS) {
 			void *substring = NULL;
@@ -172,34 +172,56 @@
 
 - (NSArray *)searchAgain:(int64_t)value {
     
-    __block int newResultCount = 0;
+    mach_timebase_info_data_t timebase_info;
+    mach_timebase_info(&timebase_info);
+    uint64_t begin = mach_absolute_time();
+    
+    NSMutableArray *newResults = [NSMutableArray array];
     
     void(^findBlock)(vm_address_t, const void *,  size_t) = ^(vm_address_t address, const void *buffer,  size_t bufferSize) {
-//        results[newResultCount] = address;
-//        newResultCount++;
+        [newResults addObject:@(address)];
     };
     
+    if (value <= UINT8_MAX) {
         uint8_t v = (uint8_t)value;
         [self searchAgain:&v
                 valueSize:sizeof(v)
                 findBlock:findBlock];
         
- 
-    resultCount = newResultCount;
+    } else if (value <= UINT16_MAX) {
+        uint16_t v = (uint16_t)value;
+        [self searchAgain:&v
+                valueSize:sizeof(v)
+                findBlock:findBlock];
+    } else if (value <= UINT32_MAX) {
+        uint32_t v = (uint32_t)value;
+        [self searchAgain:&v
+                valueSize:sizeof(v)
+                findBlock:findBlock];
+    } else if (value <= UINT64_MAX) {
+        uint64_t v = (uint64_t)value;
+        [self searchAgain:&v
+                valueSize:sizeof(v)
+                findBlock:findBlock];
+    } else {
+        return nil;
+    }
     
-    if (resultCount <= MaxCount) {
-        NSMutableArray *ret = [NSMutableArray array];
-        for (int i = 0; i < resultCount; i++) {
-            [ret addObject:@(results[i])];
-        }
-        return ret;
+    uint64_t end = mach_absolute_time();
+    uint64_t nanos  = (end - begin)* timebase_info.numer / timebase_info.denom;
+    NSLog(@"searchAgain elapse time %.4f", (CGFloat)nanos / NSEC_PER_SEC);
+    
+    [self.results removeAllObjects];
+    [self.results addObjectsFromArray:newResults];
+    
+    if (self.results.count <= MaxCount) {
+        return self.results;
     } else {
         return [NSArray array];
     }
-    return nil;
 }
 
-- (NSDictionary *)getResult:(vm_address_t)address {
+- (NSDictionary *)getResult:(uint64_t)address {
     kern_return_t kret;
     mach_vm_size_t size;
     
@@ -217,7 +239,7 @@
 }
 
 - (BOOL)modifyMemory:(NSDictionary *)result {
-    vm_address_t address = [result address];
+    uint64_t address = [result address];
     int value = [result value];
     vm_prot_t protection = [result protection];
     
@@ -275,12 +297,69 @@
     return YES;
 }
 
+- (BOOL)searchRegionHasPrivilege:(vm_prot_t)pri
+                       withBlock:(void (^)(vm_address_t offset, mach_msg_type_number_t size, char *buf))block {
+    kern_return_t kr;
+    
+    mach_msg_type_number_t region_size = 0;
+    vm_region_basic_info_data_t info;
+    
+    /* must set to >= VM_REGION_BASIC_INFO_COUNT
+     * or will cause KERN_INVALID_ARGUMENT
+     * ref vm_map_region function from: http://www.opensource.apple.com/source/xnu/xnu-792.13.8/osfmk/vm/vm_map.c
+     */
+    mach_msg_type_number_t infoCnt = VM_REGION_BASIC_INFO_COUNT;
+    mach_port_t objname;
+    
+    vm_address_t region_addr = 1;
+    while((size_t)region_addr != 0)
+    {
+        region_addr += region_size;
+        
+        kr = vm_region(self.task,
+                       &region_addr,
+                       &region_size,
+                       VM_REGION_BASIC_INFO,
+                       (vm_region_info_t)&info,
+                       &infoCnt,
+                       &objname);
+        
+        if (kr != KERN_SUCCESS) {
+            return NO;
+        }
+        
+        if(info.protection != pri)
+            continue;
+        
+        char *region_buf = (char*)malloc(region_size);
+        
+        vm_size_t count;
+        
+        kr = vm_read_overwrite(self.task,
+                               region_addr,
+                               region_size,
+                               (vm_offset_t)region_buf,
+                               &count);
+        
+        if (kr != KERN_SUCCESS) {
+            free(region_buf);
+            return NO;
+        }
+        
+        block(region_addr, region_size, region_buf);
+        free(region_buf);
+    }
+    
+    return YES;
+}
+
 - (BOOL)reset {
-    resultCount = 0;
+    [self.results removeAllObjects];
     return YES;
 }
 
 - (void)dealloc {
+    self.results = nil;
     [super dealloc];
 }
 

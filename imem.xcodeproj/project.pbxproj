@@ -17,8 +17,6 @@
 		A81E809B197D5FE500D3DF5E /* MAZeroingWeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */; };
 		A81E809C197D600700D3DF5E /* MAZeroingWeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */; };
 		A81E809E197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h in Headers */ = {isa = PBXBuildFile; fileRef = A81E809D197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h */; };
-		A8208227197FE71A0081CF58 /* imem.app in Resources */ = {isa = PBXBuildFile; fileRef = A8208226197FE71A0081CF58 /* imem.app */; };
-		A820822D197FE7210081CF58 /* imemXpcService in Resources */ = {isa = PBXBuildFile; fileRef = A820822A197FE7210081CF58 /* imemXpcService */; };
 		A820822E197FE7210081CF58 /* libapplist.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A820822C197FE7210081CF58 /* libapplist.dylib */; };
 		A82B441F197B60060098A6D4 /* NSDictionary+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A810E666197AD59E00757554 /* NSDictionary+Additions.m */; };
 		A82B4425197BBD260098A6D4 /* GMKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B4424197BBD260098A6D4 /* GMKeyboard.m */; };
@@ -455,10 +453,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8D9058C197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png in Resources */,
-				A820822D197FE7210081CF58 /* imemXpcService in Resources */,
 				A839D2D7196C2B2400E8E9F4 /* entitlements.plist in Resources */,
 				ABFF4BFA1966A579000C7128 /* Images.xcassets in Resources */,
-				A8208227197FE71A0081CF58 /* imem.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,7 +603,7 @@
 				VALIDATE_PRODUCT = NO;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 10.2.146.186;
+				iOSOpenDevDevice = 192.168.1.104;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
@@ -650,7 +646,7 @@
 				VALIDATE_PRODUCT = YES;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 10.2.146.186;
+				iOSOpenDevDevice = 192.168.1.104;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;

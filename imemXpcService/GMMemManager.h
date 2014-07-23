@@ -8,7 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GMMemManager : NSObject
+#define kMaxCount 1000000
+
+@interface GMMemManager : NSObject {
+    vm_address_t results[kMaxCount];
+    int resultCount;
+}
 
 @property (nonatomic, assign, readonly) UInt64 resultCount;
 
@@ -18,7 +23,7 @@
 
 - (NSArray *)search:(int64_t)value isFirst:(bool)isFirst;
 
-- (NSDictionary *)getResult:(uint64_t)address;
+- (NSDictionary *)getResult:(vm_address_t)address;
 
 - (BOOL)modifyMemory:(NSDictionary *)result;
 
