@@ -150,8 +150,7 @@
         unsigned long long address = [addressObj unsignedLongLongValue];
         NSDictionary *result = [[GMMemManagerProxy shareInstance] getResult:address];
         uint64_t value = [result value];
-        BOOL writable = [result writable];
-        NSString *text = [NSString stringWithFormat:@"%2ld 0X%llX:%llu  %s", (long)indexPath.row, address, value, (writable ? "rw" : "r")];
+        NSString *text = [NSString stringWithFormat:@"%2ld 0X%llX:%llu", (long)indexPath.row, address, value];
         cell.textLabel.text = text;
     }
     return cell;

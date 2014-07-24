@@ -33,12 +33,10 @@
     // Get task of specified PID
 	kern_return_t kret;
 	mach_port_t task; // type vm_map_t = mach_port_t in mach_types.defs
-	if ((kret = task_for_pid(mach_task_self(), pid, &task)) != KERN_SUCCESS)
-	{
+	if ((kret = task_for_pid(mach_task_self(), pid, &task)) != KERN_SUCCESS) {
 		NSLog(@"task_for_pid() failed, error %d: %s. Forgot to run as root?\n", kret, mach_error_string(kret));
         return NO;
     }
-    //    CFArrayCreateMutable(NULL, 666, const CFArrayCallBacks *callBacks)
     self.task = task;
     resultCount = 0;
     return YES;
@@ -46,6 +44,20 @@
 
 - (UInt64)resultCount {
     return resultCount;
+}
+
+- (vm_size_t)virtualSize {
+    task_basic_info_data_t taskInfo;
+    mach_msg_type_number_t infoCount = TASK_BASIC_INFO_COUNT;
+    kern_return_t kret = task_info(self.task,
+                                   TASK_BASIC_INFO,
+                                   (task_info_t)&taskInfo,
+                                   &infoCount);
+    if (kret == KERN_SUCCESS) {
+        return taskInfo.virtual_size;
+    } else {
+        return 0;
+    }
 }
 
 - (NSArray *)search:(int64_t)value isFirst:(bool)isFirst {
@@ -61,7 +73,6 @@
     
     mach_timebase_info_data_t timebase_info;
     if (mach_timebase_info(&timebase_info) != KERN_SUCCESS) return nil;
-    
     uint64_t begin = mach_absolute_time();
     
     void(^findBlock)(vm_address_t, vm_prot_t) = ^(vm_address_t realAddress, vm_prot_t protection) {
@@ -115,31 +126,41 @@
           valueSize:(size_t)valueSize
           findBlock:(void(^)(vm_address_t realAddress, vm_prot_t protection))findBlock {
     kern_return_t kret;
+    vm_size_t virtualSize = [self virtualSize];
     
     // Output all searched results
 	vm_address_t address = 0;
+    vm_address_t baseAddress = 0;
+    vm_address_t endAddress = 0;
 	vm_size_t size;
 	mach_port_t object_name;
 	vm_region_basic_info_data_64_t info;
 	mach_msg_type_number_t count = VM_REGION_BASIC_INFO_COUNT_64;
-	while (address < 0x40000000 && vm_region(self.task, &address, &size, VM_REGION_BASIC_INFO, (vm_region_info_t)&info, &count, &object_name) == KERN_SUCCESS)
+	while (vm_region(self.task, &address, &size, VM_REGION_BASIC_INFO, (vm_region_info_t)&info, &count, &object_name) == KERN_SUCCESS)
 	{
+        if (baseAddress == 0) {
+            baseAddress = address;
+            endAddress = baseAddress + virtualSize;
+        }
+        if (address >= endAddress) {
+            break;
+        }
         vm_prot_t protection = info.protection;
-        if ( (protection &VM_PROT_READ)&& (protection &VM_PROT_WRITE)) {
+        if (!info.shared && !info.reserved && (protection &VM_PROT_READ)&& (protection &VM_PROT_WRITE)) {
             
             pointer_t buffer;
             mach_msg_type_number_t bufferSize = size;
             if ((kret = vm_read(self.task, (mach_vm_address_t)address, size, &buffer, &bufferSize)) == KERN_SUCCESS) {
                 void *pos = memmem(buffer, bufferSize, value, valueSize);
                 while (pos) {
-                    vm_address_t realAddress = pos - buffer + address;
+                    vm_address_t realAddress = pos - buffer + address;                    
                     if (findBlock) {
                         findBlock(realAddress, protection);
                     }
                     pos = memmem(pos + 1, (void*)(bufferSize + buffer) - pos - 1, value, valueSize);
                 }
             } else {
-                //            NSLog(@"mac_vm_read fails, address:%x, error %d:%s", address, kret, mach_error_string(kret));
+                //                NSLog(@"mac_vm_read fails, address:%x, error %d:%s", address, kret, mach_error_string(kret));
             }
         }
 		address += size;
@@ -171,20 +192,27 @@
 }
 
 - (NSArray *)searchAgain:(int64_t)value {
+    mach_timebase_info_data_t timebase_info;
+    if (mach_timebase_info(&timebase_info) != KERN_SUCCESS) return nil;
+    uint64_t begin = mach_absolute_time();
+    
     
     __block int newResultCount = 0;
     
     void(^findBlock)(vm_address_t, const void *,  size_t) = ^(vm_address_t address, const void *buffer,  size_t bufferSize) {
-//        results[newResultCount] = address;
-//        newResultCount++;
+        results[newResultCount] = address;
+        newResultCount++;
     };
     
-        uint8_t v = (uint8_t)value;
-        [self searchAgain:&v
-                valueSize:sizeof(v)
-                findBlock:findBlock];
-        
- 
+    uint8_t v = (uint8_t)value;
+    [self searchAgain:&v
+            valueSize:sizeof(v)
+            findBlock:findBlock];
+    
+    uint64_t end = mach_absolute_time();
+    uint64_t nanos  = (end - begin)* timebase_info.numer / timebase_info.denom;
+    NSLog(@"elapse time %.4f", (CGFloat)nanos / NSEC_PER_SEC);
+    
     resultCount = newResultCount;
     
     if (resultCount <= MaxCount) {
@@ -196,6 +224,7 @@
     } else {
         return [NSArray array];
     }
+    
     return nil;
 }
 
