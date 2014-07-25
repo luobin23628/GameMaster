@@ -153,7 +153,7 @@
             if ((kret = vm_read(self.task, (mach_vm_address_t)address, size, &buffer, &bufferSize)) == KERN_SUCCESS) {
                 void *pos = memmem(buffer, bufferSize, value, valueSize);
                 while (pos) {
-                    vm_address_t realAddress = pos - buffer + address;                    
+                    vm_address_t realAddress = pos - buffer + address;
                     if (findBlock) {
                         findBlock(realAddress, protection);
                     }
@@ -194,28 +194,37 @@
         if (address >= endAddress) {
             break;
         }
+        
         vm_prot_t protection = info.protection;
         if (!info.shared && !info.reserved && (protection &VM_PROT_READ)&& (protection &VM_PROT_WRITE)) {
             currentAddress = results[i];
-
-            if (address <= currentAddress < address + size) {
+            
+            while (currentAddress < address) {
+                NSLog(@"%d, ignore address. %X not exist.", i, currentAddress);
+                
+                i ++;
+                if (i >= resultCt) {
+                    return;
+                }
+                currentAddress = results[i];
+            }
+            
+            if (address <= currentAddress && currentAddress < address + size) {
                 pointer_t buffer;
                 mach_msg_type_number_t bufferSize = size;
                 if ((kret = vm_read(self.task, (mach_vm_address_t)address, size, &buffer, &bufferSize)) == KERN_SUCCESS) {
-                    
-                    while (address <= currentAddress < address + size) {
+                    while (address <= currentAddress && currentAddress < address + size) {
                         void *pos = currentAddress - address + buffer;
                         if (bufferSize - (currentAddress - address) >= valueSize && memmem(pos, valueSize, value, valueSize)) {
                             if (findBlock) {
                                 findBlock(currentAddress, value, valueSize);
                             }
                         }
-                        if (i >= resultCt) {
-                            break;
-                        } else {
-                            i ++;
-                            currentAddress = results[i];
+                        i ++;
+                        if (i >= resultCt - 1) {
+                            return;
                         }
+                        currentAddress = results[i];
                     }
                     
                 } else {
@@ -223,6 +232,7 @@
                 }
             }
         }
+        NSLog(@"vm_region %d, protection:%d address:%d size:%d, currentAddress:%d next region", i, protection, address, size, currentAddress);
 		address += size;
 	}
 }
@@ -232,7 +242,6 @@
     if (mach_timebase_info(&timebase_info) != KERN_SUCCESS) return nil;
     uint64_t begin = mach_absolute_time();
     
-    
     __block int newResultCount = 0;
     
     void(^findBlock)(vm_address_t, const void *,  size_t) = ^(vm_address_t address, const void *buffer,  size_t bufferSize) {
@@ -240,15 +249,38 @@
         newResultCount++;
     };
     
-    uint8_t v = (uint8_t)value;
-    [self searchAgain:&v
-            valueSize:sizeof(v)
-            findBlock:findBlock];
+    if (value <= UINT8_MAX) {
+        uint8_t v = (uint8_t)value;
+        [self searchAgain:&v
+                valueSize:sizeof(v)
+                findBlock:findBlock];
+        
+    } else if (value <= UINT16_MAX) {
+        uint16_t v = (uint16_t)value;
+        [self searchAgain:&v
+                valueSize:sizeof(v)
+                findBlock:findBlock];
+    } else if (value <= UINT32_MAX) {
+        uint32_t v = (uint32_t)value;
+        [self searchAgain:&v
+                valueSize:sizeof(v)
+                findBlock:findBlock];
+    } else if (value <= UINT64_MAX) {
+        uint64_t v = (uint64_t)value;
+        [self searchAgain:&v
+                valueSize:sizeof(v)
+                findBlock:findBlock];
+    } else {
+        return nil;
+    }
     
     uint64_t end = mach_absolute_time();
     uint64_t nanos  = (end - begin)* timebase_info.numer / timebase_info.denom;
     NSLog(@"elapse time %.4f", (CGFloat)nanos / NSEC_PER_SEC);
     
+    NSLog(@"newResultCount:%d", newResultCount);
+    NSLog(@"resultCount:%d", resultCount);
+
     resultCount = newResultCount;
     
     if (resultCount <= MaxCount) {
@@ -260,8 +292,6 @@
     } else {
         return [NSArray array];
     }
-    
-    return nil;
 }
 
 - (NSDictionary *)getResult:(vm_address_t)address {
