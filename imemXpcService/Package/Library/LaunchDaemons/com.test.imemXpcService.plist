@@ -15,7 +15,7 @@
 	</array>
 	<key>UserName</key>
 	<string>mobile</string>
-	<key>RunAtLoad</key>
+	<key>KeepAlive</key>
 	<true/>
 </dict>
 </plist>
