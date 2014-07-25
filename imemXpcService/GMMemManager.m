@@ -170,25 +170,61 @@
 - (void)searchAgain:(void *)value
           valueSize:(size_t)valueSize
           findBlock:(void(^)(vm_address_t realAddress, const void *buffer,  size_t bufferSize))findBlock {
+    int resultCt = resultCount;
     
-    int count = resultCount;
     kern_return_t kret;
-    mach_vm_offset_t address = 0;
-    for (int i = 0; i < count; i++) {
-        pointer_t buffer;
-        mach_msg_type_number_t bufferSize = valueSize;
-        
-        address = results[i];
-        
-        if ((kret = vm_read(self.task, (mach_vm_address_t)address, valueSize, &buffer, &bufferSize)) == KERN_SUCCESS) {
-			void *substring = NULL;
-			if ((substring = memmem(buffer, bufferSize, value, valueSize)) != NULL) {
-                if (findBlock) {
-                    findBlock(address, buffer, bufferSize);
+    vm_size_t virtualSize = [self virtualSize];
+    
+    // Output all searched results
+    int i = 0;
+    vm_address_t currentAddress = 0;
+	vm_address_t address = 0;
+    vm_address_t baseAddress = 0;
+    vm_address_t endAddress = 0;
+	vm_size_t size;
+	mach_port_t object_name;
+	vm_region_basic_info_data_64_t info;
+	mach_msg_type_number_t count = VM_REGION_BASIC_INFO_COUNT_64;
+	while (vm_region(self.task, &address, &size, VM_REGION_BASIC_INFO, (vm_region_info_t)&info, &count, &object_name) == KERN_SUCCESS)
+	{
+        if (baseAddress == 0) {
+            baseAddress = address;
+            endAddress = baseAddress + virtualSize;
+        }
+        if (address >= endAddress) {
+            break;
+        }
+        vm_prot_t protection = info.protection;
+        if (!info.shared && !info.reserved && (protection &VM_PROT_READ)&& (protection &VM_PROT_WRITE)) {
+            currentAddress = results[i];
+
+            if (address <= currentAddress < address + size) {
+                pointer_t buffer;
+                mach_msg_type_number_t bufferSize = size;
+                if ((kret = vm_read(self.task, (mach_vm_address_t)address, size, &buffer, &bufferSize)) == KERN_SUCCESS) {
+                    
+                    while (address <= currentAddress < address + size) {
+                        void *pos = currentAddress - address + buffer;
+                        if (bufferSize - (currentAddress - address) >= valueSize && memmem(pos, valueSize, value, valueSize)) {
+                            if (findBlock) {
+                                findBlock(currentAddress, value, valueSize);
+                            }
+                        }
+                        if (i >= resultCt) {
+                            break;
+                        } else {
+                            i ++;
+                            currentAddress = results[i];
+                        }
+                    }
+                    
+                } else {
+                    //                NSLog(@"mac_vm_read fails, address:%x, error %d:%s", address, kret, mach_error_string(kret));
                 }
-			}
-		}
-    }
+            }
+        }
+		address += size;
+	}
 }
 
 - (NSArray *)searchAgain:(int64_t)value {
