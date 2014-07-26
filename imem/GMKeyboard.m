@@ -24,17 +24,9 @@
     if (self) {
         self.texturedView = [[[GMGridLinesTexturedView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)] autorelease];
         self.texturedView.backgroundColor = [UIColor colorWithWhite:251/255.0 alpha:1];
-        
         [self addSubview:self.texturedView];
         
-//        CGFloat y = 0;
-//        [self addSubview:[self addStringKeyWithTitle:@"重 置" frame:CGRectMake(0, y, KEYBOARD_NUMERIC_KEY_WIDTH, KEYBOARD_NUMERIC_KEY_HEIGHT)]];
-//        [self addSubview:[self addStringKeyWithTitle:@"存 储" frame:CGRectMake(KEYBOARD_NUMERIC_KEY_WIDTH , y, KEYBOARD_NUMERIC_KEY_WIDTH, KEYBOARD_NUMERIC_KEY_HEIGHT)]];
-//        [self addSubview:[self addStringKeyWithTitle:@"3" frame:CGRectMake(KEYBOARD_NUMERIC_KEY_WIDTH * 2, y, KEYBOARD_NUMERIC_KEY_WIDTH, KEYBOARD_NUMERIC_KEY_HEIGHT)]];
-//        [self addSubview:[self addStringKeyWithTitle:@"4" frame:CGRectMake(KEYBOARD_NUMERIC_KEY_WIDTH * 3, y, KEYBOARD_NUMERIC_KEY_WIDTH, KEYBOARD_NUMERIC_KEY_HEIGHT)]];
-        CGFloat y ;
-        
-        y = 0;
+        CGFloat y = 0;
         [self addSubview:[self addNumericKeyWithTitle:@"1" frame:CGRectMake(0, y, KEYBOARD_NUMERIC_KEY_WIDTH, KEYBOARD_NUMERIC_KEY_HEIGHT)]];
         [self addSubview:[self addNumericKeyWithTitle:@"2" frame:CGRectMake(KEYBOARD_NUMERIC_KEY_WIDTH , y, KEYBOARD_NUMERIC_KEY_WIDTH, KEYBOARD_NUMERIC_KEY_HEIGHT)]];
         [self addSubview:[self addNumericKeyWithTitle:@"3" frame:CGRectMake(KEYBOARD_NUMERIC_KEY_WIDTH * 2, y, KEYBOARD_NUMERIC_KEY_WIDTH, KEYBOARD_NUMERIC_KEY_HEIGHT)]];

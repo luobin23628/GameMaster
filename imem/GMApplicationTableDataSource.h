@@ -1,6 +1,8 @@
 #import <UIKit/UIKit.h>
 #import <libkern/OSAtomic.h>
 
+#if !TARGET_IPHONE_SIMULATOR
+
 @class GMApplicationList;
 
 @interface GMApplicationTableDataSource : NSObject <UITableViewDataSource> {
@@ -43,3 +45,5 @@ extern const NSString *ALSectionDescriptorVisibilityPredicateKey;
 extern const NSString *ALItemDescriptorTextKey;
 extern const NSString *ALItemDescriptorDetailTextKey;
 extern const NSString *ALItemDescriptorImageKey;
+
+#endif

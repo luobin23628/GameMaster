@@ -13,15 +13,16 @@
 @interface GMMemManager : NSObject {
     vm_address_t results[kMaxCount];
     int resultCount;
+    int _pid;
 }
 
-@property (nonatomic, assign, readonly) UInt64 resultCount;
+@property (nonatomic, assign, readonly) uint64_t resultCount;
 
 + (instancetype)shareInstance;
 
 - (BOOL)setPid:(int)pid;
 
-- (NSArray *)search:(int64_t)value isFirst:(bool)isFirst;
+- (NSArray *)search:(uint64_t)value isFirst:(bool)isFirst;
 
 - (NSDictionary *)getResult:(vm_address_t)address;
 

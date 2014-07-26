@@ -5,6 +5,8 @@
 #import <UIKit/UIKit2.h>
 #import <CoreGraphics/CoreGraphics.h>
 
+#if !TARGET_IPHONE_SIMULATOR
+
 const NSString *ALSectionDescriptorTitleKey = @"title";
 const NSString *ALSectionDescriptorFooterTitleKey = @"footer-title";
 const NSString *ALSectionDescriptorPredicateKey = @"predicate";
@@ -568,3 +570,5 @@ static inline UITableViewCell *CellWithClassName(NSString *className, UITableVie
 }
 
 @end
+
+#endif

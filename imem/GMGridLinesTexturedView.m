@@ -24,6 +24,16 @@
     // Drawing code
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     
+    CGRect rectangle = CGRectMake(0, 0.5, self.bounds.size.width, 0.5);
+    CGContextAddRect(ctx, rectangle);
+    CGContextSetFillColorWithColor(ctx, [UIColor colorWithRed:239/255.0 green:237/255.0 blue:239/255.0 alpha:1].CGColor);
+    CGContextFillPath(ctx);
+    
+    rectangle = CGRectMake(0, 0, self.bounds.size.width, 0.5);
+    CGContextAddRect(ctx, rectangle);
+    CGContextSetFillColorWithColor(ctx, [UIColor colorWithRed:197/255.0 green:197/255.0 blue:197/255.0 alpha:1].CGColor);
+    CGContextFillPath(ctx);
+    
     CGFloat height = self.bounds.size.height/3;
     for (int i = 0; i < 3; i++) {
         CGRect rectangle = CGRectMake(0, height*(i + 1) - 0.5, self.bounds.size.width, 0.5);

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GMKeyboard.h"
 
-@interface GMMainViewController : UITableViewController
+@interface GMMainViewController : UIViewController
 
 @property (nonatomic, strong) GMKeyboard *keyboardView;
 

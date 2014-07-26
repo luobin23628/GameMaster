@@ -11,7 +11,7 @@
 #define KEYBOARD_NUMERIC_KEY_WIDTH ([UIScreen mainScreen].bounds.size.width/5)
 #define KEYBOARD_NUMERIC_KEY_HEIGHT 53
 
-#define kMaxNumber                       UINT64_MAX
+#define kMaxNumber                       UINT32_MAX
 
 @protocol GMKeyboardDelegate <NSObject>
 
