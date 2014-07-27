@@ -10,7 +10,7 @@
 #define imem_Global_h
 
 #import <LightMessaging.h>
-#import "NSDictionary+Additions.h"
+#import "GMMemoryAccessObject.h"
 #import "MAZeroingWeakRef.h"
 
 static LMConnection connection = {
@@ -23,6 +23,6 @@ static LMConnection connection = {
 #define GMMessageIdGetResult    3
 #define GMMessageIdModify       4
 #define GMMessageIdReset        5
-
+#define GMMessageIdCheckValid   6
 
 #endif

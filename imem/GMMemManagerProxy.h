@@ -19,10 +19,12 @@
         result:(NSArray **)result
          count:(UInt64 *)resultCount;
 
-- (NSDictionary *)getResult:(uint64_t)address;
+- (GMMemoryAccessObject *)getResult:(uint64_t)address;
 
-- (BOOL)modifyMemory:(NSDictionary *)result;
+- (BOOL)modifyMemory:(GMMemoryAccessObject *)result;
 
 - (BOOL)reset;
+
+- (BOOL)isValid:(int)pid;
 
 @end

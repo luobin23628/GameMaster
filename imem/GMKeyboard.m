@@ -83,7 +83,6 @@
     } else if ([@"搜索" isEqualToString:keyText]) {
         key = 13;
     }
-    
     switch (key) {
         case 11:
             if ([self.delegate respondsToSelector:@selector(resetKeyDidPressed)]) {

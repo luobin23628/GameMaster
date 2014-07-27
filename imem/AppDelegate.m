@@ -24,7 +24,6 @@
     [nav release];
     [mainViewController release];
     
-    
     return YES;
 }
 

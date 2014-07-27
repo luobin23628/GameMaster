@@ -10,16 +10,17 @@
 		447B594FF8534C92B694C90C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECA1A66F9EB4AE3A23B64CB /* libPods.a */; };
 		A8054ED6196DB6E8004CC80A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF4BE71966A579000C7128 /* Foundation.framework */; };
 		A8054EE0196DB6E8004CC80A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8054EDF196DB6E8004CC80A /* main.m */; };
+		A80D3E7619855DE100F5CF2A /* GMMemoryAccessObject.h in Headers */ = {isa = PBXBuildFile; fileRef = A80D3E7419855DE100F5CF2A /* GMMemoryAccessObject.h */; };
+		A80D3E7719855DE100F5CF2A /* GMMemoryAccessObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A80D3E7519855DE100F5CF2A /* GMMemoryAccessObject.m */; };
+		A80D3E7819855DE100F5CF2A /* GMMemoryAccessObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A80D3E7519855DE100F5CF2A /* GMMemoryAccessObject.m */; };
 		A810E661197ABA6800757554 /* GMModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A810E660197ABA6800757554 /* GMModifyViewController.m */; };
 		A810E664197AC43B00757554 /* TextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A810E663197AC43B00757554 /* TextFieldTableViewCell.m */; };
-		A810E667197AD59E00757554 /* NSDictionary+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A810E666197AD59E00757554 /* NSDictionary+Additions.m */; };
 		A810E66C197AD97F00757554 /* PickerInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A810E669197AD97F00757554 /* PickerInputTableViewCell.m */; };
 		A810E66D197AD97F00757554 /* SimplePickerInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A810E66B197AD97F00757554 /* SimplePickerInputTableViewCell.m */; };
 		A81E809B197D5FE500D3DF5E /* MAZeroingWeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */; };
 		A81E809C197D600700D3DF5E /* MAZeroingWeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */; };
 		A81E809E197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h in Headers */ = {isa = PBXBuildFile; fileRef = A81E809D197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h */; };
 		A820822E197FE7210081CF58 /* libapplist.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A820822C197FE7210081CF58 /* libapplist.dylib */; };
-		A82B441F197B60060098A6D4 /* NSDictionary+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A810E666197AD59E00757554 /* NSDictionary+Additions.m */; };
 		A82B4425197BBD260098A6D4 /* GMKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B4424197BBD260098A6D4 /* GMKeyboard.m */; };
 		A82B4428197BBE5C0098A6D4 /* UIView+Sizes.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B4427197BBE5C0098A6D4 /* UIView+Sizes.m */; };
 		A82B442B197BD4A60098A6D4 /* GMGridLinesTexturedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B442A197BD4A60098A6D4 /* GMGridLinesTexturedView.m */; };
@@ -33,11 +34,16 @@
 		A86FD14D1975839400765F99 /* GMApplicationTableDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A86FD14C1975839400765F99 /* GMApplicationTableDataSource.h */; };
 		A86FD14F1975858500765F99 /* libapplist.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A86FD14E1975858500765F99 /* libapplist.dylib */; };
 		A86FD1521976BD9200765F99 /* GMMemManagerProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A86FD1511976BD9200765F99 /* GMMemManagerProxy.m */; };
+		A874478C19849CEC00A9544D /* GMLockThread.h in Headers */ = {isa = PBXBuildFile; fileRef = A874478A19849CEC00A9544D /* GMLockThread.h */; };
+		A874478D19849CEC00A9544D /* GMLockThread.m in Sources */ = {isa = PBXBuildFile; fileRef = A874478B19849CEC00A9544D /* GMLockThread.m */; };
+		A87447901984AE6D00A9544D /* GMLockObject.h in Headers */ = {isa = PBXBuildFile; fileRef = A874478E1984AE6D00A9544D /* GMLockObject.h */; };
+		A87447911984AE6D00A9544D /* GMLockObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A874478F1984AE6D00A9544D /* GMLockObject.m */; };
+		A87447941984B08F00A9544D /* GMLockManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A87447921984B08F00A9544D /* GMLockManager.h */; };
+		A87447951984B08F00A9544D /* GMLockManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A87447931984B08F00A9544D /* GMLockManager.m */; };
 		A8A7416919680E6400131416 /* GMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A7416819680E6400131416 /* GMMainViewController.m */; };
 		A8A7416F1968105C00131416 /* GMSelectAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A7416E1968105C00131416 /* GMSelectAppViewController.m */; };
 		A8D9058C197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8D9058B197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png */; };
 		A8D9058F197BF4CE001F22FF /* GMStorageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D9058E197BF4CE001F22FF /* GMStorageViewController.m */; };
-		A8E3AB9719835A3200B6E4E6 /* GMMemManager.m.k in Sources */ = {isa = PBXBuildFile; fileRef = A8E3AB9619835A3200B6E4E6 /* GMMemManager.m.k */; };
 		A8E3AB9A1983C0C800B6E4E6 /* GMSelectAppButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E3AB991983C0C800B6E4E6 /* GMSelectAppButton.m */; };
 		A8E3AB9D1983E5E400B6E4E6 /* UIColor+iOS7Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E3AB9C1983E5E400B6E4E6 /* UIColor+iOS7Colors.m */; };
 		A8EFBFE71972D30D002E4A9B /* librocketbootstrap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */; };
@@ -71,12 +77,12 @@
 		A8054EDF196DB6E8004CC80A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A8054EE4196DB6E8004CC80A /* postinst */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = postinst; path = Package/DEBIAN/postinst; sourceTree = "<group>"; };
 		A8054EE5196DB6E8004CC80A /* prerm */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = prerm; path = Package/DEBIAN/prerm; sourceTree = "<group>"; };
+		A80D3E7419855DE100F5CF2A /* GMMemoryAccessObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMemoryAccessObject.h; sourceTree = "<group>"; };
+		A80D3E7519855DE100F5CF2A /* GMMemoryAccessObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMemoryAccessObject.m; sourceTree = "<group>"; };
 		A810E65F197ABA6800757554 /* GMModifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMModifyViewController.h; sourceTree = "<group>"; };
 		A810E660197ABA6800757554 /* GMModifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMModifyViewController.m; sourceTree = "<group>"; };
 		A810E662197AC43B00757554 /* TextFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldTableViewCell.h; sourceTree = "<group>"; };
 		A810E663197AC43B00757554 /* TextFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldTableViewCell.m; sourceTree = "<group>"; };
-		A810E665197AD59E00757554 /* NSDictionary+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Additions.h"; sourceTree = "<group>"; };
-		A810E666197AD59E00757554 /* NSDictionary+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Additions.m"; sourceTree = "<group>"; };
 		A810E668197AD97F00757554 /* PickerInputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerInputTableViewCell.h; sourceTree = "<group>"; };
 		A810E669197AD97F00757554 /* PickerInputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerInputTableViewCell.m; sourceTree = "<group>"; };
 		A810E66A197AD97F00757554 /* SimplePickerInputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePickerInputTableViewCell.h; sourceTree = "<group>"; };
@@ -109,6 +115,12 @@
 		A86FD1501976BD9200765F99 /* GMMemManagerProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMemManagerProxy.h; sourceTree = "<group>"; };
 		A86FD1511976BD9200765F99 /* GMMemManagerProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMemManagerProxy.m; sourceTree = "<group>"; };
 		A86FD1531976C6E500765F99 /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		A874478A19849CEC00A9544D /* GMLockThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMLockThread.h; sourceTree = "<group>"; };
+		A874478B19849CEC00A9544D /* GMLockThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMLockThread.m; sourceTree = "<group>"; };
+		A874478E1984AE6D00A9544D /* GMLockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMLockObject.h; sourceTree = "<group>"; };
+		A874478F1984AE6D00A9544D /* GMLockObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMLockObject.m; sourceTree = "<group>"; };
+		A87447921984B08F00A9544D /* GMLockManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMLockManager.h; sourceTree = "<group>"; };
+		A87447931984B08F00A9544D /* GMLockManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMLockManager.m; sourceTree = "<group>"; };
 		A8A7416719680E6400131416 /* GMMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMainViewController.h; sourceTree = "<group>"; };
 		A8A7416819680E6400131416 /* GMMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMainViewController.m; sourceTree = "<group>"; };
 		A8A7416D1968105C00131416 /* GMSelectAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMSelectAppViewController.h; sourceTree = "<group>"; };
@@ -116,7 +128,6 @@
 		A8D9058B197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KeyboardNumericBackspace@2x.png"; sourceTree = "<group>"; };
 		A8D9058D197BF4CE001F22FF /* GMStorageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMStorageViewController.h; sourceTree = "<group>"; };
 		A8D9058E197BF4CE001F22FF /* GMStorageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMStorageViewController.m; sourceTree = "<group>"; };
-		A8E3AB9619835A3200B6E4E6 /* GMMemManager.m.k */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GMMemManager.m.k; sourceTree = "<group>"; };
 		A8E3AB981983C0C800B6E4E6 /* GMSelectAppButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMSelectAppButton.h; sourceTree = "<group>"; };
 		A8E3AB991983C0C800B6E4E6 /* GMSelectAppButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMSelectAppButton.m; sourceTree = "<group>"; };
 		A8E3AB9B1983E5E400B6E4E6 /* UIColor+iOS7Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+iOS7Colors.h"; sourceTree = "<group>"; };
@@ -170,8 +181,15 @@
 			isa = PBXGroup;
 			children = (
 				A8054EDF196DB6E8004CC80A /* main.m */,
+				A874478E1984AE6D00A9544D /* GMLockObject.h */,
+				A874478F1984AE6D00A9544D /* GMLockObject.m */,
+				A87447921984B08F00A9544D /* GMLockManager.h */,
+				A87447931984B08F00A9544D /* GMLockManager.m */,
+				A874478A19849CEC00A9544D /* GMLockThread.h */,
+				A874478B19849CEC00A9544D /* GMLockThread.m */,
+				A80D3E7419855DE100F5CF2A /* GMMemoryAccessObject.h */,
+				A80D3E7519855DE100F5CF2A /* GMMemoryAccessObject.m */,
 				A86FD1411975680000765F99 /* GMMemManager.h */,
-				A8E3AB9619835A3200B6E4E6 /* GMMemManager.m.k */,
 				A86FD1421975680000765F99 /* GMMemManager.m */,
 				ABE39FD6197FCCAE002E7678 /* shared_region.h */,
 				ABE39F94197FCBBA002E7678 /* darwin_memory_usage.h */,
@@ -336,8 +354,6 @@
 				A86FD1501976BD9200765F99 /* GMMemManagerProxy.h */,
 				A86FD1511976BD9200765F99 /* GMMemManagerProxy.m */,
 				A86FD1531976C6E500765F99 /* Global.h */,
-				A810E665197AD59E00757554 /* NSDictionary+Additions.h */,
-				A810E666197AD59E00757554 /* NSDictionary+Additions.m */,
 				A8E3AB9B1983E5E400B6E4E6 /* UIColor+iOS7Colors.h */,
 				A8E3AB9C1983E5E400B6E4E6 /* UIColor+iOS7Colors.m */,
 				A82B4426197BBE5C0098A6D4 /* UIView+Sizes.h */,
@@ -370,8 +386,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABE39FD7197FCCAE002E7678 /* shared_region.h in Headers */,
+				A874478C19849CEC00A9544D /* GMLockThread.h in Headers */,
+				A87447901984AE6D00A9544D /* GMLockObject.h in Headers */,
+				A80D3E7619855DE100F5CF2A /* GMMemoryAccessObject.h in Headers */,
 				A81E809E197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h in Headers */,
 				A86FD1431975680000765F99 /* GMMemManager.h in Headers */,
+				A87447941984B08F00A9544D /* GMLockManager.h in Headers */,
 				A86FD13F1975652D00765F99 /* GMMem.h in Headers */,
 				A86FD14D1975839400765F99 /* GMApplicationTableDataSource.h in Headers */,
 			);
@@ -556,13 +576,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8E3AB9719835A3200B6E4E6 /* GMMemManager.m.k in Sources */,
-				A82B441F197B60060098A6D4 /* NSDictionary+Additions.m in Sources */,
 				A81E809C197D600700D3DF5E /* MAZeroingWeakRef.m in Sources */,
 				A86FD1441975680000765F99 /* GMMemManager.m in Sources */,
 				ABE39F93197FCBB0002E7678 /* darwin_memory_usage.c in Sources */,
 				A8054EE0196DB6E8004CC80A /* main.m in Sources */,
+				A87447911984AE6D00A9544D /* GMLockObject.m in Sources */,
+				A87447951984B08F00A9544D /* GMLockManager.m in Sources */,
+				A874478D19849CEC00A9544D /* GMLockThread.m in Sources */,
 				A86FD1401975652D00765F99 /* GMMem.m in Sources */,
+				A80D3E7819855DE100F5CF2A /* GMMemoryAccessObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,12 +600,12 @@
 				A86FD14B1975838900765F99 /* GMApplicationTableDataSource.m in Sources */,
 				A8E3AB9A1983C0C800B6E4E6 /* GMSelectAppButton.m in Sources */,
 				A810E66D197AD97F00757554 /* SimplePickerInputTableViewCell.m in Sources */,
+				A80D3E7719855DE100F5CF2A /* GMMemoryAccessObject.m in Sources */,
 				A8A7416F1968105C00131416 /* GMSelectAppViewController.m in Sources */,
 				ABFF4BF81966A579000C7128 /* AppDelegate.m in Sources */,
 				ABFF4BF41966A579000C7128 /* main.m in Sources */,
 				A82B4428197BBE5C0098A6D4 /* UIView+Sizes.m in Sources */,
 				A86FD1521976BD9200765F99 /* GMMemManagerProxy.m in Sources */,
-				A810E667197AD59E00757554 /* NSDictionary+Additions.m in Sources */,
 				A82B442B197BD4A60098A6D4 /* GMGridLinesTexturedView.m in Sources */,
 				A810E661197ABA6800757554 /* GMModifyViewController.m in Sources */,
 				A81E809B197D5FE500D3DF5E /* MAZeroingWeakRef.m in Sources */,

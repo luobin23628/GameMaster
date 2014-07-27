@@ -24,10 +24,14 @@
 
 - (NSArray *)search:(uint64_t)value isFirst:(bool)isFirst;
 
-- (NSDictionary *)getResult:(vm_address_t)address;
+- (GMMemoryAccessObject *)getResult:(vm_address_t)address;
 
-- (BOOL)modifyMemory:(NSDictionary *)result;
+- (BOOL)modifyMemory:(GMMemoryAccessObject *)accessObject;
 
 - (BOOL)reset;
+
+- (BOOL)isValid:(int)pid;
+
+- (BOOL)isValid;
 
 @end

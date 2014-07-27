@@ -64,23 +64,22 @@
 #endif
 }
 
-- (NSDictionary *)getResult:(uint64_t)address {
+- (GMMemoryAccessObject *)getResult:(uint64_t)address {
 #if TARGET_IPHONE_SIMULATOR
     return NO;
 #else
     LMResponseBuffer responseBuffer;
     LMConnectionSendTwoWay(&connection, GMMessageIdGetResult, &address, sizeof(address), &responseBuffer);
-    NSDictionary *result = LMResponseConsumePropertyList(&responseBuffer);
-    return result;
+    return (GMMemoryAccessObject *)LMResponseConsumeArchiverObject(&responseBuffer);
 #endif
 }
 
-- (BOOL)modifyMemory:(NSDictionary *)result {
+- (BOOL)modifyMemory:(GMMemoryAccessObject *)accessObject {
 #if TARGET_IPHONE_SIMULATOR
     return NO;
 #else
     LMResponseBuffer responseBuffer;
-    LMConnectionSendTwoWayPropertyList(&connection, GMMessageIdModify, result, &responseBuffer);
+    LMConnectionSendTwoWayArchiverObject(&connection, GMMessageIdModify, accessObject, &responseBuffer);
     int32_t ret = LMResponseConsumeInteger(&responseBuffer);
     return ret == 1;
 #endif
@@ -92,6 +91,17 @@
 #else
     LMResponseBuffer responseBuffer;
     LMConnectionSendTwoWay(&connection, GMMessageIdReset, NULL, 0, &responseBuffer);
+    int32_t ret = LMResponseConsumeInteger(&responseBuffer);
+    return ret == 1;
+#endif
+}
+
+- (BOOL)isValid:(int)pid {
+#if TARGET_IPHONE_SIMULATOR
+    return NO;
+#else
+    LMResponseBuffer responseBuffer;
+    LMConnectionSendTwoWay(&connection, GMMessageIdCheckValid, &pid, sizeof(pid), &responseBuffer);
     int32_t ret = LMResponseConsumeInteger(&responseBuffer);
     return ret == 1;
 #endif

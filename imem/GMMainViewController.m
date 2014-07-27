@@ -26,7 +26,8 @@
 @property (nonatomic, retain) NSArray *results;
 @property (nonatomic, assign) UInt64 resultCount;
 @property (nonatomic, assign) BOOL isFirst;
-@property (nonatomic, assign) UISearchBar *searchBar;
+@property (nonatomic, retain) UISearchBar *searchBar;
+@property (nonatomic, retain) NSTimer *timer;
 
 @end
 
@@ -38,16 +39,17 @@
         BOOL ok = NO;
         if (pid > 0) {
             self.pid = pid;
+            ok = [[GMMemManagerProxy shareInstance] setPid:pid];
+        }
+        if (!ok) {
+            TKAlert(@"程序已退出，请重新选择！");
+        } else {
             GMSelectAppButton * selectAppButton = (GMSelectAppButton *)[self.navigationItem.rightBarButtonItem customView];
             selectAppButton.titleLabel.font = [UIFont systemFontOfSize:14];
             selectAppButton.titleLabel.textColor = [UIColor colorWithWhite:0.4 alpha:1];
             selectAppButton.image = appIcon;
             selectAppButton.title = [NSString stringWithFormat:@"%@", appName];
-            ok = [[GMMemManagerProxy shareInstance] setPid:pid];
-        }
-        if (!ok) {
-            TKAlert(@"选择的程序无法修改，请重新选择！");
-        } else {
+            
             self.results = nil;
             self.isFirst = YES;
             [self.tableView reloadData];
@@ -78,6 +80,8 @@
 }
 
 - (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self invalidateTimer];
     self.searchBar = nil;
     self.tableView = nil;
     self.results = nil;
@@ -86,7 +90,13 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//    [self.searchBar becomeFirstResponder];
+    [self.tableView reloadData];
+    [self startTimer];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self invalidateTimer];
 }
 
 - (void)viewDidLoad
@@ -96,7 +106,7 @@
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"关于" style:UIBarButtonItemStylePlain target:self action:@selector(abount)] autorelease];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     tableView.backgroundColor = [UIColor clearColor];
     tableView.delegate = self;
     tableView.dataSource = self;
@@ -106,6 +116,7 @@
     
     UISearchBar *searchBar = [[UISearchBar alloc]
                               initWithFrame:CGRectMake(0.0, [UIDevice currentDevice].isIOS7?64:0, self.view.bounds.size.width, 44)];
+    searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     searchBar.delegate = self;
     searchBar.showsSearchResultsButton = YES;
     searchBar.showsCancelButton = NO;
@@ -126,9 +137,52 @@
     
     UIEdgeInsets edgeInsets = UIEdgeInsetsMake(44, 0, 159, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset = edgeInsets;
+    
+    [searchBar becomeFirstResponder];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(appDidBecomeActiveNotification:)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
 }
 
-#pragma mark - 
+- (BOOL)shouldAutorotate {
+    return YES;
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    self.searchBar.top = self.navigationController.navigationBar.bottom;
+}
+
+#pragma mark - Private
+- (void)appDidBecomeActiveNotification:(NSNotification *)notification {
+    if(self.pid) {
+        if ([[GMMemManagerProxy shareInstance] isValid:self.pid]) {
+            [self.tableView reloadData];
+        } else {
+            self.pid = 0;
+            [self resetSelectAppButton];
+            TKAlert(@"程序已退出，请重新选择！");
+            [self resetKeyDidPressed];
+        }
+    }
+}
+
+- (void)invalidateTimer {
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
+- (void)startTimer {
+    [self invalidateTimer];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                  target:self.tableView
+                                                selector:@selector(reloadData)
+                                                userInfo:nil
+                                                 repeats:YES];
+}
+
+#pragma mark - KeyBoard
 - (void)resetKeyDidPressed {
     [[GMMemManagerProxy shareInstance] reset];
     self.results = nil;
@@ -163,7 +217,7 @@
                     self.isFirst = NO;
                     [self.tableView reloadData];
                 } else {
-                    TKAlert(@"查询失败");
+                    TKAlert(@"程序已退出，请重新选择！");
                 }
             });
         });
@@ -172,8 +226,7 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.results?([self.results count] + 1):0;
 }
 
@@ -191,9 +244,9 @@
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
         NSNumber *addressObj = [self.results objectAtIndex:indexPath.row - 1];
         unsigned long long address = [addressObj unsignedLongLongValue];
-        NSDictionary *result = [[GMMemManagerProxy shareInstance] getResult:address];
-        uint64_t value = [result value];
-        NSString *text = [NSString stringWithFormat:@"%2ld 0X%llX:%llu", (long)indexPath.row, address, value];
+        GMMemoryAccessObject *accessObject = [[GMMemManagerProxy shareInstance] getResult:address];
+        uint64_t value = [accessObject value];
+        NSString *text = [NSString stringWithFormat:@"%ld、0X%08llX:%llu", (long)indexPath.row, address, value];
         cell.textLabel.text = text;
     }
     return cell;
@@ -217,5 +270,12 @@
     
 }
 
+- (void)resetSelectAppButton {
+    GMSelectAppButton * selectAppButton = (GMSelectAppButton *)[self.navigationItem.rightBarButtonItem customView];
+    selectAppButton.image = nil;
+    selectAppButton.title = @"选择";
+    selectAppButton.titleLabel.textColor = [UI7Color defaultTintColor];
+    selectAppButton.titleLabel.font = [UIFont systemFontOfSize:17];
+}
 
 @end

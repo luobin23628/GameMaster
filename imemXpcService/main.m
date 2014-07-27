@@ -14,7 +14,14 @@
 
 static void processMessage(SInt32 messageId, mach_port_t replyPort, CFDataRef dataRef) {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    if (messageId == GMMessageIdSetPid) {
+    
+    if (messageId == GMMessageIdCheckValid) {
+        int pid;
+        NSData *data = (NSData *)dataRef;
+        [data getBytes:&pid range:NSMakeRange(0, sizeof(pid))];
+        BOOL ok = [[GMMemManager shareInstance] isValid:pid];
+        LMSendIntegerReply(replyPort, ok);
+    } else if (messageId == GMMessageIdSetPid) {
         int pid;
         NSData *data = (NSData *)dataRef;
         [data getBytes:&pid range:NSMakeRange(0, sizeof(pid))];
@@ -40,14 +47,13 @@ static void processMessage(SInt32 messageId, mach_port_t replyPort, CFDataRef da
         uint64_t address;
         NSData *data = (NSData *)dataRef;
         [data getBytes:&address range:NSMakeRange(0, sizeof(address))];
-        NSDictionary *result = [[GMMemManager shareInstance] getResult:address];
-        LMSendPropertyListReply(replyPort, result);
+        GMMemoryAccessObject *accessObject = [[GMMemManager shareInstance] getResult:address];
+        LMSendArchiverObjectReply(replyPort, accessObject);
     } else if (messageId == GMMessageIdModify) {
-        NSData *data = (NSData *)dataRef;
-        NSDictionary *result = [NSPropertyListSerialization propertyListFromData:data mutabilityOption:0 format:NULL errorDescription:NULL];
+        GMMemoryAccessObject *accessObject = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData *)dataRef];
         BOOL ok = NO;
-        if (result) {
-            ok = [[GMMemManager shareInstance] modifyMemory:result];
+        if (accessObject) {
+            ok = [[GMMemManager shareInstance] modifyMemory:accessObject];
         }
         LMSendIntegerReply(replyPort, ok);
     } else if (messageId == GMMessageIdReset) {
@@ -80,6 +86,7 @@ static void machPortCallback(CFMachPortRef port, void *bytes, CFIndex size, void
 int main(int argc, const char *argv[]) {
     @autoreleasepool {
         NSLog(@"Service start...");
+        [GMMemManager shareInstance];
         while (YES) {
             kern_return_t err = LMStartService(connection.serverName, CFRunLoopGetCurrent(), machPortCallback);
             if (err) {

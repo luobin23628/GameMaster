@@ -14,7 +14,7 @@
 @interface GMModifyViewController ()<UITextFieldDelegate, SimplePickerInputTableViewCellDelegate>
 
 @property (nonatomic, assign) uint64_t address;
-@property (nonatomic, retain) NSMutableDictionary *result;
+@property (nonatomic, retain) GMMemoryAccessObject *accessObject;
 
 @end
 
@@ -32,7 +32,7 @@
 }
 
 - (void)dealloc {
-    self.result = nil;
+    self.accessObject = nil;
     [super dealloc];
 }
 
@@ -41,12 +41,11 @@
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(save)] autorelease];
     
-    NSDictionary *result = [[GMMemManagerProxy shareInstance] getResult:self.address];
-    self.result = [NSMutableDictionary dictionaryWithDictionary:result];
+    self.accessObject = [[GMMemManagerProxy shareInstance] getResult:self.address];
 }
 
 - (void)save {
-    BOOL ok = [[GMMemManagerProxy shareInstance] modifyMemory:self.result];
+    BOOL ok = [[GMMemManagerProxy shareInstance] modifyMemory:self.accessObject];
     if (ok) {
         [self.navigationController popViewControllerAnimated:YES];
     } else {
@@ -96,7 +95,7 @@
             cell.textField.delegate = self;
         }
         cell.textLabel.text = @"目标值";
-        cell.textField.text = [NSString stringWithFormat:@"%d", [self.result value]];
+        cell.textField.text = [NSString stringWithFormat:@"%lld", [self.accessObject value]];
         return cell;
     } else {
         static NSString *identifier = @"reuseIdentifier";
@@ -114,19 +113,13 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    [self.result setValue:@([text intValue]) forKey:kResultKeyValue];
+    [self.accessObject setValue:[text intValue]];
     return YES;
 }
 
 #pragma mark - SimplePickerInputTableViewCellDelegate
 - (void)tableViewCell:(SimplePickerInputTableViewCell *)cell didEndEditingAtIndex:(NSUInteger)index {
-    if (index == 0) {
-        
-    } else if (index == 1) {
-//        [self.result setObject:nil forKey:kResultKeyProtection];
-    } else if (index == 2) {
-        [self.result setObject:@(VM_PROT_READ) forKey:kResultKeyProtection];
-    }
+    [self.accessObject setOptType:index];
 }
 
 @end

@@ -15,6 +15,7 @@
 
 @property (nonatomic, retain) NSDictionary *applications;
 @property (nonatomic, retain) ALApplicationTableDataSource *dataSource;
+@property (nonatomic, retain) NSTimer *timer;
 
 @end
 
@@ -31,6 +32,7 @@
 }
 
 - (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     self.didSelectProcessBlock = nil;
     self.dataSource.tableView = nil;
 	self.dataSource = nil;
@@ -40,6 +42,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self reloadData];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(appDidBecomeActiveNotification:)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
+}
+
+#pragma mark - Private
+- (void)appDidBecomeActiveNotification:(NSNotification *)notification {
+    TKAlert(@"程序已退出，请重新选择！");
+    [self reloadData];
+}
+
+- (void)reloadData {
 #if !TARGET_IPHONE_SIMULATOR
     self.dataSource = [[[ALApplicationTableDataSource alloc] init] autorelease];
     self.dataSource.sectionDescriptors = [self.class standardSectionDescriptors];

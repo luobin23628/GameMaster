@@ -9,6 +9,7 @@
 #import "GMMemManager.h"
 #import <libkern/OSCacheControl.h>
 #import <LightMessaging.h>
+#import "GMLockManager.h"
 
 #define MaxCount 100
 
@@ -28,6 +29,14 @@
         sharedManager = [[GMMemManager alloc] init];
     });
     return sharedManager;
+}
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        [GMLockManager shareInstance];
+    }
+    return self;
 }
 
 - (BOOL)setPid:(int)pid {
@@ -164,7 +173,7 @@
     }
 }
 
-- (NSDictionary *)getResult:(vm_address_t)address {
+- (GMMemoryAccessObject *)getResult:(vm_address_t)address {
     if (!self.task || ![self isValid]) {
         _pid = 0;
         self.task = 0;
@@ -206,13 +215,13 @@
     } else {
         return nil;
     }
-    NSMutableDictionary *result = [NSMutableDictionary dictionary];
-    [result setObject:@(address) forKey:kResultKeyAddress];
-    [result setObject:@(value) forKey:kResultKeyValue];
-    return result;
+    GMMemoryAccessObject *memoryAccessObject = [[GMMemoryAccessObject alloc] init];
+    memoryAccessObject.address = address;
+    memoryAccessObject.value = value;
+    return [memoryAccessObject autorelease];
 }
 
-- (BOOL)modifyMemory:(NSDictionary *)result {
+- (BOOL)modifyMemory:(GMMemoryAccessObject *)accessObject {
     if (!self.task || ![self isValid]) {
         _pid = 0;
         self.task = 0;
@@ -220,9 +229,18 @@
         self.lastValue = 0;
         return NO;
     };
-    vm_address_t address = [result address];
-    int value = [result value];
-    vm_prot_t protection = [result protection];
+    vm_address_t address = [accessObject address];
+    uint64_t value = [accessObject value];
+    size_t valueSize;
+    if (value <= UINT16_MAX) {
+        valueSize = sizeof(uint16_t);
+    } else if (value <= UINT32_MAX) {
+        valueSize = sizeof(uint32_t);
+    } else if (value <= UINT64_MAX) {
+        valueSize = sizeof(uint64_t);
+    } else {
+        return NO;
+    }
     
     vm_prot_t oriProtection;
     kern_return_t kret;
@@ -241,36 +259,41 @@
     if (!oriProtection) {
         return NO;
     }
-    if (!protection) {
-        protection = oriProtection;
-    }
     
     BOOL changeProtection = !(oriProtection & VM_PROT_READ)
-    || !(oriProtection & VM_PROT_WRITE)
-    || !(oriProtection & VM_PROT_COPY);
+    || !(oriProtection & VM_PROT_WRITE);
+    
+    if (optType == GMOptTypeEditAndLock && changeProtection) {
+        return NO;
+    }
     
     /* Change memory protections to rw- */
     if (changeProtection) {
-        if((kret = vm_protect(self.task, address, sizeof(value), false, VM_PROT_READ | VM_PROT_WRITE | VM_PROT_COPY)) != KERN_SUCCESS) {
+        if((kret = vm_protect(self.task, address, valueSize, false, VM_PROT_READ | VM_PROT_WRITE | VM_PROT_COPY)) != KERN_SUCCESS) {
             NSLog(@"vm_protect failed, error %d: %s\n", kret, mach_error_string(kret));
             return NO;
         }
     }
     
     /* Actually perform the write */
-    if ((kret = vm_write(self.task, address, (pointer_t)&value, sizeof(value))) != KERN_SUCCESS) {
+    if ((kret = vm_write(self.task, address, (pointer_t)&value, valueSize)) != KERN_SUCCESS) {
         NSLog(@"mach_vm_write failed, error %d: %s\n", kret, mach_error_string(kret));
         return NO;
     }
     
     /* Flush CPU data cache to save write to RAM */
-    sys_dcache_flush(address, sizeof(value));
+    sys_dcache_flush(address, valueSize);
     /* Invalidate instruction cache to make the CPU read patched instructions from RAM */
-    sys_icache_invalidate(address, sizeof(value));
+    sys_icache_invalidate(address, valueSize);
+    
+    GMOptType optType = [accessObject optType];
+    if (optType == GMOptTypeEditAndLock) {
+        [[GMLockManager shareInstance] addLockObject:accessObject];
+    }
     
     /* Change memory protections back to*/
     if (changeProtection) {
-        if((kret = vm_protect(self.task, address, sizeof(value), false, protection)) != KERN_SUCCESS) {
+        if((kret = vm_protect(self.task, address, valueSize, false, oriProtection)) != KERN_SUCCESS) {
             NSLog(@"vm_protect failed, error %d: %s\n", kret, mach_error_string(kret));
             return NO;
         }
@@ -288,6 +311,10 @@
 }
 
 #pragma mark - Private
+
+- (BOOL)isValid:(int)pid {
+    return pid == _pid && self.task && [self virtualSize] > 0;
+}
 
 - (BOOL)isValid {
     return [self virtualSize] > 0;
