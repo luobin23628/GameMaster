@@ -154,34 +154,6 @@
     self.searchBar.top = self.navigationController.navigationBar.bottom;
 }
 
-#pragma mark - Private
-- (void)appDidBecomeActiveNotification:(NSNotification *)notification {
-    if(self.pid) {
-        if ([[GMMemManagerProxy shareInstance] isValid:self.pid]) {
-            [self.tableView reloadData];
-        } else {
-            self.pid = 0;
-            [self resetSelectAppButton];
-            TKAlert(@"程序已退出，请重新选择！");
-            [self resetKeyDidPressed];
-        }
-    }
-}
-
-- (void)invalidateTimer {
-    [self.timer invalidate];
-    self.timer = nil;
-}
-
-- (void)startTimer {
-    [self invalidateTimer];
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1
-                                                  target:self.tableView
-                                                selector:@selector(reloadData)
-                                                userInfo:nil
-                                                 repeats:YES];
-}
-
 #pragma mark - KeyBoard
 - (void)resetKeyDidPressed {
     [[GMMemManagerProxy shareInstance] reset];
@@ -265,6 +237,41 @@
 }
 
 #pragma mark - Private 
+
+- (void)addSearchDisplayController {
+    SearchResultViewController *searchResultViewController = [[SearchResultViewController alloc] init];
+    SearchDisplayController *searchDisplayController = [[SearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self searchResultsTableViewController:searchResultViewController];
+    searchDisplayController.delegate = searchResultViewController;
+    [searchDisplayController release];
+    [searchResultViewController release];
+}
+
+- (void)appDidBecomeActiveNotification:(NSNotification *)notification {
+    if(self.pid) {
+        if ([[GMMemManagerProxy shareInstance] isValid:self.pid]) {
+            [self.tableView reloadData];
+        } else {
+            self.pid = 0;
+            [self resetSelectAppButton];
+            TKAlert(@"程序已退出，请重新选择！");
+            [self resetKeyDidPressed];
+        }
+    }
+}
+
+- (void)invalidateTimer {
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
+- (void)startTimer {
+    [self invalidateTimer];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                  target:self.tableView
+                                                selector:@selector(reloadData)
+                                                userInfo:nil
+                                                 repeats:YES];
+}
 
 - (void)abount {
     

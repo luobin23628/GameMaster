@@ -47,6 +47,7 @@
 		A8E3AB9A1983C0C800B6E4E6 /* GMSelectAppButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E3AB991983C0C800B6E4E6 /* GMSelectAppButton.m */; };
 		A8E3AB9D1983E5E400B6E4E6 /* UIColor+iOS7Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E3AB9C1983E5E400B6E4E6 /* UIColor+iOS7Colors.m */; };
 		A8EFBFE71972D30D002E4A9B /* librocketbootstrap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */; };
+		AB92CFB519866DA700695460 /* SearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB92CFB419866DA700695460 /* SearchDisplayController.m */; };
 		ABE39F93197FCBB0002E7678 /* darwin_memory_usage.c in Sources */ = {isa = PBXBuildFile; fileRef = ABE39F92197FCBB0002E7678 /* darwin_memory_usage.c */; };
 		ABE39FD7197FCCAE002E7678 /* shared_region.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE39FD6197FCCAE002E7678 /* shared_region.h */; };
 		ABFF4BE81966A579000C7128 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF4BE71966A579000C7128 /* Foundation.framework */; };
@@ -133,6 +134,8 @@
 		A8E3AB9B1983E5E400B6E4E6 /* UIColor+iOS7Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+iOS7Colors.h"; sourceTree = "<group>"; };
 		A8E3AB9C1983E5E400B6E4E6 /* UIColor+iOS7Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+iOS7Colors.m"; sourceTree = "<group>"; };
 		A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = librocketbootstrap.dylib; path = ../../../../opt/iOSOpenDev/lib/librocketbootstrap.dylib; sourceTree = "<group>"; };
+		AB92CFB319866DA700695460 /* SearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDisplayController.h; sourceTree = "<group>"; };
+		AB92CFB419866DA700695460 /* SearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDisplayController.m; sourceTree = "<group>"; };
 		ABE39F92197FCBB0002E7678 /* darwin_memory_usage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = darwin_memory_usage.c; sourceTree = "<group>"; };
 		ABE39F94197FCBBA002E7678 /* darwin_memory_usage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = darwin_memory_usage.h; sourceTree = "<group>"; };
 		ABE39FD6197FCCAE002E7678 /* shared_region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shared_region.h; sourceTree = "<group>"; };
@@ -331,6 +334,8 @@
 				ABFF4BF71966A579000C7128 /* AppDelegate.m */,
 				A8A7416719680E6400131416 /* GMMainViewController.h */,
 				A8A7416819680E6400131416 /* GMMainViewController.m */,
+				AB92CFB319866DA700695460 /* SearchDisplayController.h */,
+				AB92CFB419866DA700695460 /* SearchDisplayController.m */,
 				A82B4423197BBD260098A6D4 /* GMKeyboard.h */,
 				A82B4424197BBD260098A6D4 /* GMKeyboard.m */,
 				A82B4429197BD4A60098A6D4 /* GMGridLinesTexturedView.h */,
@@ -602,6 +607,7 @@
 				A810E66D197AD97F00757554 /* SimplePickerInputTableViewCell.m in Sources */,
 				A80D3E7719855DE100F5CF2A /* GMMemoryAccessObject.m in Sources */,
 				A8A7416F1968105C00131416 /* GMSelectAppViewController.m in Sources */,
+				AB92CFB519866DA700695460 /* SearchDisplayController.m in Sources */,
 				ABFF4BF81966A579000C7128 /* AppDelegate.m in Sources */,
 				ABFF4BF41966A579000C7128 /* main.m in Sources */,
 				A82B4428197BBE5C0098A6D4 /* UIView+Sizes.m in Sources */,
