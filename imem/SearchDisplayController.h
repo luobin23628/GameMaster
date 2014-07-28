@@ -16,7 +16,7 @@
 
 @interface SearchDisplayController : NSObject
 
-- (id)initWithSearchBar:(UISearchBar *)searchBar contentsController:(UIViewController *)viewController searchResultsTableViewController:(UIViewController<TableViewController> *)searchResultsViewController;
+- (id)initWithSearchBar:(UISearchBar *)searchBar contentsController:(UIViewController *)viewController searchAssociateViewController:(UIViewController<TableViewController> *)searchResultsViewController;
 
 @property (nonatomic, assign) id<SearchDisplayDelegate> delegate;
 
@@ -25,7 +25,7 @@
 
 @property (nonatomic, readonly) UISearchBar *searchBar;
 @property (nonatomic, readonly) UIViewController *searchContentsController;
-@property (nonatomic, readonly) UIViewController<TableViewController> *searchResultsViewController;
+@property (nonatomic, readonly) UIViewController<TableViewController> *searchAssociateViewController;
 
 @end
 
@@ -53,6 +53,6 @@
 @interface UIViewController (SearchDisplayControllerSupport)
 
 @property(nonatomic, readonly, retain) SearchDisplayController *displayController;
-@property(nonatomic, readonly, retain) UIViewController *searchResultsViewController;
+@property(nonatomic, readonly, retain) UIViewController *searchAssociateViewController;
 
 @end

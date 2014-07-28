@@ -35,7 +35,7 @@ static OSSpinLock spinLock;
     self = [super init];
     if (self) {
         self.lockObjectList = [NSMutableArray array];
-//        self.lockThread = [[[GMLockThread alloc] init] autorelease];
+        self.lockThread = [[[GMLockThread alloc] init] autorelease];
         [self.lockThread start];
     }
     

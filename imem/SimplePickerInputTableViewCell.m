@@ -20,6 +20,7 @@
         // Initialization code
 		self.picker.delegate = self;
 		self.picker.dataSource = self;
+        self.picker.backgroundColor = [UIColor colorWithWhite:251/255.0 alpha:1];
     }
     return self;
 }
@@ -30,6 +31,7 @@
         // Initialization code
 		self.picker.delegate = self;
 		self.picker.dataSource = self;
+        self.picker.backgroundColor = [UIColor colorWithWhite:251/255.0 alpha:1];
     }
     return self;
 }
@@ -76,6 +78,7 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
 	self.value = [self.values objectAtIndex:row];
     self.detailTextLabel.text = self.value;
+    self.detailTextLabel.textColor = [UIColor blackColor];
     
 	if (delegate && [delegate respondsToSelector:@selector(tableViewCell:didEndEditingAtIndex:)]) {
 		[delegate tableViewCell:self didEndEditingAtIndex:row];

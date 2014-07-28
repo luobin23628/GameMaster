@@ -182,6 +182,8 @@
         return nil;
     };
     
+    GMValueType valueType;
+    
     kern_return_t kret;
     mach_vm_size_t size;
     pointer_t buffer;
@@ -191,8 +193,21 @@
     if (lastValue <= UINT16_MAX) {
         size = sizeof((uint16_t)lastValue);
         mach_msg_type_number_t bufferSize = (mach_msg_type_number_t)size;
-        if ((kret = vm_read(self.task, (mach_vm_address_t)address, size, &buffer, &bufferSize)) == KERN_SUCCESS) {
-            value = *((uint16_t *)buffer);
+        if ((kret = vm_read(self.task, (mach_vm_address_t)address, sizeof(uint32_t), &buffer, &bufferSize)) == KERN_SUCCESS) {
+            if (bufferSize == sizeof(uint32_t)) {
+                uint16_t i = 0;
+                value = *((uint16_t *)(buffer + sizeof(uint16_t)));
+                if (memmem(buffer + sizeof(uint16_t), sizeof(uint16_t), &i, sizeof(i))) {
+                    value = *((uint32_t *)buffer);
+                    valueType = GMValueTypeInt32;
+                } else {
+                    value = *((uint16_t *)buffer);
+                    valueType = GMValueTypeInt16;
+                }
+            } else {
+                value = *((uint16_t *)buffer);
+                valueType = GMValueTypeInt16;
+            }
         } else {
             return nil;
         }
@@ -201,6 +216,7 @@
         mach_msg_type_number_t bufferSize = (mach_msg_type_number_t)size;
         if ((kret = vm_read(self.task, (mach_vm_address_t)address, size, &buffer, &bufferSize)) == KERN_SUCCESS) {
             value = *((uint32_t *)buffer);
+            valueType = GMValueTypeInt32;
         } else {
             return nil;
         }
@@ -209,6 +225,7 @@
         mach_msg_type_number_t bufferSize = (mach_msg_type_number_t)size;
         if ((kret = vm_read(self.task, (mach_vm_address_t)address, size, &buffer, &bufferSize)) == KERN_SUCCESS) {
             value = *((uint64_t *)buffer);
+            valueType = GMValueTypeInt64;
         } else {
             return nil;
         }
@@ -216,6 +233,7 @@
         return nil;
     }
     GMMemoryAccessObject *memoryAccessObject = [[GMMemoryAccessObject alloc] init];
+    memoryAccessObject.valueType = valueType;
     memoryAccessObject.address = address;
     memoryAccessObject.value = value;
     return [memoryAccessObject autorelease];
@@ -231,6 +249,7 @@
     };
     vm_address_t address = [accessObject address];
     uint64_t value = [accessObject value];
+    
     size_t valueSize;
     if (value <= UINT16_MAX) {
         valueSize = sizeof(uint16_t);
@@ -263,6 +282,7 @@
     BOOL changeProtection = !(oriProtection & VM_PROT_READ)
     || !(oriProtection & VM_PROT_WRITE);
     
+    GMOptType optType = [accessObject optType];
     if (optType == GMOptTypeEditAndLock && changeProtection) {
         return NO;
     }
@@ -286,7 +306,6 @@
     /* Invalidate instruction cache to make the CPU read patched instructions from RAM */
     sys_icache_invalidate(address, valueSize);
     
-    GMOptType optType = [accessObject optType];
     if (optType == GMOptTypeEditAndLock) {
         [[GMLockManager shareInstance] addLockObject:accessObject];
     }

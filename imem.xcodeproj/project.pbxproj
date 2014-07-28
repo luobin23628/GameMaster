@@ -25,6 +25,7 @@
 		A82B4428197BBE5C0098A6D4 /* UIView+Sizes.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B4427197BBE5C0098A6D4 /* UIView+Sizes.m */; };
 		A82B442B197BD4A60098A6D4 /* GMGridLinesTexturedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B442A197BD4A60098A6D4 /* GMGridLinesTexturedView.m */; };
 		A839D2D7196C2B2400E8E9F4 /* entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = A839D2D6196C2B2400E8E9F4 /* entitlements.plist */; };
+		A86BC8881986863D000A417A /* GMAssociateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A86BC8871986863D000A417A /* GMAssociateViewController.m */; };
 		A86FD13F1975652D00765F99 /* GMMem.h in Headers */ = {isa = PBXBuildFile; fileRef = A86FD13D1975652D00765F99 /* GMMem.h */; };
 		A86FD1401975652D00765F99 /* GMMem.m in Sources */ = {isa = PBXBuildFile; fileRef = A86FD13E1975652D00765F99 /* GMMem.m */; };
 		A86FD1431975680000765F99 /* GMMemManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A86FD1411975680000765F99 /* GMMemManager.h */; };
@@ -106,6 +107,8 @@
 		A839D2DE196C3AA900E8E9F4 /* libmacho.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmacho.dylib; path = usr/lib/system/libmacho.dylib; sourceTree = SDKROOT; };
 		A83F762E1976E7BC00C7EAE5 /* entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = entitlements.plist; sourceTree = "<group>"; };
 		A8577E1419719AEC00A277D4 /* com.test.imemXpcService.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = com.test.imemXpcService.plist; sourceTree = "<group>"; };
+		A86BC8861986863D000A417A /* GMAssociateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMAssociateViewController.h; sourceTree = "<group>"; };
+		A86BC8871986863D000A417A /* GMAssociateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMAssociateViewController.m; sourceTree = "<group>"; };
 		A86FD13D1975652D00765F99 /* GMMem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMem.h; sourceTree = "<group>"; };
 		A86FD13E1975652D00765F99 /* GMMem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMem.m; sourceTree = "<group>"; };
 		A86FD1411975680000765F99 /* GMMemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMemManager.h; sourceTree = "<group>"; };
@@ -336,6 +339,8 @@
 				A8A7416819680E6400131416 /* GMMainViewController.m */,
 				AB92CFB319866DA700695460 /* SearchDisplayController.h */,
 				AB92CFB419866DA700695460 /* SearchDisplayController.m */,
+				A86BC8861986863D000A417A /* GMAssociateViewController.h */,
+				A86BC8871986863D000A417A /* GMAssociateViewController.m */,
 				A82B4423197BBD260098A6D4 /* GMKeyboard.h */,
 				A82B4424197BBD260098A6D4 /* GMKeyboard.m */,
 				A82B4429197BD4A60098A6D4 /* GMGridLinesTexturedView.h */,
@@ -610,6 +615,7 @@
 				AB92CFB519866DA700695460 /* SearchDisplayController.m in Sources */,
 				ABFF4BF81966A579000C7128 /* AppDelegate.m in Sources */,
 				ABFF4BF41966A579000C7128 /* main.m in Sources */,
+				A86BC8881986863D000A417A /* GMAssociateViewController.m in Sources */,
 				A82B4428197BBE5C0098A6D4 /* UIView+Sizes.m in Sources */,
 				A86FD1521976BD9200765F99 /* GMMemManagerProxy.m in Sources */,
 				A82B442B197BD4A60098A6D4 /* GMGridLinesTexturedView.m in Sources */,

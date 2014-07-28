@@ -14,6 +14,8 @@
 #import "GMStorageViewController.h"
 #import "GMSelectAppButton.h"
 #import "UIColor+iOS7Colors.h"
+#import "SearchDisplayController.h"
+#import "GMAssociateViewController.h"
 #import <UI7Kit/UI7Kit.h>
 
 #define CellMAXCount 99
@@ -46,7 +48,7 @@
         } else {
             GMSelectAppButton * selectAppButton = (GMSelectAppButton *)[self.navigationItem.rightBarButtonItem customView];
             selectAppButton.titleLabel.font = [UIFont systemFontOfSize:14];
-            selectAppButton.titleLabel.textColor = [UIColor colorWithWhite:0.4 alpha:1];
+            selectAppButton.titleLabel.textColor = [UI7Color defaultTintColor];
             selectAppButton.image = appIcon;
             selectAppButton.title = [NSString stringWithFormat:@"%@", appName];
             
@@ -139,6 +141,7 @@
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset = edgeInsets;
     
     [searchBar becomeFirstResponder];
+//    [self addSearchDisplayController];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(appDidBecomeActiveNotification:)
@@ -147,7 +150,7 @@
 }
 
 - (BOOL)shouldAutorotate {
-    return YES;
+    return NO;
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
@@ -239,17 +242,17 @@
 #pragma mark - Private 
 
 - (void)addSearchDisplayController {
-    SearchResultViewController *searchResultViewController = [[SearchResultViewController alloc] init];
-    SearchDisplayController *searchDisplayController = [[SearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self searchResultsTableViewController:searchResultViewController];
-    searchDisplayController.delegate = searchResultViewController;
+    GMAssociateViewController *associateViewController = [[GMAssociateViewController alloc] init];
+    SearchDisplayController *searchDisplayController = [[SearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self searchAssociateViewController:associateViewController];
+    searchDisplayController.delegate = associateViewController;
     [searchDisplayController release];
-    [searchResultViewController release];
+    [associateViewController release];
 }
 
 - (void)appDidBecomeActiveNotification:(NSNotification *)notification {
     if(self.pid) {
         if ([[GMMemManagerProxy shareInstance] isValid:self.pid]) {
-            [self.tableView reloadData];
+//            [self.tableView reloadData];
         } else {
             self.pid = 0;
             [self resetSelectAppButton];
@@ -267,10 +270,15 @@
 - (void)startTimer {
     [self invalidateTimer];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1
-                                                  target:self.tableView
+                                                  target:self
                                                 selector:@selector(reloadData)
                                                 userInfo:nil
                                                  repeats:YES];
+}
+
+- (void)reloadData {
+    [self appDidBecomeActiveNotification:nil];
+    [self.tableView reloadData];
 }
 
 - (void)abount {

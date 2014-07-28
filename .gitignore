@@ -13,7 +13,7 @@ tignore file for Xcode4 / OS X Source projects
 
 .DS_Store
 *.swp
-*.lock
+#*.lock
 profile
 
 
@@ -97,6 +97,8 @@ xcuserdata
 
 LatestBuild/
 Packages/
+imemXpcService/Package/Applications/
+imemXpcService/Package/usr/bin
 
 ####
 # Xcode 4 - Deprecated classes

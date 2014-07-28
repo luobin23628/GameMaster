@@ -68,8 +68,9 @@
         if (!cell) {
             cell = [[[TextFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.textLabelWidth = 120.f;
+            cell.textField.textAlignment = NSTextAlignmentRight;
         }
+        cell.textLabelWidth = 80.f;
         cell.textLabel.text = @"名称";
         cell.textField.text = nil;
         return cell;
@@ -91,10 +92,24 @@
         if (!cell) {
             cell = [[[TextFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.textLabelWidth = 120.f;
             cell.textField.delegate = self;
+            cell.textField.textAlignment = NSTextAlignmentRight;
+            cell.textField.clearButtonMode = UITextFieldViewModeAlways;
         }
-        cell.textLabel.text = @"目标值";
+        cell.textLabelWidth = 150.f;
+        NSString *region;
+        if (self.accessObject.valueType == GMValueTypeInt16) {
+            region = [NSString stringWithFormat:@"(0-%u)", UINT16_MAX];
+        } else if (self.accessObject.valueType == GMValueTypeInt32) {
+            region = [NSString stringWithFormat:@"(0-%u)", UINT32_MAX];
+        } else if (self.accessObject.valueType == GMValueTypeInt64) {
+            region = [NSString stringWithFormat:@"(0-%llu)", UINT64_MAX];
+        } else if (self.accessObject.valueType == GMValueTypeFloat) {
+            region = [NSString stringWithFormat:@"(0-%.f)", CGFLOAT_MAX];
+        } else {
+            region = @"";
+        }
+        cell.textLabel.text = [NSString stringWithFormat:@"目标值%@", region];
         cell.textField.text = [NSString stringWithFormat:@"%lld", [self.accessObject value]];
         return cell;
     } else {

@@ -14,14 +14,22 @@ typedef enum _GMOptType {
     GMOptTypeEditAndLock = 2
 } GMOptType;
 
+typedef enum _GMValueType {
+    GMValueTypeIntAuto = 0,
+    GMValueTypeInt16 = 1,
+    GMValueTypeInt32 = 2,
+    GMValueTypeInt64 = 3,
+    GMValueTypeFloat = 4
+} GMValueType;
 
 @interface GMMemoryAccessObject : NSObject<NSCoding>
 
-- (id)initWithDictionry:(NSDictionary *)dictionary;
-- (NSDictionary *)toDictionnary;
+//- (id)initWithDictionry:(NSDictionary *)dictionary;
+//- (NSDictionary *)toDictionnary;
 
 @property (nonatomic, assign) uint64_t address;
 @property (nonatomic, assign) uint64_t value;
+@property (nonatomic, assign) GMValueType valueType;
 @property (nonatomic, assign) GMOptType optType;
 
 @end
