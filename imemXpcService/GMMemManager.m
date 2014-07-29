@@ -176,7 +176,7 @@
     }
 }
 
-- (GMMemoryAccessObject *)getResult:(vm_address_t)address {
+- (GMMemoryAccessObject *)getMemoryAccessObject:(vm_address_t)address {
     if (!self.task || ![self isValid]) {
         _pid = 0;
         self.task = 0;
@@ -326,6 +326,10 @@
 - (BOOL)reset {
     resultCount = 0;
     return YES;
+}
+
+- (NSArray *)getLockList {
+    return [[GMLockManager shareInstance] lockObjects];
 }
 
 - (void)dealloc {
@@ -485,8 +489,9 @@
         dispatch_source_set_event_handler(source, ^{
             _pid = 0;
             self.lastValue = 0;
-            self.task = task;
+            self.task = 0;
             resultCount = 0;
+            NSLog(@"Process:%d exit. Clean up...", _pid);
             [[GMLockManager shareInstance] cancelAllLock];
             
             [self stopMonitor];

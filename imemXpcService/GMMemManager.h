@@ -24,9 +24,11 @@
 
 - (NSArray *)search:(uint64_t)value isFirst:(bool)isFirst;
 
-- (GMMemoryAccessObject *)getResult:(vm_address_t)address;
+- (GMMemoryAccessObject *)getMemoryAccessObject:(vm_address_t)address;
 
 - (BOOL)modifyMemory:(GMMemoryAccessObject *)accessObject;
+
+- (NSArray *)getLockList;
 
 - (BOOL)reset;
 

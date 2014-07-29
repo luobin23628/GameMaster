@@ -9,6 +9,7 @@
 #import "GMLockThread.h"
 #import "GMLockManager.h"
 #import "GMMemManager.h"
+#import <libkern/OSAtomic.h>
 
 static OSSpinLock spinLock;
 
@@ -60,9 +61,10 @@ static OSSpinLock spinLock;
     @autoreleasepool {
         if ([[GMMemManager shareInstance] isValid]) {
             NSArray *lockObjects = [[GMLockManager shareInstance] lockObjects];
+            lockObjects = [[lockObjects copy] autorelease];
             for (GMMemoryAccessObject *lockObject in lockObjects) {
                 BOOL ok = YES;
-                GMMemoryAccessObject *accessObject = [[GMMemManager shareInstance] getResult:lockObject.address];
+                GMMemoryAccessObject *accessObject = [[GMMemManager shareInstance] getMemoryAccessObject:lockObject.address];
                 if (!accessObject) {
                     ok = NO;
                 } else if (accessObject.value != lockObject.value) {
@@ -70,7 +72,7 @@ static OSSpinLock spinLock;
                     ok = [[GMMemManager shareInstance] modifyMemory:lockObject];
                 }
                 if (!ok) {
-                    NSLog(@"lock object %@ failed.", [lockObject toDictionnary]);
+                    NSLog(@"lock object %@ failed.", lockObject);
                 }
             }
         }

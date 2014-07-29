@@ -43,11 +43,11 @@ static void processMessage(SInt32 messageId, mach_port_t replyPort, CFDataRef da
         } else {
             LMSendReply(replyPort, NULL, 0);
         }
-    } else if (messageId == GMMessageIdGetResult) {
+    } else if (messageId == GMMessageIdGetMemoryAccessObject) {
         uint64_t address;
         NSData *data = (NSData *)dataRef;
         [data getBytes:&address range:NSMakeRange(0, sizeof(address))];
-        GMMemoryAccessObject *accessObject = [[GMMemManager shareInstance] getResult:address];
+        GMMemoryAccessObject *accessObject = [[GMMemManager shareInstance] getMemoryAccessObject:address];
         LMSendArchiverObjectReply(replyPort, accessObject);
     } else if (messageId == GMMessageIdModify) {
         GMMemoryAccessObject *accessObject = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData *)dataRef];
@@ -59,6 +59,13 @@ static void processMessage(SInt32 messageId, mach_port_t replyPort, CFDataRef da
     } else if (messageId == GMMessageIdReset) {
         BOOL ok = [[GMMemManager shareInstance] reset];
         LMSendIntegerReply(replyPort, ok);
+    }else if (messageId == GMMessageIdGetLockList) {
+        NSArray *lockList = [[GMMemManager shareInstance] getLockList];
+        if (lockList) {
+            LMSendArchiverObjectReply(replyPort, lockList);
+        } else {
+            LMSendReply(replyPort, NULL, 0);
+        }
     } else {
         LMSendReply(replyPort, NULL, 0);
     }

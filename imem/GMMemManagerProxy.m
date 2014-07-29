@@ -64,12 +64,12 @@
 #endif
 }
 
-- (GMMemoryAccessObject *)getResult:(uint64_t)address {
+- (GMMemoryAccessObject *)getMemoryAccessObject:(uint64_t)address {
 #if TARGET_IPHONE_SIMULATOR
     return NO;
 #else
     LMResponseBuffer responseBuffer;
-    LMConnectionSendTwoWay(&connection, GMMessageIdGetResult, &address, sizeof(address), &responseBuffer);
+    LMConnectionSendTwoWay(&connection, GMMessageIdGetMemoryAccessObject, &address, sizeof(address), &responseBuffer);
     return (GMMemoryAccessObject *)LMResponseConsumeArchiverObject(&responseBuffer);
 #endif
 }
@@ -79,7 +79,6 @@
     return NO;
 #else
     LMResponseBuffer responseBuffer;
-    return NO;
     LMConnectionSendTwoWayArchiverObject(&connection, GMMessageIdModify, accessObject, &responseBuffer);
     int32_t ret = LMResponseConsumeInteger(&responseBuffer);
     return ret == 1;
@@ -105,6 +104,16 @@
     LMConnectionSendTwoWay(&connection, GMMessageIdCheckValid, &pid, sizeof(pid), &responseBuffer);
     int32_t ret = LMResponseConsumeInteger(&responseBuffer);
     return ret == 1;
+#endif
+}
+
+- (NSArray *)getLockList {
+#if TARGET_IPHONE_SIMULATOR
+    return nil;
+#else
+    LMResponseBuffer responseBuffer;
+    LMConnectionSendTwoWay(&connection, GMMessageIdGetLockList, NULL, 0, &responseBuffer);
+    return (NSArray *)LMResponseConsumeArchiverObject(&responseBuffer);
 #endif
 }
 

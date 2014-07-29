@@ -41,7 +41,7 @@
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(save)] autorelease];
     
-    self.accessObject = [[GMMemManagerProxy shareInstance] getResult:self.address];
+    self.accessObject = [[GMMemManagerProxy shareInstance] getMemoryAccessObject:self.address];
 }
 
 - (void)save {
@@ -68,6 +68,7 @@
         if (!cell) {
             cell = [[[TextFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.textField.clearButtonMode = UITextFieldViewModeAlways;
             cell.textField.textAlignment = NSTextAlignmentRight;
         }
         cell.textLabelWidth = 80.f;

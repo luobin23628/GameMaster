@@ -16,6 +16,7 @@
 #import "UIColor+iOS7Colors.h"
 #import "SearchDisplayController.h"
 #import "GMAssociateViewController.h"
+#import "GMStorageViewController.h"
 #import <UI7Kit/UI7Kit.h>
 
 #define CellMAXCount 99
@@ -171,7 +172,9 @@
 }
 
 - (void)storageKeyDidPressed {
-    
+    GMStorageViewController *storageViewController = [[GMStorageViewController alloc] init];
+    [self.navigationController pushViewController:storageViewController animated:YES];
+    [storageViewController release];
 }
 
 - (void)searchKeyDidPressed {
@@ -230,7 +233,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
         NSNumber *addressObj = [self.results objectAtIndex:indexPath.row];
         unsigned long long address = [addressObj unsignedLongLongValue];
-        GMMemoryAccessObject *accessObject = [[GMMemManagerProxy shareInstance] getResult:address];
+        GMMemoryAccessObject *accessObject = [[GMMemManagerProxy shareInstance] getMemoryAccessObject:address];
         uint64_t value = [accessObject value];
         NSString *text = [NSString stringWithFormat:@"%ld、0X%08llX:%llu", (long)indexPath.row, address, value];
         cell.textLabel.text = text;
@@ -314,7 +317,7 @@
 }
 
 - (void)abount {
-    
+
 }
 
 - (void)resetSelectAppButton {

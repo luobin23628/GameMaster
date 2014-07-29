@@ -20,9 +20,10 @@ static LMConnection connection = {
 
 #define GMMessageIdSetPid       1
 #define GMMessageIdSearch       2
-#define GMMessageIdGetResult    3
+#define GMMessageIdGetMemoryAccessObject    3
 #define GMMessageIdModify       4
 #define GMMessageIdReset        5
 #define GMMessageIdCheckValid   6
+#define GMMessageIdGetLockList  7
 
 #endif

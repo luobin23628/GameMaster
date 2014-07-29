@@ -51,7 +51,6 @@
 
 #pragma mark - Private
 - (void)appDidBecomeActiveNotification:(NSNotification *)notification {
-    TKAlert(@"程序已退出，请重新选择！");
     [self reloadData];
 }
 

@@ -43,12 +43,16 @@
 //    return self;
 //}
 //
-//- (NSDictionary *)toDictionnary {
-//    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-//    [dictionary setObject:@(self.address) forKey:kResultKeyAddress];
-//    [dictionary setObject:@(self.value) forKey:kResultKeyValue];
-//    [dictionary setObject:@(self.optType) forKey:kResultKeyOptType];
-//    return dictionary;
-//}
+- (NSDictionary *)toDictionnary {
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    [dictionary setObject:@(self.address) forKey:kResultKeyAddress];
+    [dictionary setObject:@(self.value) forKey:kResultKeyValue];
+    [dictionary setObject:@(self.optType) forKey:kResultKeyOptType];
+    return dictionary;
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%@", [self toDictionnary]];
+}
 
 @end

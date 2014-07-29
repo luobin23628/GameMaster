@@ -19,11 +19,13 @@
         result:(NSArray **)result
          count:(UInt64 *)resultCount;
 
-- (GMMemoryAccessObject *)getResult:(uint64_t)address;
+- (GMMemoryAccessObject *)getMemoryAccessObject:(uint64_t)address;
 
 - (BOOL)modifyMemory:(GMMemoryAccessObject *)result;
 
 - (BOOL)reset;
+
+- (NSArray *)getLockList;
 
 - (BOOL)isValid:(int)pid;
 

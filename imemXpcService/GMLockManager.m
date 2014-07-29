@@ -15,7 +15,7 @@ static OSSpinLock spinLock;
 @interface GMLockManager()
 
 @property (nonatomic, retain) NSMutableArray *lockObjectList;
-@property (nonatomic, assign) GMLockThread *lockThread;
+@property (nonatomic, retain) GMLockThread *lockThread;
 
 @end
 
@@ -46,11 +46,25 @@ static OSSpinLock spinLock;
     [super dealloc];
 }
 
-- (void)addLockObject:(GMLockObject *)lockObject {
+- (void)addLockObject:(GMMemoryAccessObject *)lockObject {
     OSSpinLockLock(&spinLock);
+    NSUInteger index = [self.lockObjectList indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+        if ([obj isKindOfClass:[GMMemoryAccessObject class]]) {
+            GMMemoryAccessObject *accessObject = (GMMemoryAccessObject *)obj;
+            if (accessObject.address == lockObject.address) {
+                *stop = YES;
+                return YES;
+            }
+        }
+        *stop = NO;
+        return NO;
+    }];
+    if (index != NSNotFound) {
+        [self.lockObjectList removeObjectAtIndex:index];
+    }
     [self.lockObjectList addObject:lockObject];
-    [self.lockThread resume];
     OSSpinLockUnlock(&spinLock);
+    [self.lockThread resume];
 }
 
 - (NSArray *)lockObjects {
@@ -60,8 +74,8 @@ static OSSpinLock spinLock;
 - (void)cancelAllLock {
     OSSpinLockLock(&spinLock);
     [self.lockObjectList removeAllObjects];
-    [self.lockThread suspend];
     OSSpinLockUnlock(&spinLock);
+    [self.lockThread suspend];
 }
 
 @end
