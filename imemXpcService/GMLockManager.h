@@ -17,5 +17,6 @@
 
 - (NSArray *)lockObjects;
 
+- (void)cancelAllLock;
 
 @end

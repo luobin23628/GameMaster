@@ -10,9 +10,12 @@
 #import "GMLockManager.h"
 #import "GMMemManager.h"
 
+static OSSpinLock spinLock;
+
 @interface GMLockThread ()
 
 @property (nonatomic, retain) NSTimer *timer;
+@property (nonatomic, assign) BOOL isSuspend;
 
 @end
 
@@ -21,20 +24,39 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(invokeLock) userInfo:nil repeats:YES];
+        self.isSuspend = YES;
     }
     return self;
 }
 
 - (void)main {
-    while(YES) {
-        NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
-        [runLoop addTimer:self.timer forMode:NSDefaultRunLoopMode];
-        [runLoop run];
-    }
+    CFRunLoopRun();
 }
 
-- (void)invokeLock {
+- (void)suspend {
+    OSSpinLockLock(&spinLock);
+    if (!self.isSuspend) {
+        NSLog(@"Lock Thread suspend.");
+        self.isSuspend = YES;
+        CFRunLoopRemoveTimer(CFRunLoopGetCurrent(), (CFRunLoopTimerRef)self.timer, kCFRunLoopDefaultMode);
+        [self.timer invalidate];
+    }
+    OSSpinLockUnlock(&spinLock);
+}
+
+- (void)resume {
+    OSSpinLockLock(&spinLock);
+    if (self.isSuspend) {
+        NSLog(@"Lock Thread resume.");
+        self.isSuspend = NO;
+        self.timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(timerDidFire) userInfo:nil repeats:YES];
+        CFRunLoopAddTimer(CFRunLoopGetCurrent(), (CFRunLoopTimerRef)self.timer, kCFRunLoopDefaultMode);
+
+    }
+    OSSpinLockUnlock(&spinLock);
+}
+
+- (void)timerDidFire {
     @autoreleasepool {
         if ([[GMMemManager shareInstance] isValid]) {
             NSArray *lockObjects = [[GMLockManager shareInstance] lockObjects];

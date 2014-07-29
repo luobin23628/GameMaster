@@ -17,6 +17,7 @@
 
 @property (nonatomic, assign) mach_port_t task;
 @property (nonatomic, assign) uint64_t lastValue;
+@property (nonatomic, assign) dispatch_source_t source;
 
 @end
 
@@ -34,7 +35,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        [GMLockManager shareInstance];
+        
     }
     return self;
 }
@@ -51,6 +52,8 @@
     self.lastValue = 0;
     self.task = task;
     resultCount = 0;
+    
+    [self startMonitorForProcess:pid];
     return YES;
 }
 
@@ -326,6 +329,7 @@
 }
 
 - (void)dealloc {
+    [self stopMonitor];
     [super dealloc];
 }
 
@@ -466,6 +470,37 @@
         NSLog(@"vm_region %d, protection:%d address:%d size:%d, currentAddress:%d next region", i, protection, address, size, currentAddress);
 		address += size;
 	}
+}
+
+#pragma Monitor Process
+
+- (void)startMonitorForProcess:(int)pid
+{
+    [self stopMonitor];
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    dispatch_source_t source = dispatch_source_create(DISPATCH_SOURCE_TYPE_PROC, pid, DISPATCH_PROC_EXIT, queue);
+    self.source = source;
+    if (source)
+    {
+        dispatch_source_set_event_handler(source, ^{
+            _pid = 0;
+            self.lastValue = 0;
+            self.task = task;
+            resultCount = 0;
+            [[GMLockManager shareInstance] cancelAllLock];
+            
+            [self stopMonitor];
+        });
+        dispatch_resume(source);
+    }
+}
+
+- (void)stopMonitor {
+    if (self.source) {
+        dispatch_source_cancel(self.source);
+        dispatch_release(self.source);
+        self.source = nil;
+    }
 }
 
 @end

@@ -70,7 +70,8 @@
 #else
     LMResponseBuffer responseBuffer;
     LMConnectionSendTwoWay(&connection, GMMessageIdGetResult, &address, sizeof(address), &responseBuffer);
-    return (GMMemoryAccessObject *)LMResponseConsumeArchiverObject(&responseBuffer);
+    return nil;
+//    return (GMMemoryAccessObject *)LMResponseConsumeArchiverObject(&responseBuffer);
 #endif
 }
 
@@ -79,7 +80,8 @@
     return NO;
 #else
     LMResponseBuffer responseBuffer;
-    LMConnectionSendTwoWayArchiverObject(&connection, GMMessageIdModify, accessObject, &responseBuffer);
+    return NO;
+//    LMConnectionSendTwoWayArchiverObject(&connection, GMMessageIdModify, accessObject, &responseBuffer);
     int32_t ret = LMResponseConsumeInteger(&responseBuffer);
     return ret == 1;
 #endif
