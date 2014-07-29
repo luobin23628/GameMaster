@@ -10,6 +10,8 @@
 
 @interface GMLockThread : NSThread
 
+- (void)suspend;
 
+- (void)resume;
 
 @end

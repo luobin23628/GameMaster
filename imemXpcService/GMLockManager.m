@@ -38,7 +38,6 @@ static OSSpinLock spinLock;
         self.lockThread = [[[GMLockThread alloc] init] autorelease];
         [self.lockThread start];
     }
-    
     return self;
 }
 
@@ -50,11 +49,19 @@ static OSSpinLock spinLock;
 - (void)addLockObject:(GMLockObject *)lockObject {
     OSSpinLockLock(&spinLock);
     [self.lockObjectList addObject:lockObject];
+    [self.lockThread resume];
     OSSpinLockUnlock(&spinLock);
 }
 
 - (NSArray *)lockObjects {
     return self.lockObjectList;
+}
+
+- (void)cancelAllLock {
+    OSSpinLockLock(&spinLock);
+    [self.lockObjectList removeAllObjects];
+    [self.lockThread suspend];
+    OSSpinLockUnlock(&spinLock);
 }
 
 @end

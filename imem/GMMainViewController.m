@@ -30,6 +30,7 @@
 @property (nonatomic, assign) BOOL isFirst;
 @property (nonatomic, retain) UISearchBar *searchBar;
 @property (nonatomic, retain) NSTimer *timer;
+@property (nonatomic, assign) dispatch_source_t source;
 
 @end
 
@@ -52,6 +53,8 @@
             selectAppButton.image = appIcon;
             selectAppButton.title = [NSString stringWithFormat:@"%@", appName];
             
+            [self startMonitorForProcess:pid];
+            
             self.results = nil;
             self.isFirst = YES;
             [self.tableView reloadData];
@@ -68,7 +71,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-
         GMSelectAppButton * selectAppButton = [[GMSelectAppButton alloc] init];
         selectAppButton.title = @"选择";
         selectAppButton.titleLabel.textColor = [UI7Color defaultTintColor];
@@ -83,6 +85,7 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self stopMonitor];
     [self invalidateTimer];
     self.searchBar = nil;
     self.tableView = nil;
@@ -201,8 +204,16 @@
 
 #pragma mark - Table view data source
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.results?([self.results count] + 1):0;
+    if (section == 0) {
+        return self.results?1:0;
+    } else {
+        return [self.results count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -212,12 +223,12 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
     }
     // Configure the cell...
-    if (indexPath.row == 0) {
+    if (indexPath.section == 0) {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.text = [NSString stringWithFormat:@"共搜索到%llu个结果", self.resultCount];
     } else {
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
-        NSNumber *addressObj = [self.results objectAtIndex:indexPath.row - 1];
+        NSNumber *addressObj = [self.results objectAtIndex:indexPath.row];
         unsigned long long address = [addressObj unsignedLongLongValue];
         GMMemoryAccessObject *accessObject = [[GMMemManagerProxy shareInstance] getResult:address];
         uint64_t value = [accessObject value];
@@ -231,8 +242,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row > 0) {
-        NSNumber *address = [self.results objectAtIndex:indexPath.row - 1];
+    if (indexPath.section > 0) {
+        NSNumber *address = [self.results objectAtIndex:indexPath.row];
         GMModifyViewController *modifyViewController = [[GMModifyViewController alloc] initWithAddress:[address unsignedLongLongValue]];
         [self.navigationController pushViewController:modifyViewController animated:YES];
         [modifyViewController release];
@@ -251,14 +262,7 @@
 
 - (void)appDidBecomeActiveNotification:(NSNotification *)notification {
     if(self.pid) {
-        if ([[GMMemManagerProxy shareInstance] isValid:self.pid]) {
-//            [self.tableView reloadData];
-        } else {
-            self.pid = 0;
-            [self resetSelectAppButton];
-            TKAlert(@"程序已退出，请重新选择！");
-            [self resetKeyDidPressed];
-        }
+        [self.tableView reloadData];
     }
 }
 
@@ -277,8 +281,36 @@
 }
 
 - (void)reloadData {
-    [self appDidBecomeActiveNotification:nil];
-    [self.tableView reloadData];
+    if (self.pid && self.results) {
+        [self.tableView reloadData];
+    }
+}
+
+- (void)startMonitorForProcess:(int)pid
+{
+    [self stopMonitor];
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    dispatch_source_t source = dispatch_source_create(DISPATCH_SOURCE_TYPE_PROC, pid, DISPATCH_PROC_EXIT, queue);
+    self.source = source;
+    if (source)
+    {
+        dispatch_source_set_event_handler(source, ^{
+            self.pid = 0;
+            [self resetSelectAppButton];
+            TKAlert(@"程序已退出，请重新选择！");
+            [self resetKeyDidPressed];
+            [self stopMonitor];
+        });
+        dispatch_resume(source);
+    }
+}
+
+- (void)stopMonitor {
+    if (self.source) {
+        dispatch_source_cancel(self.source);
+        dispatch_release(self.source);
+        self.source = nil;
+    }
 }
 
 - (void)abount {
