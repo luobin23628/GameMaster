@@ -9,7 +9,7 @@
 #ifndef imem_Global_h
 #define imem_Global_h
 
-#import <LightMessaging.h>
+#import "LightMessaging.h"
 #import "GMMemoryAccessObject.h"
 #import "MAZeroingWeakRef.h"
 

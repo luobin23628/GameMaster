@@ -43,6 +43,7 @@
 		A87447951984B08F00A9544D /* GMLockManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A87447931984B08F00A9544D /* GMLockManager.m */; };
 		A8A7416919680E6400131416 /* GMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A7416819680E6400131416 /* GMMainViewController.m */; };
 		A8A7416F1968105C00131416 /* GMSelectAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A7416E1968105C00131416 /* GMSelectAppViewController.m */; };
+		A8BDC4221987DA2F00592935 /* LightMessaging.h in Headers */ = {isa = PBXBuildFile; fileRef = A8BDC4211987DA2F00592935 /* LightMessaging.h */; };
 		A8D9058C197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8D9058B197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png */; };
 		A8D9058F197BF4CE001F22FF /* GMStorageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D9058E197BF4CE001F22FF /* GMStorageViewController.m */; };
 		A8E3AB9A1983C0C800B6E4E6 /* GMSelectAppButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E3AB991983C0C800B6E4E6 /* GMSelectAppButton.m */; };
@@ -129,6 +130,7 @@
 		A8A7416819680E6400131416 /* GMMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMainViewController.m; sourceTree = "<group>"; };
 		A8A7416D1968105C00131416 /* GMSelectAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMSelectAppViewController.h; sourceTree = "<group>"; };
 		A8A7416E1968105C00131416 /* GMSelectAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMSelectAppViewController.m; sourceTree = "<group>"; };
+		A8BDC4211987DA2F00592935 /* LightMessaging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightMessaging.h; sourceTree = "<group>"; };
 		A8D9058B197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KeyboardNumericBackspace@2x.png"; sourceTree = "<group>"; };
 		A8D9058D197BF4CE001F22FF /* GMStorageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMStorageViewController.h; sourceTree = "<group>"; };
 		A8D9058E197BF4CE001F22FF /* GMStorageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMStorageViewController.m; sourceTree = "<group>"; };
@@ -293,11 +295,20 @@
 			path = LaunchDaemons;
 			sourceTree = "<group>";
 		};
+		A8BDC4201987DA2300592935 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A8BDC4211987DA2F00592935 /* LightMessaging.h */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 		ABFF4BD21966A3E7000C7128 = {
 			isa = PBXGroup;
 			children = (
 				ABFF4BED1966A579000C7128 /* imem */,
 				A8054ED7196DB6E8004CC80A /* imemXpcService */,
+				A8BDC4201987DA2300592935 /* Common */,
 				ABFF4BE61966A579000C7128 /* Frameworks */,
 				ABFF4BE51966A579000C7128 /* Products */,
 				D12E4C3196FD4C08BE93404A /* Pods.xcconfig */,
@@ -399,6 +410,7 @@
 				A874478C19849CEC00A9544D /* GMLockThread.h in Headers */,
 				A87447901984AE6D00A9544D /* GMLockObject.h in Headers */,
 				A80D3E7619855DE100F5CF2A /* GMMemoryAccessObject.h in Headers */,
+				A8BDC4221987DA2F00592935 /* LightMessaging.h in Headers */,
 				A81E809E197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h in Headers */,
 				A86FD1431975680000765F99 /* GMMemManager.h in Headers */,
 				A87447941984B08F00A9544D /* GMLockManager.h in Headers */,

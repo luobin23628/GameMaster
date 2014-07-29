@@ -98,7 +98,7 @@ xcuserdata
 LatestBuild/
 Packages/
 imemXpcService/Package/Applications/
-imemXpcService/Package/usr/bin
+imemXpcService/Package/usr/bin/
 
 ####
 # Xcode 4 - Deprecated classes
