@@ -9,6 +9,9 @@
 #import "GMStorageViewController.h"
 #import "GMMemManagerProxy.h"
 
+#define kSegmentedControlIndexStoredIndex 0
+#define kSegmentedControlIndexLockedIndex 1
+
 @interface GMStorageViewController ()
 
 @property (nonatomic, retain) NSArray *lists;
@@ -29,12 +32,31 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.lists = [[GMMemManagerProxy shareInstance] getLockList];
+    NSArray *items = [NSArray arrayWithObjects:@"存储", @"锁定", nil];
+    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:items];
+    segmentedControl.frame = CGRectMake(0, 0, 150, 29);
+    [segmentedControl addTarget:self action:@selector(segmentDidSelect:) forControlEvents:UIControlEventValueChanged];
+    self.navigationItem.titleView = segmentedControl;
+    [segmentedControl release];
+    segmentedControl.selectedSegmentIndex = 0;
+    self.lists = [[GMMemManagerProxy shareInstance] getLockedList];
 }
 
 - (void)dealloc {
     self.lists = nil;
     [super dealloc];
+}
+
+- (void)segmentDidSelect:(UISegmentedControl *)segmentedControl {
+    NSInteger selectedSegmentIndex = segmentedControl.selectedSegmentIndex;
+    if (selectedSegmentIndex == kSegmentedControlIndexStoredIndex) {
+        self.lists = [[GMMemManagerProxy shareInstance] getLockedList];
+        
+    } else if (selectedSegmentIndex == kSegmentedControlIndexLockedIndex) {
+        self.lists = [[GMMemManagerProxy shareInstance] getStoredList];
+        
+    }
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source

@@ -59,10 +59,17 @@ static void processMessage(SInt32 messageId, mach_port_t replyPort, CFDataRef da
     } else if (messageId == GMMessageIdReset) {
         BOOL ok = [[GMMemManager shareInstance] reset];
         LMSendIntegerReply(replyPort, ok);
-    }else if (messageId == GMMessageIdGetLockList) {
-        NSArray *lockList = [[GMMemManager shareInstance] getLockList];
+    } else if (messageId == GMMessageIdGetLockedList) {
+        NSArray *lockList = [[GMMemManager shareInstance] getLockedList];
         if (lockList) {
             LMSendArchiverObjectReply(replyPort, lockList);
+        } else {
+            LMSendReply(replyPort, NULL, 0);
+        }
+    } else if (messageId == GMMessageIdGetStoredList) {
+        NSArray *storedList = [[GMMemManager shareInstance] getStoredList];
+        if (storedList) {
+            LMSendArchiverObjectReply(replyPort, storedList);
         } else {
             LMSendReply(replyPort, NULL, 0);
         }

@@ -25,7 +25,9 @@
 
 - (BOOL)reset;
 
-- (NSArray *)getLockList;
+- (NSArray *)getLockedList;
+
+- (NSArray *)getStoredList;
 
 - (BOOL)isValid:(int)pid;
 

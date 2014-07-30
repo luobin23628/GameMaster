@@ -7,7 +7,7 @@
 //
 
 #import "GMLockThread.h"
-#import "GMLockManager.h"
+#import "GMStorageManager.h"
 #import "GMMemManager.h"
 #import <libkern/OSAtomic.h>
 
@@ -50,7 +50,7 @@ static OSSpinLock spinLock;
     if (self.isSuspend) {
         NSLog(@"Lock Thread resume.");
         self.isSuspend = NO;
-        self.timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(timerDidFire) userInfo:nil repeats:YES];
+        self.timer = [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(timerDidFire) userInfo:nil repeats:YES];
         CFRunLoopAddTimer(CFRunLoopGetCurrent(), (CFRunLoopTimerRef)self.timer, kCFRunLoopDefaultMode);
 
     }
@@ -60,8 +60,7 @@ static OSSpinLock spinLock;
 - (void)timerDidFire {
     @autoreleasepool {
         if ([[GMMemManager shareInstance] isValid]) {
-            NSArray *lockObjects = [[GMLockManager shareInstance] lockObjects];
-            lockObjects = [[lockObjects copy] autorelease];
+            NSArray *lockObjects = [[GMStorageManager shareInstance] getLockedObjects];
             for (GMMemoryAccessObject *lockObject in lockObjects) {
                 BOOL ok = YES;
                 GMMemoryAccessObject *accessObject = [[GMMemManager shareInstance] getMemoryAccessObject:lockObject.address];

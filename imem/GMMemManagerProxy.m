@@ -7,7 +7,6 @@
 //
 
 #import "GMMemManagerProxy.h"
-#import "GMMem.h"
 
 @interface GMMemManagerProxy()
 
@@ -29,9 +28,13 @@
     return NO;
 #else
     LMResponseBuffer responseBuffer;
-    LMConnectionSendTwoWay(&connection, GMMessageIdSetPid, &pid, sizeof(pid), &responseBuffer);
-    int32_t ret = LMResponseConsumeInteger(&responseBuffer);
-    return ret == 1;
+    kern_return_t ret = LMConnectionSendTwoWay(&connection, GMMessageIdSetPid, &pid, sizeof(pid), &responseBuffer);
+    if (ret == KERN_SUCCESS) {
+        BOOL ok = LMResponseConsumeInteger(&responseBuffer);
+        return ok;
+    } else {
+        return NO;
+    }
 #endif
 }
 
@@ -46,7 +49,7 @@
     kern_return_t kert = LMConnectionSendTwoWayData(&connection, GMMessageIdSearch, (CFDataRef)data, &buffer);
     
     uint32_t length = LMMessageGetDataLength(&buffer.message);
-	if (length) {
+	if (length && kert == KERN_SUCCESS) {
         void *bytes = LMMessageGetData(&buffer.message);
         if (count) {
             *count = *((UInt64 *)bytes);
@@ -69,8 +72,12 @@
     return NO;
 #else
     LMResponseBuffer responseBuffer;
-    LMConnectionSendTwoWay(&connection, GMMessageIdGetMemoryAccessObject, &address, sizeof(address), &responseBuffer);
-    return (GMMemoryAccessObject *)LMResponseConsumeArchiverObject(&responseBuffer);
+    kern_return_t ret = LMConnectionSendTwoWay(&connection, GMMessageIdGetMemoryAccessObject, &address, sizeof(address), &responseBuffer);
+    if (ret == KERN_SUCCESS) {
+        return (GMMemoryAccessObject *)LMResponseConsumeArchiverObject(&responseBuffer);
+    } else {
+        return nil;
+    }
 #endif
 }
 
@@ -79,9 +86,13 @@
     return NO;
 #else
     LMResponseBuffer responseBuffer;
-    LMConnectionSendTwoWayArchiverObject(&connection, GMMessageIdModify, accessObject, &responseBuffer);
-    int32_t ret = LMResponseConsumeInteger(&responseBuffer);
-    return ret == 1;
+    kern_return_t ret = LMConnectionSendTwoWayArchiverObject(&connection, GMMessageIdModify, accessObject, &responseBuffer);
+    if (ret == KERN_SUCCESS) {
+        BOOL ok = LMResponseConsumeInteger(&responseBuffer);
+        return ok;
+    } else {
+        return NO;
+    }
 #endif
 }
 
@@ -90,9 +101,13 @@
     return NO;
 #else
     LMResponseBuffer responseBuffer;
-    LMConnectionSendTwoWay(&connection, GMMessageIdReset, NULL, 0, &responseBuffer);
-    int32_t ret = LMResponseConsumeInteger(&responseBuffer);
-    return ret == 1;
+    kern_return_t ret = LMConnectionSendTwoWay(&connection, GMMessageIdReset, NULL, 0, &responseBuffer);
+    if (ret == KERN_SUCCESS) {
+        BOOL ok = LMResponseConsumeInteger(&responseBuffer);
+        return ok;
+    } else {
+        return NO;
+    }
 #endif
 }
 
@@ -101,19 +116,41 @@
     return NO;
 #else
     LMResponseBuffer responseBuffer;
-    LMConnectionSendTwoWay(&connection, GMMessageIdCheckValid, &pid, sizeof(pid), &responseBuffer);
-    int32_t ret = LMResponseConsumeInteger(&responseBuffer);
-    return ret == 1;
+    kern_return_t ret = LMConnectionSendTwoWay(&connection, GMMessageIdCheckValid, &pid, sizeof(pid), &responseBuffer);
+    if (ret == KERN_SUCCESS) {
+        BOOL ok = LMResponseConsumeInteger(&responseBuffer);
+        return ok;
+    } else {
+        return NO;
+    }
 #endif
 }
 
-- (NSArray *)getLockList {
+- (NSArray *)getLockedList {
 #if TARGET_IPHONE_SIMULATOR
     return nil;
 #else
     LMResponseBuffer responseBuffer;
-    LMConnectionSendTwoWay(&connection, GMMessageIdGetLockList, NULL, 0, &responseBuffer);
-    return (NSArray *)LMResponseConsumeArchiverObject(&responseBuffer);
+    kern_return_t ret = LMConnectionSendTwoWay(&connection, GMMessageIdGetLockedList, NULL, 0, &responseBuffer);
+    if (ret == KERN_SUCCESS) {
+        return (NSArray *)LMResponseConsumeArchiverObject(&responseBuffer);
+    } else {
+        return nil;
+    }
+#endif
+}
+
+- (NSArray *)getStoredList {
+#if TARGET_IPHONE_SIMULATOR
+    return nil;
+#else
+    LMResponseBuffer responseBuffer;
+    kern_return_t ret = LMConnectionSendTwoWay(&connection, GMMessageIdGetStoredList, NULL, 0, &responseBuffer);
+    if (ret == KERN_SUCCESS) {
+        return (NSArray *)LMResponseConsumeArchiverObject(&responseBuffer);
+    } else {
+        return nil;
+    }
 #endif
 }
 

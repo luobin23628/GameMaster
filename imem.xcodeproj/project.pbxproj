@@ -26,8 +26,6 @@
 		A82B442B197BD4A60098A6D4 /* GMGridLinesTexturedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B442A197BD4A60098A6D4 /* GMGridLinesTexturedView.m */; };
 		A839D2D7196C2B2400E8E9F4 /* entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = A839D2D6196C2B2400E8E9F4 /* entitlements.plist */; };
 		A86BC8881986863D000A417A /* GMAssociateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A86BC8871986863D000A417A /* GMAssociateViewController.m */; };
-		A86FD13F1975652D00765F99 /* GMMem.h in Headers */ = {isa = PBXBuildFile; fileRef = A86FD13D1975652D00765F99 /* GMMem.h */; };
-		A86FD1401975652D00765F99 /* GMMem.m in Sources */ = {isa = PBXBuildFile; fileRef = A86FD13E1975652D00765F99 /* GMMem.m */; };
 		A86FD1431975680000765F99 /* GMMemManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A86FD1411975680000765F99 /* GMMemManager.h */; };
 		A86FD1441975680000765F99 /* GMMemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A86FD1421975680000765F99 /* GMMemManager.m */; };
 		A86FD14519756D8200765F99 /* librocketbootstrap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */; };
@@ -37,10 +35,8 @@
 		A86FD1521976BD9200765F99 /* GMMemManagerProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A86FD1511976BD9200765F99 /* GMMemManagerProxy.m */; };
 		A874478C19849CEC00A9544D /* GMLockThread.h in Headers */ = {isa = PBXBuildFile; fileRef = A874478A19849CEC00A9544D /* GMLockThread.h */; };
 		A874478D19849CEC00A9544D /* GMLockThread.m in Sources */ = {isa = PBXBuildFile; fileRef = A874478B19849CEC00A9544D /* GMLockThread.m */; };
-		A87447901984AE6D00A9544D /* GMLockObject.h in Headers */ = {isa = PBXBuildFile; fileRef = A874478E1984AE6D00A9544D /* GMLockObject.h */; };
-		A87447911984AE6D00A9544D /* GMLockObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A874478F1984AE6D00A9544D /* GMLockObject.m */; };
-		A87447941984B08F00A9544D /* GMLockManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A87447921984B08F00A9544D /* GMLockManager.h */; };
-		A87447951984B08F00A9544D /* GMLockManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A87447931984B08F00A9544D /* GMLockManager.m */; };
+		A87447941984B08F00A9544D /* GMStorageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A87447921984B08F00A9544D /* GMStorageManager.h */; };
+		A87447951984B08F00A9544D /* GMStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A87447931984B08F00A9544D /* GMStorageManager.m */; };
 		A8A7416919680E6400131416 /* GMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A7416819680E6400131416 /* GMMainViewController.m */; };
 		A8A7416F1968105C00131416 /* GMSelectAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A7416E1968105C00131416 /* GMSelectAppViewController.m */; };
 		A8BDC4221987DA2F00592935 /* LightMessaging.h in Headers */ = {isa = PBXBuildFile; fileRef = A8BDC4211987DA2F00592935 /* LightMessaging.h */; };
@@ -110,8 +106,6 @@
 		A8577E1419719AEC00A277D4 /* com.test.imemXpcService.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = com.test.imemXpcService.plist; sourceTree = "<group>"; };
 		A86BC8861986863D000A417A /* GMAssociateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMAssociateViewController.h; sourceTree = "<group>"; };
 		A86BC8871986863D000A417A /* GMAssociateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMAssociateViewController.m; sourceTree = "<group>"; };
-		A86FD13D1975652D00765F99 /* GMMem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMem.h; sourceTree = "<group>"; };
-		A86FD13E1975652D00765F99 /* GMMem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMem.m; sourceTree = "<group>"; };
 		A86FD1411975680000765F99 /* GMMemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMemManager.h; sourceTree = "<group>"; };
 		A86FD1421975680000765F99 /* GMMemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMemManager.m; sourceTree = "<group>"; };
 		A86FD14A1975838900765F99 /* GMApplicationTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMApplicationTableDataSource.m; sourceTree = "<group>"; };
@@ -122,10 +116,8 @@
 		A86FD1531976C6E500765F99 /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		A874478A19849CEC00A9544D /* GMLockThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMLockThread.h; sourceTree = "<group>"; };
 		A874478B19849CEC00A9544D /* GMLockThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMLockThread.m; sourceTree = "<group>"; };
-		A874478E1984AE6D00A9544D /* GMLockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMLockObject.h; sourceTree = "<group>"; };
-		A874478F1984AE6D00A9544D /* GMLockObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMLockObject.m; sourceTree = "<group>"; };
-		A87447921984B08F00A9544D /* GMLockManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMLockManager.h; sourceTree = "<group>"; };
-		A87447931984B08F00A9544D /* GMLockManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMLockManager.m; sourceTree = "<group>"; };
+		A87447921984B08F00A9544D /* GMStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMStorageManager.h; sourceTree = "<group>"; };
+		A87447931984B08F00A9544D /* GMStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMStorageManager.m; sourceTree = "<group>"; };
 		A8A7416719680E6400131416 /* GMMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMainViewController.h; sourceTree = "<group>"; };
 		A8A7416819680E6400131416 /* GMMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMainViewController.m; sourceTree = "<group>"; };
 		A8A7416D1968105C00131416 /* GMSelectAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMSelectAppViewController.h; sourceTree = "<group>"; };
@@ -189,10 +181,8 @@
 			isa = PBXGroup;
 			children = (
 				A8054EDF196DB6E8004CC80A /* main.m */,
-				A874478E1984AE6D00A9544D /* GMLockObject.h */,
-				A874478F1984AE6D00A9544D /* GMLockObject.m */,
-				A87447921984B08F00A9544D /* GMLockManager.h */,
-				A87447931984B08F00A9544D /* GMLockManager.m */,
+				A87447921984B08F00A9544D /* GMStorageManager.h */,
+				A87447931984B08F00A9544D /* GMStorageManager.m */,
 				A874478A19849CEC00A9544D /* GMLockThread.h */,
 				A874478B19849CEC00A9544D /* GMLockThread.m */,
 				A80D3E7419855DE100F5CF2A /* GMMemoryAccessObject.h */,
@@ -202,8 +192,6 @@
 				ABE39FD6197FCCAE002E7678 /* shared_region.h */,
 				ABE39F94197FCBBA002E7678 /* darwin_memory_usage.h */,
 				ABE39F92197FCBB0002E7678 /* darwin_memory_usage.c */,
-				A86FD13D1975652D00765F99 /* GMMem.h */,
-				A86FD13E1975652D00765F99 /* GMMem.m */,
 				A8054ED8196DB6E8004CC80A /* Package */,
 				A8054EDC196DB6E8004CC80A /* Supporting Files */,
 			);
@@ -408,13 +396,11 @@
 			files = (
 				ABE39FD7197FCCAE002E7678 /* shared_region.h in Headers */,
 				A874478C19849CEC00A9544D /* GMLockThread.h in Headers */,
-				A87447901984AE6D00A9544D /* GMLockObject.h in Headers */,
 				A80D3E7619855DE100F5CF2A /* GMMemoryAccessObject.h in Headers */,
 				A8BDC4221987DA2F00592935 /* LightMessaging.h in Headers */,
 				A81E809E197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h in Headers */,
 				A86FD1431975680000765F99 /* GMMemManager.h in Headers */,
-				A87447941984B08F00A9544D /* GMLockManager.h in Headers */,
-				A86FD13F1975652D00765F99 /* GMMem.h in Headers */,
+				A87447941984B08F00A9544D /* GMStorageManager.h in Headers */,
 				A86FD14D1975839400765F99 /* GMApplicationTableDataSource.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -602,10 +588,8 @@
 				A86FD1441975680000765F99 /* GMMemManager.m in Sources */,
 				ABE39F93197FCBB0002E7678 /* darwin_memory_usage.c in Sources */,
 				A8054EE0196DB6E8004CC80A /* main.m in Sources */,
-				A87447911984AE6D00A9544D /* GMLockObject.m in Sources */,
-				A87447951984B08F00A9544D /* GMLockManager.m in Sources */,
+				A87447951984B08F00A9544D /* GMStorageManager.m in Sources */,
 				A874478D19849CEC00A9544D /* GMLockThread.m in Sources */,
-				A86FD1401975652D00765F99 /* GMMem.m in Sources */,
 				A80D3E7819855DE100F5CF2A /* GMMemoryAccessObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

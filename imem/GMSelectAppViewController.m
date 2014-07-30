@@ -7,7 +7,6 @@
 //
 
 #import "GMSelectAppViewController.h"
-#import "GMMem.h"
 #import <AppList/AppList.h>
 #import <SpringBoard/SBApplication.h>
 

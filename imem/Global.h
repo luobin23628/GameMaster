@@ -24,6 +24,7 @@ static LMConnection connection = {
 #define GMMessageIdModify       4
 #define GMMessageIdReset        5
 #define GMMessageIdCheckValid   6
-#define GMMessageIdGetLockList  7
+#define GMMessageIdGetLockedList  7
+#define GMMessageIdGetStoredList  8
 
 #endif

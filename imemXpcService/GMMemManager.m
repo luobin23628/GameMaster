@@ -9,7 +9,7 @@
 #import "GMMemManager.h"
 #import <libkern/OSCacheControl.h>
 #import <LightMessaging.h>
-#import "GMLockManager.h"
+#import "GMStorageManager.h"
 
 #define MaxCount 100
 
@@ -304,13 +304,13 @@
         return NO;
     }
     
-    /* Flush CPU data cache to save write to RAM */
-    sys_dcache_flush(address, valueSize);
-    /* Invalidate instruction cache to make the CPU read patched instructions from RAM */
-    sys_icache_invalidate(address, valueSize);
+//    /* Flush CPU data cache to save write to RAM */
+//    sys_dcache_flush(address, valueSize);
+//    /* Invalidate instruction cache to make the CPU read patched instructions from RAM */
+//    sys_icache_invalidate(address, valueSize);
     
-    if (optType == GMOptTypeEditAndLock) {
-        [[GMLockManager shareInstance] addLockObject:accessObject];
+    if (optType == GMOptTypeEditAndSave || optType == GMOptTypeEditAndLock) {
+        [[GMStorageManager shareInstance] addObject:accessObject];
     }
     
     /* Change memory protections back to*/
@@ -328,8 +328,12 @@
     return YES;
 }
 
-- (NSArray *)getLockList {
-    return [[GMLockManager shareInstance] lockObjects];
+- (NSArray *)getLockedList {
+    return [[GMStorageManager shareInstance] getLockedObjects];
+}
+
+- (NSArray *)getStoredList {
+    return [[GMStorageManager shareInstance] getStoredObjects];
 }
 
 - (void)dealloc {
@@ -492,7 +496,7 @@
             self.task = 0;
             resultCount = 0;
             NSLog(@"Process:%d exit. Clean up...", _pid);
-            [[GMLockManager shareInstance] cancelAllLock];
+            [[GMStorageManager shareInstance] cancelAllLock];
             
             [self stopMonitor];
         });

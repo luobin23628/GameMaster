@@ -28,7 +28,9 @@
 
 - (BOOL)modifyMemory:(GMMemoryAccessObject *)accessObject;
 
-- (NSArray *)getLockList;
+- (NSArray *)getLockedList;
+
+- (NSArray *)getStoredList;
 
 - (BOOL)reset;
 
