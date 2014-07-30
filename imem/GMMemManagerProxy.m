@@ -43,7 +43,7 @@
     NSMutableData *data = [NSMutableData data];
     [data appendBytes:&value length:sizeof(value)];
     [data appendBytes:&isFirst length:sizeof(isFirst)];
-    LMConnectionSendTwoWayData(&connection, GMMessageIdSearch, (CFDataRef)data, &buffer);
+    kern_return_t kert = LMConnectionSendTwoWayData(&connection, GMMessageIdSearch, (CFDataRef)data, &buffer);
     
     uint32_t length = LMMessageGetDataLength(&buffer.message);
 	if (length) {
