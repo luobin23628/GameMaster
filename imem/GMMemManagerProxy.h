@@ -31,4 +31,6 @@
 
 - (BOOL)isValid:(int)pid;
 
+- (BOOL)removeObjects:(NSArray *)accessObjects;
+
 @end

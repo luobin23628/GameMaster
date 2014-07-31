@@ -14,7 +14,7 @@
 
 @interface GMStorageViewController ()
 
-@property (nonatomic, retain) NSArray *lists;
+@property (nonatomic, retain) NSMutableArray *lists;
 
 @end
 
@@ -39,7 +39,7 @@
     self.navigationItem.titleView = segmentedControl;
     [segmentedControl release];
     segmentedControl.selectedSegmentIndex = 0;
-    self.lists = [[GMMemManagerProxy shareInstance] getLockedList];
+    self.lists = [NSMutableArray arrayWithArray:[[GMMemManagerProxy shareInstance] getStoredList]];
 }
 
 - (void)dealloc {
@@ -50,11 +50,10 @@
 - (void)segmentDidSelect:(UISegmentedControl *)segmentedControl {
     NSInteger selectedSegmentIndex = segmentedControl.selectedSegmentIndex;
     if (selectedSegmentIndex == kSegmentedControlIndexStoredIndex) {
-        self.lists = [[GMMemManagerProxy shareInstance] getLockedList];
+        self.lists = [NSMutableArray arrayWithArray:[[GMMemManagerProxy shareInstance] getStoredList]];
         
     } else if (selectedSegmentIndex == kSegmentedControlIndexLockedIndex) {
-        self.lists = [[GMMemManagerProxy shareInstance] getStoredList];
-        
+        self.lists = [NSMutableArray arrayWithArray:[[GMMemManagerProxy shareInstance] getLockedList]];
     }
     [self.tableView reloadData];
 }
@@ -88,7 +87,15 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        GMMemoryAccessObject *accessObject = [self.lists objectAtIndex:indexPath.row];
+        if (accessObject) {
+            if ([[GMMemManagerProxy shareInstance] removeObjects:@[accessObject]]) {
+                [self.lists removeObjectAtIndex:indexPath.row];
+                [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            } else {
+                TKAlert(@"删除失败");
+            }
+        }
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   

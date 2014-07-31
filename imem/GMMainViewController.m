@@ -18,6 +18,7 @@
 #import "GMAssociateViewController.h"
 #import "GMStorageViewController.h"
 #import <UI7Kit/UI7Kit.h>
+#import "NSTask.h"
 
 #define CellMAXCount 99
 
@@ -146,12 +147,63 @@
     
     [searchBar becomeFirstResponder];
 //    [self addSearchDisplayController];
-
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(appDidBecomeActiveNotification:)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
 }
+
+#pragma mark - KVO
+
+//- (NSArray *)indexPathsForSection:(NSUInteger)section rowIndexSet:(NSIndexSet *)indexSet {
+//    NSMutableArray *    indexPaths;
+//    NSUInteger          currentIndex;
+//    
+//    assert(indexSet != nil);
+//    
+//    indexPaths = [NSMutableArray array];
+//    assert(indexPaths != nil);
+//    currentIndex = [indexSet firstIndex];
+//    while (currentIndex != NSNotFound) {
+//        [indexPaths addObject:[NSIndexPath indexPathForRow:currentIndex inSection:section]];
+//        currentIndex = [indexSet indexGreaterThanIndex:currentIndex];
+//    }
+//    return indexPaths;
+//}
+//
+//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+//    
+//    if (self.isViewLoaded) {
+//        NSIndexSet *    indexes;
+//        
+//        indexes = [change objectForKey:NSKeyValueChangeIndexesKey];
+//        assert( (indexes == nil) || [indexes isKindOfClass:[NSIndexSet class]] );
+//        
+//        assert([change objectForKey:NSKeyValueChangeKindKey] != nil);
+//        switch ( [[change objectForKey:NSKeyValueChangeKindKey] intValue] ) {
+//            default:
+//                assert(NO);
+//            case NSKeyValueChangeSetting: {
+//                [self.tableView reloadData];
+//            } break;
+//            case NSKeyValueChangeInsertion: {
+//                assert(indexes != nil);
+//                [self.tableView insertRowsAtIndexPaths:[self indexPathsForSection:0 rowIndexSet:indexes] withRowAnimation:UITableViewRowAnimationNone];
+//                [self.tableView flashScrollIndicators];
+//            } break;
+//            case NSKeyValueChangeRemoval: {
+//                assert(indexes != nil);
+//                [self.tableView deleteRowsAtIndexPaths:[self indexPathsForSection:0 rowIndexSet:indexes] withRowAnimation:UITableViewRowAnimationNone];
+//                [self.tableView flashScrollIndicators];
+//            } break;
+//            case NSKeyValueChangeReplacement: {
+//                assert(indexes != nil);
+//                [self.tableView reloadRowsAtIndexPaths:[self indexPathsForSection:0 rowIndexSet:indexes] withRowAnimation:UITableViewRowAnimationNone];
+//            } break;
+//        }
+//    }
+//}
 
 - (BOOL)shouldAutorotate {
     return NO;

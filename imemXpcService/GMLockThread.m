@@ -41,6 +41,7 @@ static OSSpinLock spinLock;
         self.isSuspend = YES;
         CFRunLoopRemoveTimer(CFRunLoopGetCurrent(), (CFRunLoopTimerRef)self.timer, kCFRunLoopDefaultMode);
         [self.timer invalidate];
+        self.timer = nil;
     }
     OSSpinLockUnlock(&spinLock);
 }

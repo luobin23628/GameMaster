@@ -154,6 +154,21 @@
 #endif
 }
 
+- (BOOL)removeObjects:(NSArray *)accessObjects {
+#if TARGET_IPHONE_SIMULATOR
+    return nil;
+#else
+    LMResponseBuffer responseBuffer;
+    kern_return_t ret = LMConnectionSendTwoWayArchiverObject(&connection, GMMessageIdRemoveLockedOrStoredObjects, accessObjects, &responseBuffer);
+    if (ret == KERN_SUCCESS) {
+        BOOL ok = LMResponseConsumeInteger(&responseBuffer);
+        return ok;
+    } else {
+        return NO;
+    }
+#endif
+}
+
 - (void)dealloc {
 
     [super dealloc];

@@ -35,7 +35,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        
+        [GMStorageManager shareInstance];
     }
     return self;
 }
@@ -328,14 +328,6 @@
     return YES;
 }
 
-- (NSArray *)getLockedList {
-    return [[GMStorageManager shareInstance] getLockedObjects];
-}
-
-- (NSArray *)getStoredList {
-    return [[GMStorageManager shareInstance] getStoredObjects];
-}
-
 - (void)dealloc {
     [self stopMonitor];
     [super dealloc];
@@ -496,7 +488,7 @@
             self.task = 0;
             resultCount = 0;
             NSLog(@"Process:%d exit. Clean up...", _pid);
-            [[GMStorageManager shareInstance] cancelAllLock];
+            [[GMStorageManager shareInstance] removeAllLock];
             
             [self stopMonitor];
         });

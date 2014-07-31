@@ -12,14 +12,18 @@
 
 + (instancetype)shareInstance;
 
-- (void)addObject:(GMMemoryAccessObject *)lockObject;
+- (void)addObject:(GMMemoryAccessObject *)accessObject;
+
+- (void)removeObject:(GMMemoryAccessObject *)accessObject;
+
+- (void)removeObjects:(NSArray *)accessObjects;
+
+- (void)removeAllLock;
 
 - (NSArray *)getAllObjects;
 
 - (NSArray *)getStoredObjects;
 
 - (NSArray *)getLockedObjects;
-
-- (void)cancelAllLock;
 
 @end

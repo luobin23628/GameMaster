@@ -80,22 +80,21 @@
 		A80D3E7519855DE100F5CF2A /* GMMemoryAccessObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMemoryAccessObject.m; sourceTree = "<group>"; };
 		A810E65F197ABA6800757554 /* GMModifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMModifyViewController.h; sourceTree = "<group>"; };
 		A810E660197ABA6800757554 /* GMModifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMModifyViewController.m; sourceTree = "<group>"; };
-		A810E662197AC43B00757554 /* TextFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldTableViewCell.h; sourceTree = "<group>"; };
-		A810E663197AC43B00757554 /* TextFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldTableViewCell.m; sourceTree = "<group>"; };
-		A810E668197AD97F00757554 /* PickerInputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerInputTableViewCell.h; sourceTree = "<group>"; };
-		A810E669197AD97F00757554 /* PickerInputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerInputTableViewCell.m; sourceTree = "<group>"; };
-		A810E66A197AD97F00757554 /* SimplePickerInputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePickerInputTableViewCell.h; sourceTree = "<group>"; };
-		A810E66B197AD97F00757554 /* SimplePickerInputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePickerInputTableViewCell.m; sourceTree = "<group>"; };
-		A81E8099197D5FE500D3DF5E /* MAZeroingWeakRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAZeroingWeakRef.h; sourceTree = "<group>"; };
-		A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAZeroingWeakRef.m; sourceTree = "<group>"; };
-		A81E809D197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAZeroingWeakRefNativeZWRNotAllowedTable.h; sourceTree = "<group>"; };
+		A810E662197AC43B00757554 /* TextFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextFieldTableViewCell.h; path = imem/TextFieldTableViewCell.h; sourceTree = "<group>"; };
+		A810E663197AC43B00757554 /* TextFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextFieldTableViewCell.m; path = imem/TextFieldTableViewCell.m; sourceTree = "<group>"; };
+		A810E668197AD97F00757554 /* PickerInputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PickerInputTableViewCell.h; path = imem/PickerInputTableViewCell.h; sourceTree = "<group>"; };
+		A810E669197AD97F00757554 /* PickerInputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PickerInputTableViewCell.m; path = imem/PickerInputTableViewCell.m; sourceTree = "<group>"; };
+		A810E66A197AD97F00757554 /* SimplePickerInputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimplePickerInputTableViewCell.h; path = imem/SimplePickerInputTableViewCell.h; sourceTree = "<group>"; };
+		A810E66B197AD97F00757554 /* SimplePickerInputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SimplePickerInputTableViewCell.m; path = imem/SimplePickerInputTableViewCell.m; sourceTree = "<group>"; };
+		A81E8099197D5FE500D3DF5E /* MAZeroingWeakRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAZeroingWeakRef.h; path = imem/MAZeroingWeakRef.h; sourceTree = "<group>"; };
+		A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAZeroingWeakRef.m; path = imem/MAZeroingWeakRef.m; sourceTree = "<group>"; };
+		A81E809D197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAZeroingWeakRefNativeZWRNotAllowedTable.h; path = imem/MAZeroingWeakRefNativeZWRNotAllowedTable.h; sourceTree = "<group>"; };
 		A8208226197FE71A0081CF58 /* imem.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = imem.app; sourceTree = "<group>"; };
-		A820822A197FE7210081CF58 /* imemXpcService */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = imemXpcService; sourceTree = "<group>"; };
 		A820822C197FE7210081CF58 /* libapplist.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libapplist.dylib; sourceTree = "<group>"; };
 		A82B4423197BBD260098A6D4 /* GMKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMKeyboard.h; sourceTree = "<group>"; };
 		A82B4424197BBD260098A6D4 /* GMKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMKeyboard.m; sourceTree = "<group>"; };
-		A82B4426197BBE5C0098A6D4 /* UIView+Sizes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Sizes.h"; sourceTree = "<group>"; };
-		A82B4427197BBE5C0098A6D4 /* UIView+Sizes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Sizes.m"; sourceTree = "<group>"; };
+		A82B4426197BBE5C0098A6D4 /* UIView+Sizes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Sizes.h"; path = "imem/UIView+Sizes.h"; sourceTree = "<group>"; };
+		A82B4427197BBE5C0098A6D4 /* UIView+Sizes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Sizes.m"; path = "imem/UIView+Sizes.m"; sourceTree = "<group>"; };
 		A82B4429197BD4A60098A6D4 /* GMGridLinesTexturedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGridLinesTexturedView.h; sourceTree = "<group>"; };
 		A82B442A197BD4A60098A6D4 /* GMGridLinesTexturedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGridLinesTexturedView.m; sourceTree = "<group>"; };
 		A839D2D6196C2B2400E8E9F4 /* entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = entitlements.plist; sourceTree = "<group>"; };
@@ -128,8 +127,8 @@
 		A8D9058E197BF4CE001F22FF /* GMStorageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMStorageViewController.m; sourceTree = "<group>"; };
 		A8E3AB981983C0C800B6E4E6 /* GMSelectAppButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMSelectAppButton.h; sourceTree = "<group>"; };
 		A8E3AB991983C0C800B6E4E6 /* GMSelectAppButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMSelectAppButton.m; sourceTree = "<group>"; };
-		A8E3AB9B1983E5E400B6E4E6 /* UIColor+iOS7Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+iOS7Colors.h"; sourceTree = "<group>"; };
-		A8E3AB9C1983E5E400B6E4E6 /* UIColor+iOS7Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+iOS7Colors.m"; sourceTree = "<group>"; };
+		A8E3AB9B1983E5E400B6E4E6 /* UIColor+iOS7Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+iOS7Colors.h"; path = "imem/UIColor+iOS7Colors.h"; sourceTree = "<group>"; };
+		A8E3AB9C1983E5E400B6E4E6 /* UIColor+iOS7Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+iOS7Colors.m"; path = "imem/UIColor+iOS7Colors.m"; sourceTree = "<group>"; };
 		A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = librocketbootstrap.dylib; path = ../../../../opt/iOSOpenDev/lib/librocketbootstrap.dylib; sourceTree = "<group>"; };
 		AB92CFB319866DA700695460 /* SearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDisplayController.h; sourceTree = "<group>"; };
 		AB92CFB419866DA700695460 /* SearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDisplayController.m; sourceTree = "<group>"; };
@@ -253,7 +252,6 @@
 		A8208229197FE7210081CF58 /* bin */ = {
 			isa = PBXGroup;
 			children = (
-				A820822A197FE7210081CF58 /* imemXpcService */,
 			);
 			path = bin;
 			sourceTree = "<group>";
@@ -286,9 +284,43 @@
 		A8BDC4201987DA2300592935 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A810E662197AC43B00757554 /* TextFieldTableViewCell.h */,
+				A810E663197AC43B00757554 /* TextFieldTableViewCell.m */,
+				A810E668197AD97F00757554 /* PickerInputTableViewCell.h */,
+				A810E669197AD97F00757554 /* PickerInputTableViewCell.m */,
+				A8E3AB9B1983E5E400B6E4E6 /* UIColor+iOS7Colors.h */,
+				A8E3AB9C1983E5E400B6E4E6 /* UIColor+iOS7Colors.m */,
+				A82B4426197BBE5C0098A6D4 /* UIView+Sizes.h */,
+				A82B4427197BBE5C0098A6D4 /* UIView+Sizes.m */,
+				A810E66A197AD97F00757554 /* SimplePickerInputTableViewCell.h */,
+				A810E66B197AD97F00757554 /* SimplePickerInputTableViewCell.m */,
+				A81E809D197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h */,
+				A81E8099197D5FE500D3DF5E /* MAZeroingWeakRef.h */,
+				A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */,
 				A8BDC4211987DA2F00592935 /* LightMessaging.h */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		AB603382198A21CF000DA8AA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A8A7416719680E6400131416 /* GMMainViewController.h */,
+				A8A7416819680E6400131416 /* GMMainViewController.m */,
+				AB92CFB319866DA700695460 /* SearchDisplayController.h */,
+				AB92CFB419866DA700695460 /* SearchDisplayController.m */,
+				A86BC8861986863D000A417A /* GMAssociateViewController.h */,
+				A86BC8871986863D000A417A /* GMAssociateViewController.m */,
+				A82B4423197BBD260098A6D4 /* GMKeyboard.h */,
+				A82B4424197BBD260098A6D4 /* GMKeyboard.m */,
+				A82B4429197BD4A60098A6D4 /* GMGridLinesTexturedView.h */,
+				A82B442A197BD4A60098A6D4 /* GMGridLinesTexturedView.m */,
+				A86FD14C1975839400765F99 /* GMApplicationTableDataSource.h */,
+				A86FD14A1975838900765F99 /* GMApplicationTableDataSource.m */,
+				A8E3AB981983C0C800B6E4E6 /* GMSelectAppButton.h */,
+				A8E3AB991983C0C800B6E4E6 /* GMSelectAppButton.m */,
+			);
+			name = Home;
 			sourceTree = "<group>";
 		};
 		ABFF4BD21966A3E7000C7128 = {
@@ -334,42 +366,16 @@
 			children = (
 				ABFF4BF61966A579000C7128 /* AppDelegate.h */,
 				ABFF4BF71966A579000C7128 /* AppDelegate.m */,
-				A8A7416719680E6400131416 /* GMMainViewController.h */,
-				A8A7416819680E6400131416 /* GMMainViewController.m */,
-				AB92CFB319866DA700695460 /* SearchDisplayController.h */,
-				AB92CFB419866DA700695460 /* SearchDisplayController.m */,
-				A86BC8861986863D000A417A /* GMAssociateViewController.h */,
-				A86BC8871986863D000A417A /* GMAssociateViewController.m */,
-				A82B4423197BBD260098A6D4 /* GMKeyboard.h */,
-				A82B4424197BBD260098A6D4 /* GMKeyboard.m */,
-				A82B4429197BD4A60098A6D4 /* GMGridLinesTexturedView.h */,
-				A82B442A197BD4A60098A6D4 /* GMGridLinesTexturedView.m */,
-				A86FD14C1975839400765F99 /* GMApplicationTableDataSource.h */,
-				A86FD14A1975838900765F99 /* GMApplicationTableDataSource.m */,
-				A8E3AB981983C0C800B6E4E6 /* GMSelectAppButton.h */,
-				A8E3AB991983C0C800B6E4E6 /* GMSelectAppButton.m */,
+				AB603382198A21CF000DA8AA /* Home */,
 				A8A7416D1968105C00131416 /* GMSelectAppViewController.h */,
 				A8A7416E1968105C00131416 /* GMSelectAppViewController.m */,
 				A810E65F197ABA6800757554 /* GMModifyViewController.h */,
 				A810E660197ABA6800757554 /* GMModifyViewController.m */,
-				A810E662197AC43B00757554 /* TextFieldTableViewCell.h */,
-				A810E663197AC43B00757554 /* TextFieldTableViewCell.m */,
-				A810E668197AD97F00757554 /* PickerInputTableViewCell.h */,
-				A810E669197AD97F00757554 /* PickerInputTableViewCell.m */,
-				A810E66A197AD97F00757554 /* SimplePickerInputTableViewCell.h */,
-				A810E66B197AD97F00757554 /* SimplePickerInputTableViewCell.m */,
 				A8D9058D197BF4CE001F22FF /* GMStorageViewController.h */,
 				A8D9058E197BF4CE001F22FF /* GMStorageViewController.m */,
 				A86FD1501976BD9200765F99 /* GMMemManagerProxy.h */,
 				A86FD1511976BD9200765F99 /* GMMemManagerProxy.m */,
 				A86FD1531976C6E500765F99 /* Global.h */,
-				A8E3AB9B1983E5E400B6E4E6 /* UIColor+iOS7Colors.h */,
-				A8E3AB9C1983E5E400B6E4E6 /* UIColor+iOS7Colors.m */,
-				A82B4426197BBE5C0098A6D4 /* UIView+Sizes.h */,
-				A82B4427197BBE5C0098A6D4 /* UIView+Sizes.m */,
-				A81E809D197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h */,
-				A81E8099197D5FE500D3DF5E /* MAZeroingWeakRef.h */,
-				A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */,
 				ABFF4BF91966A579000C7128 /* Images.xcassets */,
 				ABFF4BEE1966A579000C7128 /* Supporting Files */,
 			);
@@ -674,7 +680,7 @@
 				VALIDATE_PRODUCT = NO;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.1.104;
+				iOSOpenDevDevice = 10.2.147.8;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
@@ -717,7 +723,7 @@
 				VALIDATE_PRODUCT = YES;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.1.104;
+				iOSOpenDevDevice = 10.2.147.8;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;

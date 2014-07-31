@@ -11,70 +11,101 @@
 
 #include <Foundation/Foundation.h>
 #import "GMMemManager.h"
+#import "GMStorageManager.h"
 
 static void processMessage(SInt32 messageId, mach_port_t replyPort, CFDataRef dataRef) {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
-    if (messageId == GMMessageIdCheckValid) {
-        int pid;
-        NSData *data = (NSData *)dataRef;
-        [data getBytes:&pid range:NSMakeRange(0, sizeof(pid))];
-        BOOL ok = [[GMMemManager shareInstance] isValid:pid];
-        LMSendIntegerReply(replyPort, ok);
-    } else if (messageId == GMMessageIdSetPid) {
-        int pid;
-        NSData *data = (NSData *)dataRef;
-        [data getBytes:&pid range:NSMakeRange(0, sizeof(pid))];
-        BOOL ok = [[GMMemManager shareInstance] setPid:pid];
-        LMSendIntegerReply(replyPort, ok);
-    } else if (messageId == GMMessageIdSearch) {
-        NSData *data = (NSData *)dataRef;
-        int value; BOOL isFirst;
-        [data getBytes:&value range:NSMakeRange(0, sizeof(value))];
-        [data getBytes:&isFirst range:NSMakeRange(sizeof(value), sizeof(isFirst))];
-        NSArray *result = [[GMMemManager shareInstance] search:value isFirst:isFirst];
-        UInt64 resultCount = [GMMemManager shareInstance].resultCount;
-        if (result) {
-            NSMutableData *data = [NSMutableData data];
-            [data appendBytes:&resultCount length:sizeof(resultCount)];
-            NSData *resultData = [NSPropertyListSerialization dataFromPropertyList:result format:NSPropertyListBinaryFormat_v1_0 errorDescription:NULL];
-            [data appendData:resultData];
-            LMSendNSDataReply(replyPort, data);
-        } else {
+    switch (messageId) {
+        case GMMessageIdCheckValid: {
+            int pid;
+            NSData *data = (NSData *)dataRef;
+            [data getBytes:&pid range:NSMakeRange(0, sizeof(pid))];
+            BOOL ok = [[GMMemManager shareInstance] isValid:pid];
+            LMSendIntegerReply(replyPort, ok);
+            break;
+        }
+        case GMMessageIdSetPid: {
+            int pid;
+            NSData *data = (NSData *)dataRef;
+            [data getBytes:&pid range:NSMakeRange(0, sizeof(pid))];
+            BOOL ok = [[GMMemManager shareInstance] setPid:pid];
+            LMSendIntegerReply(replyPort, ok);
+            break;
+        }
+        case GMMessageIdSearch: {
+            NSData *data = (NSData *)dataRef;
+            int value; BOOL isFirst;
+            [data getBytes:&value range:NSMakeRange(0, sizeof(value))];
+            [data getBytes:&isFirst range:NSMakeRange(sizeof(value), sizeof(isFirst))];
+            NSArray *result = [[GMMemManager shareInstance] search:value isFirst:isFirst];
+            UInt64 resultCount = [GMMemManager shareInstance].resultCount;
+            if (result) {
+                NSMutableData *data = [NSMutableData data];
+                [data appendBytes:&resultCount length:sizeof(resultCount)];
+                NSData *resultData = [NSPropertyListSerialization dataFromPropertyList:result format:NSPropertyListBinaryFormat_v1_0 errorDescription:NULL];
+                [data appendData:resultData];
+                LMSendNSDataReply(replyPort, data);
+            } else {
+                LMSendReply(replyPort, NULL, 0);
+            }
+            break;
+        }
+        case GMMessageIdGetMemoryAccessObject: {
+            uint64_t address;
+            NSData *data = (NSData *)dataRef;
+            [data getBytes:&address range:NSMakeRange(0, sizeof(address))];
+            GMMemoryAccessObject *accessObject = [[GMMemManager shareInstance] getMemoryAccessObject:address];
+            LMSendArchiverObjectReply(replyPort, accessObject);
+            break;
+        }
+        case GMMessageIdModify: {
+            GMMemoryAccessObject *accessObject = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData *)dataRef];
+            BOOL ok = NO;
+            if (accessObject) {
+                ok = [[GMMemManager shareInstance] modifyMemory:accessObject];
+            }
+            LMSendIntegerReply(replyPort, ok);
+            break;
+        }
+        case GMMessageIdReset: {
+            BOOL ok = [[GMMemManager shareInstance] reset];
+            LMSendIntegerReply(replyPort, ok);
+            break;
+        }
+        case GMMessageIdGetLockedList: {
+            NSArray *lockList = [[GMStorageManager shareInstance] getLockedObjects];
+            if (lockList) {
+                LMSendArchiverObjectReply(replyPort, lockList);
+            } else {
+                LMSendReply(replyPort, NULL, 0);
+            }
+            break;
+        }
+        case GMMessageIdGetStoredList: {
+            NSArray *storedList = [[GMStorageManager shareInstance] getStoredObjects];
+            if (storedList) {
+                LMSendArchiverObjectReply(replyPort, storedList);
+            } else {
+                LMSendReply(replyPort, NULL, 0);
+            }
+            break;
+        }
+        case GMMessageIdRemoveLockedOrStoredObjects: {
+            BOOL ok = NO;
+            if (dataRef) {
+                NSArray *accessObjects = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData *)dataRef];
+                if (accessObjects) {
+                    [[GMStorageManager shareInstance] removeObjects:accessObjects];
+                    ok = YES;
+                }
+            }
+            LMSendIntegerReply(replyPort, ok);
+            break;
+        }
+        default:
             LMSendReply(replyPort, NULL, 0);
-        }
-    } else if (messageId == GMMessageIdGetMemoryAccessObject) {
-        uint64_t address;
-        NSData *data = (NSData *)dataRef;
-        [data getBytes:&address range:NSMakeRange(0, sizeof(address))];
-        GMMemoryAccessObject *accessObject = [[GMMemManager shareInstance] getMemoryAccessObject:address];
-        LMSendArchiverObjectReply(replyPort, accessObject);
-    } else if (messageId == GMMessageIdModify) {
-        GMMemoryAccessObject *accessObject = [NSKeyedUnarchiver unarchiveObjectWithData:(NSData *)dataRef];
-        BOOL ok = NO;
-        if (accessObject) {
-            ok = [[GMMemManager shareInstance] modifyMemory:accessObject];
-        }
-        LMSendIntegerReply(replyPort, ok);
-    } else if (messageId == GMMessageIdReset) {
-        BOOL ok = [[GMMemManager shareInstance] reset];
-        LMSendIntegerReply(replyPort, ok);
-    } else if (messageId == GMMessageIdGetLockedList) {
-        NSArray *lockList = [[GMMemManager shareInstance] getLockedList];
-        if (lockList) {
-            LMSendArchiverObjectReply(replyPort, lockList);
-        } else {
-            LMSendReply(replyPort, NULL, 0);
-        }
-    } else if (messageId == GMMessageIdGetStoredList) {
-        NSArray *storedList = [[GMMemManager shareInstance] getStoredList];
-        if (storedList) {
-            LMSendArchiverObjectReply(replyPort, storedList);
-        } else {
-            LMSendReply(replyPort, NULL, 0);
-        }
-    } else {
-        LMSendReply(replyPort, NULL, 0);
+            break;
     }
     [pool release];
 }

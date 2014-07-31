@@ -28,10 +28,6 @@
 
 - (BOOL)modifyMemory:(GMMemoryAccessObject *)accessObject;
 
-- (NSArray *)getLockedList;
-
-- (NSArray *)getStoredList;
-
 - (BOOL)reset;
 
 - (BOOL)isValid:(int)pid;
