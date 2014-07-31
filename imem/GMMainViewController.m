@@ -18,7 +18,6 @@
 #import "GMAssociateViewController.h"
 #import "GMStorageViewController.h"
 #import <UI7Kit/UI7Kit.h>
-#import "NSTask.h"
 
 #define CellMAXCount 99
 
