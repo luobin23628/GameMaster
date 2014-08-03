@@ -44,6 +44,15 @@
 		A8D9058F197BF4CE001F22FF /* GMStorageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D9058E197BF4CE001F22FF /* GMStorageViewController.m */; };
 		A8E3AB9A1983C0C800B6E4E6 /* GMSelectAppButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E3AB991983C0C800B6E4E6 /* GMSelectAppButton.m */; };
 		A8E3AB9D1983E5E400B6E4E6 /* UIColor+iOS7Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E3AB9C1983E5E400B6E4E6 /* UIColor+iOS7Colors.m */; };
+		A8ED6904198E805A000DDD3F /* NSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F1198E805A000DDD3F /* NSObject+Swizzle.m */; };
+		A8ED6905198E805A000DDD3F /* TKFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F3198E805A000DDD3F /* TKFlowLayout.m */; };
+		A8ED6906198E805A000DDD3F /* TKGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F5198E805A000DDD3F /* TKGridLayout.m */; };
+		A8ED6907198E805A000DDD3F /* TKGridLinesTexturedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F7198E805A000DDD3F /* TKGridLinesTexturedView.m */; };
+		A8ED6908198E805A000DDD3F /* TKKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F9198E805A000DDD3F /* TKKeyboard.m */; };
+		A8ED6909198E805A000DDD3F /* TKKeyboardConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68FB198E805A000DDD3F /* TKKeyboardConfiguration.m */; };
+		A8ED690A198E805A000DDD3F /* TKKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68FD198E805A000DDD3F /* TKKeyboardManager.m */; };
+		A8ED690B198E805A000DDD3F /* TKKeyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68FF198E805A000DDD3F /* TKKeyButton.m */; };
+		A8ED690C198E805A000DDD3F /* TKKeyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED6901198E805A000DDD3F /* TKKeyItem.m */; };
 		A8EFBFE71972D30D002E4A9B /* librocketbootstrap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */; };
 		AB92CFB519866DA700695460 /* SearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB92CFB419866DA700695460 /* SearchDisplayController.m */; };
 		ABE39F93197FCBB0002E7678 /* darwin_memory_usage.c in Sources */ = {isa = PBXBuildFile; fileRef = ABE39F92197FCBB0002E7678 /* darwin_memory_usage.c */; };
@@ -102,6 +111,7 @@
 		A839D2DC196C3A9D00E8E9F4 /* libMatch.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMatch.1.dylib; path = usr/lib/libMatch.1.dylib; sourceTree = SDKROOT; };
 		A839D2DE196C3AA900E8E9F4 /* libmacho.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmacho.dylib; path = usr/lib/system/libmacho.dylib; sourceTree = SDKROOT; };
 		A83F762E1976E7BC00C7EAE5 /* entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = entitlements.plist; sourceTree = "<group>"; };
+		A8453A91198E907E00F24C59 /* librocketbootstrap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = librocketbootstrap.dylib; sourceTree = "<group>"; };
 		A8577E1419719AEC00A277D4 /* com.test.imemXpcService.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = com.test.imemXpcService.plist; sourceTree = "<group>"; };
 		A86BC8861986863D000A417A /* GMAssociateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMAssociateViewController.h; sourceTree = "<group>"; };
 		A86BC8871986863D000A417A /* GMAssociateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMAssociateViewController.m; sourceTree = "<group>"; };
@@ -129,6 +139,26 @@
 		A8E3AB991983C0C800B6E4E6 /* GMSelectAppButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMSelectAppButton.m; sourceTree = "<group>"; };
 		A8E3AB9B1983E5E400B6E4E6 /* UIColor+iOS7Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+iOS7Colors.h"; path = "imem/UIColor+iOS7Colors.h"; sourceTree = "<group>"; };
 		A8E3AB9C1983E5E400B6E4E6 /* UIColor+iOS7Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+iOS7Colors.m"; path = "imem/UIColor+iOS7Colors.m"; sourceTree = "<group>"; };
+		A8ED68EF198E805A000DDD3F /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		A8ED68F0198E805A000DDD3F /* NSObject+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzle.h"; sourceTree = "<group>"; };
+		A8ED68F1198E805A000DDD3F /* NSObject+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzle.m"; sourceTree = "<group>"; };
+		A8ED68F2198E805A000DDD3F /* TKFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKFlowLayout.h; sourceTree = "<group>"; };
+		A8ED68F3198E805A000DDD3F /* TKFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKFlowLayout.m; sourceTree = "<group>"; };
+		A8ED68F4198E805A000DDD3F /* TKGridLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKGridLayout.h; sourceTree = "<group>"; };
+		A8ED68F5198E805A000DDD3F /* TKGridLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKGridLayout.m; sourceTree = "<group>"; };
+		A8ED68F6198E805A000DDD3F /* TKGridLinesTexturedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKGridLinesTexturedView.h; sourceTree = "<group>"; };
+		A8ED68F7198E805A000DDD3F /* TKGridLinesTexturedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKGridLinesTexturedView.m; sourceTree = "<group>"; };
+		A8ED68F8198E805A000DDD3F /* TKKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKKeyboard.h; sourceTree = "<group>"; };
+		A8ED68F9198E805A000DDD3F /* TKKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKKeyboard.m; sourceTree = "<group>"; };
+		A8ED68FA198E805A000DDD3F /* TKKeyboardConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKKeyboardConfiguration.h; sourceTree = "<group>"; };
+		A8ED68FB198E805A000DDD3F /* TKKeyboardConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKKeyboardConfiguration.m; sourceTree = "<group>"; };
+		A8ED68FC198E805A000DDD3F /* TKKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKKeyboardManager.h; sourceTree = "<group>"; };
+		A8ED68FD198E805A000DDD3F /* TKKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKKeyboardManager.m; sourceTree = "<group>"; };
+		A8ED68FE198E805A000DDD3F /* TKKeyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKKeyButton.h; sourceTree = "<group>"; };
+		A8ED68FF198E805A000DDD3F /* TKKeyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKKeyButton.m; sourceTree = "<group>"; };
+		A8ED6900198E805A000DDD3F /* TKKeyItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKKeyItem.h; sourceTree = "<group>"; };
+		A8ED6901198E805A000DDD3F /* TKKeyItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKKeyItem.m; sourceTree = "<group>"; };
+		A8ED6902198E805A000DDD3F /* TKLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLayout.h; sourceTree = "<group>"; };
 		A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = librocketbootstrap.dylib; path = ../../../../opt/iOSOpenDev/lib/librocketbootstrap.dylib; sourceTree = "<group>"; };
 		AB92CFB319866DA700695460 /* SearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDisplayController.h; sourceTree = "<group>"; };
 		AB92CFB419866DA700695460 /* SearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDisplayController.m; sourceTree = "<group>"; };
@@ -260,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				A820822C197FE7210081CF58 /* libapplist.dylib */,
+				A8453A91198E907E00F24C59 /* librocketbootstrap.dylib */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -291,6 +322,7 @@
 		A8BDC4201987DA2300592935 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A8ED68EE198E805A000DDD3F /* TKKeyBoard */,
 				A8BB145A198A7DBB00CEE1A2 /* TextField */,
 				A810E662197AC43B00757554 /* TextFieldTableViewCell.h */,
 				A810E663197AC43B00757554 /* TextFieldTableViewCell.m */,
@@ -308,6 +340,34 @@
 				A8BDC4211987DA2F00592935 /* LightMessaging.h */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		A8ED68EE198E805A000DDD3F /* TKKeyBoard */ = {
+			isa = PBXGroup;
+			children = (
+				A8ED68EF198E805A000DDD3F /* LICENSE */,
+				A8ED68F0198E805A000DDD3F /* NSObject+Swizzle.h */,
+				A8ED68F1198E805A000DDD3F /* NSObject+Swizzle.m */,
+				A8ED68F2198E805A000DDD3F /* TKFlowLayout.h */,
+				A8ED68F3198E805A000DDD3F /* TKFlowLayout.m */,
+				A8ED68F4198E805A000DDD3F /* TKGridLayout.h */,
+				A8ED68F5198E805A000DDD3F /* TKGridLayout.m */,
+				A8ED68F6198E805A000DDD3F /* TKGridLinesTexturedView.h */,
+				A8ED68F7198E805A000DDD3F /* TKGridLinesTexturedView.m */,
+				A8ED68F8198E805A000DDD3F /* TKKeyboard.h */,
+				A8ED68F9198E805A000DDD3F /* TKKeyboard.m */,
+				A8ED68FA198E805A000DDD3F /* TKKeyboardConfiguration.h */,
+				A8ED68FB198E805A000DDD3F /* TKKeyboardConfiguration.m */,
+				A8ED68FC198E805A000DDD3F /* TKKeyboardManager.h */,
+				A8ED68FD198E805A000DDD3F /* TKKeyboardManager.m */,
+				A8ED68FE198E805A000DDD3F /* TKKeyButton.h */,
+				A8ED68FF198E805A000DDD3F /* TKKeyButton.m */,
+				A8ED6900198E805A000DDD3F /* TKKeyItem.h */,
+				A8ED6901198E805A000DDD3F /* TKKeyItem.m */,
+				A8ED6902198E805A000DDD3F /* TKLayout.h */,
+			);
+			name = TKKeyBoard;
+			path = submodules/TKKeyBoard/TKKeyBoard;
 			sourceTree = "<group>";
 		};
 		AB603382198A21CF000DA8AA /* Home */ = {
@@ -612,9 +672,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8ED6904198E805A000DDD3F /* NSObject+Swizzle.m in Sources */,
 				A810E66C197AD97F00757554 /* PickerInputTableViewCell.m in Sources */,
 				A8A7416919680E6400131416 /* GMMainViewController.m in Sources */,
 				A8D9058F197BF4CE001F22FF /* GMStorageViewController.m in Sources */,
+				A8ED690B198E805A000DDD3F /* TKKeyButton.m in Sources */,
+				A8ED6907198E805A000DDD3F /* TKGridLinesTexturedView.m in Sources */,
 				A8E3AB9D1983E5E400B6E4E6 /* UIColor+iOS7Colors.m in Sources */,
 				A82B4425197BBD260098A6D4 /* GMKeyboard.m in Sources */,
 				A86FD14B1975838900765F99 /* GMApplicationTableDataSource.m in Sources */,
@@ -623,12 +686,18 @@
 				A80D3E7719855DE100F5CF2A /* GMMemoryAccessObject.m in Sources */,
 				A8A7416F1968105C00131416 /* GMSelectAppViewController.m in Sources */,
 				AB92CFB519866DA700695460 /* SearchDisplayController.m in Sources */,
+				A8ED6906198E805A000DDD3F /* TKGridLayout.m in Sources */,
+				A8ED690A198E805A000DDD3F /* TKKeyboardManager.m in Sources */,
 				ABFF4BF81966A579000C7128 /* AppDelegate.m in Sources */,
 				ABFF4BF41966A579000C7128 /* main.m in Sources */,
 				A86BC8881986863D000A417A /* GMAssociateViewController.m in Sources */,
 				A82B4428197BBE5C0098A6D4 /* UIView+Sizes.m in Sources */,
+				A8ED6905198E805A000DDD3F /* TKFlowLayout.m in Sources */,
 				A86FD1521976BD9200765F99 /* GMMemManagerProxy.m in Sources */,
 				A82B442B197BD4A60098A6D4 /* GMGridLinesTexturedView.m in Sources */,
+				A8ED6908198E805A000DDD3F /* TKKeyboard.m in Sources */,
+				A8ED6909198E805A000DDD3F /* TKKeyboardConfiguration.m in Sources */,
+				A8ED690C198E805A000DDD3F /* TKKeyItem.m in Sources */,
 				A810E661197ABA6800757554 /* GMModifyViewController.m in Sources */,
 				A81E809B197D5FE500D3DF5E /* MAZeroingWeakRef.m in Sources */,
 				A810E664197AC43B00757554 /* TextFieldTableViewCell.m in Sources */,
@@ -688,7 +757,7 @@
 				VALIDATE_PRODUCT = NO;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 10.2.147.8;
+				iOSOpenDevDevice = 192.168.1.102;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
@@ -731,7 +800,7 @@
 				VALIDATE_PRODUCT = YES;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 10.2.147.8;
+				iOSOpenDevDevice = 192.168.1.102;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;

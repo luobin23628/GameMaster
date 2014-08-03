@@ -195,7 +195,7 @@ UIImage *UI7PickerLikeViewGradientImage(UIColor *maskColor, CGFloat topGradient,
         table.dataSource = self;
         table.delegate = self;
         table.backgroundColor = [UIColor clearColor];
-        table.rowHeight = UI7PickerLikeViewRowHeight;
+        table.rowHeight = [self rowHeightForComponent:i];
         [self addSubview:table];
         [self.tables addObject:table];
     }
@@ -221,6 +221,14 @@ UIImage *UI7PickerLikeViewGradientImage(UIColor *maskColor, CGFloat topGradient,
         size.height = [self.delegate pickerView:(id)self rowHeightForComponent:component];
     }
     return size;
+}
+
+- (CGFloat)rowHeightForComponent:(NSInteger)component {
+    CGFloat rowHeight = UI7PickerLikeViewRowHeight;
+    if ([self.delegate respondsToSelector:@selector(pickerView:rowHeightForComponent:)]) {
+        rowHeight = [self.delegate pickerView:(id)self rowHeightForComponent:component];
+    }
+    return rowHeight;
 }
 
 - (void)reloadAllComponents {

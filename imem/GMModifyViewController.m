@@ -10,6 +10,7 @@
 #import "TextFieldTableViewCell.h"
 #import "SimplePickerInputTableViewCell.h"
 #import "GMMemManagerProxy.h"
+#import "TKKeyboard.h"
 
 @interface GMModifyViewController ()<UITextFieldDelegate, SimplePickerInputTableViewCellDelegate>
 
@@ -96,6 +97,7 @@
             cell.textField.delegate = self;
             cell.textField.textAlignment = NSTextAlignmentRight;
             cell.textField.clearButtonMode = UITextFieldViewModeAlways;
+            cell.textField.keyboardType = TKKeyboardTypeUIntegerPad;
         }
         cell.textLabelWidth = 150.f;
         NSString *region;
