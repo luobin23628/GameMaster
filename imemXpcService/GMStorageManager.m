@@ -35,7 +35,7 @@ static OSSpinLock spinLock;
 - (id)init {
     self = [super init];
     if (self) {
-        NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, NO) firstObject];
+        NSString *documentPath = @"/private/var/mobile/Documents";
         NSString *path = [documentPath stringByAppendingPathComponent:@"com.binge.imem.daemon/"];
         BOOL isDirectory;
         NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -43,16 +43,14 @@ static OSSpinLock spinLock;
             [fileManager removeItemAtPath:path error:nil];
             
             NSError *error = nil;
-            
             [fileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];
-            
-            NSLog(@"error %@", error);
+            if (error) {
+                NSLog(@"error %@", error);
+            }
         }
-        NSLog(@"savedPlistPath %@", self.savedPlistPath);
-
         self.savedPlistPath = [path stringByAppendingPathComponent:@"storageObjects.plist"];
         if ([fileManager fileExistsAtPath:self.savedPlistPath isDirectory:nil]) {
-            NSMutableArray *objectList = [[[NSMutableArray alloc] initWithContentsOfFile:self.savedPlistPath] autorelease];
+            NSMutableArray *objectList = [NSKeyedUnarchiver unarchiveObjectWithFile:self.savedPlistPath];
             if (objectList) {
                 self.objectList = objectList;
             } else {
@@ -65,12 +63,15 @@ static OSSpinLock spinLock;
         }
         self.lockThread = [[[GMLockThread alloc] init] autorelease];
         [self.lockThread start];
+        [self updateLockThreadState];
     }
     return self;
 }
 
 - (void)synchronize {
-    [self.objectList writeToFile:self.savedPlistPath atomically:YES];
+    NSLog(@"synchronize :%@", self.objectList);
+    BOOL ok = [NSKeyedArchiver archiveRootObject:self.objectList toFile:self.savedPlistPath];
+    NSLog(@"synchronize result:%d", ok);
 }
 
 - (void)dealloc {
@@ -165,7 +166,25 @@ static OSSpinLock spinLock;
     [self.objectList removeAllObjects];
     [self synchronize];
     OSSpinLockUnlock(&spinLock);
-    [self.lockThread suspend];
+    [self updateLockThreadState];
+}
+
+- (void)updateLockThreadState {
+    OSSpinLockLock(&spinLock);
+    BOOL isLockedObject = NO;
+    for (GMMemoryAccessObject *accessObject in self.objectList) {
+        if (accessObject.optType == GMOptTypeEditAndLock) {
+            isLockedObject = YES;
+            break;
+        }
+    }
+    [self synchronize];
+    OSSpinLockUnlock(&spinLock);
+    if (isLockedObject) {
+        [self.lockThread resume];
+    } else {
+        [self.lockThread suspend];
+    }
 }
 
 @end
