@@ -18,8 +18,11 @@
 #import "GMAssociateViewController.h"
 #import "GMStorageViewController.h"
 #import <UI7Kit/UI7Kit.h>
+#import "TKKeyboard.h"
 
 #define CellMAXCount 99
+#define TKKeyboardTypeMain (120)
+
 
 @interface GMMainViewController ()<UISearchBarDelegate, GMKeyboardDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -36,6 +39,13 @@
 @end
 
 @implementation GMMainViewController
+
++(void)initialize {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [GMMainViewController initKeyboard];
+    });
+}
 
 - (void)gotoSelectProcess {
     GMSelectAppViewController *selectProcessViewController = [[GMSelectAppViewController alloc] init];
@@ -65,6 +75,79 @@
     [self.navigationController pushViewController:selectProcessViewController animated:YES];
     [nav release];
     [selectProcessViewController release];
+}
+
++ (void)initKeyboard {
+    TKKeyboardConfiguration *configiration = [[TKKeyboardConfiguration alloc] init];
+    configiration.keyboardType = TKKeyboardTypeMain;
+    configiration.keyboardHeight = 216;
+    configiration.backgroundColor = [UIColor colorWithWhite:179/255.0 alpha:1];
+    
+    NSMutableArray *keyItems = [NSMutableArray array];
+    for (int i = 1; i < 5; i++) {
+        TKKeyItem *keyItem = [[TKKeyItem alloc] initWithInsertText:[NSString stringWithFormat:@"%d", i]];
+        [keyItems addObject:keyItem];
+        [keyItem release];
+    }
+    
+    TKKeyItem *keyItem;
+    
+    keyItem = [[TKKeyItem alloc] initWithTitle:@"重  置" action:^(id<TKTextInput> textInput, TKKeyItem *keyItem) {
+        
+    }];
+    [keyItems addObject:keyItem];
+    [keyItem release];
+    
+    for (int i = 5; i < 9; i++) {
+        TKKeyItem *keyItem = [[TKKeyItem alloc] initWithInsertText:[NSString stringWithFormat:@"%d", i]];
+        [keyItems addObject:keyItem];
+        [keyItem release];
+    }
+    
+    keyItem = [[TKKeyItem alloc] initWithTitle:@"搜  索" action:^(id<TKTextInput> textInput, TKKeyItem *keyItem) {
+        
+    }];
+    [keyItems addObject:keyItem];
+    [keyItem release];
+    
+    keyItem = [[TKKeyItem alloc] initWithInsertText:@"9"];
+    [keyItems addObject:keyItem];
+    [keyItem release];
+    
+    keyItem = [[TKKeyItem alloc] initWithInsertText:@"0"];
+    [keyItems addObject:keyItem];
+    [keyItem release];
+    
+    keyItem = [[TKKeyItem alloc] initWithType:TKKeyItemTypeDelete action:^(id<TKTextInput> textInput, TKKeyItem *keyItem) {
+        [textInput deleteBackward];
+    }];
+    keyItem.enablesAutomatically = NO;
+    keyItem.enableLongPressRepeat = YES;
+    keyItem.backgroundColor = [UIColor colorWithWhite:225/255.0 alpha:1];
+    keyItem.highlightBackgroundColor = [UIColor colorWithWhite:251/255.0 alpha:1];
+    [keyItems addObject:keyItem];
+    [keyItem release];
+    
+    TKFlowLayout *layout = [[TKFlowLayout alloc] initWithSizeForIndexBlock:^CGSize(NSUInteger index, TKFlowLayout *layout, UIView *container) {
+        int row = 3, column = 5;
+        
+        CGFloat innerWidth = (container.frame.size.width - layout.padding*2  - (column - 1) *layout.spacing);
+        CGFloat innerHeight = (container.frame.size.height - layout.padding*2 - (row - 1) *layout.spacing);
+        CGFloat width = innerWidth/column;
+        CGFloat height = innerHeight/row;
+        if (index == 9) {
+            return CGSizeMake(width, height * 2);
+        } else {
+            return CGSizeMake(width, height);
+        }
+        
+    }];
+    configiration.layout = layout;
+    [layout release];
+    
+    configiration.keyItems = keyItems;
+    [[TKKeyboardManager shareInstance] registerKeyboardConfiguration:configiration];
+    [configiration release];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -137,9 +220,8 @@
     [self.view addSubview:searchBar];
     [searchBar release];
     
-    self.keyboardView = [[[GMKeyboard alloc] initWithFrame:CGRectMake(0, 0, 320, 159)] autorelease];
-    self.keyboardView.textField = (UITextField *)[searchBar descendantOrSelfWithClass:UITextField.class];
-    self.keyboardView.delegate = self;
+    UITextField *textField = (UITextField *)[searchBar descendantOrSelfWithClass:UITextField.class];
+    textField.keyboardType = TKKeyboardTypeMain;
     
     UIEdgeInsets edgeInsets = UIEdgeInsetsMake(44, 0, 159, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset = edgeInsets;
