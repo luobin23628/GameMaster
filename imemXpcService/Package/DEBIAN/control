@@ -3,7 +3,7 @@ Name: imemXpcService
 Version: 1.0-1
 Description: 
 Section: System
-Depends: firmware (>= 5.0)
+Depends: firmware (>= 5.0), mobilesubstrate (>= 0.9.5000)
 Conflicts: 
 Replaces: 
 Priority: optional

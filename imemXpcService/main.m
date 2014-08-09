@@ -16,6 +16,8 @@
 static void processMessage(SInt32 messageId, mach_port_t replyPort, CFDataRef dataRef) {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
+    NSLog(@"processMessage, messageId:%d", (int)messageId);
+    
     switch (messageId) {
         case GMMessageIdCheckValid: {
             int pid;
@@ -138,6 +140,7 @@ int main(int argc, const char *argv[]) {
                 NSLog(@"Unable to register mach server with error %x", err);
                 [NSThread sleepForTimeInterval:60];
             } else {
+                NSLog(@"Register mach server:%s with succeed.", connection.serverName);
                 [[NSRunLoop currentRunLoop] run];
             }
         }

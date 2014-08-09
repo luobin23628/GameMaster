@@ -17,6 +17,16 @@
 		A810E664197AC43B00757554 /* TextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A810E663197AC43B00757554 /* TextFieldTableViewCell.m */; };
 		A810E66C197AD97F00757554 /* PickerInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A810E669197AD97F00757554 /* PickerInputTableViewCell.m */; };
 		A810E66D197AD97F00757554 /* SimplePickerInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A810E66B197AD97F00757554 /* SimplePickerInputTableViewCell.m */; };
+		A81CD69419950C8C00B02034 /* M9BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = A81CD67719950C8C00B02034 /* M9BackgroundView.m */; };
+		A81CD69619950C8C00B02034 /* NSInvocation+.m in Sources */ = {isa = PBXBuildFile; fileRef = A81CD67A19950C8C00B02034 /* NSInvocation+.m */; };
+		A81CD69719950C8C00B02034 /* TKActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A81CD67C19950C8C00B02034 /* TKActionSheet.m */; };
+		A81CD69819950C8C00B02034 /* TKActionSheetOverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A81CD67E19950C8C00B02034 /* TKActionSheetOverlayWindow.m */; };
+		A81CD69919950C8C00B02034 /* TKAlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A81CD68019950C8C00B02034 /* TKAlertManager.m */; };
+		A81CD69A19950C8C00B02034 /* TKAlertOverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A81CD68219950C8C00B02034 /* TKAlertOverlayWindow.m */; };
+		A81CD69B19950C8C00B02034 /* TKAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A81CD68419950C8C00B02034 /* TKAlertView.m */; };
+		A81CD69C19950C8C00B02034 /* TKOverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A81CD68619950C8C00B02034 /* TKOverlayWindow.m */; };
+		A81CD69D19950C8C00B02034 /* UIImageExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = A81CD68819950C8C00B02034 /* UIImageExtend.m */; };
+		A81CD69E19950C8C00B02034 /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A81CD68A19950C8C00B02034 /* UIViewAdditions.m */; };
 		A81E809B197D5FE500D3DF5E /* MAZeroingWeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */; };
 		A81E809C197D600700D3DF5E /* MAZeroingWeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */; };
 		A81E809E197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h in Headers */ = {isa = PBXBuildFile; fileRef = A81E809D197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h */; };
@@ -24,6 +34,7 @@
 		A82B4425197BBD260098A6D4 /* GMKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B4424197BBD260098A6D4 /* GMKeyboard.m */; };
 		A82B4428197BBE5C0098A6D4 /* UIView+Sizes.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B4427197BBE5C0098A6D4 /* UIView+Sizes.m */; };
 		A82B442B197BD4A60098A6D4 /* GMGridLinesTexturedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B442A197BD4A60098A6D4 /* GMGridLinesTexturedView.m */; };
+		A83653A5199655EF00322899 /* LightMessaging.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE417199615FC00B2010A /* LightMessaging.m */; };
 		A839D2D7196C2B2400E8E9F4 /* entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = A839D2D6196C2B2400E8E9F4 /* entitlements.plist */; };
 		A86BC8881986863D000A417A /* GMAssociateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A86BC8871986863D000A417A /* GMAssociateViewController.m */; };
 		A86FD1431975680000765F99 /* GMMemManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A86FD1411975680000765F99 /* GMMemManager.h */; };
@@ -42,6 +53,27 @@
 		A8BDC4221987DA2F00592935 /* LightMessaging.h in Headers */ = {isa = PBXBuildFile; fileRef = A8BDC4211987DA2F00592935 /* LightMessaging.h */; };
 		A8D9058C197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8D9058B197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png */; };
 		A8D9058F197BF4CE001F22FF /* GMStorageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D9058E197BF4CE001F22FF /* GMStorageViewController.m */; };
+		A8DAE3A519953E6900B2010A /* TKTextFieldAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3A419953E6900B2010A /* TKTextFieldAlertView.m */; };
+		A8DAE3B919960BD100B2010A /* ConfigOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8DAE3B819960BD100B2010A /* ConfigOptions.plist */; };
+		A8DAE3E71996130800B2010A /* GMSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3E61996130800B2010A /* GMSettingViewController.m */; };
+		A8DAE4091996132E00B2010A /* IASKAppSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3EB1996132E00B2010A /* IASKAppSettingsViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8DAE40A1996132E00B2010A /* IASKAppSettingsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3ED1996132E00B2010A /* IASKAppSettingsWebViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8DAE40B1996132E00B2010A /* IASKSpecifierValuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3EF1996132E00B2010A /* IASKSpecifierValuesViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8DAE40C1996132E00B2010A /* IASKSettingsReader.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3F31996132E00B2010A /* IASKSettingsReader.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8DAE40D1996132E00B2010A /* IASKSettingsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3F51996132E00B2010A /* IASKSettingsStore.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8DAE40E1996132E00B2010A /* IASKSettingsStoreFile.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3F71996132E00B2010A /* IASKSettingsStoreFile.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8DAE40F1996132E00B2010A /* IASKSettingsStoreUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3F91996132E00B2010A /* IASKSettingsStoreUserDefaults.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8DAE4101996132E00B2010A /* IASKSpecifier.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3FB1996132E00B2010A /* IASKSpecifier.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8DAE4111996132E00B2010A /* IASKPSSliderSpecifierViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3FE1996132E00B2010A /* IASKPSSliderSpecifierViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8DAE4121996132E00B2010A /* IASKPSTextFieldSpecifierViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE4001996132E00B2010A /* IASKPSTextFieldSpecifierViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8DAE4131996132E00B2010A /* IASKPSTitleValueSpecifierViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE4021996132E00B2010A /* IASKPSTitleValueSpecifierViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8DAE4141996132E00B2010A /* IASKSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE4041996132E00B2010A /* IASKSlider.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8DAE4151996132E00B2010A /* IASKSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE4061996132E00B2010A /* IASKSwitch.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8DAE4161996132E00B2010A /* IASKTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE4081996132E00B2010A /* IASKTextField.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8DAE418199615FC00B2010A /* LightMessaging.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE417199615FC00B2010A /* LightMessaging.m */; };
+		A8DAE41A19961A2B00B2010A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A8DAE41919961A2B00B2010A /* Settings.bundle */; };
+		A8DAE41C1996398800B2010A /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8DAE41B1996398800B2010A /* libMobClickLibrary.a */; };
+		A8DAE41E19963F9C00B2010A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8DAE41D19963F9C00B2010A /* libz.dylib */; };
 		A8E3AB9A1983C0C800B6E4E6 /* GMSelectAppButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E3AB991983C0C800B6E4E6 /* GMSelectAppButton.m */; };
 		A8E3AB9D1983E5E400B6E4E6 /* UIColor+iOS7Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E3AB9C1983E5E400B6E4E6 /* UIColor+iOS7Colors.m */; };
 		A8ED6904198E805A000DDD3F /* NSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F1198E805A000DDD3F /* NSObject+Swizzle.m */; };
@@ -95,6 +127,26 @@
 		A810E669197AD97F00757554 /* PickerInputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PickerInputTableViewCell.m; path = imem/PickerInputTableViewCell.m; sourceTree = "<group>"; };
 		A810E66A197AD97F00757554 /* SimplePickerInputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimplePickerInputTableViewCell.h; path = imem/SimplePickerInputTableViewCell.h; sourceTree = "<group>"; };
 		A810E66B197AD97F00757554 /* SimplePickerInputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SimplePickerInputTableViewCell.m; path = imem/SimplePickerInputTableViewCell.m; sourceTree = "<group>"; };
+		A81CD67619950C8C00B02034 /* M9BackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M9BackgroundView.h; sourceTree = "<group>"; };
+		A81CD67719950C8C00B02034 /* M9BackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M9BackgroundView.m; sourceTree = "<group>"; };
+		A81CD67919950C8C00B02034 /* NSInvocation+.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+.h"; sourceTree = "<group>"; };
+		A81CD67A19950C8C00B02034 /* NSInvocation+.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+.m"; sourceTree = "<group>"; };
+		A81CD67B19950C8C00B02034 /* TKActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKActionSheet.h; sourceTree = "<group>"; };
+		A81CD67C19950C8C00B02034 /* TKActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKActionSheet.m; sourceTree = "<group>"; };
+		A81CD67D19950C8C00B02034 /* TKActionSheetOverlayWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKActionSheetOverlayWindow.h; sourceTree = "<group>"; };
+		A81CD67E19950C8C00B02034 /* TKActionSheetOverlayWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKActionSheetOverlayWindow.m; sourceTree = "<group>"; };
+		A81CD67F19950C8C00B02034 /* TKAlertManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKAlertManager.h; sourceTree = "<group>"; };
+		A81CD68019950C8C00B02034 /* TKAlertManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKAlertManager.m; sourceTree = "<group>"; };
+		A81CD68119950C8C00B02034 /* TKAlertOverlayWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKAlertOverlayWindow.h; sourceTree = "<group>"; };
+		A81CD68219950C8C00B02034 /* TKAlertOverlayWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKAlertOverlayWindow.m; sourceTree = "<group>"; };
+		A81CD68319950C8C00B02034 /* TKAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKAlertView.h; sourceTree = "<group>"; };
+		A81CD68419950C8C00B02034 /* TKAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKAlertView.m; sourceTree = "<group>"; };
+		A81CD68519950C8C00B02034 /* TKOverlayWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKOverlayWindow.h; sourceTree = "<group>"; };
+		A81CD68619950C8C00B02034 /* TKOverlayWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKOverlayWindow.m; sourceTree = "<group>"; };
+		A81CD68719950C8C00B02034 /* UIImageExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageExtend.h; sourceTree = "<group>"; };
+		A81CD68819950C8C00B02034 /* UIImageExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageExtend.m; sourceTree = "<group>"; };
+		A81CD68919950C8C00B02034 /* UIViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewAdditions.h; sourceTree = "<group>"; };
+		A81CD68A19950C8C00B02034 /* UIViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewAdditions.m; sourceTree = "<group>"; };
 		A81E8099197D5FE500D3DF5E /* MAZeroingWeakRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAZeroingWeakRef.h; path = imem/MAZeroingWeakRef.h; sourceTree = "<group>"; };
 		A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAZeroingWeakRef.m; path = imem/MAZeroingWeakRef.m; sourceTree = "<group>"; };
 		A81E809D197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAZeroingWeakRefNativeZWRNotAllowedTable.h; path = imem/MAZeroingWeakRefNativeZWRNotAllowedTable.h; sourceTree = "<group>"; };
@@ -111,7 +163,6 @@
 		A839D2DC196C3A9D00E8E9F4 /* libMatch.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMatch.1.dylib; path = usr/lib/libMatch.1.dylib; sourceTree = SDKROOT; };
 		A839D2DE196C3AA900E8E9F4 /* libmacho.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmacho.dylib; path = usr/lib/system/libmacho.dylib; sourceTree = SDKROOT; };
 		A83F762E1976E7BC00C7EAE5 /* entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = entitlements.plist; sourceTree = "<group>"; };
-		A8453A91198E907E00F24C59 /* librocketbootstrap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = librocketbootstrap.dylib; sourceTree = "<group>"; };
 		A8577E1419719AEC00A277D4 /* com.test.imemXpcService.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = com.test.imemXpcService.plist; sourceTree = "<group>"; };
 		A86BC8861986863D000A417A /* GMAssociateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMAssociateViewController.h; sourceTree = "<group>"; };
 		A86BC8871986863D000A417A /* GMAssociateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMAssociateViewController.m; sourceTree = "<group>"; };
@@ -135,6 +186,44 @@
 		A8D9058B197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KeyboardNumericBackspace@2x.png"; sourceTree = "<group>"; };
 		A8D9058D197BF4CE001F22FF /* GMStorageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMStorageViewController.h; sourceTree = "<group>"; };
 		A8D9058E197BF4CE001F22FF /* GMStorageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMStorageViewController.m; sourceTree = "<group>"; };
+		A8DAE3A319953E6900B2010A /* TKTextFieldAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTextFieldAlertView.h; sourceTree = "<group>"; };
+		A8DAE3A419953E6900B2010A /* TKTextFieldAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTextFieldAlertView.m; sourceTree = "<group>"; };
+		A8DAE3B819960BD100B2010A /* ConfigOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ConfigOptions.plist; sourceTree = "<group>"; };
+		A8DAE3E51996130800B2010A /* GMSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMSettingViewController.h; sourceTree = "<group>"; };
+		A8DAE3E61996130800B2010A /* GMSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMSettingViewController.m; sourceTree = "<group>"; };
+		A8DAE3EA1996132E00B2010A /* IASKAppSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKAppSettingsViewController.h; sourceTree = "<group>"; };
+		A8DAE3EB1996132E00B2010A /* IASKAppSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKAppSettingsViewController.m; sourceTree = "<group>"; };
+		A8DAE3EC1996132E00B2010A /* IASKAppSettingsWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKAppSettingsWebViewController.h; sourceTree = "<group>"; };
+		A8DAE3ED1996132E00B2010A /* IASKAppSettingsWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKAppSettingsWebViewController.m; sourceTree = "<group>"; };
+		A8DAE3EE1996132E00B2010A /* IASKSpecifierValuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKSpecifierValuesViewController.h; sourceTree = "<group>"; };
+		A8DAE3EF1996132E00B2010A /* IASKSpecifierValuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKSpecifierValuesViewController.m; sourceTree = "<group>"; };
+		A8DAE3F01996132E00B2010A /* IASKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKViewController.h; sourceTree = "<group>"; };
+		A8DAE3F21996132E00B2010A /* IASKSettingsReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKSettingsReader.h; sourceTree = "<group>"; };
+		A8DAE3F31996132E00B2010A /* IASKSettingsReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKSettingsReader.m; sourceTree = "<group>"; };
+		A8DAE3F41996132E00B2010A /* IASKSettingsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKSettingsStore.h; sourceTree = "<group>"; };
+		A8DAE3F51996132E00B2010A /* IASKSettingsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKSettingsStore.m; sourceTree = "<group>"; };
+		A8DAE3F61996132E00B2010A /* IASKSettingsStoreFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKSettingsStoreFile.h; sourceTree = "<group>"; };
+		A8DAE3F71996132E00B2010A /* IASKSettingsStoreFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKSettingsStoreFile.m; sourceTree = "<group>"; };
+		A8DAE3F81996132E00B2010A /* IASKSettingsStoreUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKSettingsStoreUserDefaults.h; sourceTree = "<group>"; };
+		A8DAE3F91996132E00B2010A /* IASKSettingsStoreUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKSettingsStoreUserDefaults.m; sourceTree = "<group>"; };
+		A8DAE3FA1996132E00B2010A /* IASKSpecifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKSpecifier.h; sourceTree = "<group>"; };
+		A8DAE3FB1996132E00B2010A /* IASKSpecifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKSpecifier.m; sourceTree = "<group>"; };
+		A8DAE3FD1996132E00B2010A /* IASKPSSliderSpecifierViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKPSSliderSpecifierViewCell.h; sourceTree = "<group>"; };
+		A8DAE3FE1996132E00B2010A /* IASKPSSliderSpecifierViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKPSSliderSpecifierViewCell.m; sourceTree = "<group>"; };
+		A8DAE3FF1996132E00B2010A /* IASKPSTextFieldSpecifierViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKPSTextFieldSpecifierViewCell.h; sourceTree = "<group>"; };
+		A8DAE4001996132E00B2010A /* IASKPSTextFieldSpecifierViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKPSTextFieldSpecifierViewCell.m; sourceTree = "<group>"; };
+		A8DAE4011996132E00B2010A /* IASKPSTitleValueSpecifierViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKPSTitleValueSpecifierViewCell.h; sourceTree = "<group>"; };
+		A8DAE4021996132E00B2010A /* IASKPSTitleValueSpecifierViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKPSTitleValueSpecifierViewCell.m; sourceTree = "<group>"; };
+		A8DAE4031996132E00B2010A /* IASKSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKSlider.h; sourceTree = "<group>"; };
+		A8DAE4041996132E00B2010A /* IASKSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKSlider.m; sourceTree = "<group>"; };
+		A8DAE4051996132E00B2010A /* IASKSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKSwitch.h; sourceTree = "<group>"; };
+		A8DAE4061996132E00B2010A /* IASKSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKSwitch.m; sourceTree = "<group>"; };
+		A8DAE4071996132E00B2010A /* IASKTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKTextField.h; sourceTree = "<group>"; };
+		A8DAE4081996132E00B2010A /* IASKTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKTextField.m; sourceTree = "<group>"; };
+		A8DAE417199615FC00B2010A /* LightMessaging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightMessaging.m; sourceTree = "<group>"; };
+		A8DAE41919961A2B00B2010A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		A8DAE41B1996398800B2010A /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMobClickLibrary.a; path = lib/UMAnalytics_Sdk/libMobClickLibrary.a; sourceTree = "<group>"; };
+		A8DAE41D19963F9C00B2010A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		A8E3AB981983C0C800B6E4E6 /* GMSelectAppButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMSelectAppButton.h; sourceTree = "<group>"; };
 		A8E3AB991983C0C800B6E4E6 /* GMSelectAppButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMSelectAppButton.m; sourceTree = "<group>"; };
 		A8E3AB9B1983E5E400B6E4E6 /* UIColor+iOS7Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+iOS7Colors.h"; path = "imem/UIColor+iOS7Colors.h"; sourceTree = "<group>"; };
@@ -193,6 +282,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8DAE41E19963F9C00B2010A /* libz.dylib in Frameworks */,
+				A8DAE41C1996398800B2010A /* libMobClickLibrary.a in Frameworks */,
 				A820822E197FE7210081CF58 /* libapplist.dylib in Frameworks */,
 				A86FD14F1975858500765F99 /* libapplist.dylib in Frameworks */,
 				A8EFBFE71972D30D002E4A9B /* librocketbootstrap.dylib in Frameworks */,
@@ -260,6 +351,36 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A81CD66A19950C8C00B02034 /* ActionSheetAndAlert */ = {
+			isa = PBXGroup;
+			children = (
+				A81CD67619950C8C00B02034 /* M9BackgroundView.h */,
+				A81CD67719950C8C00B02034 /* M9BackgroundView.m */,
+				A81CD67919950C8C00B02034 /* NSInvocation+.h */,
+				A81CD67A19950C8C00B02034 /* NSInvocation+.m */,
+				A81CD67B19950C8C00B02034 /* TKActionSheet.h */,
+				A81CD67C19950C8C00B02034 /* TKActionSheet.m */,
+				A81CD67D19950C8C00B02034 /* TKActionSheetOverlayWindow.h */,
+				A81CD67E19950C8C00B02034 /* TKActionSheetOverlayWindow.m */,
+				A81CD67F19950C8C00B02034 /* TKAlertManager.h */,
+				A81CD68019950C8C00B02034 /* TKAlertManager.m */,
+				A81CD68119950C8C00B02034 /* TKAlertOverlayWindow.h */,
+				A81CD68219950C8C00B02034 /* TKAlertOverlayWindow.m */,
+				A8DAE3A319953E6900B2010A /* TKTextFieldAlertView.h */,
+				A8DAE3A419953E6900B2010A /* TKTextFieldAlertView.m */,
+				A81CD68319950C8C00B02034 /* TKAlertView.h */,
+				A81CD68419950C8C00B02034 /* TKAlertView.m */,
+				A81CD68519950C8C00B02034 /* TKOverlayWindow.h */,
+				A81CD68619950C8C00B02034 /* TKOverlayWindow.m */,
+				A81CD68719950C8C00B02034 /* UIImageExtend.h */,
+				A81CD68819950C8C00B02034 /* UIImageExtend.m */,
+				A81CD68919950C8C00B02034 /* UIViewAdditions.h */,
+				A81CD68A19950C8C00B02034 /* UIViewAdditions.m */,
+			);
+			name = ActionSheetAndAlert;
+			path = submodules/CustomActionSheetAndAlert/ActionSheetAndAlert;
+			sourceTree = "<group>";
+		};
 		A8208225197FE71A0081CF58 /* Applications */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,7 +411,6 @@
 			isa = PBXGroup;
 			children = (
 				A820822C197FE7210081CF58 /* libapplist.dylib */,
-				A8453A91198E907E00F24C59 /* librocketbootstrap.dylib */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -322,6 +442,8 @@
 		A8BDC4201987DA2300592935 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A8DAE3E81996132E00B2010A /* InAppSettingsKit */,
+				A81CD66A19950C8C00B02034 /* ActionSheetAndAlert */,
 				A8ED68EE198E805A000DDD3F /* TKKeyBoard */,
 				A8BB145A198A7DBB00CEE1A2 /* TextField */,
 				A810E662197AC43B00757554 /* TextFieldTableViewCell.h */,
@@ -338,8 +460,70 @@
 				A81E8099197D5FE500D3DF5E /* MAZeroingWeakRef.h */,
 				A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */,
 				A8BDC4211987DA2F00592935 /* LightMessaging.h */,
+				A8DAE417199615FC00B2010A /* LightMessaging.m */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		A8DAE3E81996132E00B2010A /* InAppSettingsKit */ = {
+			isa = PBXGroup;
+			children = (
+				A8DAE3E91996132E00B2010A /* Controllers */,
+				A8DAE3F11996132E00B2010A /* Models */,
+				A8DAE3FC1996132E00B2010A /* Views */,
+			);
+			name = InAppSettingsKit;
+			path = submodules/InAppSettingsKit/InAppSettingsKit;
+			sourceTree = "<group>";
+		};
+		A8DAE3E91996132E00B2010A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A8DAE3EA1996132E00B2010A /* IASKAppSettingsViewController.h */,
+				A8DAE3EB1996132E00B2010A /* IASKAppSettingsViewController.m */,
+				A8DAE3EC1996132E00B2010A /* IASKAppSettingsWebViewController.h */,
+				A8DAE3ED1996132E00B2010A /* IASKAppSettingsWebViewController.m */,
+				A8DAE3EE1996132E00B2010A /* IASKSpecifierValuesViewController.h */,
+				A8DAE3EF1996132E00B2010A /* IASKSpecifierValuesViewController.m */,
+				A8DAE3F01996132E00B2010A /* IASKViewController.h */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A8DAE3F11996132E00B2010A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A8DAE3F21996132E00B2010A /* IASKSettingsReader.h */,
+				A8DAE3F31996132E00B2010A /* IASKSettingsReader.m */,
+				A8DAE3F41996132E00B2010A /* IASKSettingsStore.h */,
+				A8DAE3F51996132E00B2010A /* IASKSettingsStore.m */,
+				A8DAE3F61996132E00B2010A /* IASKSettingsStoreFile.h */,
+				A8DAE3F71996132E00B2010A /* IASKSettingsStoreFile.m */,
+				A8DAE3F81996132E00B2010A /* IASKSettingsStoreUserDefaults.h */,
+				A8DAE3F91996132E00B2010A /* IASKSettingsStoreUserDefaults.m */,
+				A8DAE3FA1996132E00B2010A /* IASKSpecifier.h */,
+				A8DAE3FB1996132E00B2010A /* IASKSpecifier.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A8DAE3FC1996132E00B2010A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A8DAE3FD1996132E00B2010A /* IASKPSSliderSpecifierViewCell.h */,
+				A8DAE3FE1996132E00B2010A /* IASKPSSliderSpecifierViewCell.m */,
+				A8DAE3FF1996132E00B2010A /* IASKPSTextFieldSpecifierViewCell.h */,
+				A8DAE4001996132E00B2010A /* IASKPSTextFieldSpecifierViewCell.m */,
+				A8DAE4011996132E00B2010A /* IASKPSTitleValueSpecifierViewCell.h */,
+				A8DAE4021996132E00B2010A /* IASKPSTitleValueSpecifierViewCell.m */,
+				A8DAE4031996132E00B2010A /* IASKSlider.h */,
+				A8DAE4041996132E00B2010A /* IASKSlider.m */,
+				A8DAE4051996132E00B2010A /* IASKSwitch.h */,
+				A8DAE4061996132E00B2010A /* IASKSwitch.m */,
+				A8DAE4071996132E00B2010A /* IASKTextField.h */,
+				A8DAE4081996132E00B2010A /* IASKTextField.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		A8ED68EE198E805A000DDD3F /* TKKeyBoard */ = {
@@ -387,6 +571,8 @@
 				A86FD14A1975838900765F99 /* GMApplicationTableDataSource.m */,
 				A8E3AB981983C0C800B6E4E6 /* GMSelectAppButton.h */,
 				A8E3AB991983C0C800B6E4E6 /* GMSelectAppButton.m */,
+				A8DAE3E51996130800B2010A /* GMSettingViewController.h */,
+				A8DAE3E61996130800B2010A /* GMSettingViewController.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -415,6 +601,8 @@
 		ABFF4BE61966A579000C7128 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A8DAE41D19963F9C00B2010A /* libz.dylib */,
+				A8DAE41B1996398800B2010A /* libMobClickLibrary.a */,
 				A86FD14E1975858500765F99 /* libapplist.dylib */,
 				A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */,
 				A839D2DE196C3AA900E8E9F4 /* libmacho.dylib */,
@@ -453,10 +641,12 @@
 		ABFF4BEE1966A579000C7128 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A8DAE41919961A2B00B2010A /* Settings.bundle */,
 				ABFF4BEF1966A579000C7128 /* imem-Info.plist */,
 				A839D2D6196C2B2400E8E9F4 /* entitlements.plist */,
 				ABFF4BF31966A579000C7128 /* main.m */,
 				ABFF4BF51966A579000C7128 /* imem-Prefix.pch */,
+				A8DAE3B819960BD100B2010A /* ConfigOptions.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -575,7 +765,9 @@
 			files = (
 				A8D9058C197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png in Resources */,
 				A839D2D7196C2B2400E8E9F4 /* entitlements.plist in Resources */,
+				A8DAE41A19961A2B00B2010A /* Settings.bundle in Resources */,
 				ABFF4BFA1966A579000C7128 /* Images.xcassets in Resources */,
+				A8DAE3B919960BD100B2010A /* ConfigOptions.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,6 +851,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A81E809C197D600700D3DF5E /* MAZeroingWeakRef.m in Sources */,
+				A83653A5199655EF00322899 /* LightMessaging.m in Sources */,
 				A86FD1441975680000765F99 /* GMMemManager.m in Sources */,
 				ABE39F93197FCBB0002E7678 /* darwin_memory_usage.c in Sources */,
 				A8054EE0196DB6E8004CC80A /* main.m in Sources */,
@@ -672,35 +865,62 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8DAE4101996132E00B2010A /* IASKSpecifier.m in Sources */,
+				A8DAE4111996132E00B2010A /* IASKPSSliderSpecifierViewCell.m in Sources */,
 				A8ED6904198E805A000DDD3F /* NSObject+Swizzle.m in Sources */,
 				A810E66C197AD97F00757554 /* PickerInputTableViewCell.m in Sources */,
 				A8A7416919680E6400131416 /* GMMainViewController.m in Sources */,
 				A8D9058F197BF4CE001F22FF /* GMStorageViewController.m in Sources */,
+				A81CD69619950C8C00B02034 /* NSInvocation+.m in Sources */,
 				A8ED690B198E805A000DDD3F /* TKKeyButton.m in Sources */,
+				A8DAE4121996132E00B2010A /* IASKPSTextFieldSpecifierViewCell.m in Sources */,
+				A8DAE40C1996132E00B2010A /* IASKSettingsReader.m in Sources */,
 				A8ED6907198E805A000DDD3F /* TKGridLinesTexturedView.m in Sources */,
 				A8E3AB9D1983E5E400B6E4E6 /* UIColor+iOS7Colors.m in Sources */,
 				A82B4425197BBD260098A6D4 /* GMKeyboard.m in Sources */,
+				A81CD69A19950C8C00B02034 /* TKAlertOverlayWindow.m in Sources */,
+				A8DAE40E1996132E00B2010A /* IASKSettingsStoreFile.m in Sources */,
+				A81CD69D19950C8C00B02034 /* UIImageExtend.m in Sources */,
 				A86FD14B1975838900765F99 /* GMApplicationTableDataSource.m in Sources */,
+				A8DAE418199615FC00B2010A /* LightMessaging.m in Sources */,
 				A8E3AB9A1983C0C800B6E4E6 /* GMSelectAppButton.m in Sources */,
 				A810E66D197AD97F00757554 /* SimplePickerInputTableViewCell.m in Sources */,
+				A81CD69B19950C8C00B02034 /* TKAlertView.m in Sources */,
+				A8DAE40B1996132E00B2010A /* IASKSpecifierValuesViewController.m in Sources */,
+				A8DAE40A1996132E00B2010A /* IASKAppSettingsWebViewController.m in Sources */,
 				A80D3E7719855DE100F5CF2A /* GMMemoryAccessObject.m in Sources */,
 				A8A7416F1968105C00131416 /* GMSelectAppViewController.m in Sources */,
 				AB92CFB519866DA700695460 /* SearchDisplayController.m in Sources */,
+				A8DAE4131996132E00B2010A /* IASKPSTitleValueSpecifierViewCell.m in Sources */,
+				A81CD69419950C8C00B02034 /* M9BackgroundView.m in Sources */,
+				A8DAE40F1996132E00B2010A /* IASKSettingsStoreUserDefaults.m in Sources */,
 				A8ED6906198E805A000DDD3F /* TKGridLayout.m in Sources */,
 				A8ED690A198E805A000DDD3F /* TKKeyboardManager.m in Sources */,
 				ABFF4BF81966A579000C7128 /* AppDelegate.m in Sources */,
+				A81CD69919950C8C00B02034 /* TKAlertManager.m in Sources */,
+				A8DAE4091996132E00B2010A /* IASKAppSettingsViewController.m in Sources */,
 				ABFF4BF41966A579000C7128 /* main.m in Sources */,
 				A86BC8881986863D000A417A /* GMAssociateViewController.m in Sources */,
+				A8DAE4151996132E00B2010A /* IASKSwitch.m in Sources */,
+				A8DAE4161996132E00B2010A /* IASKTextField.m in Sources */,
 				A82B4428197BBE5C0098A6D4 /* UIView+Sizes.m in Sources */,
+				A8DAE40D1996132E00B2010A /* IASKSettingsStore.m in Sources */,
 				A8ED6905198E805A000DDD3F /* TKFlowLayout.m in Sources */,
 				A86FD1521976BD9200765F99 /* GMMemManagerProxy.m in Sources */,
 				A82B442B197BD4A60098A6D4 /* GMGridLinesTexturedView.m in Sources */,
 				A8ED6908198E805A000DDD3F /* TKKeyboard.m in Sources */,
 				A8ED6909198E805A000DDD3F /* TKKeyboardConfiguration.m in Sources */,
 				A8ED690C198E805A000DDD3F /* TKKeyItem.m in Sources */,
+				A8DAE4141996132E00B2010A /* IASKSlider.m in Sources */,
 				A810E661197ABA6800757554 /* GMModifyViewController.m in Sources */,
+				A81CD69819950C8C00B02034 /* TKActionSheetOverlayWindow.m in Sources */,
+				A81CD69E19950C8C00B02034 /* UIViewAdditions.m in Sources */,
 				A81E809B197D5FE500D3DF5E /* MAZeroingWeakRef.m in Sources */,
+				A8DAE3A519953E6900B2010A /* TKTextFieldAlertView.m in Sources */,
+				A81CD69719950C8C00B02034 /* TKActionSheet.m in Sources */,
+				A8DAE3E71996130800B2010A /* GMSettingViewController.m in Sources */,
 				A810E664197AC43B00757554 /* TextFieldTableViewCell.m in Sources */,
+				A81CD69C19950C8C00B02034 /* TKOverlayWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -757,7 +977,7 @@
 				VALIDATE_PRODUCT = NO;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.1.102;
+				iOSOpenDevDevice = 192.168.1.114;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
@@ -800,7 +1020,7 @@
 				VALIDATE_PRODUCT = YES;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.1.102;
+				iOSOpenDevDevice = 192.168.1.114;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
@@ -877,6 +1097,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(iOSOpenDevPath)/include/**",
+					lib/UMAnalytics_Sdk,
 					/opt/theos/include,
 				);
 				INFOPLIST_FILE = "imem/imem-Info.plist";
@@ -887,6 +1108,8 @@
 					/opt/iOSOpenDev/lib,
 					/opt/theos/lib,
 					"$(PROJECT_DIR)/imemXpcService/Package/usr/lib",
+					lib/UMAnalytics_Sdk,
+					"$(PROJECT_DIR)/lib/UMAnalytics_Sdk",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = imem;
@@ -935,6 +1158,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(iOSOpenDevPath)/include/**",
+					lib/UMAnalytics_Sdk,
 					/opt/theos/include,
 				);
 				INFOPLIST_FILE = "imem/imem-Info.plist";
@@ -945,6 +1169,8 @@
 					/opt/iOSOpenDev/lib,
 					/opt/theos/lib,
 					"$(PROJECT_DIR)/imemXpcService/Package/usr/lib",
+					lib/UMAnalytics_Sdk,
+					"$(PROJECT_DIR)/lib/UMAnalytics_Sdk",
 				);
 				PRODUCT_NAME = imem;
 				PROVISIONING_PROFILE = "";

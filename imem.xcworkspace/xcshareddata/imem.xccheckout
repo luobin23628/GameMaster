@@ -5,13 +5,17 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>261CF96E-15CD-4A84-AD83-DA43381CAFD6</string>
+	<string>27E46181-DC5D-440B-81CE-5DC1B0EDAF88</string>
 	<key>IDESourceControlProjectName</key>
 	<string>imem</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>86567358-A7F7-4EF7-A96D-B77732DAB2E7</key>
 		<string>https://github.com/luobin23628/GameMaster.git</string>
+		<key>887E20FE-DF26-425F-BCC6-7EB3AB62AA74</key>
+		<string>https://github.com/luobin23628/TKKeyBoard.git</string>
+		<key>D506B1C6-9415-45F2-8432-8ED6511400B2</key>
+		<string>https://github.com/luobin23628/CustomActionSheetAndAlert.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>imem.xcworkspace</string>
@@ -19,6 +23,10 @@
 	<dict>
 		<key>86567358-A7F7-4EF7-A96D-B77732DAB2E7</key>
 		<string>..</string>
+		<key>887E20FE-DF26-425F-BCC6-7EB3AB62AA74</key>
+		<string>../submodules/TKKeyBoard</string>
+		<key>D506B1C6-9415-45F2-8432-8ED6511400B2</key>
+		<string>../submodules/CustomActionSheetAndAlert</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/luobin23628/GameMaster.git</string>
@@ -32,9 +40,25 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D506B1C6-9415-45F2-8432-8ED6511400B2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CustomActionSheetAndAlert</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>86567358-A7F7-4EF7-A96D-B77732DAB2E7</string>
 			<key>IDESourceControlWCCName</key>
 			<string>GameMaster2</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>887E20FE-DF26-425F-BCC6-7EB3AB62AA74</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TKKeyBoard</string>
 		</dict>
 	</array>
 </dict>

@@ -15,21 +15,29 @@
     #import <Foundation/Foundation.h>
     #import "Global.h"
     #import "GMMemoryAccessObject.h"
+    #import "TKAlertView.h"
 
 static inline void TKAlert(NSString *message) {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    TKAlertView *alertView = [[TKAlertView alloc] initWithTitle:nil message:message];
+    [alertView addButtonWithTitle:@"确定" block:nil];
     [alertView show];
+#if !__has_feature(objc_arc)
     [alertView release];
+#endif
 }
 
 static inline void TKAlert2(NSString *format, ...) {
     va_list args;
     va_start(args, format);
-    NSString *message = [[[NSString alloc] initWithFormat:format arguments:args] autorelease];
+    NSString *message = [[NSString alloc] initWithFormat:format arguments:args];
     va_end(args);
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    TKAlertView *alertView = [[TKAlertView alloc] initWithTitle:nil message:message];
+    [alertView addButtonWithTitle:@"确定" block:nil];
     [alertView show];
+#if !__has_feature(objc_arc)
+    [message release];
     [alertView release];
+#endif
 }
 
 #endif

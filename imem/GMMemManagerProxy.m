@@ -156,7 +156,7 @@
 
 - (BOOL)removeObjects:(NSArray *)accessObjects {
 #if TARGET_IPHONE_SIMULATOR
-    return nil;
+    return NO;
 #else
     LMResponseBuffer responseBuffer;
     kern_return_t ret = LMConnectionSendTwoWayArchiverObject(&connection, GMMessageIdRemoveLockedOrStoredObjects, accessObjects, &responseBuffer);

@@ -19,12 +19,15 @@
 #import "GMStorageViewController.h"
 #import <UI7Kit/UI7Kit.h>
 #import "TKKeyboard.h"
+#import "TKTextFieldAlertView.h"
+#import "GMSettingViewController.h"
+#import "MobClick.h"
 
 #define CellMAXCount 99
 #define TKKeyboardTypeMain (120)
 
 
-@interface GMMainViewController ()<UISearchBarDelegate, GMKeyboardDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface GMMainViewController ()<UISearchBarDelegate, GMKeyboardDelegate, UITableViewDelegate, UITableViewDataSource, TKTextFieldAlertViewDelegate>
 
 @property (nonatomic, retain) UITableView *tableView;
 
@@ -36,16 +39,15 @@
 @property (nonatomic, retain) NSTimer *timer;
 @property (nonatomic, assign) dispatch_source_t source;
 
+- (void)resetKeyDidPressed;
+
+- (void)storageKeyDidPressed;
+
+- (void)searchKeyDidPressed;
+
 @end
 
 @implementation GMMainViewController
-
-+(void)initialize {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [GMMainViewController initKeyboard];
-    });
-}
 
 - (void)gotoSelectProcess {
     GMSelectAppViewController *selectProcessViewController = [[GMSelectAppViewController alloc] init];
@@ -77,10 +79,10 @@
     [selectProcessViewController release];
 }
 
-+ (void)initKeyboard {
+- (void)initKeyboard {
     TKKeyboardConfiguration *configiration = [[TKKeyboardConfiguration alloc] init];
     configiration.keyboardType = TKKeyboardTypeMain;
-    configiration.keyboardHeight = 216;
+    configiration.keyboardHeight = 180;
     configiration.backgroundColor = [UIColor colorWithWhite:179/255.0 alpha:1];
     
     NSMutableArray *keyItems = [NSMutableArray array];
@@ -90,11 +92,14 @@
         [keyItem release];
     }
     
+    MAWeakSelfDeclare();
     TKKeyItem *keyItem;
     
-    keyItem = [[TKKeyItem alloc] initWithTitle:@"重  置" action:^(id<TKTextInput> textInput, TKKeyItem *keyItem) {
-        
+    keyItem = [[TKKeyItem alloc] initWithTitle:@"搜索" action:^(id<TKTextInput> textInput, TKKeyItem *keyItem) {
+        MAWeakSelfImportReturn();
+        [self searchKeyDidPressed];
     }];
+    keyItem.titleFont = [UIFont systemFontOfSize:20];
     [keyItems addObject:keyItem];
     [keyItem release];
     
@@ -104,12 +109,14 @@
         [keyItem release];
     }
     
-    keyItem = [[TKKeyItem alloc] initWithTitle:@"搜  索" action:^(id<TKTextInput> textInput, TKKeyItem *keyItem) {
-        
+    keyItem = [[TKKeyItem alloc] initWithTitle:@"重置" action:^(id<TKTextInput> textInput, TKKeyItem *keyItem) {
+        MAWeakSelfImportReturn();
+        [self resetKeyDidPressed];
     }];
+    keyItem.titleFont = [UIFont systemFontOfSize:20];
     [keyItems addObject:keyItem];
     [keyItem release];
-    
+
     keyItem = [[TKKeyItem alloc] initWithInsertText:@"9"];
     [keyItems addObject:keyItem];
     [keyItem release];
@@ -128,20 +135,25 @@
     [keyItems addObject:keyItem];
     [keyItem release];
     
-    TKFlowLayout *layout = [[TKFlowLayout alloc] initWithSizeForIndexBlock:^CGSize(NSUInteger index, TKFlowLayout *layout, UIView *container) {
-        int row = 3, column = 5;
-        
-        CGFloat innerWidth = (container.frame.size.width - layout.padding*2  - (column - 1) *layout.spacing);
-        CGFloat innerHeight = (container.frame.size.height - layout.padding*2 - (row - 1) *layout.spacing);
-        CGFloat width = innerWidth/column;
-        CGFloat height = innerHeight/row;
-        if (index == 9) {
-            return CGSizeMake(width, height * 2);
-        } else {
-            return CGSizeMake(width, height);
-        }
-        
+    keyItem = [[TKKeyItem alloc] initWithTitle:@"添加" action:^(id<TKTextInput> textInput, TKKeyItem *keyItem) {
+        MAWeakSelfImportReturn();
+        [self addKeyDidPressed];
     }];
+    keyItem.titleFont = [UIFont systemFontOfSize:20];
+    [keyItems addObject:keyItem];
+    [keyItem release];
+    
+    keyItem = [[TKKeyItem alloc] initWithTitle:@"存储" action:^(id<TKTextInput> textInput, TKKeyItem *keyItem) {
+        MAWeakSelfImportReturn();
+        [self storageKeyDidPressed];
+    }];
+    keyItem.titleFont = [UIFont systemFontOfSize:20];
+    [keyItems addObject:keyItem];
+    [keyItem release];
+    
+    TKGridLayout *layout = [[TKGridLayout alloc] init];
+    layout.rowCount = 3;
+    layout.columnCount = 5;
     configiration.layout = layout;
     [layout release];
     
@@ -163,6 +175,8 @@
         [selectAppButton addTarget:self action:@selector(gotoSelectProcess) forControlEvents:UIControlEventTouchUpInside];
         self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:selectAppButton] autorelease];
         [selectAppButton release];
+        
+        [self initKeyboard];
     }
     return self;
 }
@@ -304,6 +318,43 @@
     self.searchBar.text = @"";
 }
 
+- (void)addKeyDidPressed {
+    MAWeakSelfDeclare();
+    TKTextFieldAlertView *textFieldAlertView = [[TKTextFieldAlertView alloc] initWithTitle:@"添加内存地址" placeholder:@"输入内存地址"];
+    textFieldAlertView.textField.keyboardType = TKKeyboardTypeUnsignedHexPad;
+    textFieldAlertView.delegate = self;
+    [textFieldAlertView addButtonWithTitle:@"取消" block:nil];
+    [textFieldAlertView addButtonWithTitle:@"确定" block:^{
+        MAWeakSelfImportReturn();
+        NSString *text = textFieldAlertView.textField.text;
+        text = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if (text.length == 0) {
+            TKAlert(@"输入内存地址");
+            return;
+        } else if (![text hasPrefix:@"0x"] && ![text hasPrefix:@"0X"]) {
+            text = [NSString stringWithFormat:@"0x%@", text];
+        }
+        unsigned long long address = strtoull([text UTF8String], NULL, 0);
+        GMMemoryAccessObject *accessObject = [[GMMemManagerProxy shareInstance] getMemoryAccessObject:address];
+        if (accessObject) {
+            if (self.results == nil) {
+                self.results = [NSArray array];
+            }
+            NSArray *results = [self.results arrayByAddingObject:@(address)];
+            self.results = results;
+            [self.tableView reloadData];
+            
+            GMModifyViewController *modifyViewController = [[GMModifyViewController alloc] initWithAddress:address];
+            [self.navigationController pushViewController:modifyViewController animated:YES];
+            [modifyViewController release];
+        } else {
+            TKAlert(@"地址不存在");
+        }
+    }];
+    [textFieldAlertView show];
+    [textFieldAlertView release];
+}
+
 - (void)storageKeyDidPressed {
     GMStorageViewController *storageViewController = [[GMStorageViewController alloc] init];
     [self.navigationController pushViewController:storageViewController animated:YES];
@@ -346,7 +397,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return self.results?1:0;
+        return self.results&&self.results.count==0?1:0;
     } else {
         return [self.results count];
     }
@@ -383,6 +434,18 @@
         GMModifyViewController *modifyViewController = [[GMModifyViewController alloc] initWithAddress:[address unsignedLongLongValue]];
         [self.navigationController pushViewController:modifyViewController animated:YES];
         [modifyViewController release];
+    }
+}
+
+#pragma mark - TKTextFieldAlertViewDelegate
+
+- (BOOL)alertView:(TKTextFieldAlertView *)alertView shouldEnableButtonForIndex:(NSUInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        NSString *text = alertView.textField.text;
+        text = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        return text.length;
+    } else {
+        return YES;
     }
 }
 
@@ -450,7 +513,9 @@
 }
 
 - (void)abount {
-
+    GMSettingViewController *settingViewController = [[GMSettingViewController alloc] init];
+    [self.navigationController pushViewController:settingViewController animated:YES];
+    [settingViewController release];
 }
 
 - (void)resetSelectAppButton {
