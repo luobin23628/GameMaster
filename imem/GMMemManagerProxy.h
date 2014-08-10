@@ -12,6 +12,8 @@
 
 + (instancetype)shareInstance;
 
+- (int)getPid;
+
 - (BOOL)setPid:(int)pid;
 
 - (BOOL)search:(int)value

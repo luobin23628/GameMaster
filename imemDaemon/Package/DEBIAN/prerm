@@ -1,0 +1,5 @@
+#!/bin/sh
+
+/bin/launchctl unload /Library/LaunchDaemons/com.luobin.imemDaemon.plist
+
+exit 0

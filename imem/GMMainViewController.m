@@ -22,10 +22,11 @@
 #import "TKTextFieldAlertView.h"
 #import "GMSettingViewController.h"
 #import "MobClick.h"
+#import "ALApplicationList.h"
 
 #define CellMAXCount 99
 #define TKKeyboardTypeMain (120)
-
+#define TKKeyboardHeight 180
 
 @interface GMMainViewController ()<UISearchBarDelegate, GMKeyboardDelegate, UITableViewDelegate, UITableViewDataSource, TKTextFieldAlertViewDelegate>
 
@@ -60,17 +61,7 @@
         if (!ok) {
             TKAlert(@"程序已退出，请重新选择！");
         } else {
-            GMSelectAppButton * selectAppButton = (GMSelectAppButton *)[self.navigationItem.rightBarButtonItem customView];
-            selectAppButton.titleLabel.font = [UIFont systemFontOfSize:14];
-            selectAppButton.titleLabel.textColor = [UI7Color defaultTintColor];
-            selectAppButton.image = appIcon;
-            selectAppButton.title = [NSString stringWithFormat:@"%@", appName];
-            
-            [self startMonitorForProcess:pid];
-            
-            self.results = nil;
-            self.isFirst = YES;
-            [self.tableView reloadData];
+            [self updateWithPid:pid appName:appName appIcon:appIcon];
         }
     };
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:selectProcessViewController];
@@ -82,7 +73,7 @@
 - (void)initKeyboard {
     TKKeyboardConfiguration *configiration = [[TKKeyboardConfiguration alloc] init];
     configiration.keyboardType = TKKeyboardTypeMain;
-    configiration.keyboardHeight = 180;
+    configiration.keyboardHeight = TKKeyboardHeight;
     configiration.backgroundColor = [UIColor colorWithWhite:179/255.0 alpha:1];
     
     NSMutableArray *keyItems = [NSMutableArray array];
@@ -237,7 +228,7 @@
     UITextField *textField = (UITextField *)[searchBar descendantOrSelfWithClass:UITextField.class];
     textField.keyboardType = TKKeyboardTypeMain;
     
-    UIEdgeInsets edgeInsets = UIEdgeInsetsMake(44, 0, 159, 0);
+    UIEdgeInsets edgeInsets = UIEdgeInsetsMake(44, 0, TKKeyboardHeight, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset = edgeInsets;
     
     [searchBar becomeFirstResponder];
@@ -247,6 +238,12 @@
                                              selector:@selector(appDidBecomeActiveNotification:)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
+    
+    int pid = [[GMMemManagerProxy shareInstance] getPid];
+    if (pid > 0) {
+        self.pid = pid;
+        [self updateWithPid:pid];
+    }
 }
 
 #pragma mark - KVO
@@ -450,6 +447,35 @@
 }
 
 #pragma mark - Private 
+
+- (NSDictionary *)updateWithPid:(int)pid {
+	ALApplicationList *appList = [ALApplicationList sharedApplicationList];
+	NSDictionary *applications = [appList applicationsFilteredUsingPredicate:[NSPredicate predicateWithFormat:@"pid = %d", pid]];
+    NSArray *displayIdentifiers = applications.allKeys;
+    if (displayIdentifiers.count) {
+        NSString *displayIdentifier = [displayIdentifiers firstObject];
+        NSString *appName = [applications objectForKey:displayIdentifier];
+        UIImage *appIcon = [appList iconOfSize:ALApplicationIconSizeSmall forDisplayIdentifier:displayIdentifier];
+        [self updateWithPid:pid appName:appName appIcon:appIcon];
+    }
+    return nil;
+}
+
+- (void)updateWithPid:(int)pid appName:(NSString *)appName appIcon:(UIImage *)appIcon{
+    GMSelectAppButton * selectAppButton = (GMSelectAppButton *)[self.navigationItem.rightBarButtonItem customView];
+    selectAppButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    selectAppButton.titleLabel.textColor = [UI7Color defaultTintColor];
+    selectAppButton.image = appIcon;
+    selectAppButton.title = appName;
+    
+    [self startMonitorForProcess:pid];
+    [[GMMemManagerProxy shareInstance] reset];
+    
+    self.pid = pid;
+    self.results = nil;
+    self.isFirst = YES;
+    [self.tableView reloadData];
+}
 
 - (void)addSearchDisplayController {
     GMAssociateViewController *associateViewController = [[GMAssociateViewController alloc] init];

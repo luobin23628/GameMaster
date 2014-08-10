@@ -23,6 +23,20 @@
     return sharedManager;
 }
 
+- (int)getPid {
+#if TARGET_IPHONE_SIMULATOR
+    return -1;
+#else
+    LMResponseBuffer responseBuffer;
+    kern_return_t ret = LMConnectionSendTwoWay(&connection, GMMessageIdGetPid, NULL, 0, &responseBuffer);
+    if (ret == KERN_SUCCESS) {
+        return LMResponseConsumeInteger(&responseBuffer);
+    } else {
+        return -1;
+    }
+#endif
+}
+
 - (BOOL)setPid:(int)pid {
 #if TARGET_IPHONE_SIMULATOR
     return NO;

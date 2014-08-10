@@ -5,11 +5,13 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>27E46181-DC5D-440B-81CE-5DC1B0EDAF88</string>
+	<string>B351880A-A180-437C-9FDF-03736F4A3D53</string>
 	<key>IDESourceControlProjectName</key>
 	<string>imem</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>69376F9A-714F-43BC-8413-AA4EC2CE32CF</key>
+		<string>https://github.com/futuretap/InAppSettingsKit.git</string>
 		<key>86567358-A7F7-4EF7-A96D-B77732DAB2E7</key>
 		<string>https://github.com/luobin23628/GameMaster.git</string>
 		<key>887E20FE-DF26-425F-BCC6-7EB3AB62AA74</key>
@@ -21,6 +23,8 @@
 	<string>imem.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>69376F9A-714F-43BC-8413-AA4EC2CE32CF</key>
+		<string>../submodules/InAppSettingsKit</string>
 		<key>86567358-A7F7-4EF7-A96D-B77732DAB2E7</key>
 		<string>..</string>
 		<key>887E20FE-DF26-425F-BCC6-7EB3AB62AA74</key>
@@ -51,6 +55,14 @@
 			<string>86567358-A7F7-4EF7-A96D-B77732DAB2E7</string>
 			<key>IDESourceControlWCCName</key>
 			<string>GameMaster2</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>69376F9A-714F-43BC-8413-AA4EC2CE32CF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>InAppSettingsKit</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>

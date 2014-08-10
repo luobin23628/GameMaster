@@ -34,6 +34,11 @@
 		A82B4425197BBD260098A6D4 /* GMKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B4424197BBD260098A6D4 /* GMKeyboard.m */; };
 		A82B4428197BBE5C0098A6D4 /* UIView+Sizes.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B4427197BBE5C0098A6D4 /* UIView+Sizes.m */; };
 		A82B442B197BD4A60098A6D4 /* GMGridLinesTexturedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B442A197BD4A60098A6D4 /* GMGridLinesTexturedView.m */; };
+		A83653551997C04800147B72 /* libapplist.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A86FD14E1975858500765F99 /* libapplist.dylib */; };
+		A836537C1997D7F300147B72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF4BE71966A579000C7128 /* Foundation.framework */; };
+		A83653871997D7F300147B72 /* imemTweak.mm in Sources */ = {isa = PBXBuildFile; fileRef = A83653861997D7F300147B72 /* imemTweak.mm */; };
+		A83653991997D96500147B72 /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A83653981997D96500147B72 /* libsubstrate.dylib */; };
+		A836539D1997DAC200147B72 /* testTweak.m in Sources */ = {isa = PBXBuildFile; fileRef = A836539C1997DAC200147B72 /* testTweak.m */; };
 		A83653A5199655EF00322899 /* LightMessaging.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE417199615FC00B2010A /* LightMessaging.m */; };
 		A839D2D7196C2B2400E8E9F4 /* entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = A839D2D6196C2B2400E8E9F4 /* entitlements.plist */; };
 		A86BC8881986863D000A417A /* GMAssociateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A86BC8871986863D000A417A /* GMAssociateViewController.m */; };
@@ -105,15 +110,22 @@
 			remoteGlobalIDString = ABFF4BE31966A579000C7128;
 			remoteInfo = imem;
 		};
+		A836538F1997D81700147B72 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ABFF4BD31966A3E7000C7128 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A836537A1997D7F300147B72;
+			remoteInfo = imemTweak;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3ECA1A66F9EB4AE3A23B64CB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A8054ED5196DB6E8004CC80A /* imemXpcService */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = imemXpcService; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8054ED5196DB6E8004CC80A /* imemDaemon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = imemDaemon; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8054EDA196DB6E8004CC80A /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = control.txt; path = Package/DEBIAN/control.txt; sourceTree = "<group>"; };
 		A8054EDB196DB6E8004CC80A /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
 		A8054EDD196DB6E8004CC80A /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
-		A8054EDE196DB6E8004CC80A /* imemXpcService-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "imemXpcService-Prefix.pch"; sourceTree = "<group>"; };
+		A8054EDE196DB6E8004CC80A /* imemDaemon-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "imemDaemon-Prefix.pch"; sourceTree = "<group>"; };
 		A8054EDF196DB6E8004CC80A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A8054EE4196DB6E8004CC80A /* postinst */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = postinst; path = Package/DEBIAN/postinst; sourceTree = "<group>"; };
 		A8054EE5196DB6E8004CC80A /* prerm */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = prerm; path = Package/DEBIAN/prerm; sourceTree = "<group>"; };
@@ -158,12 +170,28 @@
 		A82B4427197BBE5C0098A6D4 /* UIView+Sizes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Sizes.m"; path = "imem/UIView+Sizes.m"; sourceTree = "<group>"; };
 		A82B4429197BD4A60098A6D4 /* GMGridLinesTexturedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGridLinesTexturedView.h; sourceTree = "<group>"; };
 		A82B442A197BD4A60098A6D4 /* GMGridLinesTexturedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGridLinesTexturedView.m; sourceTree = "<group>"; };
+		A836537B1997D7F300147B72 /* imemTweak.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = imemTweak.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		A83653801997D7F300147B72 /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = control.txt; path = Package/DEBIAN/control.txt; sourceTree = "<group>"; };
+		A83653811997D7F300147B72 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		A83653831997D7F300147B72 /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		A83653841997D7F300147B72 /* imemTweak-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "imemTweak-Prefix.pch"; sourceTree = "<group>"; };
+		A83653851997D7F300147B72 /* imemTweak.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = imemTweak.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		A83653861997D7F300147B72 /* imemTweak.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = imemTweak.mm; sourceTree = "<group>"; };
+		A836538B1997D7F300147B72 /* imemTweak.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = imemTweak.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/imemTweak.plist; sourceTree = "<group>"; };
+		A83653931997D8B000147B72 /* AppList.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = AppList.dylib; sourceTree = "<group>"; };
+		A83653941997D8B000147B72 /* AppList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = AppList.plist; sourceTree = "<group>"; };
+		A83653951997D8B000147B72 /* imemTweak.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = imemTweak.plist; sourceTree = "<group>"; };
+		A83653961997D8B000147B72 /* RocketBootstrap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = RocketBootstrap.dylib; sourceTree = "<group>"; };
+		A83653971997D8B000147B72 /* RocketBootstrap.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = RocketBootstrap.plist; sourceTree = "<group>"; };
+		A83653981997D96500147B72 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = ../../../../opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<group>"; };
+		A836539B1997DAA500147B72 /* testTweak.x */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testTweak.x; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		A836539C1997DAC200147B72 /* testTweak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testTweak.m; sourceTree = "<group>"; };
 		A839D2D6196C2B2400E8E9F4 /* entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = entitlements.plist; sourceTree = "<group>"; };
 		A839D2DA196C3A9200E8E9F4 /* libMatch.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMatch.dylib; path = usr/lib/libMatch.dylib; sourceTree = SDKROOT; };
 		A839D2DC196C3A9D00E8E9F4 /* libMatch.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMatch.1.dylib; path = usr/lib/libMatch.1.dylib; sourceTree = SDKROOT; };
 		A839D2DE196C3AA900E8E9F4 /* libmacho.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmacho.dylib; path = usr/lib/system/libmacho.dylib; sourceTree = SDKROOT; };
 		A83F762E1976E7BC00C7EAE5 /* entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = entitlements.plist; sourceTree = "<group>"; };
-		A8577E1419719AEC00A277D4 /* com.test.imemXpcService.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = com.test.imemXpcService.plist; sourceTree = "<group>"; };
+		A8577E1419719AEC00A277D4 /* com.luobin.imemDaemon.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = com.luobin.imemDaemon.plist; sourceTree = "<group>"; };
 		A86BC8861986863D000A417A /* GMAssociateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMAssociateViewController.h; sourceTree = "<group>"; };
 		A86BC8871986863D000A417A /* GMAssociateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMAssociateViewController.m; sourceTree = "<group>"; };
 		A86FD1411975680000765F99 /* GMMemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMemManager.h; sourceTree = "<group>"; };
@@ -273,8 +301,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A83653551997C04800147B72 /* libapplist.dylib in Frameworks */,
 				A86FD14519756D8200765F99 /* librocketbootstrap.dylib in Frameworks */,
 				A8054ED6196DB6E8004CC80A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A83653771997D7F300147B72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A83653991997D96500147B72 /* libsubstrate.dylib in Frameworks */,
+				A836537C1997D7F300147B72 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +335,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A8054ED7196DB6E8004CC80A /* imemXpcService */ = {
+		A8054ED7196DB6E8004CC80A /* imemDaemon */ = {
 			isa = PBXGroup;
 			children = (
 				A8054EDF196DB6E8004CC80A /* main.m */,
@@ -315,7 +353,7 @@
 				A8054ED8196DB6E8004CC80A /* Package */,
 				A8054EDC196DB6E8004CC80A /* Supporting Files */,
 			);
-			path = imemXpcService;
+			path = imemDaemon;
 			sourceTree = "<group>";
 		};
 		A8054ED8196DB6E8004CC80A /* Package */ = {
@@ -346,7 +384,7 @@
 				A8D9058B197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png */,
 				A83F762E1976E7BC00C7EAE5 /* entitlements.plist */,
 				A8054EDD196DB6E8004CC80A /* PackageVersion.plist */,
-				A8054EDE196DB6E8004CC80A /* imemXpcService-Prefix.pch */,
+				A8054EDE196DB6E8004CC80A /* imemDaemon-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -415,9 +453,94 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		A836537D1997D7F300147B72 /* imemTweak */ = {
+			isa = PBXGroup;
+			children = (
+				A83653851997D7F300147B72 /* imemTweak.xm */,
+				A83653861997D7F300147B72 /* imemTweak.mm */,
+				A836539B1997DAA500147B72 /* testTweak.x */,
+				A836539C1997DAC200147B72 /* testTweak.m */,
+				A836537E1997D7F300147B72 /* Package */,
+				A83653821997D7F300147B72 /* Supporting Files */,
+			);
+			path = imemTweak;
+			sourceTree = "<group>";
+		};
+		A836537E1997D7F300147B72 /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				A836537F1997D7F300147B72 /* DEBIAN */,
+				A83653881997D7F300147B72 /* Library */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		A836537F1997D7F300147B72 /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				A83653801997D7F300147B72 /* control.txt */,
+				A83653811997D7F300147B72 /* control */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		A83653821997D7F300147B72 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A83653831997D7F300147B72 /* PackageVersion.plist */,
+				A83653841997D7F300147B72 /* imemTweak-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A83653881997D7F300147B72 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				A83653891997D7F300147B72 /* MobileSubstrate */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		A83653891997D7F300147B72 /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				A836538A1997D7F300147B72 /* DynamicLibraries */,
+			);
+			name = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		A836538A1997D7F300147B72 /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				A836538B1997D7F300147B72 /* imemTweak.plist */,
+			);
+			name = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+		A83653911997D8B000147B72 /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				A83653921997D8B000147B72 /* DynamicLibraries */,
+			);
+			path = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		A83653921997D8B000147B72 /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				A83653931997D8B000147B72 /* AppList.dylib */,
+				A83653941997D8B000147B72 /* AppList.plist */,
+				A83653951997D8B000147B72 /* imemTweak.plist */,
+				A83653961997D8B000147B72 /* RocketBootstrap.dylib */,
+				A83653971997D8B000147B72 /* RocketBootstrap.plist */,
+			);
+			path = DynamicLibraries;
+			sourceTree = "<group>";
+		};
 		A8577E1219719AEC00A277D4 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				A83653911997D8B000147B72 /* MobileSubstrate */,
 				A8577E1319719AEC00A277D4 /* LaunchDaemons */,
 			);
 			name = Library;
@@ -427,7 +550,7 @@
 		A8577E1319719AEC00A277D4 /* LaunchDaemons */ = {
 			isa = PBXGroup;
 			children = (
-				A8577E1419719AEC00A277D4 /* com.test.imemXpcService.plist */,
+				A8577E1419719AEC00A277D4 /* com.luobin.imemDaemon.plist */,
 			);
 			path = LaunchDaemons;
 			sourceTree = "<group>";
@@ -581,8 +704,9 @@
 			isa = PBXGroup;
 			children = (
 				ABFF4BED1966A579000C7128 /* imem */,
-				A8054ED7196DB6E8004CC80A /* imemXpcService */,
+				A8054ED7196DB6E8004CC80A /* imemDaemon */,
 				A8BDC4201987DA2300592935 /* Common */,
+				A836537D1997D7F300147B72 /* imemTweak */,
 				ABFF4BE61966A579000C7128 /* Frameworks */,
 				ABFF4BE51966A579000C7128 /* Products */,
 				D12E4C3196FD4C08BE93404A /* Pods.xcconfig */,
@@ -593,7 +717,8 @@
 			isa = PBXGroup;
 			children = (
 				ABFF4BE41966A579000C7128 /* imem.app */,
-				A8054ED5196DB6E8004CC80A /* imemXpcService */,
+				A8054ED5196DB6E8004CC80A /* imemDaemon */,
+				A836537B1997D7F300147B72 /* imemTweak.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -601,6 +726,7 @@
 		ABFF4BE61966A579000C7128 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A83653981997D96500147B72 /* libsubstrate.dylib */,
 				A8DAE41D19963F9C00B2010A /* libz.dylib */,
 				A8DAE41B1996398800B2010A /* libMobClickLibrary.a */,
 				A86FD14E1975858500765F99 /* libapplist.dylib */,
@@ -669,12 +795,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A83653781997D7F300147B72 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A8054ED4196DB6E8004CC80A /* imemXpcService */ = {
+		A8054ED4196DB6E8004CC80A /* imemDaemon */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A8054EE8196DB6E8004CC80A /* Build configuration list for PBXNativeTarget "imemXpcService" */;
+			buildConfigurationList = A8054EE8196DB6E8004CC80A /* Build configuration list for PBXNativeTarget "imemDaemon" */;
 			buildPhases = (
 				A8054ED0196DB6E8004CC80A /* Sources */,
 				A8054ED1196DB6E8004CC80A /* Frameworks */,
@@ -685,12 +818,32 @@
 			buildRules = (
 			);
 			dependencies = (
+				A83653901997D81700147B72 /* PBXTargetDependency */,
 				A8054EEA196DB9E6004CC80A /* PBXTargetDependency */,
 			);
-			name = imemXpcService;
+			name = imemDaemon;
 			productName = imemXpcService;
-			productReference = A8054ED5196DB6E8004CC80A /* imemXpcService */;
+			productReference = A8054ED5196DB6E8004CC80A /* imemDaemon */;
 			productType = "com.apple.product-type.tool";
+		};
+		A836537A1997D7F300147B72 /* imemTweak */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A836538C1997D7F300147B72 /* Build configuration list for PBXNativeTarget "imemTweak" */;
+			buildPhases = (
+				A83653751997D7F300147B72 /* ShellScript */,
+				A83653761997D7F300147B72 /* Sources */,
+				A83653771997D7F300147B72 /* Frameworks */,
+				A83653781997D7F300147B72 /* Headers */,
+				A83653791997D7F300147B72 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = imemTweak;
+			productName = imemTweak;
+			productReference = A836537B1997D7F300147B72 /* imemTweak.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
 		};
 		ABFF4BE31966A579000C7128 /* imem */ = {
 			isa = PBXNativeTarget;
@@ -753,7 +906,8 @@
 			projectRoot = "";
 			targets = (
 				ABFF4BE31966A579000C7128 /* imem */,
-				A8054ED4196DB6E8004CC80A /* imemXpcService */,
+				A8054ED4196DB6E8004CC80A /* imemDaemon */,
+				A836537A1997D7F300147B72 /* imemTweak */,
 			);
 		};
 /* End PBXProject section */
@@ -828,7 +982,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "dst=${SRCROOT}/imemXpcService/Package/Applications\nmkdir -p ${dst}\nsrc=${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}\ncp -Rf ${src} ${dst}";
+			shellScript = "dst=${SRCROOT}/imemDaemon/Package/Applications\nmkdir -p ${dst}\nsrc=${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}\ncp -Rf ${src} ${dst}";
+		};
+		A83653751997D7F300147B72 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp-logos";
+		};
+		A83653791997D7F300147B72 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
 		};
 		A86FD1541976E3DB00765F99 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -841,7 +1021,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "dst=${SRCROOT}/imemXpcService/Package/usr/bin/imemXpcService\nentitPath=${SRCROOT}/imem/entitlements.plist\nldid -S${entitPath} ${dst}";
+			shellScript = "dst=${SRCROOT}/imemDaemon/Package/usr/bin/imemDaemon\nentitPath=${SRCROOT}/imem/entitlements.plist\nldid -S${entitPath} ${dst}";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -858,6 +1038,15 @@
 				A87447951984B08F00A9544D /* GMStorageManager.m in Sources */,
 				A874478D19849CEC00A9544D /* GMLockThread.m in Sources */,
 				A80D3E7819855DE100F5CF2A /* GMMemoryAccessObject.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A83653761997D7F300147B72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A836539D1997DAC200147B72 /* testTweak.m in Sources */,
+				A83653871997D7F300147B72 /* imemTweak.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -932,6 +1121,11 @@
 			target = ABFF4BE31966A579000C7128 /* imem */;
 			targetProxy = A8054EE9196DB9E6004CC80A /* PBXContainerItemProxy */;
 		};
+		A83653901997D81700147B72 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A836537A1997D7F300147B72 /* imemTweak */;
+			targetProxy = A836538F1997D81700147B72 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -943,7 +1137,7 @@
 					armv7s,
 				);
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = imemXpcService/entitlements.plist;
+				CODE_SIGN_ENTITLEMENTS = imemDaemon/entitlements.plist;
 				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
@@ -955,7 +1149,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "imemXpcService/imemXpcService-Prefix.pch";
+				GCC_PREFIX_HEADER = "imemDaemon/imemDaemon-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -994,7 +1188,7 @@
 					armv7s,
 				);
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = imemXpcService/entitlements.plist;
+				CODE_SIGN_ENTITLEMENTS = imemDaemon/entitlements.plist;
 				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
@@ -1004,7 +1198,7 @@
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "imemXpcService/imemXpcService-Prefix.pch";
+				GCC_PREFIX_HEADER = "imemDaemon/imemDaemon-Prefix.pch";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -1021,6 +1215,94 @@
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.1.114;
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+		A836538D1997D7F300147B72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "imemTweak/imemTweak-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/lib/**",
+					/opt/iOSOpenDev/lib,
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+		A836538E1997D7F300147B72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "imemTweak/imemTweak-Prefix.pch";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/lib/**",
+					/opt/iOSOpenDev/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
@@ -1107,7 +1389,7 @@
 					"$(SDKROOT)/usr/lib/system",
 					/opt/iOSOpenDev/lib,
 					/opt/theos/lib,
-					"$(PROJECT_DIR)/imemXpcService/Package/usr/lib",
+					"$(PROJECT_DIR)/imemDaemon/Package/usr/lib",
 					lib/UMAnalytics_Sdk,
 					"$(PROJECT_DIR)/lib/UMAnalytics_Sdk",
 				);
@@ -1168,7 +1450,7 @@
 					"$(SDKROOT)/usr/lib/system",
 					/opt/iOSOpenDev/lib,
 					/opt/theos/lib,
-					"$(PROJECT_DIR)/imemXpcService/Package/usr/lib",
+					"$(PROJECT_DIR)/imemDaemon/Package/usr/lib",
 					lib/UMAnalytics_Sdk,
 					"$(PROJECT_DIR)/lib/UMAnalytics_Sdk",
 				);
@@ -1187,11 +1469,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A8054EE8196DB6E8004CC80A /* Build configuration list for PBXNativeTarget "imemXpcService" */ = {
+		A8054EE8196DB6E8004CC80A /* Build configuration list for PBXNativeTarget "imemDaemon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A8054EE6196DB6E8004CC80A /* Debug */,
 				A8054EE7196DB6E8004CC80A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A836538C1997D7F300147B72 /* Build configuration list for PBXNativeTarget "imemTweak" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A836538D1997D7F300147B72 /* Debug */,
+				A836538E1997D7F300147B72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

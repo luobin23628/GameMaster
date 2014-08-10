@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [[ $1 == upgrade ]]; then
+	/bin/launchctl unload /Library/LaunchDaemons/com.luobin.imemDaemon.plist
+fi
+
+chown root:wheel /usr/bin/imemDaemon
+chmod 755 /usr/bin/imemDaemon
+chown root:wheel /Library/LaunchDaemons/com.luobin.imemDaemon.plist
+chmod 644 /Library/LaunchDaemons/com.luobin.imemDaemon.plist
+
+/bin/launchctl load /Library/LaunchDaemons/com.luobin.imemDaemon.plist
+
+exit 0

@@ -5,20 +5,32 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>9504CA16-A1D5-43A7-929D-CBFD806E53C8</string>
+	<string>EC01D780-7D60-40C7-A6F5-E441E8449D6E</string>
 	<key>IDESourceControlProjectName</key>
 	<string>imem</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>69376F9A-714F-43BC-8413-AA4EC2CE32CF</key>
+		<string>https://github.com/futuretap/InAppSettingsKit.git</string>
 		<key>86567358-A7F7-4EF7-A96D-B77732DAB2E7</key>
 		<string>https://github.com/luobin23628/GameMaster.git</string>
+		<key>887E20FE-DF26-425F-BCC6-7EB3AB62AA74</key>
+		<string>https://github.com/luobin23628/TKKeyBoard.git</string>
+		<key>D506B1C6-9415-45F2-8432-8ED6511400B2</key>
+		<string>https://github.com/luobin23628/CustomActionSheetAndAlert.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>imem.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>69376F9A-714F-43BC-8413-AA4EC2CE32CF</key>
+		<string>../../submodules/InAppSettingsKit</string>
 		<key>86567358-A7F7-4EF7-A96D-B77732DAB2E7</key>
 		<string>../..</string>
+		<key>887E20FE-DF26-425F-BCC6-7EB3AB62AA74</key>
+		<string>../../submodules/TKKeyBoard</string>
+		<key>D506B1C6-9415-45F2-8432-8ED6511400B2</key>
+		<string>../../submodules/CustomActionSheetAndAlert</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/luobin23628/GameMaster.git</string>
@@ -32,9 +44,33 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D506B1C6-9415-45F2-8432-8ED6511400B2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CustomActionSheetAndAlert</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>86567358-A7F7-4EF7-A96D-B77732DAB2E7</string>
 			<key>IDESourceControlWCCName</key>
 			<string>GameMaster2</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>69376F9A-714F-43BC-8413-AA4EC2CE32CF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>InAppSettingsKit</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>887E20FE-DF26-425F-BCC6-7EB3AB62AA74</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TKKeyBoard</string>
 		</dict>
 	</array>
 </dict>

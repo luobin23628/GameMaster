@@ -18,14 +18,15 @@ static LMConnection connection = {
 	"imem.datasource"
 };
 
-#define GMMessageIdSetPid       1
-#define GMMessageIdSearch       2
-#define GMMessageIdGetMemoryAccessObject    3
-#define GMMessageIdModify       4
-#define GMMessageIdReset        5
-#define GMMessageIdCheckValid   6
-#define GMMessageIdGetLockedList  7
-#define GMMessageIdGetStoredList  8
-#define GMMessageIdRemoveLockedOrStoredObjects  9
+#define GMMessageIdGetPid       1
+#define GMMessageIdSetPid       2
+#define GMMessageIdSearch       3
+#define GMMessageIdGetMemoryAccessObject    4
+#define GMMessageIdModify       5
+#define GMMessageIdReset        6
+#define GMMessageIdCheckValid   7
+#define GMMessageIdGetLockedList  8
+#define GMMessageIdGetStoredList  9
+#define GMMessageIdRemoveLockedOrStoredObjects  10
 
 #endif

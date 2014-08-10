@@ -27,7 +27,7 @@
     if (self) {
         // Custom initialization
         self.address = address;
-        self.title = [NSString stringWithFormat:@"0X%llX", address];
+        self.title = [NSString stringWithFormat:@"0X%08llX", address];
         self.defaultOptType = GMOptTypeEdit;
     }
     return self;

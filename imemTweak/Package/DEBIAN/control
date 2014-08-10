@@ -1,0 +1,17 @@
+Package: com.luobin.imemTweak.imemTweak
+Name: imemTweak
+Version: 0.1-1
+Description: 
+Section: System
+Depends: firmware (>= 5.0), mobilesubstrate
+Conflicts: 
+Replaces: 
+Priority: optional
+Architecture: iphoneos-arm
+Author: luobin
+dev: 
+Homepage: 
+Depiction: 
+Maintainer: 
+Icon: 
+
