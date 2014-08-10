@@ -28,11 +28,13 @@
         // Custom initialization
         self.address = address;
         self.title = [NSString stringWithFormat:@"0X%llX", address];
+        self.defaultOptType = GMOptTypeEdit;
     }
     return self;
 }
 
 - (void)dealloc {
+    self.didModifyBlock = nil;
     self.accessObject = nil;
     [super dealloc];
 }
@@ -43,11 +45,15 @@
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(save)] autorelease];
     
     self.accessObject = [[GMMemManagerProxy shareInstance] getMemoryAccessObject:self.address];
+    self.accessObject.optType = self.defaultOptType;
 }
 
 - (void)save {
     BOOL ok = [[GMMemManagerProxy shareInstance] modifyMemory:self.accessObject];
     if (ok) {
+        if (self.didModifyBlock) {
+            self.didModifyBlock(self.accessObject);
+        }
         [self.navigationController popViewControllerAnimated:YES];
     } else {
         TKAlert(@"修改失败");
@@ -79,14 +85,19 @@
     } else if (indexPath.row == 1) {
         static NSString *identifier = @"SimplePickerInputTableViewCell";
         SimplePickerInputTableViewCell *cell = (SimplePickerInputTableViewCell *)[tableView dequeueReusableCellWithIdentifier:identifier];
+        NSArray *array = [NSArray arrayWithObjects:@"修改", @"修改并存储", @"修改并锁定", nil];
         if (!cell) {
             cell = [[[SimplePickerInputTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.values = [NSArray arrayWithObjects:@"修改", @"修改并存储", @"修改并锁定", nil];
+            cell.values = array;
             cell.delegate = self;
         }
+        cell.value = [array objectAtIndex:self.defaultOptType];
+        if (self.defaultOptType != GMOptTypeEdit) {
+            cell.userInteractionEnabled = NO;
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
         cell.textLabel.text = @"操作";
-        [cell setValue:@"修改"];
         return cell;
     } else if (indexPath.row == 2) {
         static NSString *identifier = @"TextFieldTableViewCell";

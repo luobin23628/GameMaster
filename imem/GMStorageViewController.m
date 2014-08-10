@@ -8,6 +8,7 @@
 
 #import "GMStorageViewController.h"
 #import "GMMemManagerProxy.h"
+#import "GMModifyViewController.h"
 
 #define kSegmentedControlIndexStoredIndex 0
 #define kSegmentedControlIndexLockedIndex 1
@@ -15,6 +16,7 @@
 @interface GMStorageViewController ()
 
 @property (nonatomic, retain) NSMutableArray *lists;
+@property (nonatomic, retain) NSTimer *timer;
 
 @end
 
@@ -27,6 +29,17 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self segmentDidSelect:(UISegmentedControl *)self.navigationItem.titleView];
+    [self startTimer];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self invalidateTimer];
 }
 
 - (void)viewDidLoad
@@ -43,6 +56,7 @@
 }
 
 - (void)dealloc {
+    [self invalidateTimer];
     self.lists = nil;
     [super dealloc];
 }
@@ -72,14 +86,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
+        cell.selectionStyle = UITableViewCellSelectionStyleGray;
     }
     // Configure the cell...
-    cell.selectionStyle = UITableViewCellSelectionStyleGray;
-    GMMemoryAccessObject *memoryAccessObject = [self.lists objectAtIndex:indexPath.row];
-    uint64_t value = [memoryAccessObject value];
-    uint64_t address = [memoryAccessObject address];
-    NSString *text = [NSString stringWithFormat:@"%ld、0X%08llX:%llu", (long)indexPath.row, address, value];
-    cell.textLabel.text = text;
+    [self updateForCell:cell atIndexPath:indexPath];
     return cell;
 }
 
@@ -106,6 +116,49 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     GMMemoryAccessObject *memoryAccessObject = [self.lists objectAtIndex:indexPath.row];
+    GMOptType optType = memoryAccessObject.optType;
+    GMModifyViewController *modifyViewController = [[GMModifyViewController alloc] initWithAddress:memoryAccessObject.address];
+    modifyViewController.defaultOptType = optType;
+    modifyViewController.didModifyBlock = ^(GMMemoryAccessObject *accessObject) {
+        if (accessObject && accessObject.optType == GMOptTypeEdit) {
+            [[GMMemManagerProxy shareInstance] removeObjects:@[accessObject]];
+        }
+    };
+    [self.navigationController pushViewController:modifyViewController animated:YES];
+    [modifyViewController release];
+}
+
+#pragma mark - Private
+
+- (void)invalidateTimer {
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
+- (void)startTimer {
+    [self invalidateTimer];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                  target:self
+                                                selector:@selector(reloadData)
+                                                userInfo:nil
+                                                 repeats:YES];
+}
+
+- (void)reloadData {
+    NSArray *indexPathsForVisibleRows = [self.tableView indexPathsForVisibleRows];
+    for (NSIndexPath *indexPath in indexPathsForVisibleRows) {
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        [self updateForCell:cell atIndexPath:indexPath];
+    }
+}
+
+- (void)updateForCell:(UITableViewCell *)cell  atIndexPath:(NSIndexPath *)indexPath {
+    GMMemoryAccessObject *memoryAccessObject = [self.lists objectAtIndex:indexPath.row];
+    memoryAccessObject = [[GMMemManagerProxy shareInstance] getMemoryAccessObject:memoryAccessObject.address];
+    uint64_t value = [memoryAccessObject value];
+    uint64_t address = [memoryAccessObject address];
+    NSString *text = [NSString stringWithFormat:@"%ld、0X%08llX:%llu", (long)indexPath.row, address, value];
+    cell.textLabel.text = text;
 }
 
 @end

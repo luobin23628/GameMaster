@@ -10,6 +10,9 @@
 
 @interface GMModifyViewController : UITableViewController
 
+@property (nonatomic, assign) GMOptType defaultOptType;
+@property (nonatomic, copy) void(^didModifyBlock)(GMMemoryAccessObject *accessObject);
+
 - (id)initWithAddress:(uint64_t)address;
 
 @end

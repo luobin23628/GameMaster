@@ -206,7 +206,7 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"关于" style:UIBarButtonItemStylePlain target:self action:@selector(abount)] autorelease];
+    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(setting)] autorelease];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
@@ -512,7 +512,7 @@
     }
 }
 
-- (void)abount {
+- (void)setting {
     GMSettingViewController *settingViewController = [[GMSettingViewController alloc] init];
     [self.navigationController pushViewController:settingViewController animated:YES];
     [settingViewController release];

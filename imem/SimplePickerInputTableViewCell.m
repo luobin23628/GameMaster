@@ -21,6 +21,7 @@
 		self.picker.delegate = self;
 		self.picker.dataSource = self;
         self.picker.backgroundColor = [UIColor colorWithWhite:251/255.0 alpha:1];
+        self.enable = YES;
     }
     return self;
 }
@@ -44,9 +45,16 @@
 }
 
 - (void)setValue:(NSString *)v {
-	value = v;
-	self.detailTextLabel.text = value;
-	[self.picker selectRow:[self.values indexOfObject:value] inComponent:0 animated:YES];
+    if (v != value) {
+        [value release];
+        value = [v retain];
+        self.detailTextLabel.text = value;
+        [self.picker selectRow:[self.values indexOfObject:value] inComponent:0 animated:YES];
+    }
+}
+
+- (BOOL)canBecomeFirstResponder {
+	return self.enable;
 }
 
 #pragma mark -

@@ -16,6 +16,7 @@
 @end
 
 @interface SimplePickerInputTableViewCell : PickerInputTableViewCell <UIPickerViewDataSource, UIPickerViewDelegate>
+@property (nonatomic, assign) BOOL enable;
 @property (nonatomic, retain) NSArray *values;
 @property (nonatomic, retain) NSString *value;
 @property (nonatomic, assign) id <SimplePickerInputTableViewCellDelegate> delegate;
