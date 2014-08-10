@@ -6,4 +6,4 @@
 	url = https://github.com/luobin23628/CustomActionSheetAndAlert.git
 [submodule "submodules/InAppSettingsKit"]
 	path = submodules/InAppSettingsKit
-	url = https://github.com/futuretap/InAppSettingsKit.git
+	url = https://github.com/luobin23628/InAppSettingsKit.git
