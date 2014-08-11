@@ -91,6 +91,7 @@
 		A8ED690B198E805A000DDD3F /* TKKeyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68FF198E805A000DDD3F /* TKKeyButton.m */; };
 		A8ED690C198E805A000DDD3F /* TKKeyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED6901198E805A000DDD3F /* TKKeyItem.m */; };
 		A8EFBFE71972D30D002E4A9B /* librocketbootstrap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */; };
+		A8FFB10419990DE000748327 /* GMAccessMemObject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A8FFB10219990DE000748327 /* GMAccessMemObject.xcdatamodeld */; };
 		AB92CFB519866DA700695460 /* SearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB92CFB419866DA700695460 /* SearchDisplayController.m */; };
 		ABE39F93197FCBB0002E7678 /* darwin_memory_usage.c in Sources */ = {isa = PBXBuildFile; fileRef = ABE39F92197FCBB0002E7678 /* darwin_memory_usage.c */; };
 		ABE39FD7197FCCAE002E7678 /* shared_region.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE39FD6197FCCAE002E7678 /* shared_region.h */; };
@@ -275,6 +276,7 @@
 		A8ED6901198E805A000DDD3F /* TKKeyItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKKeyItem.m; sourceTree = "<group>"; };
 		A8ED6902198E805A000DDD3F /* TKLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLayout.h; sourceTree = "<group>"; };
 		A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = librocketbootstrap.dylib; path = ../../../../opt/iOSOpenDev/lib/librocketbootstrap.dylib; sourceTree = "<group>"; };
+		A8FFB10319990DE000748327 /* GMAccessMemObject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GMAccessMemObject.xcdatamodel; sourceTree = "<group>"; };
 		AB92CFB319866DA700695460 /* SearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDisplayController.h; sourceTree = "<group>"; };
 		AB92CFB419866DA700695460 /* SearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDisplayController.m; sourceTree = "<group>"; };
 		ABE39F92197FCBB0002E7678 /* darwin_memory_usage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = darwin_memory_usage.c; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 				A8054EDF196DB6E8004CC80A /* main.m */,
 				A87447921984B08F00A9544D /* GMStorageManager.h */,
 				A87447931984B08F00A9544D /* GMStorageManager.m */,
+				A8FFB10219990DE000748327 /* GMAccessMemObject.xcdatamodeld */,
 				A874478A19849CEC00A9544D /* GMLockThread.h */,
 				A874478B19849CEC00A9544D /* GMLockThread.m */,
 				A80D3E7419855DE100F5CF2A /* GMMemoryAccessObject.h */,
@@ -1033,6 +1036,7 @@
 				A8054EE0196DB6E8004CC80A /* main.m in Sources */,
 				A87447951984B08F00A9544D /* GMStorageManager.m in Sources */,
 				A874478D19849CEC00A9544D /* GMLockThread.m in Sources */,
+				A8FFB10419990DE000748327 /* GMAccessMemObject.xcdatamodeld in Sources */,
 				A80D3E7819855DE100F5CF2A /* GMMemoryAccessObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1502,6 +1506,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A8FFB10219990DE000748327 /* GMAccessMemObject.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A8FFB10319990DE000748327 /* GMAccessMemObject.xcdatamodel */,
+			);
+			currentVersion = A8FFB10319990DE000748327 /* GMAccessMemObject.xcdatamodel */;
+			path = GMAccessMemObject.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = ABFF4BD31966A3E7000C7128 /* Project object */;
 }

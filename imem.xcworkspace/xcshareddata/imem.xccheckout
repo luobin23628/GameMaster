@@ -5,17 +5,17 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>B351880A-A180-437C-9FDF-03736F4A3D53</string>
+	<string>799406A7-974D-4554-B4EB-50977ECDB404</string>
 	<key>IDESourceControlProjectName</key>
 	<string>imem</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>69376F9A-714F-43BC-8413-AA4EC2CE32CF</key>
-		<string>https://github.com/futuretap/InAppSettingsKit.git</string>
 		<key>86567358-A7F7-4EF7-A96D-B77732DAB2E7</key>
 		<string>https://github.com/luobin23628/GameMaster.git</string>
 		<key>887E20FE-DF26-425F-BCC6-7EB3AB62AA74</key>
 		<string>https://github.com/luobin23628/TKKeyBoard.git</string>
+		<key>B2982CAE-6675-42B3-9C58-01A0629D07E6</key>
+		<string>https://github.com/luobin23628/InAppSettingsKit.git</string>
 		<key>D506B1C6-9415-45F2-8432-8ED6511400B2</key>
 		<string>https://github.com/luobin23628/CustomActionSheetAndAlert.git</string>
 	</dict>
@@ -23,12 +23,12 @@
 	<string>imem.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>69376F9A-714F-43BC-8413-AA4EC2CE32CF</key>
-		<string>../submodules/InAppSettingsKit</string>
 		<key>86567358-A7F7-4EF7-A96D-B77732DAB2E7</key>
 		<string>..</string>
 		<key>887E20FE-DF26-425F-BCC6-7EB3AB62AA74</key>
 		<string>../submodules/TKKeyBoard</string>
+		<key>B2982CAE-6675-42B3-9C58-01A0629D07E6</key>
+		<string>../submodules/InAppSettingsKit</string>
 		<key>D506B1C6-9415-45F2-8432-8ED6511400B2</key>
 		<string>../submodules/CustomActionSheetAndAlert</string>
 	</dict>
@@ -60,7 +60,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>69376F9A-714F-43BC-8413-AA4EC2CE32CF</string>
+			<string>B2982CAE-6675-42B3-9C58-01A0629D07E6</string>
 			<key>IDESourceControlWCCName</key>
 			<string>InAppSettingsKit</string>
 		</dict>

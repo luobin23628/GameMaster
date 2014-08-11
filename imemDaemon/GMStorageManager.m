@@ -14,6 +14,8 @@
 #define GMApplicationDidBecomeActiveNamePrefix @"__GM_ApplicationDidBecomeActiveNotification__"
 #define GMApplicationWillResignActiveNamePrefix @"__GM_ApplicationWillResignActiveNotification__"
 
+#define imemIdentifier @"com.luobin.imem"
+
 static OSSpinLock spinLock;
 
 @interface GMStorageManager()
@@ -58,6 +60,8 @@ static OSSpinLock spinLock;
         self.basePath = path;
         self.lockThread = [[[GMLockThread alloc] init] autorelease];
         [self.lockThread start];
+        
+        [self addObserverForIdentifier:imemIdentifier];
     }
     return self;
 }
@@ -160,6 +164,7 @@ static void applicationWillResignActiveNotification(CFNotificationCenterRef cent
 }
 
 - (void)dealloc {
+    [self removeObserverForIdentifier:imemIdentifier];
     [self removeObserverForIdentifier:self.identifier];
     self.identifier = nil;
     [self.objectList removeObserver:self forKeyPath:nil context:nil];
