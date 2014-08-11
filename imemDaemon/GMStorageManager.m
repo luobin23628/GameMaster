@@ -63,13 +63,17 @@ static OSSpinLock spinLock;
 }
 
 static void applicationDidBecomeActiveNotification(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo) {
-    NSLog(@"applicationDidBecomeActiveNotification %@", userInfo);
-    [[GMStorageManager shareInstance] updateLockThreadState];
+    @autoreleasepool {
+        NSLog(@"applicationDidBecomeActiveNotification %@", userInfo);
+        [[GMStorageManager shareInstance] updateLockThreadState];
+    }
 }
 
 static void applicationWillResignActiveNotification(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo) {
-    NSLog(@"applicationWillResignActiveNotification %@", userInfo);
-    [[[GMStorageManager shareInstance] lockThread] suspend];
+    @autoreleasepool {
+        NSLog(@"applicationWillResignActiveNotification %@", userInfo);
+        [[[GMStorageManager shareInstance] lockThread] suspend];
+    }
 }
 
 - (void)addObserverForIdentifier:(NSString *)identifier {
