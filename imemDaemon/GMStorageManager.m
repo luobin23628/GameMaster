@@ -11,10 +11,14 @@
 #import "GMLockThread.h"
 #import "ALApplicationList.h"
 
+#define GMApplicationDidBecomeActiveNamePrefix @"__GM_ApplicationDidBecomeActiveNotification__"
+#define GMApplicationWillResignActiveNamePrefix @"__GM_ApplicationWillResignActiveNotification__"
+
 static OSSpinLock spinLock;
 
 @interface GMStorageManager()
 
+@property (nonatomic, retain) NSString *identifier;
 @property (nonatomic, retain) NSMutableArray *objectList;
 @property (nonatomic, retain) NSString *basePath;
 @property (nonatomic, retain) NSString *savedPlistPath;
@@ -50,6 +54,7 @@ static OSSpinLock spinLock;
                 NSLog(@"error %@", error);
             }
         }
+        self.identifier = nil;
         self.basePath = path;
         self.lockThread = [[[GMLockThread alloc] init] autorelease];
         [self.lockThread start];
@@ -57,18 +62,63 @@ static OSSpinLock spinLock;
     return self;
 }
 
+static void applicationDidBecomeActiveNotification(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo) {
+    NSLog(@"applicationDidBecomeActiveNotification %@", userInfo);
+    [[GMStorageManager shareInstance] updateLockThreadState];
+}
+
+static void applicationWillResignActiveNotification(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo) {
+    NSLog(@"applicationWillResignActiveNotification %@", userInfo);
+    [[[GMStorageManager shareInstance] lockThread] suspend];
+}
+
+- (void)addObserverForIdentifier:(NSString *)identifier {
+    NSString *notificationName = [NSString stringWithFormat:@"%@%@", GMApplicationDidBecomeActiveNamePrefix, identifier];
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
+                                    NULL,
+                                    applicationDidBecomeActiveNotification,
+                                    (CFStringRef)notificationName,
+                                    NULL,
+                                    CFNotificationSuspensionBehaviorDeliverImmediately);
+    
+    notificationName = [NSString stringWithFormat:@"%@%@", GMApplicationWillResignActiveNamePrefix, identifier];
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
+                                    NULL,
+                                    applicationWillResignActiveNotification,
+                                    (CFStringRef)notificationName,
+                                    NULL,
+                                    CFNotificationSuspensionBehaviorDeliverImmediately);
+}
+
+- (void)removeObserverForIdentifier:(NSString *)identifier {
+    NSString *notificationName = [NSString stringWithFormat:@"%@%@", GMApplicationDidBecomeActiveNamePrefix, identifier];
+    CFNotificationCenterRemoveObserver(CFNotificationCenterGetDarwinNotifyCenter(),
+                                       NULL,
+                                       (CFStringRef)notificationName,
+                                       NULL);
+    
+    notificationName = [NSString stringWithFormat:@"%@%@", GMApplicationWillResignActiveNamePrefix, identifier];
+    CFNotificationCenterRemoveObserver(CFNotificationCenterGetDarwinNotifyCenter(),
+                                       NULL,
+                                       (CFStringRef)notificationName,
+                                       NULL);
+}
+
 - (void)setPid:(int)pid {
     if (_pid != pid) {
         _pid = pid;
+        [self.lockThread suspend];
+        [self removeObserverForIdentifier:self.identifier];
         if (pid <= 0) {
+            self.identifier = nil;
             self.savedPlistPath = nil;
             self.objectList = [NSMutableArray array];
         } else {
             NSFileManager *fileManager = [NSFileManager defaultManager];
             
-            NSString *identifier = [self getIdentifierWithPid:pid];
-            NSAssert(identifier, @"identifier must not be null.");
-            self.savedPlistPath = [self.basePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_storageObjects.plist", identifier]];
+            self.identifier = [self getIdentifierWithPid:pid];
+            NSAssert(self.identifier, @"identifier must not be null.");
+            self.savedPlistPath = [self.basePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_storageObjects.plist", self.identifier]];
             if ([fileManager fileExistsAtPath:self.savedPlistPath isDirectory:nil]) {
                 NSMutableArray *objectList = [NSKeyedUnarchiver unarchiveObjectWithFile:self.savedPlistPath];
                 if (objectList) {
@@ -81,8 +131,9 @@ static OSSpinLock spinLock;
             } else {
                 self.objectList = [NSMutableArray array];
             }
+            
+            [self addObserverForIdentifier:self.identifier];
         }
-        [self updateLockThreadState];
     }
 }
 
@@ -97,12 +148,16 @@ static OSSpinLock spinLock;
 }
 
 - (void)synchronize {
-    NSLog(@"synchronize :%@", self.objectList);
-    BOOL ok = [NSKeyedArchiver archiveRootObject:self.objectList toFile:self.savedPlistPath];
-    NSLog(@"synchronize result:%d", ok);
+    if (self.objectList.count) {
+        [NSKeyedArchiver archiveRootObject:self.objectList toFile:self.savedPlistPath];
+    } else {
+        [[NSFileManager defaultManager] removeItemAtPath:self.savedPlistPath error:nil];
+    }
 }
 
 - (void)dealloc {
+    [self removeObserverForIdentifier:self.identifier];
+    self.identifier = nil;
     [self.objectList removeObserver:self forKeyPath:nil context:nil];
     self.savedPlistPath = nil;
     self.basePath = nil;

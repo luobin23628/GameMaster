@@ -162,7 +162,6 @@
 		A81E8099197D5FE500D3DF5E /* MAZeroingWeakRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAZeroingWeakRef.h; path = imem/MAZeroingWeakRef.h; sourceTree = "<group>"; };
 		A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAZeroingWeakRef.m; path = imem/MAZeroingWeakRef.m; sourceTree = "<group>"; };
 		A81E809D197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAZeroingWeakRefNativeZWRNotAllowedTable.h; path = imem/MAZeroingWeakRefNativeZWRNotAllowedTable.h; sourceTree = "<group>"; };
-		A8208226197FE71A0081CF58 /* imem.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = imem.app; sourceTree = "<group>"; };
 		A820822C197FE7210081CF58 /* libapplist.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libapplist.dylib; sourceTree = "<group>"; };
 		A82B4423197BBD260098A6D4 /* GMKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMKeyboard.h; sourceTree = "<group>"; };
 		A82B4424197BBD260098A6D4 /* GMKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMKeyboard.m; sourceTree = "<group>"; };
@@ -184,7 +183,6 @@
 		A83653961997D8B000147B72 /* RocketBootstrap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = RocketBootstrap.dylib; sourceTree = "<group>"; };
 		A83653971997D8B000147B72 /* RocketBootstrap.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = RocketBootstrap.plist; sourceTree = "<group>"; };
 		A83653981997D96500147B72 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = ../../../../opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<group>"; };
-		A836539B1997DAA500147B72 /* testTweak.x */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testTweak.x; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A836539C1997DAC200147B72 /* testTweak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testTweak.m; sourceTree = "<group>"; };
 		A839D2D6196C2B2400E8E9F4 /* entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = entitlements.plist; sourceTree = "<group>"; };
 		A839D2DA196C3A9200E8E9F4 /* libMatch.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMatch.dylib; path = usr/lib/libMatch.dylib; sourceTree = SDKROOT; };
@@ -422,7 +420,6 @@
 		A8208225197FE71A0081CF58 /* Applications */ = {
 			isa = PBXGroup;
 			children = (
-				A8208226197FE71A0081CF58 /* imem.app */,
 			);
 			name = Applications;
 			path = Package/Applications;
@@ -458,7 +455,6 @@
 			children = (
 				A83653851997D7F300147B72 /* imemTweak.xm */,
 				A83653861997D7F300147B72 /* imemTweak.mm */,
-				A836539B1997DAA500147B72 /* testTweak.x */,
 				A836539C1997DAC200147B72 /* testTweak.m */,
 				A836537E1997D7F300147B72 /* Package */,
 				A83653821997D7F300147B72 /* Supporting Files */,
@@ -705,8 +701,8 @@
 			children = (
 				ABFF4BED1966A579000C7128 /* imem */,
 				A8054ED7196DB6E8004CC80A /* imemDaemon */,
-				A8BDC4201987DA2300592935 /* Common */,
 				A836537D1997D7F300147B72 /* imemTweak */,
+				A8BDC4201987DA2300592935 /* Common */,
 				ABFF4BE61966A579000C7128 /* Frameworks */,
 				ABFF4BE51966A579000C7128 /* Products */,
 				D12E4C3196FD4C08BE93404A /* Pods.xcconfig */,
@@ -834,7 +830,7 @@
 				A83653761997D7F300147B72 /* Sources */,
 				A83653771997D7F300147B72 /* Frameworks */,
 				A83653781997D7F300147B72 /* Headers */,
-				A83653791997D7F300147B72 /* ShellScript */,
+				AB1F94D51998CE6D00D5FBA9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -997,19 +993,6 @@
 			shellPath = /bin/sh;
 			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp-logos";
 		};
-		A83653791997D7F300147B72 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
-		};
 		A86FD1541976E3DB00765F99 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1022,6 +1005,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "dst=${SRCROOT}/imemDaemon/Package/usr/bin/imemDaemon\nentitPath=${SRCROOT}/imem/entitlements.plist\nldid -S${entitPath} ${dst}";
+		};
+		AB1F94D51998CE6D00D5FBA9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "dst=${SRCROOT}/imemDaemon/Package/Library/MobileSubstrate/DynamicLibraries\nmkdir -p ${dst}\nsrc=${BUILT_PRODUCTS_DIR}/imemTweak.dylib\ncp -Rf ${src} ${dst}";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1171,7 +1167,7 @@
 				VALIDATE_PRODUCT = NO;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.1.114;
+				iOSOpenDevDevice = 10.2.146.236;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
@@ -1214,7 +1210,7 @@
 				VALIDATE_PRODUCT = YES;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.1.114;
+				iOSOpenDevDevice = 10.2.146.236;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;

@@ -9,15 +9,25 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>imemXpcService.xcscheme</key>
+		<key>imemDaemon.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>8</integer>
+		</dict>
+		<key>imemTweak.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>A8054ED4196DB6E8004CC80A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A836537A1997D7F300147B72</key>
 		<dict>
 			<key>primary</key>
 			<true/>
