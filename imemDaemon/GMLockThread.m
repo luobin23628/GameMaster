@@ -53,7 +53,6 @@ static OSSpinLock spinLock;
         self.isSuspend = NO;
         self.timer = [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(timerDidFire) userInfo:nil repeats:YES];
         CFRunLoopAddTimer(CFRunLoopGetCurrent(), (CFRunLoopTimerRef)self.timer, kCFRunLoopDefaultMode);
-
     }
     OSSpinLockUnlock(&spinLock);
 }

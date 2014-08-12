@@ -1,4 +1,4 @@
-#line 1 "/Users/luobin23628/Desktop/imem/imemTweak/imemTweak.xm"
+#line 1 "/Users/luobin/Documents/工作/代码/GameMaster/imemTweak/imemTweak.xm"
 
 
 
@@ -9,7 +9,7 @@
 @class ClassName; 
 static id (*_logos_meta_orig$_ungrouped$ClassName$sharedInstance)(Class, SEL); static id _logos_meta_method$_ungrouped$ClassName$sharedInstance(Class, SEL); static void (*_logos_orig$_ungrouped$ClassName$messageWithNoReturnAndOneArgument$)(ClassName*, SEL, id); static void _logos_method$_ungrouped$ClassName$messageWithNoReturnAndOneArgument$(ClassName*, SEL, id); static id (*_logos_orig$_ungrouped$ClassName$messageWithReturnAndNoArguments)(ClassName*, SEL); static id _logos_method$_ungrouped$ClassName$messageWithReturnAndNoArguments(ClassName*, SEL); 
 
-#line 6 "/Users/luobin23628/Desktop/imem/imemTweak/imemTweak.xm"
+#line 6 "/Users/luobin/Documents/工作/代码/GameMaster/imemTweak/imemTweak.xm"
 
 
 
@@ -42,4 +42,4 @@ static id _logos_method$_ungrouped$ClassName$messageWithReturnAndNoArguments(Cla
 
 static __attribute__((constructor)) void _logosLocalInit() {
 {Class _logos_class$_ungrouped$ClassName = objc_getClass("ClassName"); Class _logos_metaclass$_ungrouped$ClassName = object_getClass(_logos_class$_ungrouped$ClassName); MSHookMessageEx(_logos_metaclass$_ungrouped$ClassName, @selector(sharedInstance), (IMP)&_logos_meta_method$_ungrouped$ClassName$sharedInstance, (IMP*)&_logos_meta_orig$_ungrouped$ClassName$sharedInstance);MSHookMessageEx(_logos_class$_ungrouped$ClassName, @selector(messageWithNoReturnAndOneArgument:), (IMP)&_logos_method$_ungrouped$ClassName$messageWithNoReturnAndOneArgument$, (IMP*)&_logos_orig$_ungrouped$ClassName$messageWithNoReturnAndOneArgument$);MSHookMessageEx(_logos_class$_ungrouped$ClassName, @selector(messageWithReturnAndNoArguments), (IMP)&_logos_method$_ungrouped$ClassName$messageWithReturnAndNoArguments, (IMP*)&_logos_orig$_ungrouped$ClassName$messageWithReturnAndNoArguments);} }
-#line 36 "/Users/luobin23628/Desktop/imem/imemTweak/imemTweak.xm"
+#line 36 "/Users/luobin/Documents/工作/代码/GameMaster/imemTweak/imemTweak.xm"

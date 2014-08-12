@@ -15,9 +15,6 @@
 
 static void processMessage(SInt32 messageId, mach_port_t replyPort, CFDataRef dataRef) {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    
-    NSLog(@"processMessage, messageId:%d", (int)messageId);
-    
     switch (messageId) {
         case GMMessageIdGetPid: {
             LMSendIntegerReply(replyPort, [GMMemManager shareInstance].pid);

@@ -140,6 +140,7 @@ static void applicationWillResignActiveNotification(CFNotificationCenterRef cent
                 self.objectList = [NSMutableArray array];
             }
             
+            [self updateLockThreadState];
             [self addObserverForIdentifier:self.identifier];
         }
     }

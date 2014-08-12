@@ -462,12 +462,11 @@
                             }
                         }
                         i ++;
-                        if (i >= resultCt - 1) {
+                        if (i >= resultCt) {
                             return;
                         }
                         currentAddress = results[i];
                     }
-                    
                 } else {
                     //                NSLog(@"mac_vm_read fails, address:%x, error %d:%s", address, kret, mach_error_string(kret));
                 }
