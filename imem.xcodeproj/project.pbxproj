@@ -93,6 +93,7 @@
 		A8EFBFE71972D30D002E4A9B /* librocketbootstrap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */; };
 		A8FFB10419990DE000748327 /* GMAccessMemObject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A8FFB10219990DE000748327 /* GMAccessMemObject.xcdatamodeld */; };
 		AB92CFB519866DA700695460 /* SearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB92CFB419866DA700695460 /* SearchDisplayController.m */; };
+		ABAE6B011999C97800A10BF8 /* time.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAE6B001999C97800A10BF8 /* time.m */; };
 		ABE39F93197FCBB0002E7678 /* darwin_memory_usage.c in Sources */ = {isa = PBXBuildFile; fileRef = ABE39F92197FCBB0002E7678 /* darwin_memory_usage.c */; };
 		ABE39FD7197FCCAE002E7678 /* shared_region.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE39FD6197FCCAE002E7678 /* shared_region.h */; };
 		ABFF4BE81966A579000C7128 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF4BE71966A579000C7128 /* Foundation.framework */; };
@@ -279,6 +280,7 @@
 		A8FFB10319990DE000748327 /* GMAccessMemObject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GMAccessMemObject.xcdatamodel; sourceTree = "<group>"; };
 		AB92CFB319866DA700695460 /* SearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDisplayController.h; sourceTree = "<group>"; };
 		AB92CFB419866DA700695460 /* SearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDisplayController.m; sourceTree = "<group>"; };
+		ABAE6B001999C97800A10BF8 /* time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = time.m; sourceTree = "<group>"; };
 		ABE39F92197FCBB0002E7678 /* darwin_memory_usage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = darwin_memory_usage.c; sourceTree = "<group>"; };
 		ABE39F94197FCBBA002E7678 /* darwin_memory_usage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = darwin_memory_usage.h; sourceTree = "<group>"; };
 		ABE39FD6197FCCAE002E7678 /* shared_region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shared_region.h; sourceTree = "<group>"; };
@@ -459,6 +461,7 @@
 				A83653851997D7F300147B72 /* imemTweak.xm */,
 				A83653861997D7F300147B72 /* imemTweak.mm */,
 				A836539C1997DAC200147B72 /* testTweak.m */,
+				ABAE6B001999C97800A10BF8 /* time.m */,
 				A836537E1997D7F300147B72 /* Package */,
 				A83653821997D7F300147B72 /* Supporting Files */,
 			);
@@ -1045,6 +1048,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABAE6B011999C97800A10BF8 /* time.m in Sources */,
 				A836539D1997DAC200147B72 /* testTweak.m in Sources */,
 				A83653871997D7F300147B72 /* imemTweak.mm in Sources */,
 			);
