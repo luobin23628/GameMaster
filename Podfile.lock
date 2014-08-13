@@ -1,5 +1,10 @@
 PODS:
   - cdebug (0.1.1)
+  - FMDB (2.3):
+    - FMDB/standard
+  - FMDB/common (2.3)
+  - FMDB/standard (2.3):
+    - FMDB/common
   - FoundationExtension/FoundationExtension (0.46):
     - cdebug (~> 0.1)
   - FoundationExtension/UIKitExtension (0.46):
@@ -144,10 +149,12 @@ PODS:
   - UIKitResources/UITabBar (7.0)
 
 DEPENDENCIES:
+  - FMDB
   - UI7Kit
 
 SPEC CHECKSUMS:
   cdebug: 0404c00c53512b97358e13340b59dd465e4389ac
+  FMDB: 31ec26773c7f7b7890a6038235a1f2bbd933a7cb
   FoundationExtension: 8fe9b8b991906bd8225fcde2554a4d4a10f66a33
   GIKPopoverBackgroundView: 459aef9b0a17d10b831b1714f2d686e72bbcc63c
   SevenSwitch: 70af67d75bc2e477d45a984cf1f3123564b04eee
