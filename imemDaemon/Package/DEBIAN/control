@@ -1,5 +1,5 @@
-Package: com.test.imemXpcService
-Name: imemXpcService
+Package: com.luobin.imem
+Name: imem
 Version: 1.0-1
 Description: 
 Section: System

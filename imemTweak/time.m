@@ -53,7 +53,6 @@ int new_gettimeofday(struct timeval *tv, struct timezone *tz) {
     int ret = original_gettimeofday(tv, tz);
     long long q = 1000000LL * (tv->tv_sec - timebase_gettimeofday.tv_sec)
         + (tv->tv_usec - timebase_gettimeofday.tv_usec);
-    long long t = q;
     q = filter_time(q*1000LL, accumulators+1)/1000;
     tv->tv_sec = (q/1000000)+timebase_gettimeofday.tv_sec + shift;
     tv->tv_usec = q%1000000+timebase_gettimeofday.tv_usec;

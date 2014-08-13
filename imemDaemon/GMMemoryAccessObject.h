@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
 typedef enum _GMOptType {
     GMOptTypeEdit = 0,
@@ -23,9 +24,6 @@ typedef enum _GMValueType {
 } GMValueType;
 
 @interface GMMemoryAccessObject : NSObject<NSCoding>
-
-//- (id)initWithDictionry:(NSDictionary *)dictionary;
-//- (NSDictionary *)toDictionnary;
 
 @property (nonatomic, assign) uint64_t address;
 @property (nonatomic, assign) uint64_t value;

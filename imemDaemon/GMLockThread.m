@@ -67,11 +67,11 @@ static OSSpinLock spinLock;
                 if (!accessObject) {
                     ok = NO;
                 } else if (accessObject.value != lockObject.value) {
-                    NSLog(@"value has changed. address:%08llX current value:%lld change to value %lld.", lockObject.address, accessObject.value, lockObject.value);
+                    NSLog(@"Value has changed. address:%08llX current value:%lld change to value %lld.", lockObject.address, accessObject.value, lockObject.value);
                     ok = [[GMMemManager shareInstance] modifyMemory:lockObject];
                 }
                 if (!ok) {
-                    NSLog(@"lock object %@ failed.", lockObject);
+                    NSLog(@"Lock object %@ failed.", lockObject);
                 }
             }
         }

@@ -91,12 +91,9 @@
 		A8ED690B198E805A000DDD3F /* TKKeyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68FF198E805A000DDD3F /* TKKeyButton.m */; };
 		A8ED690C198E805A000DDD3F /* TKKeyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED6901198E805A000DDD3F /* TKKeyItem.m */; };
 		A8EFBFE71972D30D002E4A9B /* librocketbootstrap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */; };
-		A8FFB10419990DE000748327 /* GMAccessMemObject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A8FFB10219990DE000748327 /* GMAccessMemObject.xcdatamodeld */; };
-		A8FFB15C199A868600748327 /* TKAppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A8FFB15A199A868600748327 /* TKAppDelegate.h */; };
-		A8FFB15D199A868600748327 /* TKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FFB15B199A868600748327 /* TKAppDelegate.m */; };
-		A8FFB160199A869700748327 /* TKViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A8FFB15E199A869700748327 /* TKViewController.h */; };
-		A8FFB161199A869700748327 /* TKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FFB15F199A869700748327 /* TKViewController.m */; };
 		AB92CFB519866DA700695460 /* SearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB92CFB419866DA700695460 /* SearchDisplayController.m */; };
+		AB967DE0199B14870086395F /* GMPersistentStoreController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB967DDE199B14870086395F /* GMPersistentStoreController.h */; };
+		AB967DE1199B14870086395F /* GMPersistentStoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB967DDF199B14870086395F /* GMPersistentStoreController.m */; };
 		ABAE6B011999C97800A10BF8 /* time.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAE6B001999C97800A10BF8 /* time.m */; };
 		ABE39F93197FCBB0002E7678 /* darwin_memory_usage.c in Sources */ = {isa = PBXBuildFile; fileRef = ABE39F92197FCBB0002E7678 /* darwin_memory_usage.c */; };
 		ABE39FD7197FCCAE002E7678 /* shared_region.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE39FD6197FCCAE002E7678 /* shared_region.h */; };
@@ -281,13 +278,10 @@
 		A8ED6901198E805A000DDD3F /* TKKeyItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKKeyItem.m; sourceTree = "<group>"; };
 		A8ED6902198E805A000DDD3F /* TKLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLayout.h; sourceTree = "<group>"; };
 		A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = librocketbootstrap.dylib; path = ../../../../opt/iOSOpenDev/lib/librocketbootstrap.dylib; sourceTree = "<group>"; };
-		A8FFB10319990DE000748327 /* GMAccessMemObject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GMAccessMemObject.xcdatamodel; sourceTree = "<group>"; };
-		A8FFB15A199A868600748327 /* TKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKAppDelegate.h; sourceTree = "<group>"; };
-		A8FFB15B199A868600748327 /* TKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKAppDelegate.m; sourceTree = "<group>"; };
-		A8FFB15E199A869700748327 /* TKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKViewController.h; sourceTree = "<group>"; };
-		A8FFB15F199A869700748327 /* TKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKViewController.m; sourceTree = "<group>"; };
 		AB92CFB319866DA700695460 /* SearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDisplayController.h; sourceTree = "<group>"; };
 		AB92CFB419866DA700695460 /* SearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDisplayController.m; sourceTree = "<group>"; };
+		AB967DDE199B14870086395F /* GMPersistentStoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMPersistentStoreController.h; sourceTree = "<group>"; };
+		AB967DDF199B14870086395F /* GMPersistentStoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMPersistentStoreController.m; sourceTree = "<group>"; };
 		ABAE6B001999C97800A10BF8 /* time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = time.m; sourceTree = "<group>"; };
 		ABE39F92197FCBB0002E7678 /* darwin_memory_usage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = darwin_memory_usage.c; sourceTree = "<group>"; };
 		ABE39F94197FCBBA002E7678 /* darwin_memory_usage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = darwin_memory_usage.h; sourceTree = "<group>"; };
@@ -348,14 +342,11 @@
 		A8054ED7196DB6E8004CC80A /* imemDaemon */ = {
 			isa = PBXGroup;
 			children = (
-				A8FFB15E199A869700748327 /* TKViewController.h */,
-				A8FFB15F199A869700748327 /* TKViewController.m */,
-				A8FFB15A199A868600748327 /* TKAppDelegate.h */,
-				A8FFB15B199A868600748327 /* TKAppDelegate.m */,
 				A8054EDF196DB6E8004CC80A /* main.m */,
 				A87447921984B08F00A9544D /* GMStorageManager.h */,
 				A87447931984B08F00A9544D /* GMStorageManager.m */,
-				A8FFB10219990DE000748327 /* GMAccessMemObject.xcdatamodeld */,
+				AB967DDE199B14870086395F /* GMPersistentStoreController.h */,
+				AB967DDF199B14870086395F /* GMPersistentStoreController.m */,
 				A874478A19849CEC00A9544D /* GMLockThread.h */,
 				A874478B19849CEC00A9544D /* GMLockThread.m */,
 				A80D3E7419855DE100F5CF2A /* GMMemoryAccessObject.h */,
@@ -804,9 +795,8 @@
 				A8BDC4221987DA2F00592935 /* LightMessaging.h in Headers */,
 				A81E809E197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h in Headers */,
 				A86FD1431975680000765F99 /* GMMemManager.h in Headers */,
-				A8FFB160199A869700748327 /* TKViewController.h in Headers */,
+				AB967DE0199B14870086395F /* GMPersistentStoreController.h in Headers */,
 				A87447941984B08F00A9544D /* GMStorageManager.h in Headers */,
-				A8FFB15C199A868600748327 /* TKAppDelegate.h in Headers */,
 				A86FD14D1975839400765F99 /* GMApplicationTableDataSource.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1046,16 +1036,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB967DE1199B14870086395F /* GMPersistentStoreController.m in Sources */,
 				A81E809C197D600700D3DF5E /* MAZeroingWeakRef.m in Sources */,
 				A83653A5199655EF00322899 /* LightMessaging.m in Sources */,
 				A86FD1441975680000765F99 /* GMMemManager.m in Sources */,
-				A8FFB15D199A868600748327 /* TKAppDelegate.m in Sources */,
 				ABE39F93197FCBB0002E7678 /* darwin_memory_usage.c in Sources */,
 				A8054EE0196DB6E8004CC80A /* main.m in Sources */,
 				A87447951984B08F00A9544D /* GMStorageManager.m in Sources */,
 				A874478D19849CEC00A9544D /* GMLockThread.m in Sources */,
-				A8FFB10419990DE000748327 /* GMAccessMemObject.xcdatamodeld in Sources */,
-				A8FFB161199A869700748327 /* TKViewController.m in Sources */,
 				A80D3E7819855DE100F5CF2A /* GMMemoryAccessObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1526,19 +1514,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		A8FFB10219990DE000748327 /* GMAccessMemObject.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				A8FFB10319990DE000748327 /* GMAccessMemObject.xcdatamodel */,
-			);
-			currentVersion = A8FFB10319990DE000748327 /* GMAccessMemObject.xcdatamodel */;
-			path = GMAccessMemObject.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = ABFF4BD31966A3E7000C7128 /* Project object */;
 }

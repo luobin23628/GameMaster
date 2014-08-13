@@ -33,26 +33,8 @@
     return self;
 }
 
-//- (id)initWithDictionry:(NSDictionary *)dictionary {
-//    self = [super init];
-//    if (self) {
-//        self.address = [[dictionary objectForKey:kResultKeyAddress] unsignedLongLongValue];
-//        self.value = [[dictionary objectForKey:kResultKeyValue] unsignedLongLongValue];
-//        self.optType = [[dictionary objectForKey:kResultKeyOptType] intValue];
-//    }
-//    return self;
-//}
-//
-- (NSDictionary *)toDictionnary {
-    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-    [dictionary setObject:@(self.address) forKey:kResultKeyAddress];
-    [dictionary setObject:@(self.value) forKey:kResultKeyValue];
-    [dictionary setObject:@(self.optType) forKey:kResultKeyOptType];
-    return dictionary;
-}
-
 - (NSString *)description {
-    return [NSString stringWithFormat:@"%@", [self toDictionnary]];
+    return [NSString stringWithFormat:@"address:%08llx, value:%lld, optType:%d", self.address, self.value, self.optType];
 }
 
 @end
