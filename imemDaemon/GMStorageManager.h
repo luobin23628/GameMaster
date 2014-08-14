@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GMMemoryAccessObject.h"
 
 @interface GMStorageManager : NSObject
 

@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GMMemoryAccessObject.h"
+#import <mach/vm_types.h>
 
 #define kMaxCount 1000000
 
