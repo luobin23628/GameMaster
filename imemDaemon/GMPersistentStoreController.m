@@ -10,21 +10,25 @@
 #import <CoreData/CoreData.h>
 
 #define kEntityName @"GmAddress"
-#define kAttributeName @"address"
+#define kAttributeName @"addressObj"
 
-@interface GmAddress : NSManagedObject
+@interface GmAddress : NSManagedObject<Adderss>
 
-@property (nonatomic, retain) NSNumber *address;
+@property (nonatomic, retain, readwrite) NSNumber *addressObj;
 
 @end
 
 @implementation GmAddress
 
-@dynamic address;
+@dynamic addressObj;
 
 - (void)dealloc {
-    self.address = nil;
+    self.addressObj = nil;
     [super dealloc];
+}
+
+- (uint64_t)address {
+    return [self.addressObj unsignedLongLongValue];
 }
 
 @end
@@ -70,7 +74,7 @@
         return _managedObjectModel;
     }
     
-    NSEntityDescription *entityDescription = [[NSEntityDescription alloc] init];
+    NSEntityDescription *entityDescription = [[[NSEntityDescription alloc] init] autorelease];
     entityDescription.name = kEntityName;
     entityDescription.managedObjectClassName = kEntityName;
     
@@ -112,8 +116,12 @@
 
 - (void)insertObject:(uint64_t)address {
     GmAddress *addressObj = [NSEntityDescription insertNewObjectForEntityForName:kEntityName inManagedObjectContext:self.managedObjectContext];
-    addressObj.address = @(address);
+    addressObj.addressObj = @(address);
     [self.managedObjectContext insertObject:addressObj];
+}
+
+- (void)deleteObject:(id)address {
+    [self.managedObjectContext deleteObject:address];
 }
 
 - (BOOL)save:(NSError **)error {
@@ -124,13 +132,33 @@
     return YES;
 }
 
+- (void)truncateAll {
+    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"imem.sqlite"]];
+    [[NSFileManager defaultManager] removeItemAtPath:storeUrl.path error:nil];
+
+    if (_persistentStoreCoordinator) {
+        NSArray *stores = [_persistentStoreCoordinator persistentStores];
+        
+        for(NSPersistentStore *store in stores) {
+            [self.persistentStoreCoordinator removePersistentStore:store error:nil];
+            [[NSFileManager defaultManager] removeItemAtPath:store.URL.path error:nil];
+        }
+        NSError *error = nil;
+        if(![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                      configuration:nil URL:storeUrl options:nil error:&error]) {
+            /*Error for store creation should be handled in here*/
+            NSLog(@"addPersistentStore error：%@", error);
+        }
+    }
+}
+
 - (NSArray *)fetchObjectWithOffset:(int)offset size:(int)size {
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:kEntityName];
+    NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] initWithEntityName:kEntityName] autorelease];
     fetchRequest.fetchOffset = offset;
     fetchRequest.fetchLimit = size;
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:kAttributeName ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:kAttributeName ascending:YES] autorelease];
     fetchRequest.sortDescriptors = @[sortDescriptor];
-    NSError *error;
+    NSError *error = nil;
     NSArray *result = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     if (error) {
         NSLog(@"FetchRequest error:%@", error);

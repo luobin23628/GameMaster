@@ -10,7 +10,6 @@
 #import <libkern/OSCacheControl.h>
 #import <LightMessaging.h>
 #import "GMStorageManager.h"
-#import "GMPersistentStoreController.h"
 
 #define MaxCount 100
 
@@ -86,9 +85,6 @@
 
 - (NSArray *)searchFirst:(uint64_t)value {
     
-    NSArray *d = [[GMPersistentStoreController shareInstance] fetchObjectWithOffset:0 size:30];
-    NSLog(@"%@", d);
-    
     resultCount = 0;
     
     mach_timebase_info_data_t timebase_info;
@@ -99,7 +95,6 @@
         if (resultCount < kMaxCount) {
             results[resultCount] = realAddress;
             resultCount++;
-            [[GMPersistentStoreController shareInstance] insertObject:realAddress];
         }
     };
     
@@ -122,11 +117,6 @@
     } else {
         return nil;
     }
-    
-    NSError *error;
-    if (![[GMPersistentStoreController shareInstance] save:&error]) {
-        NSLog(@"Save error: %@", error);
-    };
     
     uint64_t end = mach_absolute_time();
     uint64_t nanos  = (end - begin)* timebase_info.numer / timebase_info.denom;

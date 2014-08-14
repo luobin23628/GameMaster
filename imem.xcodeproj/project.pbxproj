@@ -343,6 +343,8 @@
 			isa = PBXGroup;
 			children = (
 				A8054EDF196DB6E8004CC80A /* main.m */,
+				A86FD1411975680000765F99 /* GMMemManager.h */,
+				A86FD1421975680000765F99 /* GMMemManager.m */,
 				A87447921984B08F00A9544D /* GMStorageManager.h */,
 				A87447931984B08F00A9544D /* GMStorageManager.m */,
 				AB967DDE199B14870086395F /* GMPersistentStoreController.h */,
@@ -351,8 +353,6 @@
 				A874478B19849CEC00A9544D /* GMLockThread.m */,
 				A80D3E7419855DE100F5CF2A /* GMMemoryAccessObject.h */,
 				A80D3E7519855DE100F5CF2A /* GMMemoryAccessObject.m */,
-				A86FD1411975680000765F99 /* GMMemManager.h */,
-				A86FD1421975680000765F99 /* GMMemManager.m */,
 				ABE39FD6197FCCAE002E7678 /* shared_region.h */,
 				ABE39F94197FCBBA002E7678 /* darwin_memory_usage.h */,
 				ABE39F92197FCBB0002E7678 /* darwin_memory_usage.c */,
@@ -1179,7 +1179,7 @@
 				VALIDATE_PRODUCT = NO;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 10.2.146.236;
+				iOSOpenDevDevice = 10.2.9.76;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
@@ -1222,7 +1222,7 @@
 				VALIDATE_PRODUCT = YES;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 10.2.146.236;
+				iOSOpenDevDevice = 10.2.9.76;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
