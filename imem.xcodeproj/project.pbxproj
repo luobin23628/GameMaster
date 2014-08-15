@@ -53,6 +53,9 @@
 		A874478D19849CEC00A9544D /* GMLockThread.m in Sources */ = {isa = PBXBuildFile; fileRef = A874478B19849CEC00A9544D /* GMLockThread.m */; };
 		A87447941984B08F00A9544D /* GMStorageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A87447921984B08F00A9544D /* GMStorageManager.h */; };
 		A87447951984B08F00A9544D /* GMStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A87447931984B08F00A9544D /* GMStorageManager.m */; };
+		A879A12E199E3E7C00A79D85 /* DynamicArray.h in Headers */ = {isa = PBXBuildFile; fileRef = A879A12D199E3E7C00A79D85 /* DynamicArray.h */; };
+		A879A131199E3E8900A79D85 /* IntArray.c in Sources */ = {isa = PBXBuildFile; fileRef = A879A12F199E3E8900A79D85 /* IntArray.c */; };
+		A879A132199E3E8900A79D85 /* IntArray.h in Headers */ = {isa = PBXBuildFile; fileRef = A879A130199E3E8900A79D85 /* IntArray.h */; };
 		A8A7416919680E6400131416 /* GMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A7416819680E6400131416 /* GMMainViewController.m */; };
 		A8A7416F1968105C00131416 /* GMSelectAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A7416E1968105C00131416 /* GMSelectAppViewController.m */; };
 		A8BDC4221987DA2F00592935 /* LightMessaging.h in Headers */ = {isa = PBXBuildFile; fileRef = A8BDC4211987DA2F00592935 /* LightMessaging.h */; };
@@ -207,6 +210,9 @@
 		A874478B19849CEC00A9544D /* GMLockThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMLockThread.m; sourceTree = "<group>"; };
 		A87447921984B08F00A9544D /* GMStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMStorageManager.h; sourceTree = "<group>"; };
 		A87447931984B08F00A9544D /* GMStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMStorageManager.m; sourceTree = "<group>"; };
+		A879A12D199E3E7C00A79D85 /* DynamicArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicArray.h; sourceTree = "<group>"; };
+		A879A12F199E3E8900A79D85 /* IntArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IntArray.c; sourceTree = "<group>"; };
+		A879A130199E3E8900A79D85 /* IntArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntArray.h; sourceTree = "<group>"; };
 		A8A7416719680E6400131416 /* GMMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMainViewController.h; sourceTree = "<group>"; };
 		A8A7416819680E6400131416 /* GMMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMainViewController.m; sourceTree = "<group>"; };
 		A8A7416D1968105C00131416 /* GMSelectAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMSelectAppViewController.h; sourceTree = "<group>"; };
@@ -587,6 +593,9 @@
 				A81E809D197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h */,
 				A81E8099197D5FE500D3DF5E /* MAZeroingWeakRef.h */,
 				A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */,
+				A879A12D199E3E7C00A79D85 /* DynamicArray.h */,
+				A879A12F199E3E8900A79D85 /* IntArray.c */,
+				A879A130199E3E8900A79D85 /* IntArray.h */,
 				A8BDC4211987DA2F00592935 /* LightMessaging.h */,
 				A8DAE417199615FC00B2010A /* LightMessaging.m */,
 			);
@@ -789,6 +798,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A879A12E199E3E7C00A79D85 /* DynamicArray.h in Headers */,
 				ABE39FD7197FCCAE002E7678 /* shared_region.h in Headers */,
 				A874478C19849CEC00A9544D /* GMLockThread.h in Headers */,
 				A80D3E7619855DE100F5CF2A /* GMMemoryAccessObject.h in Headers */,
@@ -797,6 +807,7 @@
 				A86FD1431975680000765F99 /* GMMemManager.h in Headers */,
 				AB967DE0199B14870086395F /* GMPersistentStoreController.h in Headers */,
 				A87447941984B08F00A9544D /* GMStorageManager.h in Headers */,
+				A879A132199E3E8900A79D85 /* IntArray.h in Headers */,
 				A86FD14D1975839400765F99 /* GMApplicationTableDataSource.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1043,6 +1054,7 @@
 				ABE39F93197FCBB0002E7678 /* darwin_memory_usage.c in Sources */,
 				A8054EE0196DB6E8004CC80A /* main.m in Sources */,
 				A87447951984B08F00A9544D /* GMStorageManager.m in Sources */,
+				A879A131199E3E8900A79D85 /* IntArray.c in Sources */,
 				A874478D19849CEC00A9544D /* GMLockThread.m in Sources */,
 				A80D3E7819855DE100F5CF2A /* GMMemoryAccessObject.m in Sources */,
 			);

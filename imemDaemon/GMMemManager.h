@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "GMMemoryAccessObject.h"
 #import <mach/vm_types.h>
+#import "IntArray.h"
 
 #define kMaxCount 1000000
 
 @interface GMMemManager : NSObject {
-    vm_address_t results[kMaxCount];
+//    vm_address_t results[kMaxCount];
+    IntArrayRef results;
     int resultCount;
     int _pid;
 }
