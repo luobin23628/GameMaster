@@ -209,7 +209,7 @@
     [tableView release];
     
     UISearchBar *searchBar = [[UISearchBar alloc]
-                              initWithFrame:CGRectMake(0.0, [UIDevice currentDevice].isIOS7?64:0, self.view.bounds.size.width, 44)];
+                              initWithFrame:CGRectMake(0.0, [UIDevice currentDevice].isIOS7?self.navigationController.navigationBar.bottom:0, self.view.bounds.size.width, 44)];
     searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     searchBar.delegate = self;
     searchBar.showsSearchResultsButton = YES;
@@ -297,12 +297,12 @@
 //    }
 //}
 
-- (BOOL)shouldAutorotate {
-    return NO;
-}
-
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    self.searchBar.top = self.navigationController.navigationBar.bottom;
+    if ([UIDevice currentDevice].isIOS7) {
+        self.searchBar.top = self.navigationController.navigationBar.bottom;
+    } else {
+        self.searchBar.top = 0;
+    }
 }
 
 #pragma mark - KeyBoard

@@ -10,6 +10,7 @@
 #import <libkern/OSCacheControl.h>
 #import <LightMessaging.h>
 #import "GMStorageManager.h"
+#import "ALApplicationList.h"
 
 #define MaxCount 100
 
@@ -40,6 +41,20 @@
     }
     return self;
 }
+
+//- (NSString *)appIdentifier {
+//    return [[NSUserDefaults standardUserDefaults] objectForKey:@"appIdentifier"];
+//}
+//
+//- (void)invalidateAppIdentifier {
+//    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"appIdentifier"];
+//}
+//
+//- (BOOL)setAppIdentifier:(NSString *)appIdentifier {
+//    [[NSUserDefaults standardUserDefaults] setObject:appIdentifier forKey:@"appIdentifier"];
+//    [self setPid:0];
+//    return YES;
+//}
 
 - (BOOL)setPid:(int)pid {
     // Get task of specified PID
@@ -197,14 +212,14 @@
     
     kern_return_t kret;
     mach_vm_size_t size;
-    pointer_t buffer;
     
     uint64_t value = 0;
     uint64_t lastValue = self.lastValue;
     if (lastValue <= UINT16_MAX) {
         size = sizeof((uint16_t)lastValue);
-        mach_msg_type_number_t bufferSize = (mach_msg_type_number_t)size;
-        if ((kret = vm_read(self.task, (mach_vm_address_t)address, sizeof(uint32_t), &buffer, &bufferSize)) == KERN_SUCCESS) {
+        mach_msg_type_number_t bufferSize = size;
+        void *buffer = malloc(bufferSize);
+        if ((kret = vm_read_overwrite(self.task, (mach_vm_address_t)address, sizeof(uint32_t), buffer, &bufferSize)) == KERN_SUCCESS) {
             if (bufferSize == sizeof(uint32_t)) {
                 uint16_t i = 0;
                 value = *((uint16_t *)(buffer + sizeof(uint16_t)));
@@ -219,30 +234,42 @@
                 value = *((uint16_t *)buffer);
                 valueType = GMValueTypeInt16;
             }
-        } else {
-            return nil;
+        }
+        if (buffer != nil) {
+            free(buffer);
+            buffer = nil;
         }
     } else if (lastValue <= UINT32_MAX) {
         size = sizeof((uint32_t)lastValue);
-        mach_msg_type_number_t bufferSize = (mach_msg_type_number_t)size;
-        if ((kret = vm_read(self.task, (mach_vm_address_t)address, size, &buffer, &bufferSize)) == KERN_SUCCESS) {
+        mach_msg_type_number_t bufferSize = size;
+        void *buffer = malloc(bufferSize);
+        if ((kret = vm_read_overwrite(self.task, (mach_vm_address_t)address, size, buffer, &bufferSize)) == KERN_SUCCESS) {
             value = *((uint32_t *)buffer);
             valueType = GMValueTypeInt32;
-        } else {
-            return nil;
+        }
+        if (buffer != nil) {
+            free(buffer);
+            buffer = nil;
         }
     } else if (lastValue <= UINT64_MAX) {
         size = sizeof((uint64_t)lastValue);
-        mach_msg_type_number_t bufferSize = (mach_msg_type_number_t)size;
-        if ((kret = vm_read(self.task, (mach_vm_address_t)address, size, &buffer, &bufferSize)) == KERN_SUCCESS) {
+        mach_msg_type_number_t bufferSize = size;
+        void *buffer = malloc(bufferSize);
+        if ((kret = vm_read_overwrite(self.task, (mach_vm_address_t)address, size, buffer, &bufferSize)) == KERN_SUCCESS) {
             value = *((uint64_t *)buffer);
             valueType = GMValueTypeInt64;
-        } else {
-            return nil;
+        }
+        if (buffer != nil) {
+            free(buffer);
+            buffer = nil;
         }
     } else {
         return nil;
     }
+    if (kret != KERN_SUCCESS) {
+        return nil;
+    }
+    
     GMMemoryAccessObject *memoryAccessObject = [[GMMemoryAccessObject alloc] init];
     memoryAccessObject.valueType = valueType;
     memoryAccessObject.address = address;
@@ -343,6 +370,16 @@
 
 #pragma mark - Private
 
+- (NSString *)getIdentifierWithPid:(int)pid {
+	ALApplicationList *appList = [ALApplicationList sharedApplicationList];
+	NSDictionary *applications = [appList applicationsFilteredUsingPredicate:[NSPredicate predicateWithFormat:@"pid = %d", pid]];
+    NSArray *displayIdentifiers = applications.allKeys;
+    if (displayIdentifiers.count) {
+        return [displayIdentifiers firstObject];
+    }
+    return nil;
+}
+
 - (BOOL)isValid:(int)pid {
     return pid == _pid && self.task && [self virtualSize] > 0;
 }
@@ -390,10 +427,9 @@
         }
         vm_prot_t protection = info.protection;
         if ((protection &VM_PROT_READ)&& (protection &VM_PROT_WRITE)) {
-            
-            pointer_t buffer;
             mach_msg_type_number_t bufferSize = size;
-            if ((kret = vm_read(self.task, (mach_vm_address_t)address, size, &buffer, &bufferSize)) == KERN_SUCCESS) {
+            void *buffer = malloc(bufferSize);
+            if ((kret = vm_read_overwrite(self.task, (mach_vm_address_t)address, size, buffer, &bufferSize)) == KERN_SUCCESS) {
                 void *pos = memmem(buffer, bufferSize, value, valueSize);
                 while (pos) {
                     vm_address_t realAddress = pos - buffer + address;
@@ -404,6 +440,11 @@
                 }
             } else {
                 //                NSLog(@"mac_vm_read fails, address:%x, error %d:%s", address, kret, mach_error_string(kret));
+            }
+            if (buffer != nil)
+            {
+                free(buffer);
+                buffer = nil;
             }
         }
 		address += size;
@@ -453,9 +494,9 @@
             }
             
             if (address <= currentAddress && currentAddress < address + size) {
-                pointer_t buffer;
                 mach_msg_type_number_t bufferSize = size;
-                if ((kret = vm_read(self.task, (mach_vm_address_t)address, size, &buffer, &bufferSize)) == KERN_SUCCESS) {
+                void *buffer = malloc(bufferSize);
+                if ((kret = vm_read_overwrite(self.task, (mach_vm_address_t)address, size, buffer, &bufferSize)) == KERN_SUCCESS) {
                     while (address <= currentAddress && currentAddress < address + size) {
                         void *pos = currentAddress - address + buffer;
                         if (bufferSize - (currentAddress - address) >= valueSize && memmem(pos, valueSize, value, valueSize)) {
@@ -471,6 +512,10 @@
                     }
                 } else {
                     //                NSLog(@"mac_vm_read fails, address:%x, error %d:%s", address, kret, mach_error_string(kret));
+                }
+                if (buffer != nil) {
+                    free(buffer);
+                    buffer = nil;
                 }
             }
         }

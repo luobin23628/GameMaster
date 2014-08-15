@@ -134,7 +134,6 @@ static void machPortCallback(CFMachPortRef port, void *bytes, CFIndex size, void
 int main(int argc, const char *argv[]) {
     @autoreleasepool {
         NSLog(@"Service start...");
-        [GMMemManager shareInstance];
         while (YES) {
             kern_return_t err = LMStartService(connection.serverName, CFRunLoopGetCurrent(), machPortCallback);
             if (err) {
