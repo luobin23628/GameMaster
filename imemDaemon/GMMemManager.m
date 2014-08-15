@@ -10,6 +10,7 @@
 #import <libkern/OSCacheControl.h>
 #import <LightMessaging.h>
 #import "GMStorageManager.h"
+#import "ALApplicationList.h"
 
 #define MaxCount 100
 
@@ -40,6 +41,20 @@
     }
     return self;
 }
+
+//- (NSString *)appIdentifier {
+//    return [[NSUserDefaults standardUserDefaults] objectForKey:@"appIdentifier"];
+//}
+//
+//- (void)invalidateAppIdentifier {
+//    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"appIdentifier"];
+//}
+//
+//- (BOOL)setAppIdentifier:(NSString *)appIdentifier {
+//    [[NSUserDefaults standardUserDefaults] setObject:appIdentifier forKey:@"appIdentifier"];
+//    [self setPid:0];
+//    return YES;
+//}
 
 - (BOOL)setPid:(int)pid {
     // Get task of specified PID
@@ -354,6 +369,16 @@
 }
 
 #pragma mark - Private
+
+- (NSString *)getIdentifierWithPid:(int)pid {
+	ALApplicationList *appList = [ALApplicationList sharedApplicationList];
+	NSDictionary *applications = [appList applicationsFilteredUsingPredicate:[NSPredicate predicateWithFormat:@"pid = %d", pid]];
+    NSArray *displayIdentifiers = applications.allKeys;
+    if (displayIdentifiers.count) {
+        return [displayIdentifiers firstObject];
+    }
+    return nil;
+}
 
 - (BOOL)isValid:(int)pid {
     return pid == _pid && self.task && [self virtualSize] > 0;

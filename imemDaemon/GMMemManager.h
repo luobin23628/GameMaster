@@ -23,6 +23,8 @@
 
 + (instancetype)shareInstance;
 
+- (BOOL)setAppIdentifier:(NSString *)appIdentifier;
+
 - (BOOL)setPid:(int)pid;
 
 - (NSArray *)search:(uint64_t)value isFirst:(bool)isFirst;
