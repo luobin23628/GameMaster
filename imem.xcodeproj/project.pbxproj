@@ -98,6 +98,9 @@
 		AB967DE0199B14870086395F /* GMPersistentStoreController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB967DDE199B14870086395F /* GMPersistentStoreController.h */; };
 		AB967DE1199B14870086395F /* GMPersistentStoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB967DDF199B14870086395F /* GMPersistentStoreController.m */; };
 		ABAE6B011999C97800A10BF8 /* time.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAE6B001999C97800A10BF8 /* time.m */; };
+		ABB564FF19A1B1F600CA0EC0 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB564FE19A1B1F600CA0EC0 /* UIImage+Additions.m */; };
+		ABB5659C19A2177200CA0EC0 /* GMOverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5659B19A2177200CA0EC0 /* GMOverlayWindow.m */; };
+		ABB5659F19A21B0800CA0EC0 /* GMRootOverLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5659E19A21B0800CA0EC0 /* GMRootOverLayerViewController.m */; };
 		ABE39F93197FCBB0002E7678 /* darwin_memory_usage.c in Sources */ = {isa = PBXBuildFile; fileRef = ABE39F92197FCBB0002E7678 /* darwin_memory_usage.c */; };
 		ABE39FD7197FCCAE002E7678 /* shared_region.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE39FD6197FCCAE002E7678 /* shared_region.h */; };
 		ABFF4BE81966A579000C7128 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF4BE71966A579000C7128 /* Foundation.framework */; };
@@ -289,6 +292,12 @@
 		AB967DDE199B14870086395F /* GMPersistentStoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMPersistentStoreController.h; sourceTree = "<group>"; };
 		AB967DDF199B14870086395F /* GMPersistentStoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMPersistentStoreController.m; sourceTree = "<group>"; };
 		ABAE6B001999C97800A10BF8 /* time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = time.m; sourceTree = "<group>"; };
+		ABB564FD19A1B1F600CA0EC0 /* UIImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additions.h"; sourceTree = "<group>"; };
+		ABB564FE19A1B1F600CA0EC0 /* UIImage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Additions.m"; sourceTree = "<group>"; };
+		ABB5659A19A2177200CA0EC0 /* GMOverlayWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMOverlayWindow.h; sourceTree = "<group>"; };
+		ABB5659B19A2177200CA0EC0 /* GMOverlayWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMOverlayWindow.m; sourceTree = "<group>"; };
+		ABB5659D19A21B0800CA0EC0 /* GMRootOverLayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMRootOverLayerViewController.h; sourceTree = "<group>"; };
+		ABB5659E19A21B0800CA0EC0 /* GMRootOverLayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMRootOverLayerViewController.m; sourceTree = "<group>"; };
 		ABE39F92197FCBB0002E7678 /* darwin_memory_usage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = darwin_memory_usage.c; sourceTree = "<group>"; };
 		ABE39F94197FCBBA002E7678 /* darwin_memory_usage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = darwin_memory_usage.h; sourceTree = "<group>"; };
 		ABE39FD6197FCCAE002E7678 /* shared_region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shared_region.h; sourceTree = "<group>"; };
@@ -586,6 +595,8 @@
 				A810E669197AD97F00757554 /* PickerInputTableViewCell.m */,
 				A8E3AB9B1983E5E400B6E4E6 /* UIColor+iOS7Colors.h */,
 				A8E3AB9C1983E5E400B6E4E6 /* UIColor+iOS7Colors.m */,
+				ABB564FD19A1B1F600CA0EC0 /* UIImage+Additions.h */,
+				ABB564FE19A1B1F600CA0EC0 /* UIImage+Additions.m */,
 				A82B4426197BBE5C0098A6D4 /* UIView+Sizes.h */,
 				A82B4427197BBE5C0098A6D4 /* UIView+Sizes.m */,
 				A810E66A197AD97F00757554 /* SimplePickerInputTableViewCell.h */,
@@ -760,6 +771,10 @@
 		ABFF4BED1966A579000C7128 /* imem */ = {
 			isa = PBXGroup;
 			children = (
+				ABB5659A19A2177200CA0EC0 /* GMOverlayWindow.h */,
+				ABB5659B19A2177200CA0EC0 /* GMOverlayWindow.m */,
+				ABB5659D19A21B0800CA0EC0 /* GMRootOverLayerViewController.h */,
+				ABB5659E19A21B0800CA0EC0 /* GMRootOverLayerViewController.m */,
 				ABFF4BF61966A579000C7128 /* AppDelegate.h */,
 				ABFF4BF71966A579000C7128 /* AppDelegate.m */,
 				AB603382198A21CF000DA8AA /* Home */,
@@ -1086,6 +1101,7 @@
 				A8DAE40C1996132E00B2010A /* IASKSettingsReader.m in Sources */,
 				A8ED6907198E805A000DDD3F /* TKGridLinesTexturedView.m in Sources */,
 				A8E3AB9D1983E5E400B6E4E6 /* UIColor+iOS7Colors.m in Sources */,
+				ABB5659F19A21B0800CA0EC0 /* GMRootOverLayerViewController.m in Sources */,
 				A82B4425197BBD260098A6D4 /* GMKeyboard.m in Sources */,
 				A81CD69A19950C8C00B02034 /* TKAlertOverlayWindow.m in Sources */,
 				A8DAE40E1996132E00B2010A /* IASKSettingsStoreFile.m in Sources */,
@@ -1099,6 +1115,7 @@
 				A8DAE40A1996132E00B2010A /* IASKAppSettingsWebViewController.m in Sources */,
 				A80D3E7719855DE100F5CF2A /* GMMemoryAccessObject.m in Sources */,
 				A8A7416F1968105C00131416 /* GMSelectAppViewController.m in Sources */,
+				ABB564FF19A1B1F600CA0EC0 /* UIImage+Additions.m in Sources */,
 				AB92CFB519866DA700695460 /* SearchDisplayController.m in Sources */,
 				A8DAE4131996132E00B2010A /* IASKPSTitleValueSpecifierViewCell.m in Sources */,
 				A81CD69419950C8C00B02034 /* M9BackgroundView.m in Sources */,
@@ -1116,6 +1133,7 @@
 				A8DAE40D1996132E00B2010A /* IASKSettingsStore.m in Sources */,
 				A8ED6905198E805A000DDD3F /* TKFlowLayout.m in Sources */,
 				A86FD1521976BD9200765F99 /* GMMemManagerProxy.m in Sources */,
+				ABB5659C19A2177200CA0EC0 /* GMOverlayWindow.m in Sources */,
 				A82B442B197BD4A60098A6D4 /* GMGridLinesTexturedView.m in Sources */,
 				A8ED6908198E805A000DDD3F /* TKKeyboard.m in Sources */,
 				A8ED6909198E805A000DDD3F /* TKKeyboardConfiguration.m in Sources */,

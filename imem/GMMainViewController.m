@@ -449,6 +449,8 @@
 #pragma mark - Private 
 
 - (NSDictionary *)updateWithPid:(int)pid {
+#if !TARGET_IPHONE_SIMULATOR
+
 	ALApplicationList *appList = [ALApplicationList sharedApplicationList];
 	NSDictionary *applications = [appList applicationsFilteredUsingPredicate:[NSPredicate predicateWithFormat:@"pid = %d", pid]];
     NSArray *displayIdentifiers = applications.allKeys;
@@ -458,6 +460,7 @@
         UIImage *appIcon = [appList iconOfSize:ALApplicationIconSizeSmall forDisplayIdentifier:displayIdentifier];
         [self updateWithPid:pid appName:appName appIcon:appIcon];
     }
+#endif
     return nil;
 }
 

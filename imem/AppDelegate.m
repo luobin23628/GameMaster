@@ -10,6 +10,8 @@
 #import "GMMainViewController.h"
 #import "TKKeyboard.h"
 #import "MobClick.h"
+#import "GMRootOverLayerViewController.h"
+#import "GMOverlayWindow.h"
 
 #define UMENG_APPKEY @"53e5fee6fd98c5e65201cb7c"
 
@@ -53,6 +55,13 @@
     self.window.rootViewController = nav;
     [nav release];
     [mainViewController release];
+    
+    GMRootOverLayerViewController *rootOverLayerViewController = [[GMRootOverLayerViewController alloc] init];
+    GMOverlayWindow *window = [GMOverlayWindow defaultWindow];
+    window.rootViewController = rootOverLayerViewController;
+    [window addOverlayToMainWindow:rootOverLayerViewController.view];
+    window.alpha = 1;
+    [rootOverLayerViewController release];
     
     return YES;
 }
