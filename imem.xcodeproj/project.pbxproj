@@ -82,6 +82,12 @@
 		A8DAE41A19961A2B00B2010A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A8DAE41919961A2B00B2010A /* Settings.bundle */; };
 		A8DAE41C1996398800B2010A /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8DAE41B1996398800B2010A /* libMobClickLibrary.a */; };
 		A8DAE41E19963F9C00B2010A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8DAE41D19963F9C00B2010A /* libz.dylib */; };
+		A8E0408219A24689001B58AE /* NSTimer+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408119A24689001B58AE /* NSTimer+Addition.m */; };
+		A8E0408519A2469C001B58AE /* UITAssistiveTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408419A2469C001B58AE /* UITAssistiveTouch.m */; };
+		A8E0408819A246BC001B58AE /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408719A246BC001B58AE /* UIImage+Color.m */; };
+		A8E0408B19A246D8001B58AE /* UIColor+tk.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408A19A246D8001B58AE /* UIColor+tk.m */; };
+		A8E0408D19A24ACE001B58AE /* SpringBoardServices.h in Headers */ = {isa = PBXBuildFile; fileRef = A8E0408C19A24ACE001B58AE /* SpringBoardServices.h */; };
+		A8E0408F19A24FCB001B58AE /* SpringBoardServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8E0408E19A24FCB001B58AE /* SpringBoardServices.framework */; };
 		A8E3AB9A1983C0C800B6E4E6 /* GMSelectAppButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E3AB991983C0C800B6E4E6 /* GMSelectAppButton.m */; };
 		A8E3AB9D1983E5E400B6E4E6 /* UIColor+iOS7Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E3AB9C1983E5E400B6E4E6 /* UIColor+iOS7Colors.m */; };
 		A8ED6904198E805A000DDD3F /* NSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F1198E805A000DDD3F /* NSObject+Swizzle.m */; };
@@ -262,6 +268,16 @@
 		A8DAE41919961A2B00B2010A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		A8DAE41B1996398800B2010A /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMobClickLibrary.a; path = lib/UMAnalytics_Sdk/libMobClickLibrary.a; sourceTree = "<group>"; };
 		A8DAE41D19963F9C00B2010A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		A8E0408019A24689001B58AE /* NSTimer+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Addition.h"; sourceTree = "<group>"; };
+		A8E0408119A24689001B58AE /* NSTimer+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Addition.m"; sourceTree = "<group>"; };
+		A8E0408319A2469C001B58AE /* UITAssistiveTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITAssistiveTouch.h; sourceTree = "<group>"; };
+		A8E0408419A2469C001B58AE /* UITAssistiveTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITAssistiveTouch.m; sourceTree = "<group>"; };
+		A8E0408619A246BC001B58AE /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
+		A8E0408719A246BC001B58AE /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
+		A8E0408919A246D8001B58AE /* UIColor+tk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+tk.h"; sourceTree = "<group>"; };
+		A8E0408A19A246D8001B58AE /* UIColor+tk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+tk.m"; sourceTree = "<group>"; };
+		A8E0408C19A24ACE001B58AE /* SpringBoardServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpringBoardServices.h; sourceTree = "<group>"; };
+		A8E0408E19A24FCB001B58AE /* SpringBoardServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpringBoardServices.framework; path = lib/SpringBoardServices.framework; sourceTree = "<group>"; };
 		A8E3AB981983C0C800B6E4E6 /* GMSelectAppButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMSelectAppButton.h; sourceTree = "<group>"; };
 		A8E3AB991983C0C800B6E4E6 /* GMSelectAppButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMSelectAppButton.m; sourceTree = "<group>"; };
 		A8E3AB9B1983E5E400B6E4E6 /* UIColor+iOS7Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+iOS7Colors.h"; path = "imem/UIColor+iOS7Colors.h"; sourceTree = "<group>"; };
@@ -320,6 +336,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8E0408F19A24FCB001B58AE /* SpringBoardServices.framework in Frameworks */,
 				A83653551997C04800147B72 /* libapplist.dylib in Frameworks */,
 				A86FD14519756D8200765F99 /* librocketbootstrap.dylib in Frameworks */,
 				A8054ED6196DB6E8004CC80A /* Foundation.framework in Frameworks */,
@@ -595,10 +612,16 @@
 				A810E669197AD97F00757554 /* PickerInputTableViewCell.m */,
 				A8E3AB9B1983E5E400B6E4E6 /* UIColor+iOS7Colors.h */,
 				A8E3AB9C1983E5E400B6E4E6 /* UIColor+iOS7Colors.m */,
+				A8E0408919A246D8001B58AE /* UIColor+tk.h */,
+				A8E0408A19A246D8001B58AE /* UIColor+tk.m */,
 				ABB564FD19A1B1F600CA0EC0 /* UIImage+Additions.h */,
 				ABB564FE19A1B1F600CA0EC0 /* UIImage+Additions.m */,
+				A8E0408619A246BC001B58AE /* UIImage+Color.h */,
+				A8E0408719A246BC001B58AE /* UIImage+Color.m */,
 				A82B4426197BBE5C0098A6D4 /* UIView+Sizes.h */,
 				A82B4427197BBE5C0098A6D4 /* UIView+Sizes.m */,
+				A8E0408019A24689001B58AE /* NSTimer+Addition.h */,
+				A8E0408119A24689001B58AE /* NSTimer+Addition.m */,
 				A810E66A197AD97F00757554 /* SimplePickerInputTableViewCell.h */,
 				A810E66B197AD97F00757554 /* SimplePickerInputTableViewCell.m */,
 				A81E809D197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h */,
@@ -751,6 +774,7 @@
 		ABFF4BE61966A579000C7128 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A8E0408E19A24FCB001B58AE /* SpringBoardServices.framework */,
 				A83653981997D96500147B72 /* libsubstrate.dylib */,
 				A8DAE41D19963F9C00B2010A /* libz.dylib */,
 				A8DAE41B1996398800B2010A /* libMobClickLibrary.a */,
@@ -771,6 +795,8 @@
 		ABFF4BED1966A579000C7128 /* imem */ = {
 			isa = PBXGroup;
 			children = (
+				A8E0408319A2469C001B58AE /* UITAssistiveTouch.h */,
+				A8E0408419A2469C001B58AE /* UITAssistiveTouch.m */,
 				ABB5659A19A2177200CA0EC0 /* GMOverlayWindow.h */,
 				ABB5659B19A2177200CA0EC0 /* GMOverlayWindow.m */,
 				ABB5659D19A21B0800CA0EC0 /* GMRootOverLayerViewController.h */,
@@ -780,6 +806,7 @@
 				AB603382198A21CF000DA8AA /* Home */,
 				A8A7416D1968105C00131416 /* GMSelectAppViewController.h */,
 				A8A7416E1968105C00131416 /* GMSelectAppViewController.m */,
+				A8E0408C19A24ACE001B58AE /* SpringBoardServices.h */,
 				A810E65F197ABA6800757554 /* GMModifyViewController.h */,
 				A810E660197ABA6800757554 /* GMModifyViewController.m */,
 				A8D9058D197BF4CE001F22FF /* GMStorageViewController.h */,
@@ -815,6 +842,7 @@
 			files = (
 				A879A12E199E3E7C00A79D85 /* DynamicArray.h in Headers */,
 				ABE39FD7197FCCAE002E7678 /* shared_region.h in Headers */,
+				A8E0408D19A24ACE001B58AE /* SpringBoardServices.h in Headers */,
 				A874478C19849CEC00A9544D /* GMLockThread.h in Headers */,
 				A80D3E7619855DE100F5CF2A /* GMMemoryAccessObject.h in Headers */,
 				A8BDC4221987DA2F00592935 /* LightMessaging.h in Headers */,
@@ -1101,12 +1129,14 @@
 				A8DAE40C1996132E00B2010A /* IASKSettingsReader.m in Sources */,
 				A8ED6907198E805A000DDD3F /* TKGridLinesTexturedView.m in Sources */,
 				A8E3AB9D1983E5E400B6E4E6 /* UIColor+iOS7Colors.m in Sources */,
+				A8E0408B19A246D8001B58AE /* UIColor+tk.m in Sources */,
 				ABB5659F19A21B0800CA0EC0 /* GMRootOverLayerViewController.m in Sources */,
 				A82B4425197BBD260098A6D4 /* GMKeyboard.m in Sources */,
 				A81CD69A19950C8C00B02034 /* TKAlertOverlayWindow.m in Sources */,
 				A8DAE40E1996132E00B2010A /* IASKSettingsStoreFile.m in Sources */,
 				A81CD69D19950C8C00B02034 /* UIImageExtend.m in Sources */,
 				A86FD14B1975838900765F99 /* GMApplicationTableDataSource.m in Sources */,
+				A8E0408219A24689001B58AE /* NSTimer+Addition.m in Sources */,
 				A8DAE418199615FC00B2010A /* LightMessaging.m in Sources */,
 				A8E3AB9A1983C0C800B6E4E6 /* GMSelectAppButton.m in Sources */,
 				A810E66D197AD97F00757554 /* SimplePickerInputTableViewCell.m in Sources */,
@@ -1123,7 +1153,9 @@
 				A8ED6906198E805A000DDD3F /* TKGridLayout.m in Sources */,
 				A8ED690A198E805A000DDD3F /* TKKeyboardManager.m in Sources */,
 				ABFF4BF81966A579000C7128 /* AppDelegate.m in Sources */,
+				A8E0408519A2469C001B58AE /* UITAssistiveTouch.m in Sources */,
 				A81CD69919950C8C00B02034 /* TKAlertManager.m in Sources */,
+				A8E0408819A246BC001B58AE /* UIImage+Color.m in Sources */,
 				A8DAE4091996132E00B2010A /* IASKAppSettingsViewController.m in Sources */,
 				ABFF4BF41966A579000C7128 /* main.m in Sources */,
 				A86BC8881986863D000A417A /* GMAssociateViewController.m in Sources */,
@@ -1182,6 +1214,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(iOSOpenDevPath)/frameworks/**",
 					"$(SDKROOT)/System/Library/PrivateFrameworks",
+					"$(PROJECT_DIR)/lib",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1233,6 +1266,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(iOSOpenDevPath)/frameworks/**",
 					"$(SDKROOT)/System/Library/PrivateFrameworks",
+					"$(PROJECT_DIR)/lib",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

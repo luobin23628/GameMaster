@@ -56,12 +56,12 @@
     [nav release];
     [mainViewController release];
     
-    GMRootOverLayerViewController *rootOverLayerViewController = [[GMRootOverLayerViewController alloc] init];
-    GMOverlayWindow *window = [GMOverlayWindow defaultWindow];
-    window.rootViewController = rootOverLayerViewController;
-    [window addOverlayToMainWindow:rootOverLayerViewController.view];
-    window.alpha = 1;
-    [rootOverLayerViewController release];
+//    GMRootOverLayerViewController *rootOverLayerViewController = [[GMRootOverLayerViewController alloc] init];
+//    GMOverlayWindow *window = [GMOverlayWindow defaultWindow];
+//    window.rootViewController = rootOverLayerViewController;
+//    [window addOverlayToMainWindow:rootOverLayerViewController.view];
+//    window.alpha = 1;
+//    [rootOverLayerViewController release];
     
     return YES;
 }

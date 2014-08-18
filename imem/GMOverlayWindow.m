@@ -32,11 +32,11 @@
 - (void)addOverlayToMainWindow:(UIView *)overlay {
     if (self.hidden)
     {
-        _previousKeyWindow = [[[UIApplication sharedApplication] keyWindow] retain];
-        self.alpha = 0.0f;
+//        _previousKeyWindow = [[[UIApplication sharedApplication] keyWindow] retain];
+//        self.alpha = 0.0f;
         self.hidden = NO;
         self.userInteractionEnabled = YES;
-        [self makeKeyWindow];
+//        [self makeKeyWindow];
     }
     
     if (self.subviews.count > 0)
