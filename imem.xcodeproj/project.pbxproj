@@ -594,8 +594,8 @@
 				A81E8099197D5FE500D3DF5E /* MAZeroingWeakRef.h */,
 				A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */,
 				A879A12D199E3E7C00A79D85 /* DynamicArray.h */,
-				A879A12F199E3E8900A79D85 /* IntArray.c */,
 				A879A130199E3E8900A79D85 /* IntArray.h */,
+				A879A12F199E3E8900A79D85 /* IntArray.c */,
 				A8BDC4211987DA2F00592935 /* LightMessaging.h */,
 				A8DAE417199615FC00B2010A /* LightMessaging.m */,
 			);
@@ -1191,7 +1191,7 @@
 				VALIDATE_PRODUCT = NO;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 10.2.146.236;
+				iOSOpenDevDevice = 192.168.1.115;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
@@ -1234,7 +1234,7 @@
 				VALIDATE_PRODUCT = YES;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 10.2.146.236;
+				iOSOpenDevDevice = 192.168.1.115;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;

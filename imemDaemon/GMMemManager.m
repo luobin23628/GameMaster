@@ -69,7 +69,10 @@
     self.lastValue = 0;
     self.task = task;
     resultCount = 0;
-    
+    if (results) {
+        IntArrayDealloc(results);
+        results = nil;
+    }
     [self startMonitorForProcess:pid];
     return YES;
 }
@@ -102,17 +105,29 @@
     
     resultCount = 0;
     
+    if (results) {
+        IntArrayDealloc(results);
+        results = nil;
+    }
+    
+    if (value == 0) {
+        results = IntArrayCreate(100000);
+    } else if (value  < 10) {
+        results = IntArrayCreate(1000);
+    } else {
+        results = IntArrayCreate(100);
+    }
+    
     mach_timebase_info_data_t timebase_info;
     if (mach_timebase_info(&timebase_info) != KERN_SUCCESS) return nil;
     uint64_t begin = mach_absolute_time();
     
     void(^findBlock)(vm_address_t, vm_prot_t) = ^(vm_address_t realAddress, vm_prot_t protection) {
         if (resultCount < kMaxCount) {
-            results[resultCount] = realAddress;
+            IntArrayAddValue(results, realAddress);
             resultCount++;
         }
     };
-    
     
     if (value <= UINT16_MAX) {
         uint16_t v = (uint16_t)value;
@@ -140,7 +155,7 @@
     if (resultCount <= MaxCount) {
         NSMutableArray *ret = [NSMutableArray array];
         for (int i = 0; i < resultCount; i++) {
-            [ret addObject:@(results[i])];
+            [ret addObject:@(IntArrayValueAtIndex(results, i))];
         }
         return ret;
     } else {
@@ -156,7 +171,7 @@
     __block int newResultCount = 0;
     
     void(^findBlock)(vm_address_t, const void *,  size_t) = ^(vm_address_t address, const void *buffer,  size_t bufferSize) {
-        results[newResultCount] = address;
+        IntArraySetValueAtIndex(results, newResultCount, address);
         newResultCount++;
     };
     
@@ -185,13 +200,15 @@
     
     NSLog(@"newResultCount:%d", newResultCount);
     NSLog(@"resultCount:%d", resultCount);
-
+    
+    IntArraySubstractSize(results, newResultCount);
+    
     resultCount = newResultCount;
     
     if (resultCount <= MaxCount) {
         NSMutableArray *ret = [NSMutableArray array];
         for (int i = 0; i < resultCount; i++) {
-            [ret addObject:@(results[i])];
+            [ret addObject:@(IntArrayValueAtIndex(results, i))];
         }
         return ret;
     } else {
@@ -359,6 +376,10 @@
 }
 
 - (BOOL)reset {
+    if (results) {
+        IntArrayDealloc(results);
+        results = nil;
+    }
     resultCount = 0;
     return YES;
 }
@@ -481,7 +502,7 @@
         
         vm_prot_t protection = info.protection;
         if ((protection &VM_PROT_READ)&& (protection &VM_PROT_WRITE)) {
-            currentAddress = results[i];
+            currentAddress = IntArrayValueAtIndex(results, i);
             
             while (currentAddress < address) {
                 NSLog(@"%d, ignore address. %X not exist.", i, currentAddress);
@@ -490,7 +511,7 @@
                 if (i >= resultCt) {
                     return;
                 }
-                currentAddress = results[i];
+                currentAddress = IntArrayValueAtIndex(results, i);
             }
             
             if (address <= currentAddress && currentAddress < address + size) {
@@ -508,7 +529,7 @@
                         if (i >= resultCt) {
                             return;
                         }
-                        currentAddress = results[i];
+                        currentAddress = IntArrayValueAtIndex(results, i);
                     }
                 } else {
                     //                NSLog(@"mac_vm_read fails, address:%x, error %d:%s", address, kret, mach_error_string(kret));

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "GMMemoryAccessObject.h"
 #import <mach/vm_types.h>
-#import "IntArray.h"
+#import "intArray.h"
 
 #define kMaxCount 1000000
 
@@ -24,8 +24,6 @@
 @property (nonatomic, assign, readonly) int pid;
 
 + (instancetype)shareInstance;
-
-- (BOOL)setAppIdentifier:(NSString *)appIdentifier;
 
 - (BOOL)setPid:(int)pid;
 

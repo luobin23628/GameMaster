@@ -45,6 +45,15 @@ array->capacity = MAX(newCapacity, array->count);\
 array->values = realloc(array->values, array->capacity * sizeof(memberType));\
 }
 
+#define _DAHeaderSubstractSize(arrayName, memberType) void arrayName##SubstractSize(arrayName##Ref array, uint32_t toSize);
+#define _DASourceSubstractSize(arrayName, memberType) void arrayName##SubstractSize(arrayName##Ref array, uint32_t toSize) {\
+    if(toSize <= array->count) {\
+        array->capacity = toSize;\
+        array->values = realloc(array->values, toSize * sizeof(memberType));\
+    }\
+}
+
+
 // Generates the create array function
 #define _DAHeaderCreate(arrayName, memberType) arrayName##Ref arrayName##Create(uint32_t capacity);
 #define _DASourceCreate(arrayName, memberType) arrayName##Ref arrayName##Create(uint32_t capacity) { \
@@ -60,6 +69,14 @@ return _newArray_;\
 #define _DASourceRawArray(arrayName, memberType) memberType const * arrayName##RawArray(arrayName##Ref array) {\
 return array->values;\
 }
+
+#define _DAHeaderSetValueAtIndex(arrayName, memberType) void arrayName##SetValueAtIndex(arrayName##Ref array, uint32_t index, memberType value);
+#define _DASourceSetValueAtIndex(arrayName, memberType) void arrayName##SetValueAtIndex(arrayName##Ref array, uint32_t index, memberType value) {\
+    if (array->count > index) {\
+        array->values[index] = value;\
+    }\
+}
+
 
 // Generates the add value function
 #define _DAHeaderAddValue(arrayName, memberType) void arrayName##AddValue(arrayName##Ref array, memberType value);
@@ -107,21 +124,25 @@ free(array);\
 // Generates the header file contents
 #define DynamicArrayCreateHeader(arrayName, memberType) \
 typedef struct arrayName * arrayName##Ref;\
+_DAHeaderSubstractSize(arrayName, memberType)\
 _DAHeaderCreate(arrayName, memberType)\
 _DAHeaderRawArray(arrayName, memberType)\
 _DAHeaderAddValue(arrayName, memberType)\
 _DAHeaderValuesCount(arrayName, memberType)\
+_DAHeaderSetValueAtIndex(arrayName, memberType)\
 _DAHeaderValueAtIndex(arrayName, memberType)\
 _DAHeaderClearValues(arrayName, memberType)\
 _DAHeaderDealloc(arrayName, memberType)
 
 #define DynamicArrayCreateSource(arrayName, memberType) \
 _DASourceStruct(arrayName, memberType)\
+_DASourceSubstractSize(arrayName, memberType)\
 _DASourceResize(arrayName, memberType)\
 _DASourceCreate(arrayName, memberType)\
 _DASourceRawArray(arrayName, memberType)\
 _DASourceAddValue(arrayName, memberType)\
 _DASourceValuesCount(arrayName, memberType)\
+_DASourceSetValueAtIndex(arrayName, memberType)\
 _DASourceValueAtIndex(arrayName, memberType)\
 _DASourceClearValues(arrayName, memberType)\
 _DASourceDealloc(arrayName, memberType)
