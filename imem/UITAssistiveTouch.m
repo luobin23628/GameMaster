@@ -50,6 +50,8 @@ typedef enum _RectZone {
 	UITAssistiveTouchButton *_assistiveButton;
 }
 
+@property (nonatomic, assign) BOOL isVisible;
+
 @end
 
 /**
@@ -77,10 +79,15 @@ typedef enum _RectZone {
 		frame.size.width = kAssistiveTouchWidth;
 		frame.size.height = kAssistiveTouchWidth;
         
+        self.isVisible = NO;
+        
 		_assistiveButton = [[UITAssistiveTouchButton alloc] initWithFrame:frame];
         [_assistiveButton setBackgroundColor:[UIColor blackColor]];
 		[_assistiveButton setAssistiveTouchHiden:NO];
-		[[UIApplication sharedApplication].keyWindow addSubview:_assistiveButton];
+        _assistiveButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin
+        | UIViewAutoresizingFlexibleLeftMargin
+        | UIViewAutoresizingFlexibleBottomMargin
+        | UIViewAutoresizingFlexibleRightMargin;
         
 		[_assistiveButton addTarget:self
 		                     action:@selector(onUITAssistiveTouchButton:)
@@ -106,8 +113,7 @@ typedef enum _RectZone {
 			[_assistiveButton setImage:highLightIcon forState:UIControlStateHighlighted];
         
 		[_assistiveButton setAssistiveTouchHiden:NO];
-		[[UIApplication sharedApplication].keyWindow addSubview:_assistiveButton];
-        
+        _assistiveButton.backgroundColor = [UIColor redColor];
 		[_assistiveButton addTarget:self
 		                     action:@selector(onUITAssistiveTouchButton:)
 		           forControlEvents:UIControlEventTouchUpInside];
@@ -116,16 +122,32 @@ typedef enum _RectZone {
 	return self;
 }
 
-- (void)setAssistiveTouchHiden:(BOOL)hide onWindow:(UIWindow *)window {
-	if (!_assistiveButton.superview && window) {
-		[window addSubview:_assistiveButton];
+- (void)showInView:(UIView *)view {
+    if (self.isVisible) {
+        return;
+    }
+    self.isVisible = YES;
+    [self retain];
+	if (!view) {
+        view = [UIApplication sharedApplication].keyWindow;
 	}
+    [view addSubview:_assistiveButton];
     
-	[_assistiveButton setAssistiveTouchHiden:hide];
+	[_assistiveButton setAssistiveTouchHiden:NO];
     
-	if (_assistiveButton.superview) {
-		[_assistiveButton.superview bringSubviewToFront:_assistiveButton];
+	if (view) {
+		[view bringSubviewToFront:_assistiveButton];
 	}
+}
+
+- (void)dismiss {
+    if (!self.isVisible) {
+        return;
+    }
+    self.isVisible = NO;
+	[_assistiveButton setAssistiveTouchHiden:YES];
+    [_assistiveButton removeFromSuperview];
+    [self autorelease];
 }
 
 #pragma mark - orientation

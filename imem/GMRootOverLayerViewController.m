@@ -7,6 +7,8 @@
 //
 
 #import "GMRootOverLayerViewController.h"
+#import "UITAssistiveTouch.h"
+#import "UIImage+Color.h"
 
 @interface GMRootOverLayerViewController ()
 
@@ -27,11 +29,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, 100, 30)];
-    label.text = @"test2";
-    [self.view addSubview:label];
-    [label release];
+    self.view.backgroundColor = [UIColor clearColor];
     
+    
+    UITAssistiveTouch *assistiveTouch = [[UITAssistiveTouch alloc] initWithIcon:[UIImage buttonImageWithColor:[UIColor redColor] cornerRadius:0 shadowColor:nil shadowInsets:UIEdgeInsetsZero] highLightIcon:[UIImage imageNamed:@""]];
+    [assistiveTouch showInView:self.view];
 }
 
 - (void)didReceiveMemoryWarning
