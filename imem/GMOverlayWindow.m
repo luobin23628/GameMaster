@@ -21,7 +21,7 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.windowLevel = 100000;
+        self.windowLevel = UIWindowLevelStatusBar;
         self.hidden = YES;
         self.backgroundColor = [UIColor clearColor];
     }
@@ -30,11 +30,12 @@
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
     UIView *rootView = [self.rootViewController view];
-    
-    for (UIView *subView in rootView.subviews) {
-        point = [subView convertPoint:point fromView:self];
-        if ([subView pointInside:point withEvent:event]) {
-            return subView;
+    if (rootView.window) {
+        for (UIView *subView in rootView.subviews) {
+            point = [subView convertPoint:point fromView:self];
+            if ([subView pointInside:point withEvent:event]) {
+                return subView;
+            }
         }
     }
     return [super hitTest:point withEvent:event];
