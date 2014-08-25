@@ -9,14 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface GMOverlayWindow : UIWindow {
-@private
-    UIWindow *_previousKeyWindow;
 }
 
 + (GMOverlayWindow *)defaultWindow;
-
-- (void)addOverlayToMainWindow:(UIView *)overlay;
-- (void)reduceAlphaIfEmpty;
-- (void)removeOverlay:(UIView *)overlay;
 
 @end

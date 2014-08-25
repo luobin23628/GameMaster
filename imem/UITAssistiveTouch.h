@@ -36,6 +36,8 @@ typedef void (^OnAssistiveTouch)(id pAssistiveTouch);
  *
  *  @param hide if YES will hide assistive touch
  */
-- (void)setAssistiveTouchHiden:(BOOL)hide onWindow:(UIWindow *)window;
+- (void)showInView:(UIView *)view;
+
+- (void)dismiss;
 
 @end

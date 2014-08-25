@@ -44,7 +44,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self umengTrack];
-    
+    NSLog(@"didFinishLaunchingWithOptions");
+
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -56,13 +57,14 @@
     [nav release];
     [mainViewController release];
     
-//    GMRootOverLayerViewController *rootOverLayerViewController = [[GMRootOverLayerViewController alloc] init];
-//    GMOverlayWindow *window = [GMOverlayWindow defaultWindow];
-//    window.rootViewController = rootOverLayerViewController;
-//    [window addOverlayToMainWindow:rootOverLayerViewController.view];
-//    window.alpha = 1;
-//    [rootOverLayerViewController release];
-    
+    GMRootOverLayerViewController *rootOverLayerViewController = [[GMRootOverLayerViewController alloc] init];
+    GMOverlayWindow *window = [GMOverlayWindow defaultWindow];
+    window.windowLevel = 100000;
+    window.backgroundColor = [UIColor clearColor];
+    window.rootViewController = rootOverLayerViewController;
+    [rootOverLayerViewController release];
+    window.userInteractionEnabled = YES;
+    window.hidden = NO;
     return YES;
 }
 

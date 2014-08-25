@@ -7,6 +7,10 @@
 //
 
 #import "GMRootOverLayerViewController.h"
+#import "UITAssistiveTouch.h"
+#import "UIImage+Color.h"
+#import "GMMainViewController.h"
+#import "GMOverlayWindow.h"
 
 @interface GMRootOverLayerViewController ()
 
@@ -27,28 +31,26 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, 100, 30)];
-    label.text = @"test2";
-    [self.view addSubview:label];
-    [label release];
+    self.view.backgroundColor = [UIColor clearColor];
     
+    UITAssistiveTouch *assistiveTouch = [[UITAssistiveTouch alloc] initWithIcon:[UIImage buttonImageWithColor:[UIColor redColor] cornerRadius:0 shadowColor:nil shadowInsets:UIEdgeInsetsZero] highLightIcon:[UIImage imageNamed:@""]];
+    MAWeakSelfDeclare();
+    assistiveTouch.touchHandle = ^(id pAssistiveTouch) {
+        MAWeakSelfImportReturn();
+        GMMainViewController *mainViewController = [[GMMainViewController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+        mainViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismiss)];
+        [self presentViewController:nav animated:YES completion:nil];
+        [nav release];
+        [mainViewController release];
+    };
+    [assistiveTouch showInView:self.view];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)dismiss {
+    if (self.presentedViewController) {
+        [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
+    }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
