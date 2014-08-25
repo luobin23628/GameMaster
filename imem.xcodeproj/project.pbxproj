@@ -30,10 +30,8 @@
 		A81E809B197D5FE500D3DF5E /* MAZeroingWeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */; };
 		A81E809C197D600700D3DF5E /* MAZeroingWeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */; };
 		A81E809E197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h in Headers */ = {isa = PBXBuildFile; fileRef = A81E809D197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h */; };
-		A820822E197FE7210081CF58 /* libapplist.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A820822C197FE7210081CF58 /* libapplist.dylib */; };
-		A82B4425197BBD260098A6D4 /* GMKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B4424197BBD260098A6D4 /* GMKeyboard.m */; };
 		A82B4428197BBE5C0098A6D4 /* UIView+Sizes.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B4427197BBE5C0098A6D4 /* UIView+Sizes.m */; };
-		A82B442B197BD4A60098A6D4 /* GMGridLinesTexturedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B442A197BD4A60098A6D4 /* GMGridLinesTexturedView.m */; };
+		A834E37119A8966B00753739 /* GMMemManager.bak.m in Sources */ = {isa = PBXBuildFile; fileRef = A86DDBA319A892F300CA90AB /* GMMemManager.bak.m */; };
 		A83653551997C04800147B72 /* libapplist.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A86FD14E1975858500765F99 /* libapplist.dylib */; };
 		A836537C1997D7F300147B72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF4BE71966A579000C7128 /* Foundation.framework */; };
 		A83653871997D7F300147B72 /* imemTweak.mm in Sources */ = {isa = PBXBuildFile; fileRef = A83653861997D7F300147B72 /* imemTweak.mm */; };
@@ -41,9 +39,24 @@
 		A836539D1997DAC200147B72 /* testTweak.m in Sources */ = {isa = PBXBuildFile; fileRef = A836539C1997DAC200147B72 /* testTweak.m */; };
 		A83653A5199655EF00322899 /* LightMessaging.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE417199615FC00B2010A /* LightMessaging.m */; };
 		A839D2D7196C2B2400E8E9F4 /* entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = A839D2D6196C2B2400E8E9F4 /* entitlements.plist */; };
+		A859EB5A19A8CBA60007983D /* GMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A7416819680E6400131416 /* GMMainViewController.m */; };
+		A859EB5B19A8CBAB0007983D /* SearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB92CFB419866DA700695460 /* SearchDisplayController.m */; };
+		A859EB5C19A8CBAD0007983D /* GMAssociateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A86BC8871986863D000A417A /* GMAssociateViewController.m */; };
+		A859EB5F19A8CBC30007983D /* GMSelectAppButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E3AB991983C0C800B6E4E6 /* GMSelectAppButton.m */; };
+		A859EB6019A8CBC60007983D /* GMSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3E61996130800B2010A /* GMSettingViewController.m */; };
+		A859EB6119A8CBC90007983D /* GMSelectAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A7416E1968105C00131416 /* GMSelectAppViewController.m */; };
+		A859EB6219A8CBD00007983D /* GMModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A810E660197ABA6800757554 /* GMModifyViewController.m */; };
+		A859EB6319A8CBD30007983D /* GMStorageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D9058E197BF4CE001F22FF /* GMStorageViewController.m */; };
+		A859EB6419A8CBD70007983D /* GMMemManagerProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A86FD1511976BD9200765F99 /* GMMemManagerProxy.m */; };
+		A859EB6519A8CC0C0007983D /* GMMemoryAccessObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A80D3E7519855DE100F5CF2A /* GMMemoryAccessObject.m */; };
+		A859EB6819A8CC450007983D /* GMMemoryAccessObject.h in Headers */ = {isa = PBXBuildFile; fileRef = A80D3E7419855DE100F5CF2A /* GMMemoryAccessObject.h */; };
+		A85E308119A9020300884AF4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECA1A66F9EB4AE3A23B64CB /* libPods.a */; };
+		A85E308219A904F800884AF4 /* GMRootOverLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5659E19A21B0800CA0EC0 /* GMRootOverLayerViewController.m */; };
+		A85E308319A9050000884AF4 /* GMOverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5659B19A2177200CA0EC0 /* GMOverlayWindow.m */; };
+		A85E308419A9050400884AF4 /* UITAssistiveTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408419A2469C001B58AE /* UITAssistiveTouch.m */; };
 		A86BC8881986863D000A417A /* GMAssociateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A86BC8871986863D000A417A /* GMAssociateViewController.m */; };
-		A86FD1431975680000765F99 /* GMMemManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A86FD1411975680000765F99 /* GMMemManager.h */; };
-		A86FD1441975680000765F99 /* GMMemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A86FD1421975680000765F99 /* GMMemManager.m */; };
+		A86DDBA419A892F300CA90AB /* GMMemManager.bak.m in Headers */ = {isa = PBXBuildFile; fileRef = A86DDBA319A892F300CA90AB /* GMMemManager.bak.m */; };
+		A86DDBA619A8938B00CA90AB /* GMMemManager.bak.h in Headers */ = {isa = PBXBuildFile; fileRef = A86DDBA519A8932300CA90AB /* GMMemManager.bak.h */; };
 		A86FD14519756D8200765F99 /* librocketbootstrap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */; };
 		A86FD14B1975838900765F99 /* GMApplicationTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A86FD14A1975838900765F99 /* GMApplicationTableDataSource.m */; };
 		A86FD14D1975839400765F99 /* GMApplicationTableDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A86FD14C1975839400765F99 /* GMApplicationTableDataSource.h */; };
@@ -59,6 +72,9 @@
 		A8A7416919680E6400131416 /* GMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A7416819680E6400131416 /* GMMainViewController.m */; };
 		A8A7416F1968105C00131416 /* GMSelectAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A7416E1968105C00131416 /* GMSelectAppViewController.m */; };
 		A8BDC4221987DA2F00592935 /* LightMessaging.h in Headers */ = {isa = PBXBuildFile; fileRef = A8BDC4211987DA2F00592935 /* LightMessaging.h */; };
+		A8CC176019A8CB0F0048C788 /* UITAssistiveTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408419A2469C001B58AE /* UITAssistiveTouch.m */; };
+		A8CC176119A8CB110048C788 /* GMOverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5659B19A2177200CA0EC0 /* GMOverlayWindow.m */; };
+		A8CC176219A8CB140048C788 /* GMRootOverLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5659E19A21B0800CA0EC0 /* GMRootOverLayerViewController.m */; };
 		A8D9058C197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8D9058B197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png */; };
 		A8D9058F197BF4CE001F22FF /* GMStorageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D9058E197BF4CE001F22FF /* GMStorageViewController.m */; };
 		A8DAE3A519953E6900B2010A /* TKTextFieldAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3A419953E6900B2010A /* TKTextFieldAlertView.m */; };
@@ -83,13 +99,61 @@
 		A8DAE41C1996398800B2010A /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8DAE41B1996398800B2010A /* libMobClickLibrary.a */; };
 		A8DAE41E19963F9C00B2010A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8DAE41D19963F9C00B2010A /* libz.dylib */; };
 		A8E0408219A24689001B58AE /* NSTimer+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408119A24689001B58AE /* NSTimer+Addition.m */; };
-		A8E0408519A2469C001B58AE /* UITAssistiveTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408419A2469C001B58AE /* UITAssistiveTouch.m */; };
 		A8E0408819A246BC001B58AE /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408719A246BC001B58AE /* UIImage+Color.m */; };
 		A8E0408B19A246D8001B58AE /* UIColor+tk.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408A19A246D8001B58AE /* UIColor+tk.m */; };
 		A8E0408D19A24ACE001B58AE /* SpringBoardServices.h in Headers */ = {isa = PBXBuildFile; fileRef = A8E0408C19A24ACE001B58AE /* SpringBoardServices.h */; };
 		A8E0408F19A24FCB001B58AE /* SpringBoardServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8E0408E19A24FCB001B58AE /* SpringBoardServices.framework */; };
 		A8E3AB9A1983C0C800B6E4E6 /* GMSelectAppButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E3AB991983C0C800B6E4E6 /* GMSelectAppButton.m */; };
 		A8E3AB9D1983E5E400B6E4E6 /* UIColor+iOS7Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E3AB9C1983E5E400B6E4E6 /* UIColor+iOS7Colors.m */; };
+		A8E8A7E219A8D32E002A5CFF /* LightMessaging.h in Headers */ = {isa = PBXBuildFile; fileRef = A8BDC4211987DA2F00592935 /* LightMessaging.h */; };
+		A8E8A7E319A8D330002A5CFF /* LightMessaging.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE417199615FC00B2010A /* LightMessaging.m */; };
+		A8E8A7E419A8D69D002A5CFF /* IASKAppSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3EB1996132E00B2010A /* IASKAppSettingsViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8E8A7E519A8D6A0002A5CFF /* IASKAppSettingsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3ED1996132E00B2010A /* IASKAppSettingsWebViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8E8A7E619A8D6A3002A5CFF /* IASKSpecifierValuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3EF1996132E00B2010A /* IASKSpecifierValuesViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8E8A7E719A8D6A6002A5CFF /* IASKSettingsReader.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3F31996132E00B2010A /* IASKSettingsReader.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8E8A7E819A8D6A9002A5CFF /* IASKSettingsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3F51996132E00B2010A /* IASKSettingsStore.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8E8A7E919A8D6AB002A5CFF /* IASKSettingsStoreFile.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3F71996132E00B2010A /* IASKSettingsStoreFile.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8E8A7EA19A8D6AD002A5CFF /* IASKSettingsStoreUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3F91996132E00B2010A /* IASKSettingsStoreUserDefaults.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8E8A7EB19A8D6AF002A5CFF /* IASKSpecifier.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3FB1996132E00B2010A /* IASKSpecifier.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8E8A7EC19A8D6B3002A5CFF /* IASKPSSliderSpecifierViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3FE1996132E00B2010A /* IASKPSSliderSpecifierViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8E8A7ED19A8D6B5002A5CFF /* IASKPSTextFieldSpecifierViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE4001996132E00B2010A /* IASKPSTextFieldSpecifierViewCell.m */; };
+		A8E8A7EE19A8D6B9002A5CFF /* IASKPSTitleValueSpecifierViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE4021996132E00B2010A /* IASKPSTitleValueSpecifierViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8E8A7EF19A8D6BB002A5CFF /* IASKSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE4041996132E00B2010A /* IASKSlider.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8E8A7F019A8D6BD002A5CFF /* IASKSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE4061996132E00B2010A /* IASKSwitch.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8E8A7F119A8D6C0002A5CFF /* IASKTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE4081996132E00B2010A /* IASKTextField.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A8E8A7F219A8D6C5002A5CFF /* M9BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = A81CD67719950C8C00B02034 /* M9BackgroundView.m */; };
+		A8E8A7F319A8D6C7002A5CFF /* NSInvocation+.m in Sources */ = {isa = PBXBuildFile; fileRef = A81CD67A19950C8C00B02034 /* NSInvocation+.m */; };
+		A8E8A7F419A8D6CA002A5CFF /* TKActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A81CD67C19950C8C00B02034 /* TKActionSheet.m */; };
+		A8E8A7F519A8D6CC002A5CFF /* TKActionSheetOverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A81CD67E19950C8C00B02034 /* TKActionSheetOverlayWindow.m */; };
+		A8E8A7F619A8D6CF002A5CFF /* TKAlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A81CD68019950C8C00B02034 /* TKAlertManager.m */; };
+		A8E8A7F719A8D6D1002A5CFF /* TKAlertOverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A81CD68219950C8C00B02034 /* TKAlertOverlayWindow.m */; };
+		A8E8A7F819A8D6D3002A5CFF /* TKTextFieldAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3A419953E6900B2010A /* TKTextFieldAlertView.m */; };
+		A8E8A7F919A8D6D6002A5CFF /* TKAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A81CD68419950C8C00B02034 /* TKAlertView.m */; };
+		A8E8A7FA19A8D6D9002A5CFF /* TKOverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A81CD68619950C8C00B02034 /* TKOverlayWindow.m */; };
+		A8E8A7FB19A8D6DB002A5CFF /* UIImageExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = A81CD68819950C8C00B02034 /* UIImageExtend.m */; };
+		A8E8A7FC19A8D6DD002A5CFF /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A81CD68A19950C8C00B02034 /* UIViewAdditions.m */; };
+		A8E8A7FD19A8D6E1002A5CFF /* NSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F1198E805A000DDD3F /* NSObject+Swizzle.m */; };
+		A8E8A7FE19A8D6E5002A5CFF /* TKFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F3198E805A000DDD3F /* TKFlowLayout.m */; };
+		A8E8A7FF19A8D6E9002A5CFF /* TKGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F5198E805A000DDD3F /* TKGridLayout.m */; };
+		A8E8A80019A8D6EC002A5CFF /* TKGridLinesTexturedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F7198E805A000DDD3F /* TKGridLinesTexturedView.m */; };
+		A8E8A80119A8D6EF002A5CFF /* TKKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F9198E805A000DDD3F /* TKKeyboard.m */; };
+		A8E8A80219A8D6F1002A5CFF /* TKKeyboardConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68FB198E805A000DDD3F /* TKKeyboardConfiguration.m */; };
+		A8E8A80319A8D6F5002A5CFF /* TKKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68FD198E805A000DDD3F /* TKKeyboardManager.m */; };
+		A8E8A80419A8D6F7002A5CFF /* TKKeyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68FF198E805A000DDD3F /* TKKeyButton.m */; };
+		A8E8A80519A8D6FB002A5CFF /* TKKeyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED6901198E805A000DDD3F /* TKKeyItem.m */; };
+		A8E8A80619A8D700002A5CFF /* TextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A810E663197AC43B00757554 /* TextFieldTableViewCell.m */; };
+		A8E8A80719A8D702002A5CFF /* PickerInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A810E669197AD97F00757554 /* PickerInputTableViewCell.m */; };
+		A8E8A80819A8D704002A5CFF /* UIColor+iOS7Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E3AB9C1983E5E400B6E4E6 /* UIColor+iOS7Colors.m */; };
+		A8E8A80919A8D707002A5CFF /* UIColor+tk.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408A19A246D8001B58AE /* UIColor+tk.m */; };
+		A8E8A80A19A8D709002A5CFF /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB564FE19A1B1F600CA0EC0 /* UIImage+Additions.m */; };
+		A8E8A80B19A8D710002A5CFF /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408719A246BC001B58AE /* UIImage+Color.m */; };
+		A8E8A80C19A8D713002A5CFF /* UIView+Sizes.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B4427197BBE5C0098A6D4 /* UIView+Sizes.m */; };
+		A8E8A80D19A8D716002A5CFF /* NSTimer+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408119A24689001B58AE /* NSTimer+Addition.m */; };
+		A8E8A80E19A8D71A002A5CFF /* SimplePickerInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A810E66B197AD97F00757554 /* SimplePickerInputTableViewCell.m */; };
+		A8E8A80F19A8D71E002A5CFF /* MAZeroingWeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */; };
+		A8E8A81019A8D723002A5CFF /* IntArray.c in Sources */ = {isa = PBXBuildFile; fileRef = A879A12F199E3E8900A79D85 /* IntArray.c */; };
+		A8E8A81319A8D826002A5CFF /* librocketbootstrap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */; };
+		A8E8A81419A8D844002A5CFF /* libapplist.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A86FD14E1975858500765F99 /* libapplist.dylib */; };
 		A8ED6904198E805A000DDD3F /* NSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F1198E805A000DDD3F /* NSObject+Swizzle.m */; };
 		A8ED6905198E805A000DDD3F /* TKFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F3198E805A000DDD3F /* TKFlowLayout.m */; };
 		A8ED6906198E805A000DDD3F /* TKGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F5198E805A000DDD3F /* TKGridLayout.m */; };
@@ -105,8 +169,6 @@
 		AB967DE1199B14870086395F /* GMPersistentStoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB967DDF199B14870086395F /* GMPersistentStoreController.m */; };
 		ABAE6B011999C97800A10BF8 /* time.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAE6B001999C97800A10BF8 /* time.m */; };
 		ABB564FF19A1B1F600CA0EC0 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB564FE19A1B1F600CA0EC0 /* UIImage+Additions.m */; };
-		ABB5659C19A2177200CA0EC0 /* GMOverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5659B19A2177200CA0EC0 /* GMOverlayWindow.m */; };
-		ABB5659F19A21B0800CA0EC0 /* GMRootOverLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5659E19A21B0800CA0EC0 /* GMRootOverLayerViewController.m */; };
 		ABE39F93197FCBB0002E7678 /* darwin_memory_usage.c in Sources */ = {isa = PBXBuildFile; fileRef = ABE39F92197FCBB0002E7678 /* darwin_memory_usage.c */; };
 		ABE39FD7197FCCAE002E7678 /* shared_region.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE39FD6197FCCAE002E7678 /* shared_region.h */; };
 		ABFF4BE81966A579000C7128 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF4BE71966A579000C7128 /* Foundation.framework */; };
@@ -178,12 +240,8 @@
 		A81E809A197D5FE500D3DF5E /* MAZeroingWeakRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAZeroingWeakRef.m; path = imem/MAZeroingWeakRef.m; sourceTree = "<group>"; };
 		A81E809D197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAZeroingWeakRefNativeZWRNotAllowedTable.h; path = imem/MAZeroingWeakRefNativeZWRNotAllowedTable.h; sourceTree = "<group>"; };
 		A820822C197FE7210081CF58 /* libapplist.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libapplist.dylib; sourceTree = "<group>"; };
-		A82B4423197BBD260098A6D4 /* GMKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMKeyboard.h; sourceTree = "<group>"; };
-		A82B4424197BBD260098A6D4 /* GMKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMKeyboard.m; sourceTree = "<group>"; };
 		A82B4426197BBE5C0098A6D4 /* UIView+Sizes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Sizes.h"; path = "imem/UIView+Sizes.h"; sourceTree = "<group>"; };
 		A82B4427197BBE5C0098A6D4 /* UIView+Sizes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Sizes.m"; path = "imem/UIView+Sizes.m"; sourceTree = "<group>"; };
-		A82B4429197BD4A60098A6D4 /* GMGridLinesTexturedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMGridLinesTexturedView.h; sourceTree = "<group>"; };
-		A82B442A197BD4A60098A6D4 /* GMGridLinesTexturedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMGridLinesTexturedView.m; sourceTree = "<group>"; };
 		A836537B1997D7F300147B72 /* imemTweak.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = imemTweak.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		A83653801997D7F300147B72 /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = control.txt; path = Package/DEBIAN/control.txt; sourceTree = "<group>"; };
 		A83653811997D7F300147B72 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
@@ -207,8 +265,8 @@
 		A8577E1419719AEC00A277D4 /* com.luobin.imemDaemon.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = com.luobin.imemDaemon.plist; sourceTree = "<group>"; };
 		A86BC8861986863D000A417A /* GMAssociateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMAssociateViewController.h; sourceTree = "<group>"; };
 		A86BC8871986863D000A417A /* GMAssociateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMAssociateViewController.m; sourceTree = "<group>"; };
-		A86FD1411975680000765F99 /* GMMemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMemManager.h; sourceTree = "<group>"; };
-		A86FD1421975680000765F99 /* GMMemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMemManager.m; sourceTree = "<group>"; };
+		A86DDBA319A892F300CA90AB /* GMMemManager.bak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMemManager.bak.m; sourceTree = "<group>"; };
+		A86DDBA519A8932300CA90AB /* GMMemManager.bak.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMMemManager.bak.h; sourceTree = "<group>"; };
 		A86FD14A1975838900765F99 /* GMApplicationTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMApplicationTableDataSource.m; sourceTree = "<group>"; };
 		A86FD14C1975839400765F99 /* GMApplicationTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMApplicationTableDataSource.h; sourceTree = "<group>"; };
 		A86FD14E1975858500765F99 /* libapplist.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libapplist.dylib; path = ../../../../opt/iOSOpenDev/lib/libapplist.dylib; sourceTree = "<group>"; };
@@ -347,6 +405,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A85E308119A9020300884AF4 /* libPods.a in Frameworks */,
+				A8E8A81419A8D844002A5CFF /* libapplist.dylib in Frameworks */,
+				A8E8A81319A8D826002A5CFF /* librocketbootstrap.dylib in Frameworks */,
 				A83653991997D96500147B72 /* libsubstrate.dylib in Frameworks */,
 				A836537C1997D7F300147B72 /* Foundation.framework in Frameworks */,
 			);
@@ -358,7 +419,6 @@
 			files = (
 				A8DAE41E19963F9C00B2010A /* libz.dylib in Frameworks */,
 				A8DAE41C1996398800B2010A /* libMobClickLibrary.a in Frameworks */,
-				A820822E197FE7210081CF58 /* libapplist.dylib in Frameworks */,
 				A86FD14F1975858500765F99 /* libapplist.dylib in Frameworks */,
 				A8EFBFE71972D30D002E4A9B /* librocketbootstrap.dylib in Frameworks */,
 				ABFF4BEA1966A579000C7128 /* CoreGraphics.framework in Frameworks */,
@@ -375,8 +435,8 @@
 			isa = PBXGroup;
 			children = (
 				A8054EDF196DB6E8004CC80A /* main.m */,
-				A86FD1411975680000765F99 /* GMMemManager.h */,
-				A86FD1421975680000765F99 /* GMMemManager.m */,
+				A86DDBA519A8932300CA90AB /* GMMemManager.bak.h */,
+				A86DDBA319A892F300CA90AB /* GMMemManager.bak.m */,
 				A87447921984B08F00A9544D /* GMStorageManager.h */,
 				A87447931984B08F00A9544D /* GMStorageManager.m */,
 				AB967DDE199B14870086395F /* GMPersistentStoreController.h */,
@@ -734,10 +794,6 @@
 				AB92CFB419866DA700695460 /* SearchDisplayController.m */,
 				A86BC8861986863D000A417A /* GMAssociateViewController.h */,
 				A86BC8871986863D000A417A /* GMAssociateViewController.m */,
-				A82B4423197BBD260098A6D4 /* GMKeyboard.h */,
-				A82B4424197BBD260098A6D4 /* GMKeyboard.m */,
-				A82B4429197BD4A60098A6D4 /* GMGridLinesTexturedView.h */,
-				A82B442A197BD4A60098A6D4 /* GMGridLinesTexturedView.m */,
 				A86FD14C1975839400765F99 /* GMApplicationTableDataSource.h */,
 				A86FD14A1975838900765F99 /* GMApplicationTableDataSource.m */,
 				A8E3AB981983C0C800B6E4E6 /* GMSelectAppButton.h */,
@@ -844,10 +900,11 @@
 				ABE39FD7197FCCAE002E7678 /* shared_region.h in Headers */,
 				A8E0408D19A24ACE001B58AE /* SpringBoardServices.h in Headers */,
 				A874478C19849CEC00A9544D /* GMLockThread.h in Headers */,
+				A86DDBA619A8938B00CA90AB /* GMMemManager.bak.h in Headers */,
 				A80D3E7619855DE100F5CF2A /* GMMemoryAccessObject.h in Headers */,
 				A8BDC4221987DA2F00592935 /* LightMessaging.h in Headers */,
 				A81E809E197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h in Headers */,
-				A86FD1431975680000765F99 /* GMMemManager.h in Headers */,
+				A86DDBA419A892F300CA90AB /* GMMemManager.bak.m in Headers */,
 				AB967DE0199B14870086395F /* GMPersistentStoreController.h in Headers */,
 				A87447941984B08F00A9544D /* GMStorageManager.h in Headers */,
 				A879A132199E3E8900A79D85 /* IntArray.h in Headers */,
@@ -859,6 +916,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8E8A7E219A8D32E002A5CFF /* LightMessaging.h in Headers */,
+				A859EB6819A8CC450007983D /* GMMemoryAccessObject.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1081,7 +1140,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "dst=${SRCROOT}/imemDaemon/Package/Library/MobileSubstrate/DynamicLibraries\nmkdir -p ${dst}\nsrc=${BUILT_PRODUCTS_DIR}/imemTweak.dylib\ncp -Rf ${src} ${dst}";
+			shellScript = "dst=${SRCROOT}/imemDaemon/Package/Library/MobileSubstrate/DynamicLibraries\nmkdir -p ${dst}\nsrc=${BUILT_PRODUCTS_DIR}/imemTweak.dylib\nplist=${BUILT_PRODUCTS_DIR}/imemTweak.dylib\ncp -Rf ${src} ${dst}";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1090,10 +1149,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A834E37119A8966B00753739 /* GMMemManager.bak.m in Sources */,
 				AB967DE1199B14870086395F /* GMPersistentStoreController.m in Sources */,
 				A81E809C197D600700D3DF5E /* MAZeroingWeakRef.m in Sources */,
 				A83653A5199655EF00322899 /* LightMessaging.m in Sources */,
-				A86FD1441975680000765F99 /* GMMemManager.m in Sources */,
 				ABE39F93197FCBB0002E7678 /* darwin_memory_usage.c in Sources */,
 				A8054EE0196DB6E8004CC80A /* main.m in Sources */,
 				A87447951984B08F00A9544D /* GMStorageManager.m in Sources */,
@@ -1107,9 +1166,68 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8E8A80719A8D702002A5CFF /* PickerInputTableViewCell.m in Sources */,
+				A8E8A80519A8D6FB002A5CFF /* TKKeyItem.m in Sources */,
+				A859EB6119A8CBC90007983D /* GMSelectAppViewController.m in Sources */,
 				ABAE6B011999C97800A10BF8 /* time.m in Sources */,
+				A8E8A7FC19A8D6DD002A5CFF /* UIViewAdditions.m in Sources */,
+				A8E8A7ED19A8D6B5002A5CFF /* IASKPSTextFieldSpecifierViewCell.m in Sources */,
+				A8E8A7F919A8D6D6002A5CFF /* TKAlertView.m in Sources */,
 				A836539D1997DAC200147B72 /* testTweak.m in Sources */,
+				A8E8A7F319A8D6C7002A5CFF /* NSInvocation+.m in Sources */,
+				A8E8A7F119A8D6C0002A5CFF /* IASKTextField.m in Sources */,
+				A8CC176219A8CB140048C788 /* GMRootOverLayerViewController.m in Sources */,
+				A8E8A7F019A8D6BD002A5CFF /* IASKSwitch.m in Sources */,
+				A8E8A80F19A8D71E002A5CFF /* MAZeroingWeakRef.m in Sources */,
+				A859EB6219A8CBD00007983D /* GMModifyViewController.m in Sources */,
+				A8CC176119A8CB110048C788 /* GMOverlayWindow.m in Sources */,
+				A8E8A7F719A8D6D1002A5CFF /* TKAlertOverlayWindow.m in Sources */,
+				A859EB6319A8CBD30007983D /* GMStorageViewController.m in Sources */,
+				A859EB5B19A8CBAB0007983D /* SearchDisplayController.m in Sources */,
+				A8E8A7EB19A8D6AF002A5CFF /* IASKSpecifier.m in Sources */,
+				A8E8A7E819A8D6A9002A5CFF /* IASKSettingsStore.m in Sources */,
+				A859EB6019A8CBC60007983D /* GMSettingViewController.m in Sources */,
+				A8E8A7F219A8D6C5002A5CFF /* M9BackgroundView.m in Sources */,
+				A8E8A80819A8D704002A5CFF /* UIColor+iOS7Colors.m in Sources */,
+				A8E8A7E919A8D6AB002A5CFF /* IASKSettingsStoreFile.m in Sources */,
+				A8E8A80019A8D6EC002A5CFF /* TKGridLinesTexturedView.m in Sources */,
+				A8E8A7E519A8D6A0002A5CFF /* IASKAppSettingsWebViewController.m in Sources */,
+				A8E8A7EC19A8D6B3002A5CFF /* IASKPSSliderSpecifierViewCell.m in Sources */,
+				A8E8A7FA19A8D6D9002A5CFF /* TKOverlayWindow.m in Sources */,
+				A859EB5C19A8CBAD0007983D /* GMAssociateViewController.m in Sources */,
+				A8E8A7E319A8D330002A5CFF /* LightMessaging.m in Sources */,
+				A8E8A7F619A8D6CF002A5CFF /* TKAlertManager.m in Sources */,
+				A8E8A80B19A8D710002A5CFF /* UIImage+Color.m in Sources */,
+				A859EB5A19A8CBA60007983D /* GMMainViewController.m in Sources */,
+				A8E8A80219A8D6F1002A5CFF /* TKKeyboardConfiguration.m in Sources */,
+				A859EB5F19A8CBC30007983D /* GMSelectAppButton.m in Sources */,
+				A8CC176019A8CB0F0048C788 /* UITAssistiveTouch.m in Sources */,
+				A8E8A80D19A8D716002A5CFF /* NSTimer+Addition.m in Sources */,
+				A8E8A7FB19A8D6DB002A5CFF /* UIImageExtend.m in Sources */,
+				A8E8A7E719A8D6A6002A5CFF /* IASKSettingsReader.m in Sources */,
+				A8E8A80319A8D6F5002A5CFF /* TKKeyboardManager.m in Sources */,
+				A8E8A7FD19A8D6E1002A5CFF /* NSObject+Swizzle.m in Sources */,
+				A8E8A7E619A8D6A3002A5CFF /* IASKSpecifierValuesViewController.m in Sources */,
+				A859EB6419A8CBD70007983D /* GMMemManagerProxy.m in Sources */,
+				A859EB6519A8CC0C0007983D /* GMMemoryAccessObject.m in Sources */,
+				A8E8A80A19A8D709002A5CFF /* UIImage+Additions.m in Sources */,
+				A8E8A80619A8D700002A5CFF /* TextFieldTableViewCell.m in Sources */,
+				A8E8A80419A8D6F7002A5CFF /* TKKeyButton.m in Sources */,
+				A8E8A7FF19A8D6E9002A5CFF /* TKGridLayout.m in Sources */,
+				A8E8A80919A8D707002A5CFF /* UIColor+tk.m in Sources */,
+				A8E8A80E19A8D71A002A5CFF /* SimplePickerInputTableViewCell.m in Sources */,
+				A8E8A7F819A8D6D3002A5CFF /* TKTextFieldAlertView.m in Sources */,
 				A83653871997D7F300147B72 /* imemTweak.mm in Sources */,
+				A8E8A7EE19A8D6B9002A5CFF /* IASKPSTitleValueSpecifierViewCell.m in Sources */,
+				A8E8A80119A8D6EF002A5CFF /* TKKeyboard.m in Sources */,
+				A8E8A7FE19A8D6E5002A5CFF /* TKFlowLayout.m in Sources */,
+				A8E8A7E419A8D69D002A5CFF /* IASKAppSettingsViewController.m in Sources */,
+				A8E8A80C19A8D713002A5CFF /* UIView+Sizes.m in Sources */,
+				A8E8A81019A8D723002A5CFF /* IntArray.c in Sources */,
+				A8E8A7F519A8D6CC002A5CFF /* TKActionSheetOverlayWindow.m in Sources */,
+				A8E8A7EA19A8D6AD002A5CFF /* IASKSettingsStoreUserDefaults.m in Sources */,
+				A8E8A7F419A8D6CA002A5CFF /* TKActionSheet.m in Sources */,
+				A8E8A7EF19A8D6BB002A5CFF /* IASKSlider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1119,6 +1237,7 @@
 			files = (
 				A8DAE4101996132E00B2010A /* IASKSpecifier.m in Sources */,
 				A8DAE4111996132E00B2010A /* IASKPSSliderSpecifierViewCell.m in Sources */,
+				A85E308319A9050000884AF4 /* GMOverlayWindow.m in Sources */,
 				A8ED6904198E805A000DDD3F /* NSObject+Swizzle.m in Sources */,
 				A810E66C197AD97F00757554 /* PickerInputTableViewCell.m in Sources */,
 				A8A7416919680E6400131416 /* GMMainViewController.m in Sources */,
@@ -1129,9 +1248,8 @@
 				A8DAE40C1996132E00B2010A /* IASKSettingsReader.m in Sources */,
 				A8ED6907198E805A000DDD3F /* TKGridLinesTexturedView.m in Sources */,
 				A8E3AB9D1983E5E400B6E4E6 /* UIColor+iOS7Colors.m in Sources */,
+				A85E308219A904F800884AF4 /* GMRootOverLayerViewController.m in Sources */,
 				A8E0408B19A246D8001B58AE /* UIColor+tk.m in Sources */,
-				ABB5659F19A21B0800CA0EC0 /* GMRootOverLayerViewController.m in Sources */,
-				A82B4425197BBD260098A6D4 /* GMKeyboard.m in Sources */,
 				A81CD69A19950C8C00B02034 /* TKAlertOverlayWindow.m in Sources */,
 				A8DAE40E1996132E00B2010A /* IASKSettingsStoreFile.m in Sources */,
 				A81CD69D19950C8C00B02034 /* UIImageExtend.m in Sources */,
@@ -1152,8 +1270,8 @@
 				A8DAE40F1996132E00B2010A /* IASKSettingsStoreUserDefaults.m in Sources */,
 				A8ED6906198E805A000DDD3F /* TKGridLayout.m in Sources */,
 				A8ED690A198E805A000DDD3F /* TKKeyboardManager.m in Sources */,
+				A85E308419A9050400884AF4 /* UITAssistiveTouch.m in Sources */,
 				ABFF4BF81966A579000C7128 /* AppDelegate.m in Sources */,
-				A8E0408519A2469C001B58AE /* UITAssistiveTouch.m in Sources */,
 				A81CD69919950C8C00B02034 /* TKAlertManager.m in Sources */,
 				A8E0408819A246BC001B58AE /* UIImage+Color.m in Sources */,
 				A8DAE4091996132E00B2010A /* IASKAppSettingsViewController.m in Sources */,
@@ -1165,8 +1283,6 @@
 				A8DAE40D1996132E00B2010A /* IASKSettingsStore.m in Sources */,
 				A8ED6905198E805A000DDD3F /* TKFlowLayout.m in Sources */,
 				A86FD1521976BD9200765F99 /* GMMemManagerProxy.m in Sources */,
-				ABB5659C19A2177200CA0EC0 /* GMOverlayWindow.m in Sources */,
-				A82B442B197BD4A60098A6D4 /* GMGridLinesTexturedView.m in Sources */,
 				A8ED6908198E805A000DDD3F /* TKKeyboard.m in Sources */,
 				A8ED6909198E805A000DDD3F /* TKKeyboardConfiguration.m in Sources */,
 				A8ED690C198E805A000DDD3F /* TKKeyItem.m in Sources */,
@@ -1242,7 +1358,7 @@
 				VALIDATE_PRODUCT = NO;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.1.115;
+				iOSOpenDevDevice = 192.168.1.102;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
@@ -1286,7 +1402,7 @@
 				VALIDATE_PRODUCT = YES;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.1.115;
+				iOSOpenDevDevice = 192.168.1.102;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
@@ -1297,7 +1413,9 @@
 		};
 		A836538D1997D7F300147B72 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D12E4C3196FD4C08BE93404A /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = armv7;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
@@ -1321,7 +1439,10 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				HEADER_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/include/**",
+					"${PODS_ROOT}/Headers/**",
+				);
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
@@ -1329,6 +1450,8 @@
 					/opt/iOSOpenDev/lib,
 				);
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = NO;
@@ -1345,7 +1468,9 @@
 		};
 		A836538E1997D7F300147B72 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D12E4C3196FD4C08BE93404A /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = armv7;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
@@ -1362,13 +1487,18 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				HEADER_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/include/**",
+					"${PODS_ROOT}/Headers/**",
+				);
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(iOSOpenDevPath)/lib/**",
 					/opt/iOSOpenDev/lib,
 				);
+				OTHER_CFLAGS = "";
+				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

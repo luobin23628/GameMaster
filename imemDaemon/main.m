@@ -14,6 +14,9 @@
 #import "GMStorageManager.h"
 
 static void processMessage(SInt32 messageId, mach_port_t replyPort, CFDataRef dataRef) {
+    
+    NSLog(@"processMessage messageId:%d", (int)messageId);
+    
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     switch (messageId) {
         case GMMessageIdGetPid: {

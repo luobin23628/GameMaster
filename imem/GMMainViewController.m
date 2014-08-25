@@ -21,14 +21,13 @@
 #import "TKKeyboard.h"
 #import "TKTextFieldAlertView.h"
 #import "GMSettingViewController.h"
-#import "MobClick.h"
 #import "ALApplicationList.h"
 
 #define CellMAXCount 99
 #define TKKeyboardTypeMain (120)
 #define TKKeyboardHeight 180
 
-@interface GMMainViewController ()<UISearchBarDelegate, GMKeyboardDelegate, UITableViewDelegate, UITableViewDataSource, TKTextFieldAlertViewDelegate>
+@interface GMMainViewController ()<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, TKTextFieldAlertViewDelegate>
 
 @property (nonatomic, retain) UITableView *tableView;
 
@@ -159,17 +158,8 @@
     if (self) {
         // Custom initialization
         self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(setting)] autorelease];
-        
-        GMSelectAppButton * selectAppButton = [[GMSelectAppButton alloc] init];
-        selectAppButton.title = @"选择";
-        selectAppButton.titleLabel.textColor = [UI7Color defaultTintColor];
-        ;
-        selectAppButton.titleLabel.font = [UIFont systemFontOfSize:17];
-        [selectAppButton addTarget:self action:@selector(gotoSelectProcess) forControlEvents:UIControlEventTouchUpInside];
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:selectAppButton] autorelease];
-        [selectAppButton release];
-        
         [self initKeyboard];
+        self.shouldSelectProcess = YES;
     }
     return self;
 }
@@ -188,6 +178,12 @@
     [super viewWillAppear:animated];
     [self.tableView reloadData];
     [self startTimer];
+    [self.searchBar becomeFirstResponder];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.searchBar becomeFirstResponder];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -232,18 +228,44 @@
     UIEdgeInsets edgeInsets = UIEdgeInsetsMake(44, 0, TKKeyboardHeight, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset = edgeInsets;
     
-    [searchBar becomeFirstResponder];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [textField becomeFirstResponder];
+        BOOL b = [searchBar becomeFirstResponder];
+        NSLog(@"");
+    });
+    
 //    [self addSearchDisplayController];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(appDidBecomeActiveNotification:)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
-    
-    int pid = [[GMMemManagerProxy shareInstance] getPid];
-    if (pid > 0) {
-        self.pid = pid;
-        [self updateWithPid:pid];
+    if (self.shouldSelectProcess) {
+        GMSelectAppButton * selectAppButton = [[GMSelectAppButton alloc] init];
+        selectAppButton.title = @"选择";
+        selectAppButton.titleLabel.textColor = [UIColor colorWith8bitRed:0 green:126 blue:245 alpha:255];
+        ;
+        selectAppButton.titleLabel.font = [UIFont systemFontOfSize:17];
+        [selectAppButton addTarget:self action:@selector(gotoSelectProcess) forControlEvents:UIControlEventTouchUpInside];
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:selectAppButton] autorelease];
+        [selectAppButton release];
+        
+        int pid = [[GMMemManagerProxy shareInstance] getPid];
+        if (pid > 0) {
+            self.pid = pid;
+            [self updateWithPid:pid];
+        }
+        
+    } else {
+        pid_t pid = getpid();
+        BOOL ok = [[GMMemManagerProxy shareInstance] setPid:pid];
+        if (ok) {
+            self.pid = pid;
+            [self startMonitorForProcess:self.pid];
+            [[GMMemManagerProxy shareInstance] reset];
+            self.results = nil;
+            self.isFirst = YES;
+        }
     }
 }
 
@@ -468,7 +490,7 @@
 - (void)updateWithPid:(int)pid appName:(NSString *)appName appIcon:(UIImage *)appIcon{
     GMSelectAppButton * selectAppButton = (GMSelectAppButton *)[self.navigationItem.rightBarButtonItem customView];
     selectAppButton.titleLabel.font = [UIFont systemFontOfSize:14];
-    selectAppButton.titleLabel.textColor = [UI7Color defaultTintColor];
+    selectAppButton.titleLabel.textColor = [UIColor colorWith8bitRed:0 green:126 blue:245 alpha:255];
     selectAppButton.image = appIcon;
     selectAppButton.title = appName;
     
@@ -552,7 +574,7 @@
     GMSelectAppButton * selectAppButton = (GMSelectAppButton *)[self.navigationItem.rightBarButtonItem customView];
     selectAppButton.image = nil;
     selectAppButton.title = @"选择";
-    selectAppButton.titleLabel.textColor = [UI7Color defaultTintColor];
+    selectAppButton.titleLabel.textColor = [UIColor colorWith8bitRed:0 green:126 blue:245 alpha:255];
     selectAppButton.titleLabel.font = [UIFont systemFontOfSize:17];
 }
 

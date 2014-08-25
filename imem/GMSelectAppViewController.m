@@ -8,7 +8,6 @@
 
 #import "GMSelectAppViewController.h"
 #import <AppList/AppList.h>
-#import <SpringBoard/SBApplication.h>
 #import <sys/sysctl.h>
 #import <dlfcn.h>
 #include <mach-o/dyld.h>
@@ -232,11 +231,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 #if !TARGET_IPHONE_SIMULATOR
     if (self.didSelectProcessBlock) {
-        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        NSString *displayIdentifier = [self.dataSource displayIdentifierForIndexPath:indexPath];
-        ALApplicationList *applicationList = [ALApplicationList sharedApplicationList];
-        pid_t pid = [[applicationList valueForKey:@"pid" forDisplayIdentifier:displayIdentifier] intValue];
-        self.didSelectProcessBlock(cell.imageView.image, cell.textLabel.text, pid);
+        NSDictionary *appInfo = [self.activeApps objectAtIndex:indexPath.row];
+        NSString *appName = [appInfo objectForKey:@"appName"];
+        UIImage *appIcon = [appInfo objectForKey:@"appIcon"];
+        pid_t pid = [[appInfo objectForKey:@"ProcessID"] integerValue];
+        self.didSelectProcessBlock(appIcon, appName, pid);
         [self.navigationController popViewControllerAnimated:YES];
     }
 #endif

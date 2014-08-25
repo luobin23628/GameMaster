@@ -14,6 +14,10 @@
 + (UIImage *)imageWithColor:(UIColor *)color
                cornerRadius:(CGFloat)cornerRadius;
 
++ (UIImage *)imageWithColor:(UIColor *)color
+               cornerRadius:(CGFloat)cornerRadius
+                       size:(CGSize)size;
+
 + (UIImage *)buttonImageWithColor:(UIColor *)color
                      cornerRadius:(CGFloat)cornerRadius
                       shadowColor:(UIColor *)shadowColor

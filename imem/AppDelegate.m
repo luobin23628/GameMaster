@@ -57,14 +57,6 @@
     [nav release];
     [mainViewController release];
     
-    GMRootOverLayerViewController *rootOverLayerViewController = [[GMRootOverLayerViewController alloc] init];
-    GMOverlayWindow *window = [GMOverlayWindow defaultWindow];
-    window.windowLevel = 100000;
-    window.backgroundColor = [UIColor clearColor];
-    window.rootViewController = rootOverLayerViewController;
-    [rootOverLayerViewController release];
-    window.userInteractionEnabled = YES;
-    window.hidden = NO;
     return YES;
 }
 

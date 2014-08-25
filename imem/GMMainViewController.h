@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GMKeyboard.h"
 
 @interface GMMainViewController : UIViewController
 
-@property (nonatomic, strong) GMKeyboard *keyboardView;
+@property (nonatomic, assign) BOOL shouldSelectProcess;
 
 @end

@@ -31,6 +31,22 @@ static CGFloat edgeSizeFromCornerRadius(CGFloat cornerRadius) {
 	return [image resizableImageWithCapInsets:UIEdgeInsetsMake(cornerRadius, cornerRadius, cornerRadius, cornerRadius)];
 }
 
++ (UIImage *)imageWithColor:(UIColor *)color
+               cornerRadius:(CGFloat)cornerRadius
+                       size:(CGSize)size {
+	CGRect rect = CGRectMake(0, 0, size.width, size.height);
+	UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:cornerRadius];
+	roundedRect.lineWidth = 0;
+	UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0.0f);
+	[color setFill];
+	[roundedRect fill];
+	[roundedRect stroke];
+	[roundedRect addClip];
+	UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+	return image;
+}
+
 + (UIImage *)buttonImageWithColor:(UIColor *)color
                      cornerRadius:(CGFloat)cornerRadius
                       shadowColor:(UIColor *)shadowColor

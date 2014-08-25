@@ -69,10 +69,7 @@
     self.lastValue = 0;
     self.task = task;
     resultCount = 0;
-    if (results) {
-        IntArrayDealloc(results);
-        results = nil;
-    }
+    
     [self startMonitorForProcess:pid];
     return YES;
 }
@@ -105,36 +102,24 @@
     
     resultCount = 0;
     
-    if (results) {
-        IntArrayDealloc(results);
-        results = nil;
-    }
-    
-    if (value == 0) {
-        results = IntArrayCreate(10000);
-    } else if (value  < 10) {
-        results = IntArrayCreate(1000);
-    } else {
-        results = IntArrayCreate(100);
-    }
-    
     mach_timebase_info_data_t timebase_info;
     if (mach_timebase_info(&timebase_info) != KERN_SUCCESS) return nil;
     uint64_t begin = mach_absolute_time();
     
     void(^findBlock)(vm_address_t, vm_prot_t) = ^(vm_address_t realAddress, vm_prot_t protection) {
         if (resultCount < kMaxCount) {
-            IntArrayAddValue(results, realAddress);
+            results[resultCount] = realAddress;
             resultCount++;
         }
     };
     
-    if (value !=0 && value <= UINT16_MAX) {
+    
+    if (value <= UINT16_MAX) {
         uint16_t v = (uint16_t)value;
         [self searchFirst:&v
                 valueSize:sizeof(v)
                 findBlock:findBlock];
-    } else if (value !=0  && value <= UINT32_MAX) {
+    } else if (value <= UINT32_MAX) {
         uint32_t v = (uint32_t)value;
         [self searchFirst:&v
                 valueSize:sizeof(v)
@@ -155,7 +140,7 @@
     if (resultCount <= MaxCount) {
         NSMutableArray *ret = [NSMutableArray array];
         for (int i = 0; i < resultCount; i++) {
-            [ret addObject:@(IntArrayValueAtIndex(results, i))];
+            [ret addObject:@(results[i])];
         }
         return ret;
     } else {
@@ -171,11 +156,11 @@
     __block int newResultCount = 0;
     
     void(^findBlock)(vm_address_t, const void *,  size_t) = ^(vm_address_t address, const void *buffer,  size_t bufferSize) {
-        IntArraySetValueAtIndex(results, newResultCount, address);
+        results[newResultCount] = address;
         newResultCount++;
     };
     
-    if (value !=0 && value <= UINT16_MAX) {
+    if (value <= UINT16_MAX) {
         uint16_t v = (uint16_t)value;
         [self searchAgain:&v
                 valueSize:sizeof(v)
@@ -201,14 +186,12 @@
     NSLog(@"newResultCount:%d", newResultCount);
     NSLog(@"resultCount:%d", resultCount);
     
-    IntArraySubstractSize(results, newResultCount);
-    
     resultCount = newResultCount;
     
     if (resultCount <= MaxCount) {
         NSMutableArray *ret = [NSMutableArray array];
         for (int i = 0; i < resultCount; i++) {
-            [ret addObject:@(IntArrayValueAtIndex(results, i))];
+            [ret addObject:@(results[i])];
         }
         return ret;
     } else {
@@ -232,7 +215,7 @@
     
     uint64_t value = 0;
     uint64_t lastValue = self.lastValue;
-    if (lastValue !=0 && lastValue <= UINT16_MAX) {
+    if (lastValue <= UINT16_MAX) {
         size = sizeof((uint16_t)lastValue);
         mach_msg_type_number_t bufferSize = size;
         void *buffer = malloc(bufferSize);
@@ -306,7 +289,7 @@
     uint64_t value = [accessObject value];
     
     size_t valueSize;
-    if (value != 0 && value <= UINT16_MAX) {
+    if (value <= UINT16_MAX) {
         valueSize = sizeof(uint16_t);
     } else if (value <= UINT32_MAX) {
         valueSize = sizeof(uint32_t);
@@ -356,10 +339,10 @@
         return NO;
     }
     
-//    /* Flush CPU data cache to save write to RAM */
-//    sys_dcache_flush(address, valueSize);
-//    /* Invalidate instruction cache to make the CPU read patched instructions from RAM */
-//    sys_icache_invalidate(address, valueSize);
+    //    /* Flush CPU data cache to save write to RAM */
+    //    sys_dcache_flush(address, valueSize);
+    //    /* Invalidate instruction cache to make the CPU read patched instructions from RAM */
+    //    sys_icache_invalidate(address, valueSize);
     
     if (optType == GMOptTypeEditAndSave || optType == GMOptTypeEditAndLock) {
         [[GMStorageManager shareInstance] addObject:accessObject];
@@ -376,10 +359,6 @@
 }
 
 - (BOOL)reset {
-    if (results) {
-        IntArrayDealloc(results);
-        results = nil;
-    }
     resultCount = 0;
     return YES;
 }
@@ -442,31 +421,63 @@
         if (baseAddress == 0) {
             baseAddress = address;
             endAddress = baseAddress + virtualSize;
+            endAddress = MIN(endAddress, 0x10000000);
         }
         if (address >= endAddress) {
             break;
         }
         vm_prot_t protection = info.protection;
         if ((protection &VM_PROT_READ)&& (protection &VM_PROT_WRITE)) {
-            mach_msg_type_number_t bufferSize = size;
-            void *buffer = malloc(bufferSize);
-            if ((kret = vm_read_overwrite(self.task, (mach_vm_address_t)address, size, buffer, &bufferSize)) == KERN_SUCCESS) {
-                void *pos = memmem(buffer, bufferSize, value, valueSize);
-                while (pos) {
-                    vm_address_t realAddress = pos - buffer + address;
-                    if (findBlock) {
-                        findBlock(realAddress, protection);
+            
+            vm_size_t pageCount = size/vm_page_size;
+            
+            for (int i = 0; i < pageCount; i += 1000) {
+                mach_msg_type_number_t bufferSize = MIN(1000, pageCount - i)*vm_page_size;
+                vm_address_t pageAddress = address + i*vm_page_size;
+                
+                void *buffer = malloc(bufferSize);
+                if ((kret = vm_read_overwrite(self.task, (mach_vm_address_t)pageAddress, bufferSize, buffer, &bufferSize)) == KERN_SUCCESS) {
+                    
+                    void *pos = memmem(buffer, bufferSize, value, valueSize);
+                    while (pos) {
+                        vm_address_t realAddress = pos - buffer + pageAddress;
+                        if (findBlock) {
+                            findBlock(realAddress, protection);
+                        }
+                        pos = memmem(pos + 1, (void*)(bufferSize + buffer) - pos - 1, value, valueSize);
                     }
-                    pos = memmem(pos + 1, (void*)(bufferSize + buffer) - pos - 1, value, valueSize);
+                } else {
+                    //                NSLog(@"mac_vm_read fails, address:%x, error %d:%s", address, kret, mach_error_string(kret));
                 }
-            } else {
-                //                NSLog(@"mac_vm_read fails, address:%x, error %d:%s", address, kret, mach_error_string(kret));
+                if (buffer != nil)
+                {
+                    free(buffer);
+                    buffer = nil;
+                }
+                
             }
-            if (buffer != nil)
-            {
-                free(buffer);
-                buffer = nil;
-            }
+            
+            
+//            void *buffer = malloc(bufferSize);
+//            if ((kret = vm_read_overwrite(self.task, (mach_vm_address_t)address, size, buffer, &bufferSize)) == KERN_SUCCESS) {
+//                
+//                
+////                void *pos = memmem(buffer, bufferSize, value, valueSize);
+////                while (pos) {
+////                    vm_address_t realAddress = pos - buffer + address;
+////                    if (findBlock) {
+////                        findBlock(realAddress, protection);
+////                    }
+////                    pos = memmem(pos + valueSize, (void*)(bufferSize + buffer) - pos - valueSize, value, valueSize);
+////                }
+//            } else {
+//                //                NSLog(@"mac_vm_read fails, address:%x, error %d:%s", address, kret, mach_error_string(kret));
+//            }
+//            if (buffer != nil)
+//            {
+//                free(buffer);
+//                buffer = nil;
+//            }
         }
 		address += size;
 	}
@@ -502,7 +513,7 @@
         
         vm_prot_t protection = info.protection;
         if ((protection &VM_PROT_READ)&& (protection &VM_PROT_WRITE)) {
-            currentAddress = IntArrayValueAtIndex(results, i);
+            currentAddress = results[i];
             
             while (currentAddress < address) {
                 NSLog(@"%d, ignore address. %X not exist.", i, currentAddress);
@@ -511,7 +522,7 @@
                 if (i >= resultCt) {
                     return;
                 }
-                currentAddress = IntArrayValueAtIndex(results, i);
+                currentAddress = results[i];
             }
             
             if (address <= currentAddress && currentAddress < address + size) {
@@ -529,7 +540,7 @@
                         if (i >= resultCt) {
                             return;
                         }
-                        currentAddress = IntArrayValueAtIndex(results, i);
+                        currentAddress = results[i];
                     }
                 } else {
                     //                NSLog(@"mac_vm_read fails, address:%x, error %d:%s", address, kret, mach_error_string(kret));
