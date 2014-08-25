@@ -9,7 +9,6 @@
 #import "GMStorageManager.h"
 #import <libkern/OSAtomic.h>
 #import "GMLockThread.h"
-#import "ALApplicationList.h"
 
 #define GMApplicationDidBecomeActiveNamePrefix @"__GM_ApplicationDidBecomeActiveNotification__"
 #define GMApplicationWillResignActiveNamePrefix @"__GM_ApplicationWillResignActiveNotification__"
@@ -147,11 +146,9 @@ static void applicationWillResignActiveNotification(CFNotificationCenterRef cent
 }
 
 - (NSString *)getIdentifierWithPid:(int)pid {
-	ALApplicationList *appList = [ALApplicationList sharedApplicationList];
-	NSDictionary *applications = [appList applicationsFilteredUsingPredicate:[NSPredicate predicateWithFormat:@"pid = %d", pid]];
-    NSArray *displayIdentifiers = applications.allKeys;
-    if (displayIdentifiers.count) {
-        return [displayIdentifiers firstObject];
+    NSDictionary *appInfo = [AppUtil appInfoForProcessID:pid];
+    if (appInfo) {
+        return [appInfo objectForKey:@"appID"]
     }
     return nil;
 }
