@@ -22,7 +22,7 @@
 #import "TKTextFieldAlertView.h"
 #import "GMSettingViewController.h"
 #import "MobClick.h"
-#import "ALApplicationList.h"
+#import "AppUtil.h"
 
 #define CellMAXCount 99
 #define TKKeyboardTypeMain (120)
@@ -449,18 +449,12 @@
 #pragma mark - Private 
 
 - (NSDictionary *)updateWithPid:(int)pid {
-#if !TARGET_IPHONE_SIMULATOR
-
-	ALApplicationList *appList = [ALApplicationList sharedApplicationList];
-	NSDictionary *applications = [appList applicationsFilteredUsingPredicate:[NSPredicate predicateWithFormat:@"pid = %d", pid]];
-    NSArray *displayIdentifiers = applications.allKeys;
-    if (displayIdentifiers.count) {
-        NSString *displayIdentifier = [displayIdentifiers firstObject];
-        NSString *appName = [applications objectForKey:displayIdentifier];
-        UIImage *appIcon = [appList iconOfSize:ALApplicationIconSizeSmall forDisplayIdentifier:displayIdentifier];
+    NSDictionary *appInfo = [AppUtil appInfoForProcessID:pid];
+    if (appInfo) {
+        NSString *appName = [appInfo objectForKey:@"appName"];
+        UIImage *appIcon = [appInfo objectForKey:@"appIcon"];
         [self updateWithPid:pid appName:appName appIcon:appIcon];
     }
-#endif
     return nil;
 }
 

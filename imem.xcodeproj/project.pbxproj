@@ -45,8 +45,6 @@
 		A86FD1431975680000765F99 /* GMMemManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A86FD1411975680000765F99 /* GMMemManager.h */; };
 		A86FD1441975680000765F99 /* GMMemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A86FD1421975680000765F99 /* GMMemManager.m */; };
 		A86FD14519756D8200765F99 /* librocketbootstrap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */; };
-		A86FD14B1975838900765F99 /* GMApplicationTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A86FD14A1975838900765F99 /* GMApplicationTableDataSource.m */; };
-		A86FD14D1975839400765F99 /* GMApplicationTableDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A86FD14C1975839400765F99 /* GMApplicationTableDataSource.h */; };
 		A86FD14F1975858500765F99 /* libapplist.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A86FD14E1975858500765F99 /* libapplist.dylib */; };
 		A86FD1521976BD9200765F99 /* GMMemManagerProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A86FD1511976BD9200765F99 /* GMMemManagerProxy.m */; };
 		A874478C19849CEC00A9544D /* GMLockThread.h in Headers */ = {isa = PBXBuildFile; fileRef = A874478A19849CEC00A9544D /* GMLockThread.h */; };
@@ -86,7 +84,6 @@
 		A8E0408519A2469C001B58AE /* UITAssistiveTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408419A2469C001B58AE /* UITAssistiveTouch.m */; };
 		A8E0408819A246BC001B58AE /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408719A246BC001B58AE /* UIImage+Color.m */; };
 		A8E0408B19A246D8001B58AE /* UIColor+tk.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408A19A246D8001B58AE /* UIColor+tk.m */; };
-		A8E0408D19A24ACE001B58AE /* SpringBoardServices.h in Headers */ = {isa = PBXBuildFile; fileRef = A8E0408C19A24ACE001B58AE /* SpringBoardServices.h */; };
 		A8E0408F19A24FCB001B58AE /* SpringBoardServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8E0408E19A24FCB001B58AE /* SpringBoardServices.framework */; };
 		A8E3AB9A1983C0C800B6E4E6 /* GMSelectAppButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E3AB991983C0C800B6E4E6 /* GMSelectAppButton.m */; };
 		A8E3AB9D1983E5E400B6E4E6 /* UIColor+iOS7Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E3AB9C1983E5E400B6E4E6 /* UIColor+iOS7Colors.m */; };
@@ -107,6 +104,7 @@
 		ABB564FF19A1B1F600CA0EC0 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB564FE19A1B1F600CA0EC0 /* UIImage+Additions.m */; };
 		ABB5659C19A2177200CA0EC0 /* GMOverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5659B19A2177200CA0EC0 /* GMOverlayWindow.m */; };
 		ABB5659F19A21B0800CA0EC0 /* GMRootOverLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5659E19A21B0800CA0EC0 /* GMRootOverLayerViewController.m */; };
+		ABB565C019A2F10A00CA0EC0 /* AppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB565BF19A2F10A00CA0EC0 /* AppUtil.m */; };
 		ABE39F93197FCBB0002E7678 /* darwin_memory_usage.c in Sources */ = {isa = PBXBuildFile; fileRef = ABE39F92197FCBB0002E7678 /* darwin_memory_usage.c */; };
 		ABE39FD7197FCCAE002E7678 /* shared_region.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE39FD6197FCCAE002E7678 /* shared_region.h */; };
 		ABFF4BE81966A579000C7128 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF4BE71966A579000C7128 /* Foundation.framework */; };
@@ -209,8 +207,6 @@
 		A86BC8871986863D000A417A /* GMAssociateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMAssociateViewController.m; sourceTree = "<group>"; };
 		A86FD1411975680000765F99 /* GMMemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMemManager.h; sourceTree = "<group>"; };
 		A86FD1421975680000765F99 /* GMMemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMemManager.m; sourceTree = "<group>"; };
-		A86FD14A1975838900765F99 /* GMApplicationTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMApplicationTableDataSource.m; sourceTree = "<group>"; };
-		A86FD14C1975839400765F99 /* GMApplicationTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMApplicationTableDataSource.h; sourceTree = "<group>"; };
 		A86FD14E1975858500765F99 /* libapplist.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libapplist.dylib; path = ../../../../opt/iOSOpenDev/lib/libapplist.dylib; sourceTree = "<group>"; };
 		A86FD1501976BD9200765F99 /* GMMemManagerProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMemManagerProxy.h; sourceTree = "<group>"; };
 		A86FD1511976BD9200765F99 /* GMMemManagerProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMemManagerProxy.m; sourceTree = "<group>"; };
@@ -276,7 +272,6 @@
 		A8E0408719A246BC001B58AE /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		A8E0408919A246D8001B58AE /* UIColor+tk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+tk.h"; sourceTree = "<group>"; };
 		A8E0408A19A246D8001B58AE /* UIColor+tk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+tk.m"; sourceTree = "<group>"; };
-		A8E0408C19A24ACE001B58AE /* SpringBoardServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpringBoardServices.h; sourceTree = "<group>"; };
 		A8E0408E19A24FCB001B58AE /* SpringBoardServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpringBoardServices.framework; path = lib/SpringBoardServices.framework; sourceTree = "<group>"; };
 		A8E3AB981983C0C800B6E4E6 /* GMSelectAppButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMSelectAppButton.h; sourceTree = "<group>"; };
 		A8E3AB991983C0C800B6E4E6 /* GMSelectAppButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMSelectAppButton.m; sourceTree = "<group>"; };
@@ -314,6 +309,8 @@
 		ABB5659B19A2177200CA0EC0 /* GMOverlayWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMOverlayWindow.m; sourceTree = "<group>"; };
 		ABB5659D19A21B0800CA0EC0 /* GMRootOverLayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMRootOverLayerViewController.h; sourceTree = "<group>"; };
 		ABB5659E19A21B0800CA0EC0 /* GMRootOverLayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMRootOverLayerViewController.m; sourceTree = "<group>"; };
+		ABB565BE19A2F10A00CA0EC0 /* AppUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppUtil.h; sourceTree = "<group>"; };
+		ABB565BF19A2F10A00CA0EC0 /* AppUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppUtil.m; sourceTree = "<group>"; };
 		ABE39F92197FCBB0002E7678 /* darwin_memory_usage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = darwin_memory_usage.c; sourceTree = "<group>"; };
 		ABE39F94197FCBBA002E7678 /* darwin_memory_usage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = darwin_memory_usage.h; sourceTree = "<group>"; };
 		ABE39FD6197FCCAE002E7678 /* shared_region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shared_region.h; sourceTree = "<group>"; };
@@ -630,6 +627,8 @@
 				A879A12D199E3E7C00A79D85 /* DynamicArray.h */,
 				A879A130199E3E8900A79D85 /* IntArray.h */,
 				A879A12F199E3E8900A79D85 /* IntArray.c */,
+				ABB565BE19A2F10A00CA0EC0 /* AppUtil.h */,
+				ABB565BF19A2F10A00CA0EC0 /* AppUtil.m */,
 				A8BDC4211987DA2F00592935 /* LightMessaging.h */,
 				A8DAE417199615FC00B2010A /* LightMessaging.m */,
 			);
@@ -738,8 +737,6 @@
 				A82B4424197BBD260098A6D4 /* GMKeyboard.m */,
 				A82B4429197BD4A60098A6D4 /* GMGridLinesTexturedView.h */,
 				A82B442A197BD4A60098A6D4 /* GMGridLinesTexturedView.m */,
-				A86FD14C1975839400765F99 /* GMApplicationTableDataSource.h */,
-				A86FD14A1975838900765F99 /* GMApplicationTableDataSource.m */,
 				A8E3AB981983C0C800B6E4E6 /* GMSelectAppButton.h */,
 				A8E3AB991983C0C800B6E4E6 /* GMSelectAppButton.m */,
 				A8DAE3E51996130800B2010A /* GMSettingViewController.h */,
@@ -806,7 +803,6 @@
 				AB603382198A21CF000DA8AA /* Home */,
 				A8A7416D1968105C00131416 /* GMSelectAppViewController.h */,
 				A8A7416E1968105C00131416 /* GMSelectAppViewController.m */,
-				A8E0408C19A24ACE001B58AE /* SpringBoardServices.h */,
 				A810E65F197ABA6800757554 /* GMModifyViewController.h */,
 				A810E660197ABA6800757554 /* GMModifyViewController.m */,
 				A8D9058D197BF4CE001F22FF /* GMStorageViewController.h */,
@@ -842,7 +838,6 @@
 			files = (
 				A879A12E199E3E7C00A79D85 /* DynamicArray.h in Headers */,
 				ABE39FD7197FCCAE002E7678 /* shared_region.h in Headers */,
-				A8E0408D19A24ACE001B58AE /* SpringBoardServices.h in Headers */,
 				A874478C19849CEC00A9544D /* GMLockThread.h in Headers */,
 				A80D3E7619855DE100F5CF2A /* GMMemoryAccessObject.h in Headers */,
 				A8BDC4221987DA2F00592935 /* LightMessaging.h in Headers */,
@@ -851,7 +846,6 @@
 				AB967DE0199B14870086395F /* GMPersistentStoreController.h in Headers */,
 				A87447941984B08F00A9544D /* GMStorageManager.h in Headers */,
 				A879A132199E3E8900A79D85 /* IntArray.h in Headers */,
-				A86FD14D1975839400765F99 /* GMApplicationTableDataSource.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1126,6 +1120,7 @@
 				A81CD69619950C8C00B02034 /* NSInvocation+.m in Sources */,
 				A8ED690B198E805A000DDD3F /* TKKeyButton.m in Sources */,
 				A8DAE4121996132E00B2010A /* IASKPSTextFieldSpecifierViewCell.m in Sources */,
+				ABB565C019A2F10A00CA0EC0 /* AppUtil.m in Sources */,
 				A8DAE40C1996132E00B2010A /* IASKSettingsReader.m in Sources */,
 				A8ED6907198E805A000DDD3F /* TKGridLinesTexturedView.m in Sources */,
 				A8E3AB9D1983E5E400B6E4E6 /* UIColor+iOS7Colors.m in Sources */,
@@ -1135,7 +1130,6 @@
 				A81CD69A19950C8C00B02034 /* TKAlertOverlayWindow.m in Sources */,
 				A8DAE40E1996132E00B2010A /* IASKSettingsStoreFile.m in Sources */,
 				A81CD69D19950C8C00B02034 /* UIImageExtend.m in Sources */,
-				A86FD14B1975838900765F99 /* GMApplicationTableDataSource.m in Sources */,
 				A8E0408219A24689001B58AE /* NSTimer+Addition.m in Sources */,
 				A8DAE418199615FC00B2010A /* LightMessaging.m in Sources */,
 				A8E3AB9A1983C0C800B6E4E6 /* GMSelectAppButton.m in Sources */,

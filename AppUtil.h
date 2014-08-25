@@ -1,0 +1,20 @@
+//
+//  AppUtil.h
+//  imem
+//
+//  Created by LuoBin on 14-8-19.
+//
+//
+
+#import <Foundation/Foundation.h>
+
+@interface AppUtil : NSObject
+
++ (NSDictionary *)appInfoForProcessID:(pid_t)pid;
+
++ (NSArray*) getApps:(BOOL)onlyActive;
+
++ (BOOL)launchAppWithIdentifier:(NSString *)identifier;
++ (BOOL)launchAppWithIdentifier:(NSString *)identifier launchOptions:(NSDictionary *)launchOptions suspended:(BOOL)suspended error:(NSError **)error;
+
+@end
