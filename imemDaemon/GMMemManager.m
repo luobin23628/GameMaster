@@ -10,6 +10,7 @@
 #import <libkern/OSCacheControl.h>
 #import <LightMessaging.h>
 #import "GMStorageManager.h"
+#import "AppUtil.h"
 
 #define MaxCount 100
 
@@ -393,7 +394,7 @@
 - (NSString *)getIdentifierWithPid:(int)pid {
     NSDictionary *appInfo = [AppUtil appInfoForProcessID:pid];
     if (appInfo) {
-        return [appInfo objectForKey:@"appID"]
+        return [appInfo objectForKey:@"appID"];
     }
     return nil;
 }
@@ -445,24 +446,32 @@
         }
         vm_prot_t protection = info.protection;
         if ((protection &VM_PROT_READ)&& (protection &VM_PROT_WRITE)) {
-            mach_msg_type_number_t bufferSize = size;
-            void *buffer = malloc(bufferSize);
-            if ((kret = vm_read_overwrite(self.task, (mach_vm_address_t)address, size, buffer, &bufferSize)) == KERN_SUCCESS) {
-                void *pos = memmem(buffer, bufferSize, value, valueSize);
-                while (pos) {
-                    vm_address_t realAddress = pos - buffer + address;
-                    if (findBlock) {
-                        findBlock(realAddress, protection);
+            vm_size_t pageCount = size/vm_page_size;
+            
+            for (int i = 0; i < pageCount; i += 250) {
+                mach_msg_type_number_t bufferSize = MIN(250, pageCount - i)*vm_page_size;
+                vm_address_t pageAddress = address + i*vm_page_size;
+                
+                void *buffer = malloc(bufferSize);
+                if ((kret = vm_read_overwrite(self.task, (mach_vm_address_t)pageAddress, bufferSize, buffer, &bufferSize)) == KERN_SUCCESS) {
+                    
+                    void *pos = memmem(buffer, bufferSize, value, valueSize);
+                    while (pos) {
+                        vm_address_t realAddress = pos - buffer + pageAddress;
+                        if (findBlock) {
+                            findBlock(realAddress, protection);
+                        }
+                        pos = memmem(pos + 1, (void*)(bufferSize + buffer) - pos - 1, value, valueSize);
                     }
-                    pos = memmem(pos + 1, (void*)(bufferSize + buffer) - pos - 1, value, valueSize);
+                } else {
+                    //                NSLog(@"mac_vm_read fails, address:%x, error %d:%s", address, kret, mach_error_string(kret));
                 }
-            } else {
-                //                NSLog(@"mac_vm_read fails, address:%x, error %d:%s", address, kret, mach_error_string(kret));
-            }
-            if (buffer != nil)
-            {
-                free(buffer);
-                buffer = nil;
+                if (buffer != nil)
+                {
+                    free(buffer);
+                    buffer = nil;
+                }
+                
             }
         }
 		address += size;
@@ -477,7 +486,6 @@
     kern_return_t kret;
     vm_size_t virtualSize = [self virtualSize];
     
-    // Output all searched results
     int i = 0;
     vm_address_t currentAddress = 0;
 	vm_address_t address = 0;

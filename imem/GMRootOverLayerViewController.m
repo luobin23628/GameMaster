@@ -15,14 +15,11 @@
 static __attribute__((constructor)) void _logosLocalCtor_3d22e302() {
 	@autoreleasepool {
         if ([[NSBundle mainBundle].bundleIdentifier isEqualToString:@"com.ea.fifa14.bv"]
-            || [[NSBundle mainBundle].bundleIdentifier hasPrefix:@"com.luobin"]) {
+            || [[NSBundle mainBundle].bundleIdentifier hasPrefix:@"com.apple.mobilemail"]) {
             [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidFinishLaunchingNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
                 GMRootOverLayerViewController *rootOverLayerViewController = [[GMRootOverLayerViewController alloc] init];
                 GMOverlayWindow *window = [GMOverlayWindow defaultWindow];
-//                [window addSubview:rootOverLayerViewController.view];
                 window.rootViewController = rootOverLayerViewController;
-//                [rootOverLayerViewController release];
-//                [window setAutorotates:YES];
                 window.userInteractionEnabled = YES;
                 window.hidden = NO;
             }];
@@ -45,6 +42,10 @@ static __attribute__((constructor)) void _logosLocalCtor_3d22e302() {
     return UIInterfaceOrientationMaskPortrait;
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return NO;
+}
+
 @end
 
 
@@ -63,8 +64,12 @@ static __attribute__((constructor)) void _logosLocalCtor_3d22e302() {
     return self;
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return NO;
+}
+
 - (BOOL)shouldAutorotate {
-    return YES;
+    return NO;
 }
 
 //- (NSUInteger)supportedInterfaceOrientations {

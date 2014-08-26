@@ -21,12 +21,7 @@
 #import "TKKeyboard.h"
 #import "TKTextFieldAlertView.h"
 #import "GMSettingViewController.h"
-<<<<<<< HEAD
-#import "ALApplicationList.h"
-=======
-#import "MobClick.h"
 #import "AppUtil.h"
->>>>>>> 3b9b68370522635a6406782fd1b7745c4e455572
 
 #define CellMAXCount 99
 #define TKKeyboardTypeMain (120)
@@ -233,12 +228,9 @@
     UIEdgeInsets edgeInsets = UIEdgeInsetsMake(44, 0, TKKeyboardHeight, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset = edgeInsets;
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [textField becomeFirstResponder];
-        BOOL b = [searchBar becomeFirstResponder];
-        NSLog(@"");
-    });
-    
+    [textField becomeFirstResponder];
+    [searchBar becomeFirstResponder];
+
 //    [self addSearchDisplayController];
     
     [[NSNotificationCenter defaultCenter] addObserver:self

@@ -7,14 +7,11 @@
 //
 
 #import "GMSelectAppViewController.h"
-<<<<<<< HEAD
 #import <AppList/AppList.h>
 #import <sys/sysctl.h>
 #import <dlfcn.h>
 #include <mach-o/dyld.h>
-=======
 #import "AppUtil.h"
->>>>>>> 3b9b68370522635a6406782fd1b7745c4e455572
 
 @interface GMSelectAppViewController ()
 
@@ -91,13 +88,8 @@
         NSDictionary *appInfo = [self.activeApps objectAtIndex:indexPath.row];
         NSString *appName = [appInfo objectForKey:@"appName"];
         UIImage *appIcon = [appInfo objectForKey:@"appIcon"];
-<<<<<<< HEAD
-        pid_t pid = [[appInfo objectForKey:@"ProcessID"] integerValue];
+        pid_t pid = [[appInfo objectForKey:@"processID"] integerValue];
         self.didSelectProcessBlock(appIcon, appName, pid);
-=======
-        int processID = [[appInfo objectForKey:@"processID"] integerValue];
-        self.didSelectProcessBlock(appIcon, appName, processID);
->>>>>>> 3b9b68370522635a6406782fd1b7745c4e455572
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
