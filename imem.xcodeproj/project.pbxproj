@@ -41,6 +41,9 @@
 		A836539D1997DAC200147B72 /* testTweak.m in Sources */ = {isa = PBXBuildFile; fileRef = A836539C1997DAC200147B72 /* testTweak.m */; };
 		A83653A5199655EF00322899 /* LightMessaging.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE417199615FC00B2010A /* LightMessaging.m */; };
 		A839D2D7196C2B2400E8E9F4 /* entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = A839D2D6196C2B2400E8E9F4 /* entitlements.plist */; };
+		A848CA8319AE3CB7009CBC9F /* GPLoadingView.h in Headers */ = {isa = PBXBuildFile; fileRef = A848CA8119AE3CB7009CBC9F /* GPLoadingView.h */; };
+		A848CA8419AE3CB7009CBC9F /* GPLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A848CA8219AE3CB7009CBC9F /* GPLoadingView.m */; };
+		A848CA8519AE3CB7009CBC9F /* GPLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A848CA8219AE3CB7009CBC9F /* GPLoadingView.m */; };
 		A859EB5A19A8CBA60007983D /* GMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A7416819680E6400131416 /* GMMainViewController.m */; };
 		A859EB5B19A8CBAB0007983D /* SearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB92CFB419866DA700695460 /* SearchDisplayController.m */; };
 		A859EB5C19A8CBAD0007983D /* GMAssociateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A86BC8871986863D000A417A /* GMAssociateViewController.m */; };
@@ -256,6 +259,8 @@
 		A839D2DC196C3A9D00E8E9F4 /* libMatch.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMatch.1.dylib; path = usr/lib/libMatch.1.dylib; sourceTree = SDKROOT; };
 		A839D2DE196C3AA900E8E9F4 /* libmacho.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmacho.dylib; path = usr/lib/system/libmacho.dylib; sourceTree = SDKROOT; };
 		A83F762E1976E7BC00C7EAE5 /* entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = entitlements.plist; sourceTree = "<group>"; };
+		A848CA8119AE3CB7009CBC9F /* GPLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPLoadingView.h; sourceTree = "<group>"; };
+		A848CA8219AE3CB7009CBC9F /* GPLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPLoadingView.m; sourceTree = "<group>"; };
 		A8577E1419719AEC00A277D4 /* com.luobin.imemDaemon.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = com.luobin.imemDaemon.plist; sourceTree = "<group>"; };
 		A86BC8861986863D000A417A /* GMAssociateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMAssociateViewController.h; sourceTree = "<group>"; };
 		A86BC8871986863D000A417A /* GMAssociateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMAssociateViewController.m; sourceTree = "<group>"; };
@@ -652,6 +657,8 @@
 				A810E663197AC43B00757554 /* TextFieldTableViewCell.m */,
 				A810E668197AD97F00757554 /* PickerInputTableViewCell.h */,
 				A810E669197AD97F00757554 /* PickerInputTableViewCell.m */,
+				A848CA8119AE3CB7009CBC9F /* GPLoadingView.h */,
+				A848CA8219AE3CB7009CBC9F /* GPLoadingView.m */,
 				A8E3AB9B1983E5E400B6E4E6 /* UIColor+iOS7Colors.h */,
 				A8E3AB9C1983E5E400B6E4E6 /* UIColor+iOS7Colors.m */,
 				A8E0408919A246D8001B58AE /* UIColor+tk.h */,
@@ -894,6 +901,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A848CA8319AE3CB7009CBC9F /* GPLoadingView.h in Headers */,
 				A8E8A7E219A8D32E002A5CFF /* LightMessaging.h in Headers */,
 				A859EB6819A8CC450007983D /* GMMemoryAccessObject.h in Headers */,
 			);
@@ -1171,6 +1179,7 @@
 				A8E8A80819A8D704002A5CFF /* UIColor+iOS7Colors.m in Sources */,
 				A8E8A7E919A8D6AB002A5CFF /* IASKSettingsStoreFile.m in Sources */,
 				A8E8A80019A8D6EC002A5CFF /* TKGridLinesTexturedView.m in Sources */,
+				A848CA8519AE3CB7009CBC9F /* GPLoadingView.m in Sources */,
 				A8E8A7E519A8D6A0002A5CFF /* IASKAppSettingsWebViewController.m in Sources */,
 				A8E8A7EC19A8D6B3002A5CFF /* IASKPSSliderSpecifierViewCell.m in Sources */,
 				A8E8A7FA19A8D6D9002A5CFF /* TKOverlayWindow.m in Sources */,
@@ -1233,6 +1242,7 @@
 				A8E0408B19A246D8001B58AE /* UIColor+tk.m in Sources */,
 				A81CD69A19950C8C00B02034 /* TKAlertOverlayWindow.m in Sources */,
 				A8DAE40E1996132E00B2010A /* IASKSettingsStoreFile.m in Sources */,
+				A848CA8419AE3CB7009CBC9F /* GPLoadingView.m in Sources */,
 				A81CD69D19950C8C00B02034 /* UIImageExtend.m in Sources */,
 				A8E0408219A24689001B58AE /* NSTimer+Addition.m in Sources */,
 				A8DAE418199615FC00B2010A /* LightMessaging.m in Sources */,
