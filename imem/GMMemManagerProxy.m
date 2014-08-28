@@ -7,6 +7,7 @@
 //
 
 #import "GMMemManagerProxy.h"
+#import "LightMessaging.h"
 
 @interface GMMemManagerProxy()
 

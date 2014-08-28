@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GMMemoryAccessObject.h"
 
 @interface GMModifyViewController : UITableViewController
 

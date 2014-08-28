@@ -6,6 +6,8 @@
 //  Copyright (c) 2014年 SOHU. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+
 @protocol TableViewController
 
 @property (nonatomic, retain) UITableView *tableView;

@@ -4,4 +4,32 @@
 
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+    #import "Global.h"
+    #import "GMMemoryAccessObject.h"
+    #import "TKAlertView.h"
+
+static inline void TKAlert(NSString *message) {
+    TKAlertView *alertView = [[TKAlertView alloc] initWithTitle:nil message:message];
+    [alertView addButtonWithTitle:@"确定" block:nil];
+    [alertView show];
+#if !__has_feature(objc_arc)
+    [alertView release];
+#endif
+}
+
+static inline void TKAlert2(NSString *format, ...) {
+    va_list args;
+    va_start(args, format);
+    NSString *message = [[NSString alloc] initWithFormat:format arguments:args];
+    va_end(args);
+    TKAlertView *alertView = [[TKAlertView alloc] initWithTitle:nil message:message];
+    [alertView addButtonWithTitle:@"确定" block:nil];
+    [alertView show];
+#if !__has_feature(objc_arc)
+    [message release];
+    [alertView release];
+#endif
+}
+
 #endif

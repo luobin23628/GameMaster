@@ -11,6 +11,7 @@
 #import "SimplePickerInputTableViewCell.h"
 #import "GMMemManagerProxy.h"
 #import "TKKeyboard.h"
+#import "GMMemoryAccessObject.h"
 
 @interface GMModifyViewController ()<UITextFieldDelegate, SimplePickerInputTableViewCellDelegate>
 

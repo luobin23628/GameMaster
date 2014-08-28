@@ -21,14 +21,14 @@
 #import "TKKeyboard.h"
 #import "TKTextFieldAlertView.h"
 #import "GMSettingViewController.h"
-#import "MobClick.h"
 #import "AppUtil.h"
+#import "GPLoadingView.h"
 
 #define CellMAXCount 99
 #define TKKeyboardTypeMain (120)
 #define TKKeyboardHeight 180
 
-@interface GMMainViewController ()<UISearchBarDelegate, GMKeyboardDelegate, UITableViewDelegate, UITableViewDataSource, TKTextFieldAlertViewDelegate>
+@interface GMMainViewController ()<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, TKTextFieldAlertViewDelegate>
 
 @property (nonatomic, retain) UITableView *tableView;
 
@@ -36,6 +36,7 @@
 @property (nonatomic, retain) NSArray *results;
 @property (nonatomic, assign) UInt64 resultCount;
 @property (nonatomic, assign) BOOL isFirst;
+@property (nonatomic, assign) BOOL isSearching;
 @property (nonatomic, retain) UISearchBar *searchBar;
 @property (nonatomic, retain) NSTimer *timer;
 @property (nonatomic, assign) dispatch_source_t source;
@@ -159,17 +160,9 @@
     if (self) {
         // Custom initialization
         self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(setting)] autorelease];
-        
-        GMSelectAppButton * selectAppButton = [[GMSelectAppButton alloc] init];
-        selectAppButton.title = @"选择";
-        selectAppButton.titleLabel.textColor = [UI7Color defaultTintColor];
-        ;
-        selectAppButton.titleLabel.font = [UIFont systemFontOfSize:17];
-        [selectAppButton addTarget:self action:@selector(gotoSelectProcess) forControlEvents:UIControlEventTouchUpInside];
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:selectAppButton] autorelease];
-        [selectAppButton release];
-        
         [self initKeyboard];
+        self.isSearching = NO;
+        self.shouldSelectProcess = YES;
     }
     return self;
 }
@@ -188,6 +181,12 @@
     [super viewWillAppear:animated];
     [self.tableView reloadData];
     [self startTimer];
+    [self.searchBar becomeFirstResponder];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.searchBar becomeFirstResponder];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -232,18 +231,41 @@
     UIEdgeInsets edgeInsets = UIEdgeInsetsMake(44, 0, TKKeyboardHeight, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset = edgeInsets;
     
+    [textField becomeFirstResponder];
     [searchBar becomeFirstResponder];
+
 //    [self addSearchDisplayController];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(appDidBecomeActiveNotification:)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
-    
-    int pid = [[GMMemManagerProxy shareInstance] getPid];
-    if (pid > 0) {
-        self.pid = pid;
-        [self updateWithPid:pid];
+    if (self.shouldSelectProcess) {
+        GMSelectAppButton * selectAppButton = [[GMSelectAppButton alloc] init];
+        selectAppButton.title = @"选择";
+        selectAppButton.titleLabel.textColor = [UIColor colorWith8bitRed:0 green:126 blue:245 alpha:255];
+        ;
+        selectAppButton.titleLabel.font = [UIFont systemFontOfSize:17];
+        [selectAppButton addTarget:self action:@selector(gotoSelectProcess) forControlEvents:UIControlEventTouchUpInside];
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:selectAppButton] autorelease];
+        [selectAppButton release];
+        
+        int pid = [[GMMemManagerProxy shareInstance] getPid];
+        if (pid > 0) {
+            self.pid = pid;
+            [self updateWithPid:pid];
+        }
+        
+    } else {
+        pid_t pid = getpid();
+        BOOL ok = [[GMMemManagerProxy shareInstance] setPid:pid];
+        if (ok) {
+            self.pid = pid;
+            [self startMonitorForProcess:self.pid];
+            [[GMMemManagerProxy shareInstance] reset];
+            self.results = nil;
+            self.isFirst = YES;
+        }
     }
 }
 
@@ -368,7 +390,8 @@
         
     } else {
         int value = [searchBar.text intValue];
-        
+        self.isSearching = YES;
+        [self.tableView reloadData];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
             NSArray *results = nil;
             UInt64 resultCount;
@@ -378,10 +401,12 @@
                     self.resultCount = resultCount;
                     self.results = results;
                     self.isFirst = NO;
-                    [self.tableView reloadData];
+                    self.isSearching = NO;
                 } else {
+                    self.isSearching = NO;
                     TKAlert(@"程序已退出，请重新选择！");
                 }
+                [self.tableView reloadData];
             });
         });
     }
@@ -395,7 +420,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return self.results&&self.results.count==0?1:0;
+        if (self.isSearching) {
+            return 1;
+        } else {
+            return self.results&&self.results.count==0?1:0;
+        }
     } else {
         return [self.results count];
     }
@@ -409,8 +438,20 @@
     }
     // Configure the cell...
     if (indexPath.section == 0) {
+        [cell.contentView removeAllSubviews];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.textLabel.text = [NSString stringWithFormat:@"共搜索到%llu个结果", self.resultCount];
+        if (self.isSearching) {
+            cell.textLabel.text = nil;
+            UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(20, 0, 20, 44)];
+            loading.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+            [loading startAnimating];
+            [cell.contentView addSubview:loading];
+            [loading release];
+            cell.textLabel.text = @"       搜索中";
+            cell.textLabel.font = [UIFont systemFontOfSize:16];
+        } else {
+            cell.textLabel.text = [NSString stringWithFormat:@"共搜索到%llu个结果", self.resultCount];
+        }
     } else {
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
         NSNumber *addressObj = [self.results objectAtIndex:indexPath.row];
@@ -462,7 +503,7 @@
 - (void)updateWithPid:(int)pid appName:(NSString *)appName appIcon:(UIImage *)appIcon{
     GMSelectAppButton * selectAppButton = (GMSelectAppButton *)[self.navigationItem.rightBarButtonItem customView];
     selectAppButton.titleLabel.font = [UIFont systemFontOfSize:14];
-    selectAppButton.titleLabel.textColor = [UI7Color defaultTintColor];
+    selectAppButton.titleLabel.textColor = [UIColor colorWith8bitRed:0 green:126 blue:245 alpha:255];
     selectAppButton.image = appIcon;
     selectAppButton.title = appName;
     
@@ -504,7 +545,7 @@
 }
 
 - (void)reloadData {
-    if (self.pid && self.results) {
+    if (self.pid && self.results && !self.isSearching) {
         [self.tableView reloadData];
     }
 }
@@ -546,7 +587,7 @@
     GMSelectAppButton * selectAppButton = (GMSelectAppButton *)[self.navigationItem.rightBarButtonItem customView];
     selectAppButton.image = nil;
     selectAppButton.title = @"选择";
-    selectAppButton.titleLabel.textColor = [UI7Color defaultTintColor];
+    selectAppButton.titleLabel.textColor = [UIColor colorWith8bitRed:0 green:126 blue:245 alpha:255];
     selectAppButton.titleLabel.font = [UIFont systemFontOfSize:17];
 }
 

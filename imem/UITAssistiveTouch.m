@@ -152,10 +152,6 @@ typedef enum _RectZone {
 
 #pragma mark - orientation
 
-- (void)applicationWillChangeStatusBarOrientation {
-    
-}
-
 /**
  *  rotation DJAssistiveTouchButton when app status bar oriention did changed.
  */
@@ -220,7 +216,18 @@ typedef enum _RectZone {
 		_didShown = NO;
 	}
     
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGestureRecognizer:)];
+    [self addGestureRecognizer:panGestureRecognizer];
+    [panGestureRecognizer release];
 	return self;
+}
+
+- (void)handlePanGestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer {
+    CGPoint translation = [panGestureRecognizer translationInView:self.window];
+    translation = CGPointApplyAffineTransform(translation, [self rotateTransformForOrientation]);
+    CGPoint center = CGPointMake(self.centerX + translation.x, self.centerY + translation.y);
+    self.center = center;
+    [panGestureRecognizer setTranslation:CGPointZero inView:self.window];
 }
 
 - (void)flexCenterWhenDidChangeStatusBarOrientation {
@@ -281,51 +288,65 @@ typedef enum _RectZone {
 	_selfBeginCenter = self.center;
 }
 
+- (CGAffineTransform) rotateTransformForOrientation{
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    if (orientation == UIInterfaceOrientationLandscapeLeft) {
+        return CGAffineTransformMakeRotation(M_PI/2);
+    } else if (orientation == UIInterfaceOrientationLandscapeRight) {
+        return CGAffineTransformMakeRotation(M_PI*1.5);
+    } else if (orientation == UIInterfaceOrientationPortraitUpsideDown) {
+        return CGAffineTransformMakeRotation(-M_PI);
+    } else {
+        return CGAffineTransformIdentity;
+    }
+}
+
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
 	[super touchesMoved:touches withEvent:event];
     
-	if (_animating) {
-		return;
-	}
-    
-	_moving = YES;
-    
-	UITapGestureRecognizer *ges = [self.gestureRecognizers lastObject];
-	ges.enabled = NO;
-	UITouch *touch = [touches anyObject];
-	CGPoint point = [touch locationInView:self.window];
-	self.center = CGPointMake(_selfBeginCenter.x + (point.x - _beginPoint.x),
-	                          _selfBeginCenter.y + (point.y - _beginPoint.y));
-    
-	UITouch *previousTouch = [touches anyObject];
-	CGPoint previousPoint = [previousTouch previousLocationInView:self.window];
-    
-	_direction = kRectZoneNone;
-    
-	NSInteger velocity = [self velocityByPoint:point andPoint:previousPoint];
-	NSInteger maxVelocity = UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad ? 15 : 45;
-    
-	if (ABS(velocity) > maxVelocity) {
-		int velocityX = point.x - previousPoint.x;
-		int velocityY = point.y - previousPoint.y;
-        
-		if (abs(velocityY) > abs(velocityX)) {
-			if (velocityY > 0) {
-				_direction = velocityX > 0 ? kRectZoneButtomRight : kRectZoneButtomLeft;
-			}
-			else {
-				_direction = velocityX > 0 ? kRectZoneTopRight : kRectZoneTopLeft;
-			}
-		}
-		else {
-			if (velocityX > 0) {
-				_direction = velocityY > 0 ? kRectZoneButtomRight : kRectZoneTopRight;
-			}
-			else {
-				_direction = velocityY > 0 ? kRectZoneButtomLeft : kRectZoneTopLeft;
-			}
-		}
-	}
+//	if (_animating) {
+//		return;
+//	}
+//    
+//	_moving = YES;
+//    
+//	UITapGestureRecognizer *ges = [self.gestureRecognizers lastObject];
+//	ges.enabled = NO;
+//	UITouch *touch = [touches anyObject];
+//	CGPoint point = [touch locationInView:self.window];
+//    point = CGPointApplyAffineTransform(point, [self rotateTransformForOrientation]);
+//	self.center = CGPointMake(_selfBeginCenter.x + (point.x - _beginPoint.x),
+//	                          _selfBeginCenter.y + (point.y - _beginPoint.y));
+//    
+//	UITouch *previousTouch = [touches anyObject];
+//	CGPoint previousPoint = [previousTouch previousLocationInView:self.window];
+//    
+//	_direction = kRectZoneNone;
+//    
+//	NSInteger velocity = [self velocityByPoint:point andPoint:previousPoint];
+//	NSInteger maxVelocity = UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad ? 15 : 45;
+//    
+//	if (ABS(velocity) > maxVelocity) {
+//		int velocityX = point.x - previousPoint.x;
+//		int velocityY = point.y - previousPoint.y;
+//        
+//		if (abs(velocityY) > abs(velocityX)) {
+//			if (velocityY > 0) {
+//				_direction = velocityX > 0 ? kRectZoneButtomRight : kRectZoneButtomLeft;
+//			}
+//			else {
+//				_direction = velocityX > 0 ? kRectZoneTopRight : kRectZoneTopLeft;
+//			}
+//		}
+//		else {
+//			if (velocityX > 0) {
+//				_direction = velocityY > 0 ? kRectZoneButtomRight : kRectZoneTopRight;
+//			}
+//			else {
+//				_direction = velocityY > 0 ? kRectZoneButtomLeft : kRectZoneTopLeft;
+//			}
+//		}
+//	}
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -335,16 +356,6 @@ typedef enum _RectZone {
     
 	if (_moving) {
 		_moving = NO;
-        
-		UITapGestureRecognizer *ges = [self.gestureRecognizers lastObject];
-		ges.enabled = YES;
-		UITouch *touch = [touches anyObject];
-		CGPoint point = [touch locationInView:self.window];
-
-		[UIView animateWithDuration:0.3
-		                 animations: ^{
-                             self.center = point;
-                         }];
 	}
 }
 
@@ -355,15 +366,6 @@ typedef enum _RectZone {
     
 	if (_moving) {
 		_moving = NO;
-        
-		UITapGestureRecognizer *ges = [self.gestureRecognizers lastObject];
-		ges.enabled = YES;
-        
-		UITouch *touch = [touches anyObject];
-		CGPoint point = [touch locationInView:self.window];
-        
-		self.center = CGPointMake(self.center.x + (point.x - _beginPoint.x),
-		                          self.center.y + (point.y - _beginPoint.y));
 	}
 }
 

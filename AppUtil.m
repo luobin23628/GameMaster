@@ -10,12 +10,28 @@
 #import <sys/sysctl.h>
 #import <dlfcn.h>
 #include <mach-o/dyld.h>
-#import <UIKitExtension/UIKitExtension.h>
+#import <UIKit/UIKit.h>
+
+@interface UIImage (___Private)
+
+@end
+
+@implementation UIImage (UIGraphics)
+
+- (UIImage *)__imageByResizingToSize__:(CGSize)size {
+    UIGraphicsBeginImageContextWithOptions(size, NO, .0);
+    [self drawInRect:CGRectMake(.0, .0, size.width, size.height)];
+    UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return result;
+}
+
+@end
 
 @implementation AppUtil
 
 + (void *)lookupSymbol:(NSString *)symbol {
-    unsigned pathSize = MAXPATHLEN;
+    unsigned pathSize = MAXPATHLEN + 1;
     char path[pathSize];
     _NSGetExecutablePath(path, &pathSize);
     path[pathSize] = '\0';
@@ -38,7 +54,7 @@
 }
 
 + (NSDictionary *)appInfoForDisplayIdentifier:(NSString *)displayIdentifier {
-    unsigned pathSize = MAXPATHLEN;
+    unsigned pathSize = MAXPATHLEN + 1;
     char path[pathSize];
     _NSGetExecutablePath(path, &pathSize);
     path[pathSize] = '\0';
@@ -67,7 +83,7 @@
     }
     CFDataRef appIconData = SBSCopyIconImagePNGDataForDisplayIdentifier((CFStringRef)displayIdentifier);
     UIImage *appIcon = [UIImage imageWithData:(NSData *)appIconData scale:[UIScreen mainScreen].scale];
-    appIcon = [appIcon imageByResizingToSize:CGSizeMake(29, 29)];
+    appIcon = [appIcon __imageByResizingToSize__:CGSizeMake(29, 29)];
     
     NSString *frontmostApp = (NSString *)SBSCopyFrontmostApplicationDisplayIdentifier();
     BOOL isFrontmost = [frontmostApp isEqualToString:displayIdentifier];
@@ -102,7 +118,7 @@
 }
 
 + (BOOL)launchAppWithIdentifier:(NSString *)identifier launchOptions:(NSDictionary *)launchOptions suspended:(BOOL)suspended error:(NSError **)error {
-    unsigned pathSize = MAXPATHLEN;
+    unsigned pathSize = MAXPATHLEN + 1;
     char path[pathSize];
     _NSGetExecutablePath(path, &pathSize);
     path[pathSize] = '\0';

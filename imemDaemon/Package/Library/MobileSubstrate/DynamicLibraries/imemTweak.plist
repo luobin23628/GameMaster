@@ -6,7 +6,8 @@
 	<dict>
 		<key>Bundles</key>
 		<array>
-			<string>com.apple.UIKit</string>
+			<string>com.ea.fifa14.bv</string>
+			<string>com.apple.mobilemail</string>
 		</array>
 	</dict>
 </dict>
