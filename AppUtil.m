@@ -16,7 +16,7 @@
 
 @end
 
-@implementation UIImage (UIGraphics)
+@implementation UIImage (___Private)
 
 - (UIImage *)__imageByResizingToSize__:(CGSize)size {
     UIGraphicsBeginImageContextWithOptions(size, NO, .0);
@@ -67,7 +67,7 @@
     
     BOOL (*SBSProcessIDForDisplayIdentifier)(CFStringRef identifier, pid_t *pid) = dlsym(sbserv, "SBSProcessIDForDisplayIdentifier");
     
-    CFStringRef (*SBSCopyIconImagePathForDisplayIdentifier)(CFStringRef displayIdentifier) = dlsym(sbserv, "SBSCopyIconImagePathForDisplayIdentifier");
+    CFStringRef (*SBSCopyBundlePathForDisplayIdentifier)(CFStringRef displayIdentifier) = dlsym(sbserv, "SBSCopyBundlePathForDisplayIdentifier");
 
     
     CFStringRef (*SBSCopyFrontmostApplicationDisplayIdentifier)() =
@@ -88,7 +88,10 @@
     UIImage *appIcon = [UIImage imageWithData:(NSData *)appIconData scale:[UIScreen mainScreen].scale];
     appIcon = [appIcon __imageByResizingToSize__:CGSizeMake(29, 29)];
     
-    NSString *imagePath = (NSString *)SBSCopyIconImagePathForDisplayIdentifier((CFStringRef)displayIdentifier);
+    NSString *bundlePath = (NSString *)SBSCopyBundlePathForDisplayIdentifier((CFStringRef)displayIdentifier);
+    
+    bundlePath = [bundlePath stringByDeletingLastPathComponent];
+    BOOL isSystem = [bundlePath hasSuffix:@"/Applications"];
     
     NSString *frontmostApp = (NSString *)SBSCopyFrontmostApplicationDisplayIdentifier();
     BOOL isFrontmost = [frontmostApp isEqualToString:displayIdentifier];
@@ -99,8 +102,23 @@
     [dic setObject:appName forKey:@"appName"];
     [dic setObject:appIcon forKey:@"appIcon"];
     [dic setObject:@(isFrontmost) forKey:@"isFrontmost"];
-    
+    [dic setObject:@(isSystem) forKey:@"isSystem"];
+
     return dic;
+}
+
++ (NSArray*) getAppIdentifiers:(BOOL)onlyActive {
+    CFArrayRef (*SBSCopyApplicationDisplayIdentifiers)(Boolean onlyActive, Boolean unknown) = [self lookupSymbol:@"SBSCopyApplicationDisplayIdentifiers"];
+    
+    NSArray *activeDisplayIdentifiers = (NSArray *)SBSCopyApplicationDisplayIdentifiers(onlyActive, NO);
+    
+    NSMutableArray *appInfos = [NSMutableArray array];
+    for (NSString *displayIdentifiers in activeDisplayIdentifiers) {
+        if (![displayIdentifiers hasPrefix:@"com.apple."]) {
+            [appInfos addObject:displayIdentifiers];
+        }
+    }
+    return appInfos;
 }
 
 + (NSArray*) getApps:(BOOL)onlyActive {
@@ -110,9 +128,11 @@
     
     NSMutableArray *appInfos = [NSMutableArray array];
     for (NSString *displayIdentifiers in activeDisplayIdentifiers) {
-        NSDictionary *appInfo = [self appInfoForDisplayIdentifier:displayIdentifiers];
-        if (appInfo) {
-            [appInfos addObject:appInfo];
+        if (![displayIdentifiers hasPrefix:@"com.apple."]) {
+            NSDictionary *appInfo = [self appInfoForDisplayIdentifier:displayIdentifiers];
+            if (appInfo && ![[appInfo objectForKey:@"isSystem"] boolValue]) {
+                [appInfos addObject:appInfo];
+            }
         }
     }
     return appInfos;

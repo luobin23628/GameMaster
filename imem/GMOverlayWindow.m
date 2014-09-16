@@ -14,15 +14,24 @@
 
 @end
 
+static GMOverlayWindow *backgroundWindow = nil;
+
 @implementation GMOverlayWindow
 
 + (GMOverlayWindow *)defaultWindow {
-    static GMOverlayWindow *backgroundWindow = nil;
     if (backgroundWindow == nil) {
         CGRect bound = [UIScreen mainScreen].bounds;
         backgroundWindow = [[self alloc] initWithFrame:bound];
     }
     return backgroundWindow;
+}
+
++ (void)cleanUp {
+    if (backgroundWindow) {
+        backgroundWindow.hidden = YES;
+        [backgroundWindow release];
+        backgroundWindow = nil;
+    }
 }
 
 - (id)initWithFrame:(CGRect)frame {

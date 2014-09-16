@@ -11,11 +11,12 @@
 #import "UIImage+Color.h"
 #import "GMMainViewController.h"
 #import "GMOverlayWindow.h"
+#import "GMMemManagerProxy.h"
 
 static __attribute__((constructor)) void _logosLocalCtor_3d22e302() {
 	@autoreleasepool {
-        if ([[NSBundle mainBundle].bundleIdentifier isEqualToString:@"com.ea.fifa14.bv"]
-            || [[NSBundle mainBundle].bundleIdentifier hasPrefix:@"com.apple.mobilemail"]) {
+        NSString *bundleIdentifier = [NSBundle mainBundle].bundleIdentifier;
+        if ([[[GMMemManagerProxy shareInstance] getAppIdentifiers] containsObject:bundleIdentifier]) {
             [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidFinishLaunchingNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
                 GMRootOverLayerViewController *rootOverLayerViewController = [[GMRootOverLayerViewController alloc] init];
                 GMOverlayWindow *window = [GMOverlayWindow defaultWindow];
@@ -24,6 +25,18 @@ static __attribute__((constructor)) void _logosLocalCtor_3d22e302() {
                 window.hidden = NO;
             }];
         }
+        [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidBecomeActiveNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+            if ([[[GMMemManagerProxy shareInstance] getAppIdentifiers] containsObject:bundleIdentifier]) {
+                GMRootOverLayerViewController *rootOverLayerViewController = [[GMRootOverLayerViewController alloc] init];
+                GMOverlayWindow *window = [GMOverlayWindow defaultWindow];
+                window.rootViewController = rootOverLayerViewController;
+                window.userInteractionEnabled = YES;
+                window.hidden = NO;
+                
+            } else {
+                [GMOverlayWindow cleanUp];
+            }
+        }];
     }
 }
 

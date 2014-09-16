@@ -12,7 +12,11 @@
 
 + (NSDictionary *)appInfoForProcessID:(pid_t)pid;
 
++ (NSDictionary *)appInfoForDisplayIdentifier:(NSString *)displayIdentifier;
+
 + (NSArray*) getApps:(BOOL)onlyActive;
+
++ (NSArray*) getAppIdentifiers:(BOOL)onlyActive;
 
 + (BOOL)launchAppWithIdentifier:(NSString *)identifier;
 + (BOOL)launchAppWithIdentifier:(NSString *)identifier launchOptions:(NSDictionary *)launchOptions suspended:(BOOL)suspended error:(NSError **)error;

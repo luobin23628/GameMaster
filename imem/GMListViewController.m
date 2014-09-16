@@ -58,7 +58,14 @@
 - (void)reloadData {
     dispatch_async(dispatch_get_main_queue(), ^{
         self.allApps = [AppUtil getApps:NO];
-        self.switchOnAppIdentifiers = [NSMutableArray arrayWithArray:[[GMMemManagerProxy shareInstance] getAppIdentifiers]];
+        self.switchOnAppIdentifiers = [NSMutableArray array];
+        NSArray *appIdentifiers = [[GMMemManagerProxy shareInstance] getAppIdentifiers];
+        for (NSString *appIdentifier in appIdentifiers) {
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"appID = %@", appIdentifier];
+            if ([[self.allApps filteredArrayUsingPredicate:predicate] count] > 0) {
+                [self.switchOnAppIdentifiers addObject:appIdentifier];
+            }
+        }
         [self.tableView reloadData];
     });
 }
@@ -66,7 +73,7 @@
 - (void)onSwitchChange:(UISwitch *)onSwitch {
     UITableViewCell *cell = (UITableViewCell *)[onSwitch ancestorOrSelfWithClass:UITableViewCell.class];
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    NSString *appIdentifier = [[self.allApps objectAtIndex:indexPath.row] objectForKey:@"appId"];
+    NSString *appIdentifier = [[self.allApps objectAtIndex:indexPath.row] objectForKey:@"appID"];
     if (onSwitch.on) {
         BOOL ok = [[GMMemManagerProxy shareInstance] addAppIdentifier:appIdentifier];
         if (ok) {
@@ -107,8 +114,9 @@
     NSDictionary *appInfo = [self.allApps objectAtIndex:indexPath.row];
     cell.textLabel.text = [appInfo objectForKey:@"appName"];
     cell.imageView.image = [appInfo objectForKey:@"appIcon"];
+    NSString *appIdentifier = [appInfo objectForKey:@"appID"];
     UISwitch *onSwitch = (UISwitch *)cell.accessoryView;
-    onSwitch.on = NO;
+    onSwitch.on = [self.switchOnAppIdentifiers containsObject:appIdentifier];
     return cell;
 }
 

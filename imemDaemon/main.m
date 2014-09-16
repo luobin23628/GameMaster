@@ -116,6 +116,7 @@ static void processMessage(SInt32 messageId, mach_port_t replyPort, CFDataRef da
                 NSString *appIdentifier = [[[NSString alloc ] initWithData:(NSData *)dataRef encoding:NSUTF8StringEncoding] autorelease];
                 if (appIdentifier) {
                     [GMAppSwitchUtils addAppIdentifier:appIdentifier];
+                    ok = YES;
                 }
             }
             LMSendIntegerReply(replyPort, ok);
@@ -127,6 +128,7 @@ static void processMessage(SInt32 messageId, mach_port_t replyPort, CFDataRef da
                 NSString *appIdentifier = [[[NSString alloc ] initWithData:(NSData *)dataRef encoding:NSUTF8StringEncoding] autorelease];
                 if (appIdentifier) {
                     [GMAppSwitchUtils removeAppIdentifier:appIdentifier];
+                    ok = YES;
                 }
             }
             LMSendIntegerReply(replyPort, ok);

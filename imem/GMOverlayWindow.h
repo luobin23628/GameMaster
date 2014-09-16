@@ -13,4 +13,6 @@
 
 + (GMOverlayWindow *)defaultWindow;
 
++ (void)cleanUp;
+
 @end

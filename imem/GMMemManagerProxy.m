@@ -189,8 +189,11 @@
 #if TARGET_IPHONE_SIMULATOR
     return NO;
 #else
+    
     LMResponseBuffer responseBuffer;
-    kern_return_t ret = LMConnectionSendTwoWay(&connection, GMMessageIdAddAppIdentifier, NULL, 0, &responseBuffer);
+    
+    NSData *data = [identifier dataUsingEncoding:NSUTF8StringEncoding];
+    kern_return_t ret = LMConnectionSendTwoWayData(&connection, GMMessageIdAddAppIdentifier, (CFDataRef)data, &responseBuffer);
     if (ret == KERN_SUCCESS) {
         BOOL ok = LMResponseConsumeInteger(&responseBuffer);
         return ok;
@@ -205,7 +208,8 @@
     return NO;
 #else
     LMResponseBuffer responseBuffer;
-    kern_return_t ret = LMConnectionSendTwoWay(&connection, GMMessageIdRemoveAppIdentifier, NULL, 0, &responseBuffer);
+    NSData *data = [identifier dataUsingEncoding:NSUTF8StringEncoding];
+    kern_return_t ret = LMConnectionSendTwoWayData(&connection, GMMessageIdRemoveAppIdentifier, (CFDataRef)data, &responseBuffer);
     if (ret == KERN_SUCCESS) {
         BOOL ok = LMResponseConsumeInteger(&responseBuffer);
         return ok;
