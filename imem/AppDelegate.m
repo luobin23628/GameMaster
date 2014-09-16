@@ -12,6 +12,7 @@
 #import "MobClick.h"
 #import "GMRootOverLayerViewController.h"
 #import "GMOverlayWindow.h"
+#import "GMListViewController.h"
 
 #define UMENG_APPKEY @"53e5fee6fd98c5e65201cb7c"
 
@@ -51,11 +52,19 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
+    /*
     GMMainViewController *mainViewController = [[GMMainViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:mainViewController];
     self.window.rootViewController = nav;
     [nav release];
     [mainViewController release];
+     */
+    
+    GMListViewController *listViewController = [[GMListViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:listViewController];
+    self.window.rootViewController = nav;
+    [nav release];
+    [listViewController release];
     
     return YES;
 }

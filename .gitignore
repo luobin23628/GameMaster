@@ -99,6 +99,9 @@ LatestBuild/
 Packages/
 imemXpcService/Package/Applications/
 imemXpcService/Package/usr/bin/
+imemDaemon/Package/Applications
+imemDaemon/Package/Library/MobileSubstrate
+imemDaemon/Package/Library/usr
 
 ####
 # Xcode 4 - Deprecated classes
