@@ -16,7 +16,7 @@
 static __attribute__((constructor)) void _logosLocalCtor_3d22e302() {
 	@autoreleasepool {
         NSString *bundleIdentifier = [NSBundle mainBundle].bundleIdentifier;
-        if ([[[GMMemManagerProxy shareInstance] getAppIdentifiers] containsObject:bundleIdentifier]) {
+        if (![bundleIdentifier isEqualToString:@"com.apple.springboard"] &&  [[[GMMemManagerProxy shareInstance] getAppIdentifiers] containsObject:bundleIdentifier]) {
             [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidFinishLaunchingNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
                 GMRootOverLayerViewController *rootOverLayerViewController = [[GMRootOverLayerViewController alloc] init];
                 GMOverlayWindow *window = [GMOverlayWindow defaultWindow];
@@ -25,18 +25,20 @@ static __attribute__((constructor)) void _logosLocalCtor_3d22e302() {
                 window.hidden = NO;
             }];
         }
-        [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidBecomeActiveNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-            if ([[[GMMemManagerProxy shareInstance] getAppIdentifiers] containsObject:bundleIdentifier]) {
-                GMRootOverLayerViewController *rootOverLayerViewController = [[GMRootOverLayerViewController alloc] init];
-                GMOverlayWindow *window = [GMOverlayWindow defaultWindow];
-                window.rootViewController = rootOverLayerViewController;
-                window.userInteractionEnabled = YES;
-                window.hidden = NO;
-                
-            } else {
-                [GMOverlayWindow cleanUp];
-            }
-        }];
+        if (![bundleIdentifier isEqualToString:@"com.apple.springboard"]) {
+            [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidBecomeActiveNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+                if ([[[GMMemManagerProxy shareInstance] getAppIdentifiers] containsObject:bundleIdentifier]) {
+                    GMRootOverLayerViewController *rootOverLayerViewController = [[GMRootOverLayerViewController alloc] init];
+                    GMOverlayWindow *window = [GMOverlayWindow defaultWindow];
+                    window.rootViewController = rootOverLayerViewController;
+                    window.userInteractionEnabled = YES;
+                    window.hidden = NO;
+                    
+                } else {
+                    [GMOverlayWindow cleanUp];
+                }
+            }];
+        }
     }
 }
 
