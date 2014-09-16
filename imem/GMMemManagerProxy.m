@@ -184,6 +184,52 @@
 #endif
 }
 
+
+- (BOOL)addAppIdentifier:(NSString *)identifier {
+#if TARGET_IPHONE_SIMULATOR
+    return NO;
+#else
+    LMResponseBuffer responseBuffer;
+    kern_return_t ret = LMConnectionSendTwoWay(&connection, GMMessageIdAddAppIdentifier, NULL, 0, &responseBuffer);
+    if (ret == KERN_SUCCESS) {
+        BOOL ok = LMResponseConsumeInteger(&responseBuffer);
+        return ok;
+    } else {
+        return NO;
+    }
+#endif
+}
+
+- (BOOL)removeAppIdentifier:(NSString *)identifier {
+#if TARGET_IPHONE_SIMULATOR
+    return NO;
+#else
+    LMResponseBuffer responseBuffer;
+    kern_return_t ret = LMConnectionSendTwoWay(&connection, GMMessageIdRemoveAppIdentifier, NULL, 0, &responseBuffer);
+    if (ret == KERN_SUCCESS) {
+        BOOL ok = LMResponseConsumeInteger(&responseBuffer);
+        return ok;
+    } else {
+        return NO;
+    }
+#endif
+}
+
+- (NSArray *)getAppIdentifiers {
+#if TARGET_IPHONE_SIMULATOR
+    return nil;
+#else
+    LMResponseBuffer responseBuffer;
+    kern_return_t ret = LMConnectionSendTwoWay(&connection, GMMessageIdGetAppIdentifiers, NULL, 0, &responseBuffer);
+    if (ret == KERN_SUCCESS) {
+        return (NSArray *)LMResponseConsumePropertyList(&responseBuffer);
+    } else {
+        return nil;
+    }
+#endif
+}
+
+
 - (void)dealloc {
 
     [super dealloc];

@@ -12,6 +12,7 @@
 #include <Foundation/Foundation.h>
 #import "GMMemManager.h"
 #import "GMStorageManager.h"
+#import "GMAppSwitchUtils.h"
 
 static void processMessage(SInt32 messageId, mach_port_t replyPort, CFDataRef dataRef) {
     
@@ -109,6 +110,38 @@ static void processMessage(SInt32 messageId, mach_port_t replyPort, CFDataRef da
             LMSendIntegerReply(replyPort, ok);
             break;
         }
+        case GMMessageIdAddAppIdentifier: {
+            BOOL ok = NO;
+            if (dataRef) {
+                NSString *appIdentifier = [[[NSString alloc ] initWithData:(NSData *)dataRef encoding:NSUTF8StringEncoding] autorelease];
+                if (appIdentifier) {
+                    [GMAppSwitchUtils addAppIdentifier:appIdentifier];
+                }
+            }
+            LMSendIntegerReply(replyPort, ok);
+            break;
+        }
+        case GMMessageIdRemoveAppIdentifier: {
+            BOOL ok = NO;
+            if (dataRef) {
+                NSString *appIdentifier = [[[NSString alloc ] initWithData:(NSData *)dataRef encoding:NSUTF8StringEncoding] autorelease];
+                if (appIdentifier) {
+                    [GMAppSwitchUtils removeAppIdentifier:appIdentifier];
+                }
+            }
+            LMSendIntegerReply(replyPort, ok);
+            break;
+        }
+        case GMMessageIdGetAppIdentifiers: {
+            NSArray *appIdentifiers = [GMAppSwitchUtils getAppIdentifiers];
+            if (appIdentifiers) {
+                LMSendPropertyListReply(replyPort, appIdentifiers);
+            } else {
+                LMSendReply(replyPort, NULL, 0);
+            }
+            break;
+        }
+            
         default:
             LMSendReply(replyPort, NULL, 0);
             break;

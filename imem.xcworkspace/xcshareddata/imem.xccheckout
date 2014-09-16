@@ -10,34 +10,50 @@
 	<string>imem</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>1712FC0BC3C9AABD8B7B5376E310E93FBDB3BCFA</key>
+		<string>https://github.com/luobin23628/InAppSettingsKit.git</string>
+		<key>7EB15BE19E661F6A816110273894A84DDC95E4E1</key>
+		<string>https://github.com/luobin23628/GameMaster.git</string>
 		<key>86567358-A7F7-4EF7-A96D-B77732DAB2E7</key>
 		<string>https://github.com/luobin23628/GameMaster.git</string>
 		<key>887E20FE-DF26-425F-BCC6-7EB3AB62AA74</key>
 		<string>https://github.com/luobin23628/TKKeyBoard.git</string>
 		<key>B2982CAE-6675-42B3-9C58-01A0629D07E6</key>
 		<string>https://github.com/luobin23628/InAppSettingsKit.git</string>
+		<key>D25ACE5D5F669244A1C27E2046CAC59D89A1B6DA</key>
+		<string>https://github.com/luobin23628/TKKeyBoard.git</string>
 		<key>D506B1C6-9415-45F2-8432-8ED6511400B2</key>
+		<string>https://github.com/luobin23628/CustomActionSheetAndAlert.git</string>
+		<key>F634663F45F0D03AFBA94D5E9E9A6F1546406B5D</key>
 		<string>https://github.com/luobin23628/CustomActionSheetAndAlert.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>imem.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>86567358-A7F7-4EF7-A96D-B77732DAB2E7</key>
+		<key>1712FC0BC3C9AABD8B7B5376E310E93FBDB3BCFA</key>
+		<string>..submodules/InAppSettingsKit</string>
+		<key>7EB15BE19E661F6A816110273894A84DDC95E4E1</key>
 		<string>..</string>
+		<key>86567358-A7F7-4EF7-A96D-B77732DAB2E7</key>
+		<string>..2</string>
 		<key>887E20FE-DF26-425F-BCC6-7EB3AB62AA74</key>
-		<string>../submodules/TKKeyBoard</string>
+		<string>..2/submodules/TKKeyBoard</string>
 		<key>B2982CAE-6675-42B3-9C58-01A0629D07E6</key>
-		<string>../submodules/InAppSettingsKit</string>
+		<string>..2/submodules/InAppSettingsKit</string>
+		<key>D25ACE5D5F669244A1C27E2046CAC59D89A1B6DA</key>
+		<string>..submodules/TKKeyBoard</string>
 		<key>D506B1C6-9415-45F2-8432-8ED6511400B2</key>
-		<string>../submodules/CustomActionSheetAndAlert</string>
+		<string>..2/submodules/CustomActionSheetAndAlert</string>
+		<key>F634663F45F0D03AFBA94D5E9E9A6F1546406B5D</key>
+		<string>..submodules/CustomActionSheetAndAlert</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/luobin23628/GameMaster.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>86567358-A7F7-4EF7-A96D-B77732DAB2E7</string>
+	<string>7EB15BE19E661F6A816110273894A84DDC95E4E1</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -52,6 +68,22 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F634663F45F0D03AFBA94D5E9E9A6F1546406B5D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CustomActionSheetAndAlert</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7EB15BE19E661F6A816110273894A84DDC95E4E1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>GameMaster</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>86567358-A7F7-4EF7-A96D-B77732DAB2E7</string>
 			<key>IDESourceControlWCCName</key>
 			<string>GameMaster2</string>
@@ -60,9 +92,25 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1712FC0BC3C9AABD8B7B5376E310E93FBDB3BCFA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>InAppSettingsKit</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>B2982CAE-6675-42B3-9C58-01A0629D07E6</string>
 			<key>IDESourceControlWCCName</key>
 			<string>InAppSettingsKit</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D25ACE5D5F669244A1C27E2046CAC59D89A1B6DA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TKKeyBoard</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>

@@ -690,7 +690,7 @@
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		oGnsWdMEqvGEUddHaptGqqbY0q4=
+		KHfQ26R5Tufq3aSwYpB8f5JgVhQ=
 		</data>
 		<key>entitlements.plist</key>
 		<data>
@@ -1385,7 +1385,7 @@
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		oGnsWdMEqvGEUddHaptGqqbY0q4=
+		KHfQ26R5Tufq3aSwYpB8f5JgVhQ=
 		</data>
 		<key>entitlements.plist</key>
 		<data>
@@ -1396,14 +1396,14 @@
 	<dict>
 		<key>.*</key>
 		<true/>
-		<key>Info.plist</key>
+		<key>^Info.plist$</key>
 		<dict>
 			<key>omit</key>
 			<true/>
 			<key>weight</key>
 			<real>10</real>
 		</dict>
-		<key>ResourceRules.plist</key>
+		<key>^ResourceRules.plist$</key>
 		<dict>
 			<key>omit</key>
 			<true/>
@@ -1415,26 +1415,26 @@
 	<dict>
 		<key>.*</key>
 		<true/>
-		<key>Info.plist</key>
-		<dict>
-			<key>omit</key>
-			<true/>
-			<key>weight</key>
-			<real>10</real>
-		</dict>
-		<key>ResourceRules.plist</key>
-		<dict>
-			<key>omit</key>
-			<true/>
-			<key>weight</key>
-			<real>100</real>
-		</dict>
 		<key>^(Frameworks|SharedFrameworks|Plugins|Plug-ins|XPCServices|Helpers|MacOS)/</key>
 		<dict>
 			<key>nested</key>
 			<true/>
 			<key>weight</key>
 			<real>0.0</real>
+		</dict>
+		<key>^Info.plist$</key>
+		<dict>
+			<key>omit</key>
+			<true/>
+			<key>weight</key>
+			<real>10</real>
+		</dict>
+		<key>^ResourceRules.plist$</key>
+		<dict>
+			<key>omit</key>
+			<true/>
+			<key>weight</key>
+			<real>100</real>
 		</dict>
 		<key>^[^/]+$</key>
 		<dict>

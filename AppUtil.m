@@ -67,6 +67,9 @@
     
     BOOL (*SBSProcessIDForDisplayIdentifier)(CFStringRef identifier, pid_t *pid) = dlsym(sbserv, "SBSProcessIDForDisplayIdentifier");
     
+    CFStringRef (*SBSCopyIconImagePathForDisplayIdentifier)(CFStringRef displayIdentifier) = dlsym(sbserv, "SBSCopyIconImagePathForDisplayIdentifier");
+
+    
     CFStringRef (*SBSCopyFrontmostApplicationDisplayIdentifier)() =
     dlsym(sbserv, "SBSCopyFrontmostApplicationDisplayIdentifier");
     
@@ -84,6 +87,8 @@
     CFDataRef appIconData = SBSCopyIconImagePNGDataForDisplayIdentifier((CFStringRef)displayIdentifier);
     UIImage *appIcon = [UIImage imageWithData:(NSData *)appIconData scale:[UIScreen mainScreen].scale];
     appIcon = [appIcon __imageByResizingToSize__:CGSizeMake(29, 29)];
+    
+    NSString *imagePath = (NSString *)SBSCopyIconImagePathForDisplayIdentifier((CFStringRef)displayIdentifier);
     
     NSString *frontmostApp = (NSString *)SBSCopyFrontmostApplicationDisplayIdentifier();
     BOOL isFrontmost = [frontmostApp isEqualToString:displayIdentifier];

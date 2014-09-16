@@ -36,4 +36,12 @@
 
 - (BOOL)removeObjects:(NSArray *)accessObjects;
 
+
+
+- (BOOL)addAppIdentifier:(NSString *)identifier;
+
+- (BOOL)removeAppIdentifier:(NSString *)identifier;
+
+- (NSArray *)getAppIdentifiers;
+
 @end

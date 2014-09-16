@@ -103,7 +103,7 @@ static OSSpinLock spinLock;
 - (void)removeAppIdentifier:(NSString *)identifier {
     if (identifier) {
         OSSpinLockLock(&spinLock);
-        [self.appIdentifierList removeObjects:identifier];
+        [self.appIdentifierList removeObject:identifier];
         [self synchronize];
         OSSpinLockUnlock(&spinLock);
     }

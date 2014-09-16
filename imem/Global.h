@@ -29,4 +29,8 @@ static LMConnection connection = {
 #define GMMessageIdGetStoredList  9
 #define GMMessageIdRemoveLockedOrStoredObjects  10
 
+#define GMMessageIdAddAppIdentifier  20
+#define GMMessageIdRemoveAppIdentifier  20
+#define GMMessageIdGetAppIdentifiers  20
+
 #endif

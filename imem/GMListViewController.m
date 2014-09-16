@@ -8,11 +8,14 @@
 
 #import "GMListViewController.h"
 #import "AppUtil.h"
+#import "GMMemManagerProxy.h"
+#import "UIView+Sizes.h"
 
 @interface GMListViewController ()
 
 @property (nonatomic, retain) NSTimer *timer;
 @property (nonatomic, retain) NSArray *allApps;
+@property (nonatomic, retain) NSMutableArray *switchOnAppIdentifiers;
 
 @end
 
@@ -55,9 +58,33 @@
 - (void)reloadData {
     dispatch_async(dispatch_get_main_queue(), ^{
         self.allApps = [AppUtil getApps:NO];
+        self.switchOnAppIdentifiers = [NSMutableArray arrayWithArray:[[GMMemManagerProxy shareInstance] getAppIdentifiers]];
         [self.tableView reloadData];
     });
 }
+
+- (void)onSwitchChange:(UISwitch *)onSwitch {
+    UITableViewCell *cell = (UITableViewCell *)[onSwitch ancestorOrSelfWithClass:UITableViewCell.class];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    NSString *appIdentifier = [[self.allApps objectAtIndex:indexPath.row] objectForKey:@"appId"];
+    if (onSwitch.on) {
+        BOOL ok = [[GMMemManagerProxy shareInstance] addAppIdentifier:appIdentifier];
+        if (ok) {
+            [self.switchOnAppIdentifiers addObject:appIdentifier];
+        } else {
+            [onSwitch setOn:!onSwitch.on animated:YES];
+        }
+    } else {
+        BOOL ok = [[GMMemManagerProxy shareInstance] removeAppIdentifier:appIdentifier];
+        if (ok) {
+            [self.switchOnAppIdentifiers removeObject:appIdentifier];
+        } else {
+            [onSwitch setOn:!onSwitch.on animated:YES];
+        }
+    }
+}
+
+#pragma mark - UITableView Datasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.allApps count];
@@ -73,6 +100,7 @@
         cell.indentationWidth = 10.0f;
         
         UISwitch *onSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 0, 30)];
+        [onSwitch addTarget:self action:@selector(onSwitchChange:) forControlEvents:UIControlEventValueChanged];
         cell.accessoryView = onSwitch;
         [onSwitch release];
     }
