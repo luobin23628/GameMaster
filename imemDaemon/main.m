@@ -80,6 +80,11 @@ static void processMessage(SInt32 messageId, mach_port_t replyPort, CFDataRef da
             LMSendIntegerReply(replyPort, ok);
             break;
         }
+        case GMMessageIdClearSearchData: {
+            BOOL ok = [[GMMemManager shareInstance] clearSearchData];
+            LMSendIntegerReply(replyPort, ok);
+            break;
+        }
         case GMMessageIdGetLockedList: {
             NSArray *lockList = [[GMStorageManager shareInstance] getLockedObjects];
             if (lockList) {

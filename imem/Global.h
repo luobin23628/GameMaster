@@ -23,11 +23,12 @@ static LMConnection connection = {
 #define GMMessageIdSearch       3
 #define GMMessageIdGetMemoryAccessObject    4
 #define GMMessageIdModify       5
-#define GMMessageIdReset        6
-#define GMMessageIdCheckValid   7
-#define GMMessageIdGetLockedList  8
-#define GMMessageIdGetStoredList  9
-#define GMMessageIdRemoveLockedOrStoredObjects  10
+#define GMMessageIdClearSearchData 6
+#define GMMessageIdReset        7
+#define GMMessageIdCheckValid   8
+#define GMMessageIdGetLockedList  9
+#define GMMessageIdGetStoredList  10
+#define GMMessageIdRemoveLockedOrStoredObjects  11
 
 #define GMMessageIdAddAppIdentifier  20
 #define GMMessageIdRemoveAppIdentifier  21

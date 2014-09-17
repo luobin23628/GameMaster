@@ -28,6 +28,8 @@
 
 - (BOOL)reset;
 
+- (BOOL)clearSearchData;
+
 - (NSArray *)getLockedList;
 
 - (NSArray *)getStoredList;

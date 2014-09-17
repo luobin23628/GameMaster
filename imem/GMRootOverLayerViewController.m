@@ -23,6 +23,9 @@ static __attribute__((constructor)) void _logosLocalCtor_3d22e302() {
                 window.rootViewController = rootOverLayerViewController;
                 window.userInteractionEnabled = YES;
                 window.hidden = NO;
+                
+                pid_t pid = getpid();
+                [[GMMemManagerProxy shareInstance] setPid:pid];
             }];
         }
         if (![bundleIdentifier isEqualToString:@"com.apple.springboard"]) {
@@ -34,8 +37,16 @@ static __attribute__((constructor)) void _logosLocalCtor_3d22e302() {
                     window.userInteractionEnabled = YES;
                     window.hidden = NO;
                     
+                    pid_t pid = getpid();
+                    if (pid != [[GMMemManagerProxy shareInstance] getPid]) {
+                        [[GMMemManagerProxy shareInstance] setPid:pid];
+                    }
                 } else {
                     [GMOverlayWindow cleanUp];
+                    pid_t pid = getpid();
+                    if (pid == [[GMMemManagerProxy shareInstance] getPid]) {
+                        [[GMMemManagerProxy shareInstance] reset];
+                    }
                 }
             }];
         }

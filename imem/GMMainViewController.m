@@ -258,13 +258,15 @@
         
     } else {
         pid_t pid = getpid();
-        BOOL ok = [[GMMemManagerProxy shareInstance] setPid:pid];
-        if (ok) {
-            self.pid = pid;
-            [self startMonitorForProcess:self.pid];
+        if (pid != [[GMMemManagerProxy shareInstance] getPid]) {
             [[GMMemManagerProxy shareInstance] reset];
-            self.results = nil;
-            self.isFirst = YES;
+            BOOL ok = [[GMMemManagerProxy shareInstance] setPid:pid];
+            if (ok) {
+                self.pid = pid;
+                [self startMonitorForProcess:self.pid];
+                self.results = nil;
+                self.isFirst = YES;
+            }
         }
     }
 }
@@ -330,7 +332,7 @@
 
 #pragma mark - KeyBoard
 - (void)resetKeyDidPressed {
-    [[GMMemManagerProxy shareInstance] reset];
+    [[GMMemManagerProxy shareInstance] clearSearchData];
     self.results = nil;
     self.resultCount = 0;
     self.isFirst = YES;
@@ -508,7 +510,7 @@
     selectAppButton.title = appName;
     
     [self startMonitorForProcess:pid];
-    [[GMMemManagerProxy shareInstance] reset];
+    [[GMMemManagerProxy shareInstance] clearSearchData];
     
     self.pid = pid;
     self.results = nil;

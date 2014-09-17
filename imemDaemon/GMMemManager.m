@@ -376,6 +376,21 @@
 }
 
 - (BOOL)reset {
+    [[GMStorageManager shareInstance] setPid:0];
+    _pid = 0;
+    self.lastValue = 0;
+    self.task = NULL;
+    resultCount = 0;
+    if (results) {
+        IntArrayDealloc(results);
+        results = nil;
+    }
+    [self stopMonitor];
+    [self clearSearchData];
+    return YES;
+}
+
+- (BOOL)clearSearchData {
     if (results) {
         IntArrayDealloc(results);
         results = nil;

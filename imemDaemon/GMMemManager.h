@@ -35,6 +35,8 @@
 
 - (BOOL)reset;
 
+- (BOOL)clearSearchData;
+
 - (BOOL)isValid:(int)pid;
 
 - (BOOL)isValid;

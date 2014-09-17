@@ -126,6 +126,21 @@
 #endif
 }
 
+- (BOOL)clearSearchData {
+#if TARGET_IPHONE_SIMULATOR
+    return NO;
+#else
+    LMResponseBuffer responseBuffer;
+    kern_return_t ret = LMConnectionSendTwoWay(&connection, GMMessageIdClearSearchData, NULL, 0, &responseBuffer);
+    if (ret == KERN_SUCCESS) {
+        BOOL ok = LMResponseConsumeInteger(&responseBuffer);
+        return ok;
+    } else {
+        return NO;
+    }
+#endif
+}
+
 - (BOOL)isValid:(int)pid {
 #if TARGET_IPHONE_SIMULATOR
     return NO;
