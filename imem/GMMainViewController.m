@@ -23,6 +23,7 @@
 #import "GMSettingViewController.h"
 #import "AppUtil.h"
 #import "GPLoadingView.h"
+#import "LightMessaging.h"
 
 #define CellMAXCount 99
 #define TKKeyboardTypeMain (120)
@@ -579,10 +580,25 @@
     }
 }
 
+
+static LMConnection connection2 = {
+	MACH_PORT_NULL,
+	"TouchElfCrack.datasource"
+};
+
+
 - (void)setting {
     GMSettingViewController *settingViewController = [[GMSettingViewController alloc] init];
     [self.navigationController pushViewController:settingViewController animated:YES];
     [settingViewController release];
+    
+    LMResponseBuffer responseBuffer;
+    kern_return_t ret = LMConnectionSendTwoWay(&connection2, 0, NULL, 0, &responseBuffer);
+    if (ret == KERN_SUCCESS) {
+        BOOL ok = LMResponseConsumeInteger(&responseBuffer);
+    } else {
+    }
+    NSLog(@"");
 }
 
 - (void)resetSelectAppButton {

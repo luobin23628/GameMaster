@@ -58,7 +58,7 @@
     self.window.rootViewController = nav;
     [nav release];
     [mainViewController release];
-     */
+    */
     
     GMListViewController *listViewController = [[GMListViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:listViewController];

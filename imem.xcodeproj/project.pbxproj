@@ -34,6 +34,9 @@
 		A822C1AB19AB6DF300A51969 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A822C1AA19AB6DF300A51969 /* libPods.a */; };
 		A822C1AC19AB6E7E00A51969 /* AppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB565BF19A2F10A00CA0EC0 /* AppUtil.m */; };
 		A822C1AD19AB6E8D00A51969 /* AppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB565BF19A2F10A00CA0EC0 /* AppUtil.m */; };
+		A829756219C9C8460068B80D /* TKGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F5198E805A000DDD3F /* TKGridLayout.m */; };
+		A829756319C9C8490068B80D /* TKFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F3198E805A000DDD3F /* TKFlowLayout.m */; };
+		A829756419C9C8580068B80D /* TKFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F3198E805A000DDD3F /* TKFlowLayout.m */; };
 		A82B4428197BBE5C0098A6D4 /* UIView+Sizes.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B4427197BBE5C0098A6D4 /* UIView+Sizes.m */; };
 		A836537C1997D7F300147B72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF4BE71966A579000C7128 /* Foundation.framework */; };
 		A83653871997D7F300147B72 /* imemTweak.mm in Sources */ = {isa = PBXBuildFile; fileRef = A83653861997D7F300147B72 /* imemTweak.mm */; };
@@ -104,6 +107,9 @@
 		A8DAE41A19961A2B00B2010A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A8DAE41919961A2B00B2010A /* Settings.bundle */; };
 		A8DAE41C1996398800B2010A /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8DAE41B1996398800B2010A /* libMobClickLibrary.a */; };
 		A8DAE41E19963F9C00B2010A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8DAE41D19963F9C00B2010A /* libz.dylib */; };
+		A8DF31F019CEC51C005165F6 /* HIDManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A8DF31EE19CEC51C005165F6 /* HIDManager.h */; };
+		A8DF31F119CEC51C005165F6 /* HIDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DF31EF19CEC51C005165F6 /* HIDManager.m */; };
+		A8DF31F219CEC51C005165F6 /* HIDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DF31EF19CEC51C005165F6 /* HIDManager.m */; };
 		A8E0408219A24689001B58AE /* NSTimer+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408119A24689001B58AE /* NSTimer+Addition.m */; };
 		A8E0408819A246BC001B58AE /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408719A246BC001B58AE /* UIImage+Color.m */; };
 		A8E0408B19A246D8001B58AE /* UIColor+tk.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408A19A246D8001B58AE /* UIColor+tk.m */; };
@@ -138,8 +144,6 @@
 		A8E8A7FB19A8D6DB002A5CFF /* UIImageExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = A81CD68819950C8C00B02034 /* UIImageExtend.m */; };
 		A8E8A7FC19A8D6DD002A5CFF /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A81CD68A19950C8C00B02034 /* UIViewAdditions.m */; };
 		A8E8A7FD19A8D6E1002A5CFF /* NSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F1198E805A000DDD3F /* NSObject+Swizzle.m */; };
-		A8E8A7FE19A8D6E5002A5CFF /* TKFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F3198E805A000DDD3F /* TKFlowLayout.m */; };
-		A8E8A7FF19A8D6E9002A5CFF /* TKGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F5198E805A000DDD3F /* TKGridLayout.m */; };
 		A8E8A80019A8D6EC002A5CFF /* TKGridLinesTexturedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F7198E805A000DDD3F /* TKGridLinesTexturedView.m */; };
 		A8E8A80119A8D6EF002A5CFF /* TKKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F9198E805A000DDD3F /* TKKeyboard.m */; };
 		A8E8A80219A8D6F1002A5CFF /* TKKeyboardConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68FB198E805A000DDD3F /* TKKeyboardConfiguration.m */; };
@@ -159,7 +163,6 @@
 		A8E8A81019A8D723002A5CFF /* IntArray.c in Sources */ = {isa = PBXBuildFile; fileRef = A879A12F199E3E8900A79D85 /* IntArray.c */; };
 		A8E8A81319A8D826002A5CFF /* librocketbootstrap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */; };
 		A8ED6904198E805A000DDD3F /* NSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F1198E805A000DDD3F /* NSObject+Swizzle.m */; };
-		A8ED6905198E805A000DDD3F /* TKFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F3198E805A000DDD3F /* TKFlowLayout.m */; };
 		A8ED6906198E805A000DDD3F /* TKGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F5198E805A000DDD3F /* TKGridLayout.m */; };
 		A8ED6907198E805A000DDD3F /* TKGridLinesTexturedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F7198E805A000DDD3F /* TKGridLinesTexturedView.m */; };
 		A8ED6908198E805A000DDD3F /* TKKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F9198E805A000DDD3F /* TKKeyboard.m */; };
@@ -330,6 +333,8 @@
 		A8DAE41919961A2B00B2010A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		A8DAE41B1996398800B2010A /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMobClickLibrary.a; path = lib/UMAnalytics_Sdk/libMobClickLibrary.a; sourceTree = "<group>"; };
 		A8DAE41D19963F9C00B2010A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		A8DF31EE19CEC51C005165F6 /* HIDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIDManager.h; sourceTree = "<group>"; };
+		A8DF31EF19CEC51C005165F6 /* HIDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HIDManager.m; sourceTree = "<group>"; };
 		A8E0408019A24689001B58AE /* NSTimer+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Addition.h"; sourceTree = "<group>"; };
 		A8E0408119A24689001B58AE /* NSTimer+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Addition.m"; sourceTree = "<group>"; };
 		A8E0408319A2469C001B58AE /* UITAssistiveTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITAssistiveTouch.h; sourceTree = "<group>"; };
@@ -669,6 +674,8 @@
 				A810E663197AC43B00757554 /* TextFieldTableViewCell.m */,
 				A810E668197AD97F00757554 /* PickerInputTableViewCell.h */,
 				A810E669197AD97F00757554 /* PickerInputTableViewCell.m */,
+				A8DF31EE19CEC51C005165F6 /* HIDManager.h */,
+				A8DF31EF19CEC51C005165F6 /* HIDManager.m */,
 				A848CA8119AE3CB7009CBC9F /* GPLoadingView.h */,
 				A848CA8219AE3CB7009CBC9F /* GPLoadingView.m */,
 				A8E3AB9B1983E5E400B6E4E6 /* UIColor+iOS7Colors.h */,
@@ -916,6 +923,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8DF31F019CEC51C005165F6 /* HIDManager.h in Headers */,
 				A8AEB9F919C750E90031EFB9 /* GMAppSwitchUtils.h in Headers */,
 				A848CA8319AE3CB7009CBC9F /* GPLoadingView.h in Headers */,
 				A8E8A7E219A8D32E002A5CFF /* LightMessaging.h in Headers */,
@@ -1182,6 +1190,7 @@
 				A822C1AC19AB6E7E00A51969 /* AppUtil.m in Sources */,
 				A8E8A7F119A8D6C0002A5CFF /* IASKTextField.m in Sources */,
 				A8CC176219A8CB140048C788 /* GMRootOverLayerViewController.m in Sources */,
+				A829756219C9C8460068B80D /* TKGridLayout.m in Sources */,
 				A8E8A7F019A8D6BD002A5CFF /* IASKSwitch.m in Sources */,
 				A8E8A80F19A8D71E002A5CFF /* MAZeroingWeakRef.m in Sources */,
 				A859EB6219A8CBD00007983D /* GMModifyViewController.m in Sources */,
@@ -1189,6 +1198,7 @@
 				A8E8A7F719A8D6D1002A5CFF /* TKAlertOverlayWindow.m in Sources */,
 				A859EB6319A8CBD30007983D /* GMStorageViewController.m in Sources */,
 				A859EB5B19A8CBAB0007983D /* SearchDisplayController.m in Sources */,
+				A8DF31F219CEC51C005165F6 /* HIDManager.m in Sources */,
 				A8E8A7EB19A8D6AF002A5CFF /* IASKSpecifier.m in Sources */,
 				A8AEB9FB19C750F90031EFB9 /* GMAppSwitchUtils.m in Sources */,
 				A8E8A7E819A8D6A9002A5CFF /* IASKSettingsStore.m in Sources */,
@@ -1212,6 +1222,7 @@
 				A8E8A80D19A8D716002A5CFF /* NSTimer+Addition.m in Sources */,
 				A8E8A7FB19A8D6DB002A5CFF /* UIImageExtend.m in Sources */,
 				A8E8A7E719A8D6A6002A5CFF /* IASKSettingsReader.m in Sources */,
+				A829756319C9C8490068B80D /* TKFlowLayout.m in Sources */,
 				A8E8A80319A8D6F5002A5CFF /* TKKeyboardManager.m in Sources */,
 				A8E8A7FD19A8D6E1002A5CFF /* NSObject+Swizzle.m in Sources */,
 				A8E8A7E619A8D6A3002A5CFF /* IASKSpecifierValuesViewController.m in Sources */,
@@ -1220,14 +1231,12 @@
 				A8E8A80A19A8D709002A5CFF /* UIImage+Additions.m in Sources */,
 				A8E8A80619A8D700002A5CFF /* TextFieldTableViewCell.m in Sources */,
 				A8E8A80419A8D6F7002A5CFF /* TKKeyButton.m in Sources */,
-				A8E8A7FF19A8D6E9002A5CFF /* TKGridLayout.m in Sources */,
 				A8E8A80919A8D707002A5CFF /* UIColor+tk.m in Sources */,
 				A8E8A80E19A8D71A002A5CFF /* SimplePickerInputTableViewCell.m in Sources */,
 				A8E8A7F819A8D6D3002A5CFF /* TKTextFieldAlertView.m in Sources */,
 				A83653871997D7F300147B72 /* imemTweak.mm in Sources */,
 				A8E8A7EE19A8D6B9002A5CFF /* IASKPSTitleValueSpecifierViewCell.m in Sources */,
 				A8E8A80119A8D6EF002A5CFF /* TKKeyboard.m in Sources */,
-				A8E8A7FE19A8D6E5002A5CFF /* TKFlowLayout.m in Sources */,
 				A8E8A7E419A8D69D002A5CFF /* IASKAppSettingsViewController.m in Sources */,
 				A8E8A80C19A8D713002A5CFF /* UIView+Sizes.m in Sources */,
 				A8E8A81019A8D723002A5CFF /* IntArray.c in Sources */,
@@ -1272,6 +1281,7 @@
 				A8DAE40A1996132E00B2010A /* IASKAppSettingsWebViewController.m in Sources */,
 				A80D3E7719855DE100F5CF2A /* GMMemoryAccessObject.m in Sources */,
 				A8A7416F1968105C00131416 /* GMSelectAppViewController.m in Sources */,
+				A829756419C9C8580068B80D /* TKFlowLayout.m in Sources */,
 				ABB564FF19A1B1F600CA0EC0 /* UIImage+Additions.m in Sources */,
 				AB92CFB519866DA700695460 /* SearchDisplayController.m in Sources */,
 				A8DAE4131996132E00B2010A /* IASKPSTitleValueSpecifierViewCell.m in Sources */,
@@ -1289,9 +1299,9 @@
 				A86BC8881986863D000A417A /* GMAssociateViewController.m in Sources */,
 				A8DAE4151996132E00B2010A /* IASKSwitch.m in Sources */,
 				A8DAE4161996132E00B2010A /* IASKTextField.m in Sources */,
+				A8DF31F119CEC51C005165F6 /* HIDManager.m in Sources */,
 				A82B4428197BBE5C0098A6D4 /* UIView+Sizes.m in Sources */,
 				A8DAE40D1996132E00B2010A /* IASKSettingsStore.m in Sources */,
-				A8ED6905198E805A000DDD3F /* TKFlowLayout.m in Sources */,
 				A86FD1521976BD9200765F99 /* GMMemManagerProxy.m in Sources */,
 				A8ED6908198E805A000DDD3F /* TKKeyboard.m in Sources */,
 				A8ED6909198E805A000DDD3F /* TKKeyboardConfiguration.m in Sources */,
@@ -1368,7 +1378,7 @@
 				VALIDATE_PRODUCT = NO;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 10.2.145.193;
+				iOSOpenDevDevice = 192.168.1.100;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
@@ -1412,7 +1422,7 @@
 				VALIDATE_PRODUCT = YES;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 10.2.145.193;
+				iOSOpenDevDevice = 192.168.1.100;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
@@ -1452,6 +1462,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(iOSOpenDevPath)/include/**",
 					"${PODS_ROOT}/Headers/**",
+					/opt/theos/include,
 				);
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -1500,6 +1511,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(iOSOpenDevPath)/include/**",
 					"${PODS_ROOT}/Headers/**",
+					/opt/theos/include,
 				);
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;

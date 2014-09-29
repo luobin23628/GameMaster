@@ -7,6 +7,8 @@
 		<key>Bundles</key>
 		<array>
 			<string>com.apple.UIKit</string>
+			<string>com.ea.fifa14.bv</string>
+			<string>com.ea.fifa15.bv</string>
 		</array>
 	</dict>
 </dict>

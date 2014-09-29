@@ -9,7 +9,7 @@
 #import "UITAssistiveTouch.h"
 #import "UIView+Sizes.h"
 
-static NSInteger kAssistiveTouchWidth = 44;
+static NSInteger kAssistiveTouchWidth = 10;
 
 typedef enum _RectZone {
 	kRectZoneNone = 0,
