@@ -174,6 +174,8 @@
 		A8ED690B198E805A000DDD3F /* TKKeyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68FF198E805A000DDD3F /* TKKeyButton.m */; };
 		A8ED690C198E805A000DDD3F /* TKKeyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED6901198E805A000DDD3F /* TKKeyItem.m */; };
 		A8EFBFE71972D30D002E4A9B /* librocketbootstrap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */; };
+		A8F0191819FE951300EBAAC2 /* UIDevice+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F0191719FE951300EBAAC2 /* UIDevice+Additions.m */; };
+		A8F0191919FE951700EBAAC2 /* UIDevice+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F0191719FE951300EBAAC2 /* UIDevice+Additions.m */; };
 		AB1614AE19FE421C00A95D5A /* testTweak.m in Sources */ = {isa = PBXBuildFile; fileRef = A836539C1997DAC200147B72 /* testTweak.m */; };
 		AB1614CE19FE4A8700A95D5A /* UITAssistiveTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408419A2469C001B58AE /* UITAssistiveTouch.m */; };
 		AB1614CF19FE4A8A00A95D5A /* GMOverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5659B19A2177200CA0EC0 /* GMOverlayWindow.m */; };
@@ -382,6 +384,9 @@
 		A8ED6901198E805A000DDD3F /* TKKeyItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKKeyItem.m; sourceTree = "<group>"; };
 		A8ED6902198E805A000DDD3F /* TKLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLayout.h; sourceTree = "<group>"; };
 		A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = librocketbootstrap.dylib; path = ../../../../opt/iOSOpenDev/lib/librocketbootstrap.dylib; sourceTree = "<group>"; };
+		A8F0191419FE93FC00EBAAC2 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Release-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		A8F0191619FE951300EBAAC2 /* UIDevice+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Additions.h"; sourceTree = "<group>"; };
+		A8F0191719FE951300EBAAC2 /* UIDevice+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Additions.m"; sourceTree = "<group>"; };
 		AB92CFB319866DA700695460 /* SearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDisplayController.h; sourceTree = "<group>"; };
 		AB92CFB419866DA700695460 /* SearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDisplayController.m; sourceTree = "<group>"; };
 		AB967DDE199B14870086395F /* GMPersistentStoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMPersistentStoreController.h; sourceTree = "<group>"; };
@@ -751,6 +756,8 @@
 				A848CA8219AE3CB7009CBC9F /* GPLoadingView.m */,
 				A8E3AB9B1983E5E400B6E4E6 /* UIColor+iOS7Colors.h */,
 				A8E3AB9C1983E5E400B6E4E6 /* UIColor+iOS7Colors.m */,
+				A8F0191619FE951300EBAAC2 /* UIDevice+Additions.h */,
+				A8F0191719FE951300EBAAC2 /* UIDevice+Additions.m */,
 				A8E0408919A246D8001B58AE /* UIColor+tk.h */,
 				A8E0408A19A246D8001B58AE /* UIColor+tk.m */,
 				ABB564FD19A1B1F600CA0EC0 /* UIImage+Additions.h */,
@@ -911,6 +918,7 @@
 		ABFF4BE61966A579000C7128 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A8F0191419FE93FC00EBAAC2 /* libPods.a */,
 				A822C1AA19AB6DF300A51969 /* libPods.a */,
 				A8E0408E19A24FCB001B58AE /* SpringBoardServices.framework */,
 				A83653981997D96500147B72 /* libsubstrate.dylib */,
@@ -1291,6 +1299,7 @@
 				ABAE6B011999C97800A10BF8 /* time.m.bak in Sources */,
 				A8E8A7FC19A8D6DD002A5CFF /* UIViewAdditions.m in Sources */,
 				A8E8A7ED19A8D6B5002A5CFF /* IASKPSTextFieldSpecifierViewCell.m in Sources */,
+				A8F0191919FE951700EBAAC2 /* UIDevice+Additions.m in Sources */,
 				A8E8A7F919A8D6D6002A5CFF /* TKAlertView.m in Sources */,
 				A8E8A7F319A8D6C7002A5CFF /* NSInvocation+.m in Sources */,
 				A822C1AC19AB6E7E00A51969 /* AppUtil.m in Sources */,
@@ -1377,6 +1386,7 @@
 				A810E66C197AD97F00757554 /* PickerInputTableViewCell.m in Sources */,
 				A8A7416919680E6400131416 /* GMMainViewController.m in Sources */,
 				A8D9058F197BF4CE001F22FF /* GMStorageViewController.m in Sources */,
+				A8F0191819FE951300EBAAC2 /* UIDevice+Additions.m in Sources */,
 				A81CD69619950C8C00B02034 /* NSInvocation+.m in Sources */,
 				A8ED690B198E805A000DDD3F /* TKKeyButton.m in Sources */,
 				A8DAE4121996132E00B2010A /* IASKPSTextFieldSpecifierViewCell.m in Sources */,
@@ -1498,7 +1508,7 @@
 				VALIDATE_PRODUCT = NO;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.1.104;
+				iOSOpenDevDevice = 192.168.1.100;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
@@ -1543,7 +1553,7 @@
 				VALIDATE_PRODUCT = YES;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.1.104;
+				iOSOpenDevDevice = 192.168.1.100;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
@@ -1590,6 +1600,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(iOSOpenDevPath)/lib/**",
 					/opt/iOSOpenDev/lib,
+					"$(PROJECT_DIR)/Pods/build/Release-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "";
@@ -1639,6 +1650,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(iOSOpenDevPath)/lib/**",
 					/opt/iOSOpenDev/lib,
+					"$(PROJECT_DIR)/Pods/build/Release-iphoneos",
 				);
 				OTHER_CFLAGS = "";
 				PODS_ROOT = "${SRCROOT}/Pods";

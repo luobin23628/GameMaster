@@ -244,7 +244,7 @@
     if (self.shouldSelectProcess) {
         GMSelectAppButton * selectAppButton = [[GMSelectAppButton alloc] init];
         selectAppButton.title = @"选择";
-        selectAppButton.titleLabel.textColor = [UIColor colorWith8bitRed:0 green:126 blue:245 alpha:255];
+        selectAppButton.titleLabel.textColor = [UIColor colorWithRed:0/255.0 green:126/255.0 blue:245/255.0 alpha:1];
         ;
         selectAppButton.titleLabel.font = [UIFont systemFontOfSize:17];
         [selectAppButton addTarget:self action:@selector(gotoSelectProcess) forControlEvents:UIControlEventTouchUpInside];
@@ -502,7 +502,8 @@
 - (void)updateWithPid:(int)pid appName:(NSString *)appName appIcon:(UIImage *)appIcon{
     GMSelectAppButton * selectAppButton = (GMSelectAppButton *)[self.navigationItem.rightBarButtonItem customView];
     selectAppButton.titleLabel.font = [UIFont systemFontOfSize:14];
-    selectAppButton.titleLabel.textColor = [UIColor colorWith8bitRed:0 green:126 blue:245 alpha:255];
+    
+    selectAppButton.titleLabel.textColor = [UIColor colorWithRed:0/255.0 green:126/255.0 blue:245/255.0 alpha:1];
     selectAppButton.image = appIcon;
     selectAppButton.title = appName;
     
@@ -587,21 +588,13 @@ static LMConnection connection2 = {
     GMSettingViewController *settingViewController = [[GMSettingViewController alloc] init];
     [self.navigationController pushViewController:settingViewController animated:YES];
     [settingViewController release];
-    
-    LMResponseBuffer responseBuffer;
-    kern_return_t ret = LMConnectionSendTwoWay(&connection2, 0, NULL, 0, &responseBuffer);
-    if (ret == KERN_SUCCESS) {
-        BOOL ok = LMResponseConsumeInteger(&responseBuffer);
-    } else {
-    }
-    NSLog(@"");
 }
 
 - (void)resetSelectAppButton {
     GMSelectAppButton * selectAppButton = (GMSelectAppButton *)[self.navigationItem.rightBarButtonItem customView];
     selectAppButton.image = nil;
     selectAppButton.title = @"选择";
-    selectAppButton.titleLabel.textColor = [UIColor colorWith8bitRed:0 green:126 blue:245 alpha:255];
+    selectAppButton.titleLabel.textColor = [UIColor colorWithRed:0/255.0 green:126/255.0 blue:245/255.0 alpha:1];
     selectAppButton.titleLabel.font = [UIFont systemFontOfSize:17];
 }
 
