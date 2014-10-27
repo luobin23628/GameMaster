@@ -33,14 +33,11 @@
 		A822C1AB19AB6DF300A51969 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A822C1AA19AB6DF300A51969 /* libPods.a */; };
 		A822C1AC19AB6E7E00A51969 /* AppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB565BF19A2F10A00CA0EC0 /* AppUtil.m */; };
 		A822C1AD19AB6E8D00A51969 /* AppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB565BF19A2F10A00CA0EC0 /* AppUtil.m */; };
-		A829756219C9C8460068B80D /* TKGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F5198E805A000DDD3F /* TKGridLayout.m */; };
 		A829756319C9C8490068B80D /* TKFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F3198E805A000DDD3F /* TKFlowLayout.m */; };
 		A829756419C9C8580068B80D /* TKFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F3198E805A000DDD3F /* TKFlowLayout.m */; };
 		A82B4428197BBE5C0098A6D4 /* UIView+Sizes.m in Sources */ = {isa = PBXBuildFile; fileRef = A82B4427197BBE5C0098A6D4 /* UIView+Sizes.m */; };
 		A836537C1997D7F300147B72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF4BE71966A579000C7128 /* Foundation.framework */; };
-		A83653871997D7F300147B72 /* imemTweak.mm in Sources */ = {isa = PBXBuildFile; fileRef = A83653861997D7F300147B72 /* imemTweak.mm */; };
 		A83653991997D96500147B72 /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A83653981997D96500147B72 /* libsubstrate.dylib */; };
-		A836539D1997DAC200147B72 /* testTweak.m in Sources */ = {isa = PBXBuildFile; fileRef = A836539C1997DAC200147B72 /* testTweak.m */; };
 		A83653A5199655EF00322899 /* LightMessaging.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE417199615FC00B2010A /* LightMessaging.m */; };
 		A839D2D7196C2B2400E8E9F4 /* entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = A839D2D6196C2B2400E8E9F4 /* entitlements.plist */; };
 		A848CA8319AE3CB7009CBC9F /* GPLoadingView.h in Headers */ = {isa = PBXBuildFile; fileRef = A848CA8119AE3CB7009CBC9F /* GPLoadingView.h */; };
@@ -67,10 +64,10 @@
 		A859EB6419A8CBD70007983D /* GMMemManagerProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A86FD1511976BD9200765F99 /* GMMemManagerProxy.m */; };
 		A859EB6519A8CC0C0007983D /* GMMemoryAccessObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A80D3E7519855DE100F5CF2A /* GMMemoryAccessObject.m */; };
 		A859EB6819A8CC450007983D /* GMMemoryAccessObject.h in Headers */ = {isa = PBXBuildFile; fileRef = A80D3E7419855DE100F5CF2A /* GMMemoryAccessObject.h */; };
-		A85E308119A9020300884AF4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECA1A66F9EB4AE3A23B64CB /* libPods.a */; };
 		A85E308219A904F800884AF4 /* GMRootOverLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5659E19A21B0800CA0EC0 /* GMRootOverLayerViewController.m */; };
 		A85E308319A9050000884AF4 /* GMOverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5659B19A2177200CA0EC0 /* GMOverlayWindow.m */; };
 		A85E308419A9050400884AF4 /* UITAssistiveTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408419A2469C001B58AE /* UITAssistiveTouch.m */; };
+		A866DC4419FE73FC00B44771 /* TKGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68F5198E805A000DDD3F /* TKGridLayout.m */; };
 		A86BC8881986863D000A417A /* GMAssociateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A86BC8871986863D000A417A /* GMAssociateViewController.m */; };
 		A86FD14519756D8200765F99 /* librocketbootstrap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */; };
 		A86FD1521976BD9200765F99 /* GMMemManagerProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A86FD1511976BD9200765F99 /* GMMemManagerProxy.m */; };
@@ -90,9 +87,6 @@
 		A8AEB9FB19C750F90031EFB9 /* GMAppSwitchUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A8AEB9F619C74BC60031EFB9 /* GMAppSwitchUtils.m */; };
 		A8AEB9FC19C750F90031EFB9 /* GMAppSwitchUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A8AEB9F619C74BC60031EFB9 /* GMAppSwitchUtils.m */; };
 		A8BDC4221987DA2F00592935 /* LightMessaging.h in Headers */ = {isa = PBXBuildFile; fileRef = A8BDC4211987DA2F00592935 /* LightMessaging.h */; };
-		A8CC176019A8CB0F0048C788 /* UITAssistiveTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408419A2469C001B58AE /* UITAssistiveTouch.m */; };
-		A8CC176119A8CB110048C788 /* GMOverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5659B19A2177200CA0EC0 /* GMOverlayWindow.m */; };
-		A8CC176219A8CB140048C788 /* GMRootOverLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5659E19A21B0800CA0EC0 /* GMRootOverLayerViewController.m */; };
 		A8D9058C197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8D9058B197BE6F4001F22FF /* KeyboardNumericBackspace@2x.png */; };
 		A8D9058F197BF4CE001F22FF /* GMStorageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D9058E197BF4CE001F22FF /* GMStorageViewController.m */; };
 		A8DAE3A519953E6900B2010A /* TKTextFieldAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DAE3A419953E6900B2010A /* TKTextFieldAlertView.m */; };
@@ -180,10 +174,14 @@
 		A8ED690B198E805A000DDD3F /* TKKeyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED68FF198E805A000DDD3F /* TKKeyButton.m */; };
 		A8ED690C198E805A000DDD3F /* TKKeyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ED6901198E805A000DDD3F /* TKKeyItem.m */; };
 		A8EFBFE71972D30D002E4A9B /* librocketbootstrap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8EFBFE61972D30D002E4A9B /* librocketbootstrap.dylib */; };
+		AB1614AE19FE421C00A95D5A /* testTweak.m in Sources */ = {isa = PBXBuildFile; fileRef = A836539C1997DAC200147B72 /* testTweak.m */; };
+		AB1614CE19FE4A8700A95D5A /* UITAssistiveTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E0408419A2469C001B58AE /* UITAssistiveTouch.m */; };
+		AB1614CF19FE4A8A00A95D5A /* GMOverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5659B19A2177200CA0EC0 /* GMOverlayWindow.m */; };
+		AB1614D019FE4A8D00A95D5A /* GMRootOverLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB5659E19A21B0800CA0EC0 /* GMRootOverLayerViewController.m */; };
 		AB92CFB519866DA700695460 /* SearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB92CFB419866DA700695460 /* SearchDisplayController.m */; };
 		AB967DE0199B14870086395F /* GMPersistentStoreController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB967DDE199B14870086395F /* GMPersistentStoreController.h */; };
 		AB967DE1199B14870086395F /* GMPersistentStoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB967DDF199B14870086395F /* GMPersistentStoreController.m */; };
-		ABAE6B011999C97800A10BF8 /* time.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAE6B001999C97800A10BF8 /* time.m */; };
+		ABAE6B011999C97800A10BF8 /* time.m.bak in Sources */ = {isa = PBXBuildFile; fileRef = ABAE6B001999C97800A10BF8 /* time.m.bak */; };
 		ABB564FF19A1B1F600CA0EC0 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB564FE19A1B1F600CA0EC0 /* UIImage+Additions.m */; };
 		ABB565C019A2F10A00CA0EC0 /* AppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB565BF19A2F10A00CA0EC0 /* AppUtil.m */; };
 		ABE39F93197FCBB0002E7678 /* darwin_memory_usage.c in Sources */ = {isa = PBXBuildFile; fileRef = ABE39F92197FCBB0002E7678 /* darwin_memory_usage.c */; };
@@ -265,8 +263,6 @@
 		A83653811997D7F300147B72 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
 		A83653831997D7F300147B72 /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
 		A83653841997D7F300147B72 /* imemTweak-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "imemTweak-Prefix.pch"; sourceTree = "<group>"; };
-		A83653851997D7F300147B72 /* imemTweak.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = imemTweak.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A83653861997D7F300147B72 /* imemTweak.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = imemTweak.mm; sourceTree = "<group>"; };
 		A836538B1997D7F300147B72 /* imemTweak.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = imemTweak.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/imemTweak.plist; sourceTree = "<group>"; };
 		A83653951997D8B000147B72 /* imemTweak.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = imemTweak.plist; sourceTree = "<group>"; };
 		A83653981997D96500147B72 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = ../../../../opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<group>"; };
@@ -390,7 +386,7 @@
 		AB92CFB419866DA700695460 /* SearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDisplayController.m; sourceTree = "<group>"; };
 		AB967DDE199B14870086395F /* GMPersistentStoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMPersistentStoreController.h; sourceTree = "<group>"; };
 		AB967DDF199B14870086395F /* GMPersistentStoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMPersistentStoreController.m; sourceTree = "<group>"; };
-		ABAE6B001999C97800A10BF8 /* time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = time.m; sourceTree = "<group>"; };
+		ABAE6B001999C97800A10BF8 /* time.m.bak */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = time.m.bak; sourceTree = "<group>"; };
 		ABB564FD19A1B1F600CA0EC0 /* UIImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additions.h"; sourceTree = "<group>"; };
 		ABB564FE19A1B1F600CA0EC0 /* UIImage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Additions.m"; sourceTree = "<group>"; };
 		ABB5659A19A2177200CA0EC0 /* GMOverlayWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMOverlayWindow.h; sourceTree = "<group>"; };
@@ -431,7 +427,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A85E308119A9020300884AF4 /* libPods.a in Frameworks */,
 				A8E8A81319A8D826002A5CFF /* librocketbootstrap.dylib in Frameworks */,
 				A83653991997D96500147B72 /* libsubstrate.dylib in Frameworks */,
 				A836537C1997D7F300147B72 /* Foundation.framework in Frameworks */,
@@ -585,10 +580,8 @@
 		A836537D1997D7F300147B72 /* imemTweak */ = {
 			isa = PBXGroup;
 			children = (
-				A83653851997D7F300147B72 /* imemTweak.xm */,
-				A83653861997D7F300147B72 /* imemTweak.mm */,
 				A836539C1997DAC200147B72 /* testTweak.m */,
-				ABAE6B001999C97800A10BF8 /* time.m */,
+				ABAE6B001999C97800A10BF8 /* time.m.bak */,
 				A836537E1997D7F300147B72 /* Package */,
 				A83653821997D7F300147B72 /* Supporting Files */,
 			);
@@ -1291,23 +1284,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A866DC4419FE73FC00B44771 /* TKGridLayout.m in Sources */,
 				A8E8A80719A8D702002A5CFF /* PickerInputTableViewCell.m in Sources */,
 				A8E8A80519A8D6FB002A5CFF /* TKKeyItem.m in Sources */,
 				A859EB6119A8CBC90007983D /* GMSelectAppViewController.m in Sources */,
-				ABAE6B011999C97800A10BF8 /* time.m in Sources */,
+				ABAE6B011999C97800A10BF8 /* time.m.bak in Sources */,
 				A8E8A7FC19A8D6DD002A5CFF /* UIViewAdditions.m in Sources */,
 				A8E8A7ED19A8D6B5002A5CFF /* IASKPSTextFieldSpecifierViewCell.m in Sources */,
 				A8E8A7F919A8D6D6002A5CFF /* TKAlertView.m in Sources */,
-				A836539D1997DAC200147B72 /* testTweak.m in Sources */,
 				A8E8A7F319A8D6C7002A5CFF /* NSInvocation+.m in Sources */,
 				A822C1AC19AB6E7E00A51969 /* AppUtil.m in Sources */,
 				A8E8A7F119A8D6C0002A5CFF /* IASKTextField.m in Sources */,
-				A8CC176219A8CB140048C788 /* GMRootOverLayerViewController.m in Sources */,
-				A829756219C9C8460068B80D /* TKGridLayout.m in Sources */,
+				AB1614D019FE4A8D00A95D5A /* GMRootOverLayerViewController.m in Sources */,
+				AB1614CE19FE4A8700A95D5A /* UITAssistiveTouch.m in Sources */,
 				A8E8A7F019A8D6BD002A5CFF /* IASKSwitch.m in Sources */,
 				A8E8A80F19A8D71E002A5CFF /* MAZeroingWeakRef.m in Sources */,
 				A859EB6219A8CBD00007983D /* GMModifyViewController.m in Sources */,
-				A8CC176119A8CB110048C788 /* GMOverlayWindow.m in Sources */,
 				A8E8A7F719A8D6D1002A5CFF /* TKAlertOverlayWindow.m in Sources */,
 				A859EB6319A8CBD30007983D /* GMStorageViewController.m in Sources */,
 				A859EB5B19A8CBAB0007983D /* SearchDisplayController.m in Sources */,
@@ -1331,13 +1323,13 @@
 				A859EB5A19A8CBA60007983D /* GMMainViewController.m in Sources */,
 				A8E8A80219A8D6F1002A5CFF /* TKKeyboardConfiguration.m in Sources */,
 				A859EB5F19A8CBC30007983D /* GMSelectAppButton.m in Sources */,
-				A8CC176019A8CB0F0048C788 /* UITAssistiveTouch.m in Sources */,
 				A8E8A80D19A8D716002A5CFF /* NSTimer+Addition.m in Sources */,
 				A8E8A7FB19A8D6DB002A5CFF /* UIImageExtend.m in Sources */,
 				A8E8A7E719A8D6A6002A5CFF /* IASKSettingsReader.m in Sources */,
 				A829756319C9C8490068B80D /* TKFlowLayout.m in Sources */,
 				A8E8A80319A8D6F5002A5CFF /* TKKeyboardManager.m in Sources */,
 				A8E8A7FD19A8D6E1002A5CFF /* NSObject+Swizzle.m in Sources */,
+				AB1614CF19FE4A8A00A95D5A /* GMOverlayWindow.m in Sources */,
 				A8E8A7E619A8D6A3002A5CFF /* IASKSpecifierValuesViewController.m in Sources */,
 				A859EB6419A8CBD70007983D /* GMMemManagerProxy.m in Sources */,
 				A859EB6519A8CC0C0007983D /* GMMemoryAccessObject.m in Sources */,
@@ -1347,10 +1339,10 @@
 				A8E8A80919A8D707002A5CFF /* UIColor+tk.m in Sources */,
 				A8E8A80E19A8D71A002A5CFF /* SimplePickerInputTableViewCell.m in Sources */,
 				A8E8A7F819A8D6D3002A5CFF /* TKTextFieldAlertView.m in Sources */,
-				A83653871997D7F300147B72 /* imemTweak.mm in Sources */,
 				A8E8A7EE19A8D6B9002A5CFF /* IASKPSTitleValueSpecifierViewCell.m in Sources */,
 				A8E8A80119A8D6EF002A5CFF /* TKKeyboard.m in Sources */,
 				A8E8A7E419A8D69D002A5CFF /* IASKAppSettingsViewController.m in Sources */,
+				AB1614AE19FE421C00A95D5A /* testTweak.m in Sources */,
 				A8E8A80C19A8D713002A5CFF /* UIView+Sizes.m in Sources */,
 				A8E8A81019A8D723002A5CFF /* IntArray.c in Sources */,
 				A8E8A7F519A8D6CC002A5CFF /* TKActionSheetOverlayWindow.m in Sources */,
@@ -1500,6 +1492,7 @@
 					/opt/iOSOpenDev/lib,
 				);
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-Wl,-sectcreate,__RESTRICT,__restrict,/dev/null";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = NO;
@@ -1544,6 +1537,7 @@
 					"$(iOSOpenDevPath)/lib/**",
 					/opt/iOSOpenDev/lib,
 				);
+				OTHER_LDFLAGS = "-Wl,-sectcreate,__RESTRICT,__restrict,/dev/null";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1605,7 +1599,7 @@
 				VALIDATE_PRODUCT = NO;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = "";
+				iOSOpenDevDevice = 10.2.146.134;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
@@ -1653,7 +1647,7 @@
 				VALIDATE_PRODUCT = YES;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = "";
+				iOSOpenDevDevice = 10.2.146.134;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
@@ -1829,6 +1823,15 @@
 					"$(PROJECT_DIR)/lib/UMAnalytics_Sdk",
 				);
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lsqlite3",
+					"-framework",
+					QuartzCore,
+					"-framework",
+					UIKit,
+					"-Wl,-sectcreate,__RESTRICT,__restrict,/dev/null",
+				);
 				PRODUCT_NAME = imem;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1888,6 +1891,15 @@
 					"$(PROJECT_DIR)/imemDaemon/Package/usr/lib",
 					lib/UMAnalytics_Sdk,
 					"$(PROJECT_DIR)/lib/UMAnalytics_Sdk",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lsqlite3",
+					"-framework",
+					QuartzCore,
+					"-framework",
+					UIKit,
+					"-Wl,-sectcreate,__RESTRICT,__restrict,/dev/null",
 				);
 				PRODUCT_NAME = imem;
 				PROVISIONING_PROFILE = "";

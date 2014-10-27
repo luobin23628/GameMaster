@@ -60,7 +60,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>F634663F45F0D03AFBA94D5E9E9A6F1546406B5D</string>
+			<string>D506B1C6-9415-45F2-8432-8ED6511400B2</string>
 			<key>IDESourceControlWCCName</key>
 			<string>CustomActionSheetAndAlert</string>
 		</dict>
@@ -68,7 +68,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>D506B1C6-9415-45F2-8432-8ED6511400B2</string>
+			<string>F634663F45F0D03AFBA94D5E9E9A6F1546406B5D</string>
 			<key>IDESourceControlWCCName</key>
 			<string>CustomActionSheetAndAlert</string>
 		</dict>
@@ -108,7 +108,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>887E20FE-DF26-425F-BCC6-7EB3AB62AA74</string>
+			<string>D25ACE5D5F669244A1C27E2046CAC59D89A1B6DA</string>
 			<key>IDESourceControlWCCName</key>
 			<string>TKKeyBoard</string>
 		</dict>
@@ -116,7 +116,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>D25ACE5D5F669244A1C27E2046CAC59D89A1B6DA</string>
+			<string>887E20FE-DF26-425F-BCC6-7EB3AB62AA74</string>
 			<key>IDESourceControlWCCName</key>
 			<string>TKKeyBoard</string>
 		</dict>

@@ -13,6 +13,20 @@
 #import "GMMemManager.h"
 #import "GMStorageManager.h"
 #import "GMAppSwitchUtils.h"
+#import <dlfcn.h>
+#import <sys/types.h>
+
+typedef int (*ptrace_ptr_t)(int _request, pid_t _pid, caddr_t _addr, int _data);
+#if !defined(PT_DENY_ATTACH)
+#define PT_DENY_ATTACH 31
+#endif  // !defined(PT_DENY_ATTACH)
+
+static void disable_gdb() {
+    void* handle = dlopen(0, RTLD_GLOBAL | RTLD_NOW);
+    ptrace_ptr_t ptrace_ptr = dlsym(handle, "ptrace");
+    ptrace_ptr(PT_DENY_ATTACH, 0, 0, 0);
+    dlclose(handle);
+}
 
 static void processMessage(SInt32 messageId, mach_port_t replyPort, CFDataRef dataRef) {
     
@@ -176,7 +190,9 @@ static void machPortCallback(CFMachPortRef port, void *bytes, CFIndex size, void
 
 int main(int argc, const char *argv[]) {
     @autoreleasepool {
-        
+#ifdef __OPTIMIZE__
+        disable_gdb();
+#endif
         NSLog(@"Service start...");
         while (YES) {
             kern_return_t err = LMStartService(connection.serverName, CFRunLoopGetCurrent(), machPortCallback);
