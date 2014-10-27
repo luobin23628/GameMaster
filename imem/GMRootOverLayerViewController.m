@@ -102,6 +102,8 @@ static __attribute__((constructor)) void _logosLocalCtor_3d22e302() {
 //    return UIInterfaceOrientationMaskPortrait;
 //}
 
+static UINavigationController *nav = nil;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -112,7 +114,6 @@ static __attribute__((constructor)) void _logosLocalCtor_3d22e302() {
     __block id selfObj = self;
     assistiveTouch.touchHandle = ^(id pAssistiveTouch) {
         [[GMOverlayWindow defaultWindow] makeKeyAndVisible];
-        static UINavigationController *nav = nil;
         if (!nav) {
             GMMainViewController *mainViewController = [[GMMainViewController alloc] init];
             mainViewController.shouldSelectProcess = NO;
@@ -126,10 +127,10 @@ static __attribute__((constructor)) void _logosLocalCtor_3d22e302() {
 }
 
 - (void)dismiss {
-    [[GMOverlayWindow defaultWindow] resignKeyWindow];
-    if (self.presentedViewController) {
-        [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
+    if (nav) {
+        [nav dismissViewControllerAnimated:YES completion:nil];
     }
+    [[GMOverlayWindow defaultWindow] resignKeyWindow];
 }
 
 @end

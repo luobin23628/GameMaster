@@ -463,8 +463,8 @@
         if ((protection &VM_PROT_READ)&& (protection &VM_PROT_WRITE)) {
             vm_size_t pageCount = size/vm_page_size;
             
-            for (int i = 0; i < pageCount; i += 250) {
-                mach_msg_type_number_t bufferSize = MIN(250, pageCount - i)*vm_page_size;
+            for (int i = 0; i < pageCount; i += 25) {
+                mach_msg_type_number_t bufferSize = MIN(25, pageCount - i)*vm_page_size;
                 vm_address_t pageAddress = address + i*vm_page_size;
                 
                 void *buffer = malloc(bufferSize);
@@ -525,7 +525,7 @@
             currentAddress = IntArrayValueAtIndex(results, i);
             
             while (currentAddress < address) {
-                NSLog(@"%d, ignore address. %X not exist.", i, currentAddress);
+//                NSLog(@"%d, ignore address. %X not exist.", i, currentAddress);
                 
                 i ++;
                 if (i >= resultCt) {
@@ -560,7 +560,7 @@
                 }
             }
         }
-        NSLog(@"vm_region %d, protection:%d address:%d size:%d, currentAddress:%d next region", i, protection, address, size, currentAddress);
+//        NSLog(@"vm_region %d, protection:%d address:%d size:%d, currentAddress:%d next region", i, protection, address, size, currentAddress);
 		address += size;
 	}
 }

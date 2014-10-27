@@ -12,7 +12,5 @@
 	<true/>
 	<key>run-unsigned-code</key>
 	<true/>
-	<key>com.apple.security.temporary-exception.sbpl</key>
-	<string>(allow mach-lookup (global-name-regex #&quot;^******$&quot;))</string>
 </dict>
 </plist>

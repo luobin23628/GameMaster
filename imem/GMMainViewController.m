@@ -258,17 +258,13 @@
         }
         
     } else {
-        pid_t pid = getpid();
-        if (pid != [[GMMemManagerProxy shareInstance] getPid]) {
-            [[GMMemManagerProxy shareInstance] reset];
-            BOOL ok = [[GMMemManagerProxy shareInstance] setPid:pid];
-            if (ok) {
-                self.pid = pid;
-                [self startMonitorForProcess:self.pid];
-                self.results = nil;
-                self.isFirst = YES;
-            }
-        }
+        int pid = [[GMMemManagerProxy shareInstance] getPid];
+        [self updateWithPid:pid];
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+        self.pid = pid;
+        [self startMonitorForProcess:self.pid];
+        self.results = nil;
+        self.isFirst = YES;
     }
 }
 

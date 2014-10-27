@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A8054ED6196DB6E8004CC80A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFF4BE71966A579000C7128 /* Foundation.framework */; };
-		A8054EE0196DB6E8004CC80A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8054EDF196DB6E8004CC80A /* main.m */; };
 		A80D3E7619855DE100F5CF2A /* GMMemoryAccessObject.h in Headers */ = {isa = PBXBuildFile; fileRef = A80D3E7419855DE100F5CF2A /* GMMemoryAccessObject.h */; };
 		A80D3E7719855DE100F5CF2A /* GMMemoryAccessObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A80D3E7519855DE100F5CF2A /* GMMemoryAccessObject.m */; };
 		A80D3E7819855DE100F5CF2A /* GMMemoryAccessObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A80D3E7519855DE100F5CF2A /* GMMemoryAccessObject.m */; };
@@ -47,6 +46,16 @@
 		A848CA8319AE3CB7009CBC9F /* GPLoadingView.h in Headers */ = {isa = PBXBuildFile; fileRef = A848CA8119AE3CB7009CBC9F /* GPLoadingView.h */; };
 		A848CA8419AE3CB7009CBC9F /* GPLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A848CA8219AE3CB7009CBC9F /* GPLoadingView.m */; };
 		A848CA8519AE3CB7009CBC9F /* GPLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A848CA8219AE3CB7009CBC9F /* GPLoadingView.m */; };
+		A84F8DE019DE631800B84DEF /* SFMemoryHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = A84F8DDE19DE631800B84DEF /* SFMemoryHandler.h */; };
+		A84F8DE119DE631800B84DEF /* SFMemoryHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A84F8DDF19DE631800B84DEF /* SFMemoryHandler.m */; };
+		A84F8DE319DEAB4C00B84DEF /* imemDaemonMain.m in Sources */ = {isa = PBXBuildFile; fileRef = A84F8DE219DEAB4C00B84DEF /* imemDaemonMain.m */; };
+		A84F8DF419DEACFE00B84DEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A84F8DF319DEACFE00B84DEF /* main.m */; };
+		A84F8DF819DEAD2700B84DEF /* GMMemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A822C1A719AB6CC600A51969 /* GMMemManager.m */; };
+		A84F8DF919DEAD5000B84DEF /* AppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB565BF19A2F10A00CA0EC0 /* AppUtil.m */; };
+		A84F8DFA19DEAD5300B84DEF /* IntArray.c in Sources */ = {isa = PBXBuildFile; fileRef = A879A12F199E3E8900A79D85 /* IntArray.c */; };
+		A84F8DFB19DEAD6900B84DEF /* GMMemoryAccessObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A80D3E7519855DE100F5CF2A /* GMMemoryAccessObject.m */; };
+		A84F8DFC19DEAD6C00B84DEF /* GMStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A87447931984B08F00A9544D /* GMStorageManager.m */; };
+		A84F8DFD19DEAD7800B84DEF /* GMLockThread.m in Sources */ = {isa = PBXBuildFile; fileRef = A874478B19849CEC00A9544D /* GMLockThread.m */; };
 		A859EB5A19A8CBA60007983D /* GMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A7416819680E6400131416 /* GMMainViewController.m */; };
 		A859EB5B19A8CBAB0007983D /* SearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB92CFB419866DA700695460 /* SearchDisplayController.m */; };
 		A859EB5C19A8CBAD0007983D /* GMAssociateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A86BC8871986863D000A417A /* GMAssociateViewController.m */; };
@@ -211,7 +220,6 @@
 		A8054EDB196DB6E8004CC80A /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
 		A8054EDD196DB6E8004CC80A /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
 		A8054EDE196DB6E8004CC80A /* imemDaemon-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "imemDaemon-Prefix.pch"; sourceTree = "<group>"; };
-		A8054EDF196DB6E8004CC80A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A8054EE4196DB6E8004CC80A /* postinst */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = postinst; path = Package/DEBIAN/postinst; sourceTree = "<group>"; };
 		A8054EE5196DB6E8004CC80A /* prerm */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = prerm; path = Package/DEBIAN/prerm; sourceTree = "<group>"; };
 		A80D3E7419855DE100F5CF2A /* GMMemoryAccessObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMemoryAccessObject.h; sourceTree = "<group>"; };
@@ -270,6 +278,15 @@
 		A83F762E1976E7BC00C7EAE5 /* entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = entitlements.plist; sourceTree = "<group>"; };
 		A848CA8119AE3CB7009CBC9F /* GPLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPLoadingView.h; sourceTree = "<group>"; };
 		A848CA8219AE3CB7009CBC9F /* GPLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPLoadingView.m; sourceTree = "<group>"; };
+		A84F8DDE19DE631800B84DEF /* SFMemoryHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFMemoryHandler.h; sourceTree = "<group>"; };
+		A84F8DDF19DE631800B84DEF /* SFMemoryHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFMemoryHandler.m; sourceTree = "<group>"; };
+		A84F8DE219DEAB4C00B84DEF /* imemDaemonMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = imemDaemonMain.m; sourceTree = "<group>"; };
+		A84F8DE819DEACFE00B84DEF /* im */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = im; sourceTree = BUILT_PRODUCTS_DIR; };
+		A84F8DEC19DEACFE00B84DEF /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = control.txt; path = Package/DEBIAN/control.txt; sourceTree = "<group>"; };
+		A84F8DED19DEACFE00B84DEF /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		A84F8DEF19DEACFE00B84DEF /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		A84F8DF219DEACFE00B84DEF /* 0xdeadfa11 */ = {isa = PBXFileReference; lastKnownFileType = text; name = 0xdeadfa11; path = Package/usr/bin/0xdeadfa11; sourceTree = "<group>"; };
+		A84F8DF319DEACFE00B84DEF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A8577E1419719AEC00A277D4 /* com.luobin.imemDaemon.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = com.luobin.imemDaemon.plist; sourceTree = "<group>"; };
 		A86BC8861986863D000A417A /* GMAssociateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMAssociateViewController.h; sourceTree = "<group>"; };
 		A86BC8871986863D000A417A /* GMAssociateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMAssociateViewController.m; sourceTree = "<group>"; };
@@ -421,6 +438,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A84F8DE519DEACFE00B84DEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ABFF4BE11966A579000C7128 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -441,7 +465,7 @@
 		A8054ED7196DB6E8004CC80A /* imemDaemon */ = {
 			isa = PBXGroup;
 			children = (
-				A8054EDF196DB6E8004CC80A /* main.m */,
+				A84F8DE219DEAB4C00B84DEF /* imemDaemonMain.m */,
 				A822C1A619AB6CC600A51969 /* GMMemManager.h */,
 				A822C1A719AB6CC600A51969 /* GMMemManager.m */,
 				A87447921984B08F00A9544D /* GMStorageManager.h */,
@@ -638,6 +662,58 @@
 			path = DynamicLibraries;
 			sourceTree = "<group>";
 		};
+		A84F8DE919DEACFE00B84DEF /* im */ = {
+			isa = PBXGroup;
+			children = (
+				A84F8DF319DEACFE00B84DEF /* main.m */,
+				A84F8DEA19DEACFE00B84DEF /* Package */,
+				A84F8DEE19DEACFE00B84DEF /* Supporting Files */,
+			);
+			path = im;
+			sourceTree = "<group>";
+		};
+		A84F8DEA19DEACFE00B84DEF /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				A84F8DEB19DEACFE00B84DEF /* DEBIAN */,
+				A84F8DF019DEACFE00B84DEF /* usr */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		A84F8DEB19DEACFE00B84DEF /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				A84F8DEC19DEACFE00B84DEF /* control.txt */,
+				A84F8DED19DEACFE00B84DEF /* control */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		A84F8DEE19DEACFE00B84DEF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A84F8DEF19DEACFE00B84DEF /* PackageVersion.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A84F8DF019DEACFE00B84DEF /* usr */ = {
+			isa = PBXGroup;
+			children = (
+				A84F8DF119DEACFE00B84DEF /* bin */,
+			);
+			name = usr;
+			sourceTree = "<group>";
+		};
+		A84F8DF119DEACFE00B84DEF /* bin */ = {
+			isa = PBXGroup;
+			children = (
+				A84F8DF219DEACFE00B84DEF /* 0xdeadfa11 */,
+			);
+			name = bin;
+			sourceTree = "<group>";
+		};
 		A8577E1219719AEC00A277D4 /* Library */ = {
 			isa = PBXGroup;
 			children = (
@@ -676,6 +752,8 @@
 				A810E669197AD97F00757554 /* PickerInputTableViewCell.m */,
 				A8DF31EE19CEC51C005165F6 /* HIDManager.h */,
 				A8DF31EF19CEC51C005165F6 /* HIDManager.m */,
+				A84F8DDE19DE631800B84DEF /* SFMemoryHandler.h */,
+				A84F8DDF19DE631800B84DEF /* SFMemoryHandler.m */,
 				A848CA8119AE3CB7009CBC9F /* GPLoadingView.h */,
 				A848CA8219AE3CB7009CBC9F /* GPLoadingView.m */,
 				A8E3AB9B1983E5E400B6E4E6 /* UIColor+iOS7Colors.h */,
@@ -819,6 +897,7 @@
 				A8054ED7196DB6E8004CC80A /* imemDaemon */,
 				A836537D1997D7F300147B72 /* imemTweak */,
 				A8BDC4201987DA2300592935 /* Common */,
+				A84F8DE919DEACFE00B84DEF /* im */,
 				ABFF4BE61966A579000C7128 /* Frameworks */,
 				ABFF4BE51966A579000C7128 /* Products */,
 				D12E4C3196FD4C08BE93404A /* Pods.xcconfig */,
@@ -831,6 +910,7 @@
 				ABFF4BE41966A579000C7128 /* imem.app */,
 				A8054ED5196DB6E8004CC80A /* imemDaemon */,
 				A836537B1997D7F300147B72 /* imemTweak.dylib */,
+				A84F8DE819DEACFE00B84DEF /* im */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -912,6 +992,7 @@
 				A874478C19849CEC00A9544D /* GMLockThread.h in Headers */,
 				A80D3E7619855DE100F5CF2A /* GMMemoryAccessObject.h in Headers */,
 				A8BDC4221987DA2F00592935 /* LightMessaging.h in Headers */,
+				A84F8DE019DE631800B84DEF /* SFMemoryHandler.h in Headers */,
 				A81E809E197D601100D3DF5E /* MAZeroingWeakRefNativeZWRNotAllowedTable.h in Headers */,
 				AB967DE0199B14870086395F /* GMPersistentStoreController.h in Headers */,
 				A87447941984B08F00A9544D /* GMStorageManager.h in Headers */,
@@ -973,6 +1054,23 @@
 			productName = imemTweak;
 			productReference = A836537B1997D7F300147B72 /* imemTweak.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
+		};
+		A84F8DE719DEACFE00B84DEF /* im */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A84F8DF519DEACFE00B84DEF /* Build configuration list for PBXNativeTarget "im" */;
+			buildPhases = (
+				A84F8DE419DEACFE00B84DEF /* Sources */,
+				A84F8DE519DEACFE00B84DEF /* Frameworks */,
+				A84F8DE619DEACFE00B84DEF /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = im;
+			productName = im;
+			productReference = A84F8DE819DEACFE00B84DEF /* im */;
+			productType = "com.apple.product-type.tool";
 		};
 		ABFF4BE31966A579000C7128 /* imem */ = {
 			isa = PBXNativeTarget;
@@ -1037,6 +1135,7 @@
 				ABFF4BE31966A579000C7128 /* imem */,
 				A8054ED4196DB6E8004CC80A /* imemDaemon */,
 				A836537A1997D7F300147B72 /* imemTweak */,
+				A84F8DE719DEACFE00B84DEF /* im */,
 			);
 		};
 /* End PBXProject section */
@@ -1126,6 +1225,19 @@
 			shellPath = /bin/sh;
 			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp-logos";
 		};
+		A84F8DE619DEACFE00B84DEF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
 		A86FD1541976E3DB00765F99 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1162,15 +1274,16 @@
 				AB967DE1199B14870086395F /* GMPersistentStoreController.m in Sources */,
 				A81E809C197D600700D3DF5E /* MAZeroingWeakRef.m in Sources */,
 				A8AEB9F819C74BC60031EFB9 /* GMAppSwitchUtils.m in Sources */,
+				A84F8DE119DE631800B84DEF /* SFMemoryHandler.m in Sources */,
 				A822C1AD19AB6E8D00A51969 /* AppUtil.m in Sources */,
 				A83653A5199655EF00322899 /* LightMessaging.m in Sources */,
 				ABE39F93197FCBB0002E7678 /* darwin_memory_usage.c in Sources */,
-				A8054EE0196DB6E8004CC80A /* main.m in Sources */,
 				A87447951984B08F00A9544D /* GMStorageManager.m in Sources */,
 				A879A131199E3E8900A79D85 /* IntArray.c in Sources */,
 				A874478D19849CEC00A9544D /* GMLockThread.m in Sources */,
 				A80D3E7819855DE100F5CF2A /* GMMemoryAccessObject.m in Sources */,
 				A822C1A919AB6CC600A51969 /* GMMemManager.m in Sources */,
+				A84F8DE319DEAB4C00B84DEF /* imemDaemonMain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1244,6 +1357,20 @@
 				A8E8A7EA19A8D6AD002A5CFF /* IASKSettingsStoreUserDefaults.m in Sources */,
 				A8E8A7F419A8D6CA002A5CFF /* TKActionSheet.m in Sources */,
 				A8E8A7EF19A8D6BB002A5CFF /* IASKSlider.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A84F8DE419DEACFE00B84DEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A84F8DF919DEAD5000B84DEF /* AppUtil.m in Sources */,
+				A84F8DFD19DEAD7800B84DEF /* GMLockThread.m in Sources */,
+				A84F8DFA19DEAD5300B84DEF /* IntArray.c in Sources */,
+				A84F8DF419DEACFE00B84DEF /* main.m in Sources */,
+				A84F8DF819DEAD2700B84DEF /* GMMemManager.m in Sources */,
+				A84F8DFB19DEAD6900B84DEF /* GMMemoryAccessObject.m in Sources */,
+				A84F8DFC19DEAD6C00B84DEF /* GMStorageManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1378,7 +1505,7 @@
 				VALIDATE_PRODUCT = NO;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.1.100;
+				iOSOpenDevDevice = 192.168.1.104;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
@@ -1422,7 +1549,7 @@
 				VALIDATE_PRODUCT = YES;
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.1.100;
+				iOSOpenDevDevice = 192.168.1.104;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
@@ -1531,6 +1658,90 @@
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = /opt/iOSOpenDev;
 				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+		A84F8DF619DEACFE00B84DEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv7s,
+					armv7,
+				);
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = imem/entitlements.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer: 下 罗 (Y2M3LE6A7L)";
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				INSTALL_PATH = /usr/bin;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = 192.168.1.102;
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+		A84F8DF719DEACFE00B84DEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv7s,
+					armv7,
+				);
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = imem/entitlements.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer: 下 罗 (Y2M3LE6A7L)";
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				INSTALL_PATH = /usr/bin;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = 192.168.1.102;
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+				iOSOpenDevRespringOnInstall = NO;
 				iOSOpenDevUsePackageVersionPList = YES;
 			};
 			name = Release;
@@ -1707,6 +1918,15 @@
 			buildConfigurations = (
 				A836538D1997D7F300147B72 /* Debug */,
 				A836538E1997D7F300147B72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A84F8DF519DEACFE00B84DEF /* Build configuration list for PBXNativeTarget "im" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A84F8DF619DEACFE00B84DEF /* Debug */,
+				A84F8DF719DEACFE00B84DEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
