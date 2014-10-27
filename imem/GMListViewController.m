@@ -57,12 +57,11 @@
 
 - (void)reloadData {
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.allApps = [AppUtil getApps:NO];
+        self.allApps = [AppUtil getAppIdentifiers:NO];
         self.switchOnAppIdentifiers = [NSMutableArray array];
         NSArray *appIdentifiers = [[GMMemManagerProxy shareInstance] getAppIdentifiers];
         for (NSString *appIdentifier in appIdentifiers) {
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"appID = %@", appIdentifier];
-            if ([[self.allApps filteredArrayUsingPredicate:predicate] count] > 0) {
+            if ([self.allApps containsObject:appIdentifier]) {
                 [self.switchOnAppIdentifiers addObject:appIdentifier];
             }
         }
@@ -73,7 +72,7 @@
 - (void)onSwitchChange:(UISwitch *)onSwitch {
     UITableViewCell *cell = (UITableViewCell *)[onSwitch ancestorOrSelfWithClass:UITableViewCell.class];
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    NSString *appIdentifier = [[self.allApps objectAtIndex:indexPath.row] objectForKey:@"appID"];
+    NSString *appIdentifier = [self.allApps objectAtIndex:indexPath.row];
     if (onSwitch.on) {
         BOOL ok = [[GMMemManagerProxy shareInstance] addAppIdentifier:appIdentifier];
         if (ok) {
@@ -111,10 +110,10 @@
         cell.accessoryView = onSwitch;
         [onSwitch release];
     }
-    NSDictionary *appInfo = [self.allApps objectAtIndex:indexPath.row];
+    NSString *appIdentifier = [self.allApps objectAtIndex:indexPath.row];
+    NSDictionary *appInfo = [AppUtil appInfoForDisplayIdentifier:appIdentifier];
     cell.textLabel.text = [appInfo objectForKey:@"appName"];
     cell.imageView.image = [appInfo objectForKey:@"appIcon"];
-    NSString *appIdentifier = [appInfo objectForKey:@"appID"];
     UISwitch *onSwitch = (UISwitch *)cell.accessoryView;
     onSwitch.on = [self.switchOnAppIdentifiers containsObject:appIdentifier];
     return cell;
@@ -123,7 +122,8 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.didSelectProcessBlock) {
-        NSDictionary *appInfo = [self.allApps objectAtIndex:indexPath.row];
+        NSString *appIdentifier = [self.allApps objectAtIndex:indexPath.row];
+        NSDictionary *appInfo = [AppUtil appInfoForDisplayIdentifier:appIdentifier];
         NSString *appName = [appInfo objectForKey:@"appName"];
         UIImage *appIcon = [appInfo objectForKey:@"appIcon"];
         pid_t pid = [[appInfo objectForKey:@"processID"] integerValue];
